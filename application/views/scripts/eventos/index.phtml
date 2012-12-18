@@ -1,7 +1,22 @@
-<pre>
+
+
+<?php foreach ($this->eventos as $evento): ?>
+
+	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
+	Realização: <?php echo $evento->realizacao ?> 
+	Descrição: <?php echo $evento->descricao ?>
+	
+	<hr />
+<?php  endforeach; ?>
+
+
+
+
+
 <?php 
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/eventos.js'));
 
-print_r($this->eventos);
-
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/eventos.css'));
 ?>
-</pre>
