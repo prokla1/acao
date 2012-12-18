@@ -20,15 +20,27 @@
 
 body{background-color: #FBFBFB;}
 
-
+#content{
+	display: inline-block;
+}
 
 
 /* ================================== #Menu Style ===========================================*/
+#top_menu{
+	display: block;
+}
+
+.top_home{
+	float: left;
+}
+
+
 .top_menus{
 	float: right;
 }
 .navigation li{
 	display: inline;
+	padding: 5px 10px;
 }
 .navigation li a{
 	color: black;

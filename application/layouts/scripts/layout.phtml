@@ -47,11 +47,11 @@ echo 	$this->headMeta(),PHP_EOL;
 		
 			<div class="top_home">
 				<a title="Página Inicial" class="home" href="/">Início</a>
-				<a href="?l=pt_BR">[pt]</a>
-				<a href="?l=en">[en]</a>
+<!-- 				<a href="?l=pt_BR">[pt]</a> -->
+<!-- 				<a href="?l=en">[en]</a> -->
 			</div>
 			
-			<div class="top_menus"">
+			<div class="top_menus">
 				<?php 
 				
 				if ( !Zend_Auth::getInstance()->hasIdentity() ){ 
@@ -65,6 +65,7 @@ echo 	$this->headMeta(),PHP_EOL;
 			</div>
 
 		</div><!-- [end] top_menu -->
+		<br />
 		
 	
 	
