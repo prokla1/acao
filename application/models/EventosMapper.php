@@ -32,15 +32,32 @@ class Application_Model_EventosMapper
 		}
 		return $result;
 	}
+
 	
-	/**
-	 * Retorna todos os EVENTOS no banco, para paginacao
-	 * @return Ambigous <Zend_Db_Select, Zend_Db_Select>
-	 */
-	public function findAllEventos() {
-		return $this->getDbTable()->select()->order(array('id DESC'));
+
+	
+	
+
+	public function find($id, Application_Model_Evento $evento)
+	{
+		$result = $this->getDbTable()->find($id);
+		if (0 == count($result)) {
+			return;
+		}
+		$row = $result->current();
+	
+		$evento->setOptions($row->toArray());
+		/*
+			$user->setId($row->id);
+		$user->setEmail($row->email);
+		$user->setNome($row->nome);
+		$user->setSenha($row->senha);
+		$user->setSexo($row->sexo);
+		$user->setNascimento($row->nascimento);
+		*/
+	
+		return $evento;
 	}
-	
 
 }
 

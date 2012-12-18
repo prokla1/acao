@@ -22,6 +22,38 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		Zend_Registry::set('logged',new Zend_Navigation($nav_logged));
 	}
 	
+
+	
+	
+	
+
+
+	/**
+	 * cria as rotas
+	 * 
+	 * Muda de:  /evento/index/id/3
+	 * Para:   /evento/3/Sertanejo+Universitario
+	 */
+	protected function _initRoutes()
+	{
+		$frontcontroller = Zend_Controller_Front::getInstance();
+		$router = $frontcontroller->getRouter('default');
+	
+		//add route  for edit page so that pageid is not displayed in the url
+		$router->addRoute(
+				'evento',
+				new Zend_Controller_Router_Route('evento/:id/:nome', array(
+						'module' => 'default',
+						'controller'	=>	'evento',
+						'action'		=>	'index',
+						'id'   			=>	':id',
+						'nome'			=>	':nome'
+				))
+		);
+	}
+	
+	
+	
 	
 	
 

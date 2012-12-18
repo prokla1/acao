@@ -1,6 +1,7 @@
 
 
-<?php foreach ($this->eventos as $evento): ?>
+
+<?php  $evento = $this->evento; ?>
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
@@ -8,23 +9,11 @@
 	<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
 		<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>
 	</a>
+	
 	<br />
 	Realização:	<?php echo date('d/m/Y', strtotime( $evento->realizacao )) ?>
+	
 	<br />
 	Descrição: <?php echo $evento->descricao ?>
-	<br />
 	
-	<hr />
-<?php  endforeach; ?>
-
-
-
-
-
-<?php 
-	$this->headScript()->setSeparator(PHP_EOL)
-		->prependFile($this->baseUrl('/js/eventos.js'));
-
-	$this->headLink()
-		->prependStylesheet($this->baseUrl('/css/eventos.css'));
-?>
+	
