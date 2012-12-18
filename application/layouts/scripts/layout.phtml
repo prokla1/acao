@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php 
+echo 	$this->headTitle(),PHP_EOL;
+echo 	$this->headMeta(),PHP_EOL;
+?>
+
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+
+<!--=============================== Mobile Specific Metas  ================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<!--=============================== CSS  ================================================== -->
+<link rel="stylesheet" href="/css/base.css"  media="screen" type="text/css" />
+<link rel="stylesheet" href="/css/skeleton.css"  media="screen" type="text/css" />
+<link rel="stylesheet" href="/css/layout.css"  media="screen" type="text/css" />
+
+
+<?php 
+	echo 	$this->headLink(),PHP_EOL;
+?>
+
+
+</head>
+<body>
+
+
+
+	<!--=============================== Page Layout ================================================== -->
+	<div class="container">	<!-- [start] container -->
+	
+	
+	
+	
+		<!--=============================== Page Navigation ================================================== -->
+		<div id="top_menu"><!-- [start] top_menu -->
+		
+			<div class="top_home">
+				<a title="Página Inicial" class="home" href="/">Início</a>
+				<a href="?l=pt_BR">[pt]</a>
+				<a href="?l=en">[en]</a>
+			</div>
+			
+			<div class="top_menus"">
+				<?php 
+				
+				if ( !Zend_Auth::getInstance()->hasIdentity() ){ 
+					//echo $this->navigation()->setTranslator(Zend_Registry::get('Zend_Translate'))->menu()->renderMenu(Zend_Registry::get('default'));
+					echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('default'));
+				}else {
+					echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
+					}
+					
+				?>	
+			</div>
+
+		</div><!-- [end] top_menu -->
+		
+	
+	
+		<!--=============================== Page Content ================================================== -->	
+		<div id="content"><!-- [start] content -->
+			<?php echo $this->layout()->content;?>			
+		</div><!-- [end] content -->
+		
+		
+			 
+	</div><!-- [end] container -->	
+	
+ 
+ 
+ 
+ 
+<!--=============================== JS ================================================== -->
+<?php 
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));
+		//->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));
+//	echo	$this->headScript(),PHP_EOL;
+?>
+
+	
+	
+	
+	
+<!--=============================== End Document ================================================== -->	
+</body>
+</html>
+
