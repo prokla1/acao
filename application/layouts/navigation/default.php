@@ -16,6 +16,7 @@ $pages = array(
 				'action'		=> 	'index',
 				'title'			=>	'Eventos',
 	        ),
+		/*
 			array(
 				'label' 		=> 	'Cadastrar',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
@@ -32,6 +33,7 @@ $pages = array(
 				'class'			=>	'menu_top',
 				'title'			=>	'Login',
 	        ),
+	        */
  
     );
  
