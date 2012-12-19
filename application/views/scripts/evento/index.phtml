@@ -1,11 +1,16 @@
 
 
-
+<pre>
 <?php  
 $evento = $this->evento; 
 
+print_r($this->parceiro);
+print_r($evento);
+
 $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 ?>
+</pre>
+
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
