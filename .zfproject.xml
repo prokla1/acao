@@ -27,6 +27,10 @@
       </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="Eventos"/>
+        <modelFile modelName="Parceiro"/>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Parceiros"/>
+        </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
