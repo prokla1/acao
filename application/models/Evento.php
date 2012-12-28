@@ -10,7 +10,9 @@ class Application_Model_Evento
 	protected $_realizacao;
 	protected $_hora;
 	
+	protected $_parceiro;
 	
+
 	
 
 	/**
@@ -42,7 +44,7 @@ class Application_Model_Evento
 	{
 		$method = 'set' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid User property {$name}");
+			throw new Exception("Invalid Evento property {$name}");
 		}
 		$this->$method($value);
 	}
@@ -51,7 +53,7 @@ class Application_Model_Evento
 	{
 		$method = 'get' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid User property {$name}");
+			throw new Exception("Invalid Evento property {$name}");
 		}
 		return $this->$method();
 	}
@@ -67,6 +69,29 @@ class Application_Model_Evento
 		}
 		return $this;
 	}
+	
+	
+	
+
+	
+
+
+	/**
+	 * @param field_type $_id_parceiro
+	 */
+	public function setParceiro($id_parceiro) {
+		$parceiroTable = new Application_Model_DbTable_Parceiros();
+		$parceiro = $parceiroTable->fetchRow('id = '. $id_parceiro);
+		$this->_parceiro = $parceiro;
+	}
+	
+	/**
+	 * @return the $_parceiro (objeto class Parceiros)
+	 */
+	public function getParceiro() {
+		return $this->_parceiro;
+	}
+	
 	
 	
 	
