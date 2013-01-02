@@ -45,9 +45,9 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 		    $evento->setParceiro($result->id_parceiro);
 		     		    		    
 		    $eventos[] = $evento;
-		    echo "<pre>";
-		    print_r($evento);
-		    echo "</pre>";
+// 		    echo "<pre>";
+// 		    print_r($evento);
+// 		    echo "</pre>";
     	}    	
     	 
     	return $eventos;            
