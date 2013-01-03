@@ -13,7 +13,7 @@ class Application_Model_Evento
 	protected $_parceiro;
 	
 
-	
+
 
 	/**
 	 * Retorna os atributos protected em array
@@ -27,7 +27,7 @@ class Application_Model_Evento
 		return $array;
 	}
 	
-	
+		
 	/**
 	 * metodo contrutor, chama a classe e envia um array com
 	 * os dados, ex:  new User(array())
@@ -80,6 +80,7 @@ class Application_Model_Evento
 	 * @param field_type $_id_parceiro
 	 */
 	public function setParceiro($id_parceiro) {
+		$id_parceiro = $this->_id_parceiro;
 		$parceiroTable = new Application_Model_DbTable_Parceiros();
 		$parceiro = $parceiroTable->fetchRow('id = '. $id_parceiro);
 		$this->_parceiro = $parceiro;
@@ -124,6 +125,7 @@ class Application_Model_Evento
 	 */
 	public function setId_parceiro($_id_parceiro) {
 		$this->_id_parceiro = $_id_parceiro;
+		$this->setParceiro($_id_parceiro);
 	}
 
 	/**

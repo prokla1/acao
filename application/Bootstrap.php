@@ -38,13 +38,24 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	{
 		$frontcontroller = Zend_Controller_Front::getInstance();
 		$router = $frontcontroller->getRouter('default');
-	
-		//add route  for edit page so that pageid is not displayed in the url
+
+		
 		$router->addRoute(
 				'evento',
 				new Zend_Controller_Router_Route('evento/:id/:nome', array(
 						'module' => 'default',
 						'controller'	=>	'evento',
+						'action'		=>	'index',
+						'id'   			=>	':id',
+						'nome'			=>	':nome'
+				))
+		);	
+		
+		$router->addRoute(
+				'parceiro',
+				new Zend_Controller_Router_Route('parceiro/:id/:nome', array(
+						'module' => 'default',
+						'controller'	=>	'parceiro',
 						'action'		=>	'index',
 						'id'   			=>	':id',
 						'nome'			=>	':nome'

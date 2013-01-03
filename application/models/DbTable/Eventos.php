@@ -5,10 +5,10 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 
     protected $_name = 'eventos';
     
-
+/*
     protected $_dependentTables = array('Application_Model_DbTable_Parceiros');
     
-    /*
+  
     protected $_referenceMap = array(
     		'refParceiros' => array(
     				'refTableClass' => 'Application_Model_DbTable_Parceiros',
@@ -42,7 +42,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 		    $evento->setAtivo($result->ativo);
 		    $evento->setRealizacao($result->realizacao);
 		    $evento->setHora($result->hora);
-		    $evento->setParceiro($result->id_parceiro);
+		   // $evento->setParceiro($result->id_parceiro);
 		     		    		    
 		    $eventos[] = $evento;
 // 		    echo "<pre>";
@@ -139,7 +139,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->fetchAll();
     	$entries = array();
     	foreach ($resultSet as $row) {
-    		$row['evento_fotos'] = array();
+    		$row['evento_fotos'] = array();/v
     		$entries[] = $row;
     	}
     	return $entries;
@@ -157,7 +157,11 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	//$row = $result->current();
     
     	//$eventoArray = $result->toArray();
+    	$eventos = $result->toArray();
     	
+    	$evento->setOptions($eventos);
+    	
+    	/*
     	$evento->setId($result->id);
     	$evento->setId_parceiro($result->id_parceiro);
     	$evento->setNome($result->nome);
@@ -165,13 +169,14 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	$evento->setAtivo($result->ativo);
     	$evento->setRealizacao($result->realizacao);
     	$evento->setHora($result->hora);
-    	$evento->setParceiro($result->id_parceiro);
+    	*/
+    	//$evento->setParceiro($result->id_parceiro);
     	
     
     	//return $result;
     	
     	echo "<pre>";
-    	print_r($evento->getArray());
+    	print_r($evento) ;//->getArray());
     	echo "</pre>";
     }
     

@@ -50,7 +50,10 @@
 	Descrição: <?php echo $evento->descricao ?>
 	</p>
 	<p>
-	Parceiro: <?php echo $evento->parceiro->nome?> 
+	Parceiro:
+		<a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
+		<?php echo $evento->parceiro->nome ?>
+		</a>
 	</p>
 	<p>
 	Descrição do parceiro: <?php echo $evento->parceiro->descricao ?>
