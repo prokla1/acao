@@ -1,0 +1,110 @@
+<pre>
+<?php 
+
+
+//print_r($this->eventos);
+/*
+  Array
+        (
+            [evento_id] => 26
+            [evento_nome] => 28
+            [evento_descricao] => 28
+            [evento_realizacao] => 2012-06-28
+            [parceiro_nome] => Quiosque Chopp Brahma
+            [parceiro_id] => 2
+            [parceiro_foto] => quiosque.png
+            [local_id] => 1
+            [local_id_cidade] => 2
+            [local_rua] => Shopping Center Itaguaçu. Rua Gerôncio Thives
+            [local_numero] => 1079
+            [local_complemento] => Barreiros
+            [local_nome_cidade] => São José
+            [local_id_estado] => 1
+            [local_nome_estado] => Santa Catarina
+            [local_sigla_estado] => SC
+            [local_id_pais] => 1
+            [local_nome_pais] => Brasil
+            [local_sigla_pais] => BR
+            [evento_fotos] => Array
+                (
+                )
+
+        )
+ */
+?>
+</pre>
+
+
+<?php	foreach ($this->eventos as $evento): ?>
+
+	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
+	
+	Link: 
+	<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
+		<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>
+	</a>
+	<p>
+	Realização:	<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
+	</p>
+	<p>
+	Descrição: <?php echo $evento->descricao ?>
+	</p>
+	<p>
+	Parceiro:
+		<a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
+		<?php echo $evento->parceiro->nome ?>
+		</a>
+	</p>
+	<p>
+	Descrição do parceiro: <?php echo $evento->parceiro->descricao ?>
+	</p>
+	<p>
+	Foto do parceiro: <?php echo $evento->parceiro->foto ?>
+	</p>
+	
+	<p>
+	<?php // echo $evento['local_rua']?>, <?php //echo $evento['local_numero']?> <?php //echo $evento['local_complemento']?>
+	<?php // echo $evento['local_nome_cidade']?>-<?php //echo $evento['local_sigla_estado']?>
+	</p>
+	
+	<hr />
+<?php	endforeach;  ?>
+
+
+
+<?php /*	foreach ($this->eventos as $evento): ?>
+
+	<h5>id:<?php echo $evento['evento_id'] ?>  Nome: <?php echo $evento['evento_nome'] ?></h5>
+	
+	Link: 
+	<a href="	<?php echo $this->url(array('id' => $evento['evento_id'], 'nome' => $evento['evento_nome']), 'evento') ?> ">
+		<?php echo $this->url(array('id' => $evento['evento_id'], 'nome' => $evento['evento_nome']), 'evento') ?>
+	</a>
+	<p>
+	Realização:	<?php echo date('d/m/Y', strtotime( $evento['evento_realizacao'] )) ?>
+	</p>
+	<p>
+	Descrição: <?php echo $evento['evento_descricao'] ?>
+	</p>
+	<p>
+	Local: <?php echo $evento['parceiro_nome']?> 
+	</p>
+	<p>
+	<?php echo $evento['local_rua']?>, <?php echo $evento['local_numero']?> <?php echo $evento['local_complemento']?>
+	<?php echo $evento['local_nome_cidade']?>-<?php echo $evento['local_sigla_estado']?>
+	</p>
+	
+	<hr />
+<?php	endforeach;  */ ?>
+
+
+
+
+
+<?php 
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/eventos.js'));
+
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/eventos.css'));
+?>
