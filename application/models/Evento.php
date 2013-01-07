@@ -80,10 +80,10 @@ class Application_Model_Evento
 	 * @param field_type $_id_parceiro
 	 */
 	public function setParceiro($id_parceiro) {
-		$id_parceiro = $this->_id_parceiro;
-		$parceiroTable = new Application_Model_DbTable_Parceiros();
-		$parceiro = $parceiroTable->fetchRow('id = '. $id_parceiro);
-		$this->_parceiro = $parceiro;
+			$parceiroTable = new Application_Model_DbTable_Parceiros();
+			$parceiroModel = new Application_Model_Parceiro();
+			$parceiro = $parceiroTable->byId($id_parceiro, $parceiroModel);
+			$this->_parceiro = $parceiro;
 	}
 	
 	/**
@@ -96,6 +96,21 @@ class Application_Model_Evento
 	
 	
 	
+
+	/**
+	 * @return the $_id_parceiro
+	 */
+	public function getId_parceiro() {
+		return $this->_id_parceiro;
+	}
+	
+	/**
+	 * @param field_type $_id_parceiro
+	 */
+	public function setId_parceiro($_id_parceiro) {
+		$this->_id_parceiro = $_id_parceiro;
+		//$this->setParceiro($_id_parceiro);
+	}
 	
 	
 	
@@ -111,21 +126,6 @@ class Application_Model_Evento
 	 */
 	public function setId($_id) {
 		$this->_id = $_id;
-	}
-
-	/**
-	 * @return the $_id_parceiro
-	 */
-	public function getId_parceiro() {
-		return $this->_id_parceiro;
-	}
-
-	/**
-	 * @param field_type $_id_parceiro
-	 */
-	public function setId_parceiro($_id_parceiro) {
-		$this->_id_parceiro = $_id_parceiro;
-		$this->setParceiro($_id_parceiro);
 	}
 
 	/**

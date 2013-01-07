@@ -5,23 +5,6 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 
     protected $_name = 'eventos';
     
-/*
-    protected $_dependentTables = array('Application_Model_DbTable_Parceiros');
-    
-  
-    protected $_referenceMap = array(
-    		'refParceiros' => array(
-    				'refTableClass' => 'Application_Model_DbTable_Parceiros',
-    				'refColumns'    => array('id'),
-    				'columns'       => array('id_parceiro')
-    		)
-    );
-    
-   */ 
-    
-    
-    
-
     
     
     /**
@@ -34,21 +17,16 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 	    $eventos   = array();
 	    foreach ($resultSet as $result) {
 
-		    $evento = new Application_Model_Evento(); 
-		    $evento->setId($result->id);
-		    $evento->setId_parceiro($result->id_parceiro);
-		    $evento->setNome($result->nome);
-		    $evento->setDescricao($result->descricao);
-		    $evento->setAtivo($result->ativo);
-		    $evento->setRealizacao($result->realizacao);
-		    $evento->setHora($result->hora);
-		   // $evento->setParceiro($result->id_parceiro);
-		     		    		    
+	    	$evento = new Application_Model_Evento();
+	    	$evento->setOptions($result->toArray());
+		    $evento->setParceiro($result->id_parceiro);
+	     		    		    
 		    $eventos[] = $evento;
-// 		    echo "<pre>";
-// 		    print_r($evento);
-// 		    echo "</pre>";
-    	}    	
+		    
+//  		    echo "<pre>";
+//  		    print_r($evento);
+//  		    echo "</pre>";
+    	}	
     	 
     	return $eventos;            
     }
@@ -153,31 +131,12 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     public function byId($id, Application_Model_Evento $evento)
     {
     	$result = $this->fetchRow('id = '.$id);
-    	
-    	//$row = $result->current();
-    
-    	//$eventoArray = $result->toArray();
     	$eventos = $result->toArray();
     	
     	$evento->setOptions($eventos);
-    	
-    	/*
-    	$evento->setId($result->id);
-    	$evento->setId_parceiro($result->id_parceiro);
-    	$evento->setNome($result->nome);
-    	$evento->setDescricao($result->descricao);
-    	$evento->setAtivo($result->ativo);
-    	$evento->setRealizacao($result->realizacao);
-    	$evento->setHora($result->hora);
-    	*/
-    	//$evento->setParceiro($result->id_parceiro);
-    	
+    	$evento->setParceiro($result->id_parceiro);
     
-    	//return $result;
-    	
-    	echo "<pre>";
-    	print_r($evento) ;//->getArray());
-    	echo "</pre>";
+    	return $evento;
     }
     
 }

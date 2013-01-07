@@ -1,24 +1,13 @@
 
-
-<pre>
 <?php 
-/* 
+ 
 $evento = $this->evento; 
 
-print_r($this->parceiro);
-echo "<hr>";
-print_r($evento);
-
 $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
-exit;
-*/
+
 ?>
-</pre>
 
-<?php 
 
-/*
- * 
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
@@ -26,13 +15,29 @@ exit;
 	<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
 		<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>
 	</a>
-	
-	<br />
-	Realização:	<?php echo date('d/m/Y', strtotime( $evento->realizacao )) ?>
-	
-	<br />
+	<p>
+	Realização:	<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
+	</p>
+	<p>
 	Descrição: <?php echo $evento->descricao ?>
+	</p>
+	<p>
+	Parceiro:
+		<a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
+		<?php echo $evento->parceiro->nome ?>
+		</a>
+	</p>
+	<p>
+	Descrição do parceiro: <?php echo $evento->parceiro->descricao ?>
+	</p>
+	<p>
+	Foto do parceiro: <?php echo $evento->parceiro->foto ?>
+	</p>
 	
+	<p>
+	<?php  echo $evento->parceiro->local->rua ?>, <?php echo $evento->parceiro->local->numero ?> <?php echo $evento->parceiro->local->complemento ?>
+	<?php  echo $evento->parceiro->local->cidade->nome ?>-<?php echo $evento->parceiro->local->cidade->estado->sigla ?>
+	</p>
 	
- * 
- */?>
+
+

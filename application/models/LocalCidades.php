@@ -1,48 +1,44 @@
 <?php
 
-class Application_Model_Parceiro
+class Application_Model_LocalCidades
 {
 	protected $_id;
-	protected $_url_amigavel;
-	protected $_id_usuario;
 	protected $_nome;
-	protected $_descricao;
-	protected $_foto;
+	protected $_id_estado;
 	protected $_ativo;
-	protected $_id_endereco;
-	protected $_hora;
 	
-	protected $_local;
 	
+	protected $_estado;
 	
 
-
+	
 
 
 	/**
 	 * @param field_type $_id_parceiro
 	 */
-	public function setLocal($id_endereco) {
-		$localEnderecoTable = new Application_Model_DbTable_LocalEnderecos();
-		$localEnderecoModel = new Application_Model_LocalEnderecos();
-		$localEndereco = $localEnderecoTable->byId($id_endereco, $localEnderecoModel);
-		
-		$this->_local = $localEndereco;
-		
+	public function setEstado($id_estado) {
+	
+		$estadoTable = new Application_Model_DbTable_LocalEstados();
+		$estadoModel = new Application_Model_LocalEstados();
+		$estado = $estadoTable->byId($id_estado, $estadoModel);
+	
+		$this->_estado = $estado;
 	}
 	
 	/**
 	 * @return the $_parceiro (objeto class Parceiros)
 	 */
-	public function getLocal() {
-		return $this->_local;
+	public function getEstado() {
+		return $this->_estado;
 	}
 	
 	
 	
 	
 	
-	
+
+
 
 	/**
 	 * Retorna os atributos protected em array
@@ -120,34 +116,6 @@ class Application_Model_Parceiro
 	}
 
 	/**
-	 * @return the $_url_amigavel
-	 */
-	public function getUrl_amigavel() {
-		return $this->_url_amigavel;
-	}
-
-	/**
-	 * @param field_type $_url_amigavel
-	 */
-	public function setUrl_amigavel($_url_amigavel) {
-		$this->_url_amigavel = $_url_amigavel;
-	}
-
-	/**
-	 * @return the $_id_usuario
-	 */
-	public function getId_usuario() {
-		return $this->_id_usuario;
-	}
-
-	/**
-	 * @param field_type $_id_usuario
-	 */
-	public function setId_usuario($_id_usuario) {
-		$this->_id_usuario = $_id_usuario;
-	}
-
-	/**
 	 * @return the $_nome
 	 */
 	public function getNome() {
@@ -162,31 +130,17 @@ class Application_Model_Parceiro
 	}
 
 	/**
-	 * @return the $_descricao
+	 * @return the $_id_estado
 	 */
-	public function getDescricao() {
-		return $this->_descricao;
+	public function getId_estado() {
+		return $this->_id_estado;
 	}
 
 	/**
-	 * @param field_type $_descricao
+	 * @param field_type $_id_estado
 	 */
-	public function setDescricao($_descricao) {
-		$this->_descricao = $_descricao;
-	}
-
-	/**
-	 * @return the $_foto
-	 */
-	public function getFoto() {
-		return $this->_foto;
-	}
-
-	/**
-	 * @param field_type $_foto
-	 */
-	public function setFoto($_foto) {
-		$this->_foto = $_foto;
+	public function setId_estado($_id_estado) {
+		$this->_id_estado = $_id_estado;
 	}
 
 	/**
@@ -203,41 +157,6 @@ class Application_Model_Parceiro
 		$this->_ativo = $_ativo;
 	}
 
-	
-
-
-
-	/**
-	 * @return the $_id_endereco
-	 */
-	public function getId_endereco() {
-		return $this->_id_endereco;
-	}
-	
-	/**
-	 * @param field_type $_id_endereco
-	 */
-	public function setId_endereco($_id_endereco) {
-		$this->_id_endereco = $_id_endereco;
-	}
-	
-	
-	
-	/**
-	 * @return the $_hora
-	 */
-	public function getHora() {
-		return $this->_hora;
-	}
-
-	/**
-	 * @param field_type $_hora
-	 */
-	public function setHora($_hora) {
-		$this->_hora = $_hora;
-	}
-
-	
 	
 	
 	

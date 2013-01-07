@@ -33,7 +33,15 @@
         <modelFile modelName="Parceiro"/>
         <dbTableDirectory>
           <dbTableFile dbTableName="Parceiros"/>
+          <dbTableFile dbTableName="LocalEnderecos"/>
+          <dbTableFile dbTableName="LocalCidades"/>
+          <dbTableFile dbTableName="LocalEstados"/>
+          <dbTableFile dbTableName="LocalPais"/>
         </dbTableDirectory>
+        <modelFile modelName="LocalEnderecos"/>
+        <modelFile modelName="LocalCidades"/>
+        <modelFile modelName="LocalEstados"/>
+        <modelFile modelName="LocalPais"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
