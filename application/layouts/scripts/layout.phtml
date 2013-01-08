@@ -74,7 +74,15 @@ echo 	$this->headMeta(),PHP_EOL;
 		<div id="ct_top">
 			<div id="top">
 				<div id="top_left" style="height: 264px; width: 420px; float: left; background: url('/img/bg_top_ii_down.png') center bottom no-repeat;"></div>
-				<div id="top_right" style="height: 264px; width: 550px; float: left; background: url('/img/bg_img_top.png') center bottom no-repeat;"></div>
+				<div id="top_right" style="height: 264px; width: 550px; float: left; background: url('/img/bg_img_top.png') center bottom no-repeat;">
+				
+					<div style="margin: 224px 0 0 100px; height: 50px; display: table; color: black; font-weight: bold;">
+					
+						<div style="float: left; margin-right: 4px; padding-right: 20px; background: url('/img/separator.png') no-repeat center right;">Você está em:</div> <div style="color: white; padding-right: 40px; background: url('/img/btn_location.png') no-repeat center right; float: left;">Florianópolis</div>
+					
+					</div>
+				
+				</div>
 			</div>
 		</div>
 		
@@ -99,22 +107,19 @@ echo 	$this->headMeta(),PHP_EOL;
 		</div>
 
 		<!--=============================== Page Rodapé ================================================== -->
-		<div id="ct_rodape" style="width: 100%; background: black; margin-top: 40px; display: table;">
-			<div id="rodape" style="width: 980px; margin: 0 auto; display: table;">
-			
-				<ul style="padding: 20px; float: left;">
-					<li style="font-weight: bold; color: white;">Site.com.br</li>
-					<li style="margin: 0px 5px;">Como funciona</li>
-					<li style="margin: 0px 5px;">Trabalhe conosco</li>				
+		<div id="ct_rodape">
+			<div id="rodape">
+				<ul class="menu_rodape">
+					<li class="title_menu_r">Site.com.br</li>
+					<li class="iten_menu_r">Como funciona</li>
+					<li class="iten_menu_r">Trabalhe conosco</li>				
 				</ul>
 				
-				<ul style="padding: 20px; float: left;">
-					<li style="font-weight: bold; color: white;">Site.com.br</li>
-					<li style="margin: 0px 5px;">Como funciona</li>
-					<li style="margin: 0px 5px;">Trabalhe conosco</li>	
-					<li style="margin: 0px 5px;">Teste</li>			
-				</ul>			
-			
+				<ul class="menu_rodape">
+					<li class="title_menu_r">Site.com.br</li>
+					<li class="iten_menu_r">Como funciona</li>
+					<li class="iten_menu_r">Trabalhe conosco</li>				
+				</ul>		
 			</div>
 		</div>	
 <!--=============================== JS ================================================== -->
