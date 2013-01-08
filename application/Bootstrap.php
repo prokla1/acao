@@ -63,7 +63,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'nome'			=>	':nome'
 				))
 		);	
-		/*
+		
 		$router->addRoute(
 				'localidade',
 				new Zend_Controller_Router_Route('localidade/:id/:nome', array(
@@ -74,7 +74,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'nome'			=>	':nome'
 				))
 		);
-		*/
+		
 	}
 	
 	

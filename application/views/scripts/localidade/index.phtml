@@ -5,13 +5,16 @@
 <pre>
 <?php
 //print_r($this->localidades);
+
+$cidadesTable = new Application_Model_DbTable_LocalCidades();
+$localidades = $cidadesTable->cidadesName();
 ?>
 
 </pre>
 <hr>
 
 <ul>
-	<?php foreach ($this->localidades as $localidade) : ?>
+	<?php foreach ($localidades as $localidade) : ?>
 		<li>
 			<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
 				<?php echo $localidade->nome ?>

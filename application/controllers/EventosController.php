@@ -7,17 +7,13 @@ class EventosController extends Zend_Controller_Action
     {
     	
     	
-    	$session = new Zend_Session_Namespace('city');
+    	$sess = new Zend_Session_Namespace('City');
   	
-     	if(empty($_SESSION['city'])) {
-
-    		//header("Location: /localidade");
-    		//return $this->_helper->redirector->goToRoute( array('controller' => 'localidade', 'action'=> 'index'));
-    		return $this->_forward('index', 'localidade');  //carrega o conteudo do controller LOCALIDADE, na action INDEX
-    		//$this->_helper->redirector->goToRoute( array('controller' => 'localidade', 'action'=> 'index'));
-    		//return;
+     	if($sess->cityId > 0) {
+     		$this->cityId = $sess->id;
+     		$this->cityNome = $sess->nome;
     	}else {
-    		echo "Cidade:".$_SESSION['city']['id'];
+    		return $this->_forward('index', 'localidade');
     	}
     }
     
@@ -26,7 +22,7 @@ class EventosController extends Zend_Controller_Action
     public function indexAction()
     {
     	$eventos = new Application_Model_DbTable_Eventos();
-    	$this->view->eventos = $eventos->findAll();
+    	$this->view->eventos = $eventos->findByCity($this->cityId);
     	
     	$eventosTable = new Application_Model_DbTable_Eventos();
     	$this->view->destaques = $eventosTable->findDestaques();

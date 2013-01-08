@@ -8,7 +8,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     
     
     /**
-     * Retorna todos os "EVENTOS" no banco
+     * Retorna todos os "EVENTOS" ativos no banco
      * @return multitype:Application_Model_Evento
      */
 	public function findAll()
@@ -31,35 +31,85 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	return $eventos;            
     }
 
-    
-    
 
-       
+
+
+
     /**
      * Retorna os eventos em DESTAQUE
-     * @return multitype:Application_Model_Evento 
+     * @return multitype:Application_Model_Evento
      */
     public function findDestaques()
     {
     	$resultSet = $this->select()
-			    	->from('eventos')
-			    	->where('destaque = ?', '1')
-			    	->limit(3, 0)
-			    	->order('realizacao')
-			    	->query();
-    	
+    	->from('eventos')
+    	->where('destaque = ?', '1')
+    	->limit(3, 0)
+    	->order('realizacao')
+    	->query();
+    	 
     	$eventosDestaque = array();
     	foreach ($resultSet as $row) {
-    		
+    
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);
     		$eventoModel->setParceiro($row['id_parceiro']);
-    		
+    
     		$eventosDestaque[] = $eventoModel;
     	}
     	return $eventosDestaque;
     }
+    
 
+
+
+
+    /**
+     * Retorna os eventos em DESTAQUE
+     * @return multitype:Application_Model_Evento
+     */
+    public function findByCity($idCity)
+    {
+    	$resultSet = $this->select()
+    	->setIntegrityCheck(false) // allows joins
+    	->from('eventos')
+    	->join('local_enderecos', 'local_enderecos.id = eventos.id_endereco')
+    	->where('ativo = ?', '1')
+    	->where('local_enderecos.id_cidade = ?', $idCity)
+    	->order('realizacao');
+    	
+    	//->query();
+    	 
+    	Zend_Debug::dump($resultSet->query());
+    	
+    	$eventos = array();
+    	foreach ($resultSet as $row) {
+    
+    		$eventoModel = new Application_Model_Evento();
+    		$eventoModel->setOptions($row);
+    		$eventoModel->setParceiro($row['id_parceiro']);
+    		$eventoModel->setEndereco($row['id_endereco']);
+    
+    		$eventos[] = $eventoModel;
+    	}
+    	return $eventos;
+    }
+    
+    
+
+
+    public function byId($id, Application_Model_Evento $evento)
+    {
+    	$result = $this->fetchRow('id = '.$id);
+    	$eventos = $result->toArray();
+    	 
+    	$evento->setOptions($eventos);
+    	$evento->setParceiro($result->id_parceiro);
+    
+    	return $evento;
+    }
+    
+    
     
  /*   
     public function fetchAll()
@@ -154,18 +204,6 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     
  */   
     
-    
-   
-    public function byId($id, Application_Model_Evento $evento)
-    {
-    	$result = $this->fetchRow('id = '.$id);
-    	$eventos = $result->toArray();
-    	
-    	$evento->setOptions($eventos);
-    	$evento->setParceiro($result->id_parceiro);
-    
-    	return $evento;
-    }
-    
+
 }
 

@@ -4,6 +4,7 @@ class Application_Model_Evento
 {
 	protected $_id;
 	protected $_id_parceiro;
+	protected $_id_endereco;
 	protected $_nome;
 	protected $_descricao;
 	protected $_ativo;
@@ -11,6 +12,8 @@ class Application_Model_Evento
 	protected $_hora;
 	
 	protected $_parceiro;
+	protected $_endereco;
+	
 	
 
 
@@ -92,6 +95,29 @@ class Application_Model_Evento
 	public function getParceiro() {
 		return $this->_parceiro;
 	}
+	
+
+
+
+	/**
+	 * @param field_type $_endereco
+	 */
+	public function setEndereco($id_endereco) {
+		$enderecoTable = new Application_Model_DbTable_LocalEnderecos();
+		$enderecoModel = new Application_Model_LocalEnderecos();
+		$endereco = $enderecoTable->byId($id_endereco, $enderecoModel);
+		$this->_endereco = $endereco;
+	}
+	
+	/**
+	 * @return the $_endereco (objeto class Endereco)
+	 */
+	public function getEndereco() {
+		return $this->_endereco;
+	}
+	
+	
+	
 	
 	
 	
