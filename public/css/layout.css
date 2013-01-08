@@ -28,6 +28,7 @@ body{background-color: #FBFBFB;}
 /* ================================== #Menu Style ===========================================*/
 #top_menu{
 	display: block;
+	border: 1px solid red;
 }
 
 .top_home{
