@@ -18,17 +18,23 @@
 
 /* ========================= #Site Styles ================================================== */
 
-body{background-color: #FBFBFB;}
-
-#content{
-	display: inline-block;
-}
-
+body{background: url("/img/bg.png") repeat;}
 
 /* ================================== #Menu Style ===========================================*/
+#ct_menu{
+	width: 100%;
+	padding: 14px;
+	background: url("/img/bg_top_menu.png") repeat-x;
+	box-shadow: 0 1px 6px black;
+	display: table;
+	position: absolute;
+	z-index: 10;
+}
+
 #top_menu{
-	display: block;
-	border: 1px solid red;
+	width: 980px;
+	margin: 0 auto;
+	display: table;
 }
 
 .top_home{
@@ -44,7 +50,7 @@ body{background-color: #FBFBFB;}
 	padding: 5px 10px;
 }
 .navigation li a{
-	color: black;
+	color: #ccc;
 }
 .navigation li a:hover{
 	color: graytext;
@@ -55,11 +61,62 @@ body{background-color: #FBFBFB;}
 }
 
 
+/* ================================== #TOPO ===========================================*/
 
+#ct_top{
+	width: 100%; 
+	height: 262px;
+	background: url("/img/bg_top.png") repeat-x;
+	z-index: 9;
 
+}
 
+#top{ 
+	width: 980px; 
+	height: 262px; 
+	margin: 0 auto;
+	background: url("/img/bg_top_center.png") no-repeat;
+}
 
+/* ================================== #CONTENT ===========================================*/
 
+#ct_content{
+	width: 100%; 
+}
+
+#content{
+	width: 980px; 
+	max-width: 980px; 
+	margin: 0 auto; 
+	display: table;
+}
+
+#content_left{
+	width: 622px; 
+	float: left;
+	display: table;
+	margin-right: 2px;
+}
+
+#left_top{
+	margin-bottom: 10px;
+	padding: 15px 20px;
+	background: url("/img/bg_top_content_left.png") repeat-x;
+	box-shadow: 0 1px 6px #ccc;
+}
+
+#content_right{
+	width: 354px; 
+	float: left; 
+	display: table;
+}
+
+#right_top{
+	margin-bottom: 10px;
+	padding: 15px 20px;
+	background: url("/img/bg_top_content_left.png") repeat-x;
+	box-shadow: 0 1px 6px #ccc;
+}
 
 
 

@@ -31,15 +31,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	/**
 	 * cria as rotas
 	 * 
-	 * Muda de:  /evento/index/id/3
-	 * Para:   /evento/3/Sertanejo+Universitario
+
 	 */
 	protected function _initRoutes()
 	{
 		$frontcontroller = Zend_Controller_Front::getInstance();
 		$router = $frontcontroller->getRouter('default');
 
-		
+	/*
+ 	* Muda de:  /evento/index/id/3
+	* Para:   /evento/3/Sertanejo+Universitario
+ 	*/		
 		$router->addRoute(
 				'evento',
 				new Zend_Controller_Router_Route('evento/:id/:nome', array(
@@ -60,7 +62,19 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'id'   			=>	':id',
 						'nome'			=>	':nome'
 				))
+		);	
+		/*
+		$router->addRoute(
+				'localidade',
+				new Zend_Controller_Router_Route('localidade/:id/:nome', array(
+						'module' => 'default',
+						'controller'	=>	'localidade',
+						'action'		=>	'index',
+						'id'   			=>	':id',
+						'nome'			=>	':nome'
+				))
 		);
+		*/
 	}
 	
 	

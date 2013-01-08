@@ -37,51 +37,86 @@ echo 	$this->headMeta(),PHP_EOL;
 
 
 	<!--=============================== Page Layout ================================================== -->
-	<div class="container">	<!-- [start] container -->
-	
-	
-	
-	
-		<!--=============================== Page Navigation ================================================== -->
-		<div id="top_menu"><!-- [start] top_menu -->
-		
-			<div class="top_home">
-				<a title="Página Inicial" class="home" href="/">Início</a>
-<!-- 				<a href="?l=pt_BR">[pt]</a> -->
-<!-- 				<a href="?l=en">[en]</a> -->
-			</div>
-			
-			<div class="top_menus">
-				<?php 
-				
-				if ( !Zend_Auth::getInstance()->hasIdentity() ){ 
-					//echo $this->navigation()->setTranslator(Zend_Registry::get('Zend_Translate'))->menu()->renderMenu(Zend_Registry::get('default'));
-					echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('default'));
-				}else {
-					echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
-					}
-					
-				?>	
-			</div>
 
-		</div><!-- [end] top_menu -->
-		<br />
+	
+	
+	
+	
+		<!--=============================== Page Navigation TOPO ================================================== -->
+		<div id="ct_menu"><!-- [start] ct_menu -->
+		
+			<div id="top_menu"> <!-- [start] top_menu -->
+		
+				<div class="top_home">
+					<a title="Página Inicial" class="home" href="/">Início</a>
+	<!-- 				<a href="?l=pt_BR">[pt]</a> -->
+	<!-- 				<a href="?l=en">[en]</a> -->
+				</div>
+				
+				<div class="top_menus">
+					<?php 
+					
+					if ( !Zend_Auth::getInstance()->hasIdentity() ){ 
+						//echo $this->navigation()->setTranslator(Zend_Registry::get('Zend_Translate'))->menu()->renderMenu(Zend_Registry::get('default'));
+						echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('default'));
+					}else {
+						echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
+						}
+						
+					?>	
+				</div>
+				
+			</div> <!-- [end] top_menu -->
+
+		</div><!-- [end] ct_menu -->
+
+		<!--=============================== Page TOPO II ================================================== -->
+		<div id="ct_top">
+			<div id="top">
+				<div id="top_left" style="height: 264px; width: 420px; float: left; background: url('/img/bg_top_ii_down.png') center bottom no-repeat;"></div>
+				<div id="top_right" style="height: 264px; width: 550px; float: left; background: url('/img/bg_img_top.png') center bottom no-repeat;"></div>
+			</div>
+		</div>
 		
 	
 	
 		<!--=============================== Page Content ================================================== -->	
-		<div id="content"><!-- [start] content -->
-			<?php echo $this->layout()->content;?>			
-		</div><!-- [end] content -->
-		
-		
-			 
-	</div><!-- [end] container -->	
-	
- 
- 
- 
- 
+		<div id="ct_content">
+			<div id="content">
+			
+				<div id="content_left"><!-- [start] content left -->
+					<div id="left_top">Exibindo...</div>
+				
+					<?php echo $this->layout()->content;?>
+				</div><!-- [end] content left -->
+				
+				<div id="content_right"><!-- [start] content right -->
+					<div id="right_top">Destaques...</div>
+					...
+				</div><!-- [end] content right -->
+			
+			</div>
+		</div>
+
+		<!--=============================== Page Rodapé ================================================== -->
+		<div id="ct_rodape" style="width: 100%; background: black; margin-top: 40px; display: table;">
+			<div id="rodape" style="width: 980px; margin: 0 auto; display: table;">
+			
+				<ul style="padding: 20px; float: left;">
+					<li style="font-weight: bold; color: white;">Site.com.br</li>
+					<li style="margin: 0px 5px;">Como funciona</li>
+					<li style="margin: 0px 5px;">Trabalhe conosco</li>				
+				</ul>
+				
+				<ul style="padding: 20px; float: left;">
+					<li style="font-weight: bold; color: white;">Site.com.br</li>
+					<li style="margin: 0px 5px;">Como funciona</li>
+					<li style="margin: 0px 5px;">Trabalhe conosco</li>	
+					<li style="margin: 0px 5px;">Teste</li>			
+				</ul>			
+			
+			</div>
+		</div>	
 <!--=============================== JS ================================================== -->
 <?php
 /*
