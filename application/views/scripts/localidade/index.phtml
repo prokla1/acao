@@ -1,0 +1,21 @@
+
+<h1>Selecione a cidade</h1>
+
+<hr>
+<pre>
+<?php
+//print_r($this->localidades);
+?>
+
+</pre>
+<hr>
+
+<ul>
+	<?php foreach ($this->localidades as $localidade) : ?>
+		<li>
+			<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
+				<?php echo $localidade->nome ?>
+			</a>
+		</li>
+	<?php endforeach; ?>
+</ul>

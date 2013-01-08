@@ -1,5 +1,5 @@
 
-<?php 	foreach ($this->eventos as $evento): ?>
+<?php foreach ($this->eventos as $evento): ?>
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
@@ -32,13 +32,20 @@
 	</p>
 	
 	<hr />
-<?php	endforeach;   ?>
+<?php	endforeach;  ?>
 
 
 
 
 
-
+<h2>Destaques</h2>
+<?php foreach ($this->destaques as $destaques): ?>
+	Data: <?php echo date('d/m/Y', strtotime( $destaques->realizacao)) ?>
+	Nome: <?php echo $destaques->nome ?>
+	Local: <?php echo $destaques->parceiro->nome ?>
+	<br>
+	<hr>
+<?php endforeach;  ?>
 
 
 

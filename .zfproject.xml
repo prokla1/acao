@@ -21,6 +21,10 @@
         <controllerFile controllerName="Parceiro">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Localidade">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="set"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory>
@@ -60,6 +64,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Parceiro">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Localidade">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Localidade">
+            <viewScriptFile forActionName="set"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

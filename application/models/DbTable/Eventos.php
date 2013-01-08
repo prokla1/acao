@@ -13,7 +13,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
      */
 	public function findAll()
      {
-	    $resultSet = $this->fetchAll();
+	    $resultSet = $this->fetchAll("ativo = '1'");
 	    $eventos   = array();
 	    foreach ($resultSet as $result) {
 
@@ -30,7 +30,35 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	 
     	return $eventos;            
     }
+
     
+    
+
+       
+    /**
+     * Retorna os eventos em DESTAQUE
+     * @return multitype:Application_Model_Evento 
+     */
+    public function findDestaques()
+    {
+    	$resultSet = $this->select()
+			    	->from('eventos')
+			    	->where('destaque = ?', '1')
+			    	->limit(3, 0)
+			    	->order('realizacao')
+			    	->query();
+    	
+    	$eventosDestaque = array();
+    	foreach ($resultSet as $row) {
+    		
+    		$eventoModel = new Application_Model_Evento();
+    		$eventoModel->setOptions($row);
+    		$eventoModel->setParceiro($row['id_parceiro']);
+    		
+    		$eventosDestaque[] = $eventoModel;
+    	}
+    	return $eventosDestaque;
+    }
 
     
  /*   
