@@ -11,7 +11,10 @@ class LocalidadeController extends Zend_Controller_Action
     		 $sess = new Zend_Session_Namespace('City');
     		 $sess->id = $this->_getParam('id');
     		 $sess->nome = $this->getParam('nome');
+    		 
+    		 
     		 header("Location: /eventos");
+    		 //return $this->_forward('index', 'eventos');
     	}
     }
 
