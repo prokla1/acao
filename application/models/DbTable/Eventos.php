@@ -80,10 +80,13 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	
     	//->query();
     	 
-    	Zend_Debug::dump($resultSet->query());
+    	//Zend_Debug::dump($resultSet->query());
     	
     	$eventos = array();
-    	foreach ($resultSet as $row) {
+    	foreach ($resultSet->query() as $row) {
+    		
+    		
+    		//Zend_Debug::dump($row);
     
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);
