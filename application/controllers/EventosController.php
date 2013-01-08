@@ -12,6 +12,7 @@ class EventosController extends Zend_Controller_Action
      	if($sess->cityId > 0) {
      		$this->cityId = $sess->id;
      		$this->cityNome = $sess->nome;
+     		$this->view->cityNome = $this->cityNome;
     	}else {
     		return $this->_forward('index', 'localidade');
     	}

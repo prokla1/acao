@@ -73,20 +73,25 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	$resultSet = $this->select()
     	->setIntegrityCheck(false) // allows joins
     	->from('eventos')
-    	->join('local_enderecos', 'local_enderecos.id = eventos.id_endereco')
+    	->joinRight( //join na tabela LOCAL ENDERECOS
+    			array(
+    					'local_enderecos'		=>	'local_enderecos'
+    			),
+    			'local_enderecos.id				=	eventos.id_endereco',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'id_cidade'		=>	'local_enderecos.id_cidade',
+    					'rua'				=>	'local_enderecos.rua',
+    					'numero'			=>	'local_enderecos.numero',
+    					'complemento'		=>	'local_enderecos.complemento'
+    			)
+    	)
     	->where('ativo = ?', '1')
     	->where('local_enderecos.id_cidade = ?', $idCity)
     	->order('realizacao');
     	
-    	//->query();
-    	 
     	//Zend_Debug::dump($resultSet->query());
-    	
     	$eventos = array();
     	foreach ($resultSet->query() as $row) {
-    		
-    		
-    		//Zend_Debug::dump($row);
     
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);

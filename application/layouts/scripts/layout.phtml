@@ -25,7 +25,6 @@ echo 	$this->headMeta(),PHP_EOL;
 <link rel="stylesheet" href="/css/skeleton.css"  media="screen" type="text/css" />
 <link rel="stylesheet" href="/css/layout.css"  media="screen" type="text/css" />
 
-
 <?php 
 	echo 	$this->headLink(),PHP_EOL;
 ?>
@@ -78,8 +77,16 @@ echo 	$this->headMeta(),PHP_EOL;
 				
 					<div style="margin: 224px 0 0 100px; height: 50px; display: table; color: black; font-weight: bold;">
 					
-						<div style="float: left; margin-right: 4px; padding-right: 20px; background: url('/img/separator.png') no-repeat center right;">Você está em:</div> <div style="color: white; padding-right: 40px; background: url('/img/btn_location.png') no-repeat center right; float: left;">Florianópolis</div>
-					
+						<div style="float: left; margin-right: 4px; padding-right: 20px; background: url('/img/separator.png') no-repeat center right;">
+							Você está em:
+						</div> 
+						
+						
+						<a href="<?php echo $this->url(array('controller' => 'localidade', 'action' => 'index'), null, true); ?>">
+							<div style="color: white; padding-right: 40px; background: url('/img/btn_location.png') no-repeat center right; float: left;">
+									<?php echo $this->cityNome ?>
+							</div>
+						</a>
 					</div>
 				
 				</div>
