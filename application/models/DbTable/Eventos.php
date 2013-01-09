@@ -11,6 +11,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
      * Retorna todos os "EVENTOS" ativos no banco
      * @return multitype:Application_Model_Evento
      */
+    /*
 	public function findAll()
      {
 	    $resultSet = $this->fetchAll("ativo = '1'");
@@ -30,6 +31,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	 
     	return $eventos;            
     }
+*/
 
 
 
@@ -39,6 +41,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
      * Retorna os eventos em DESTAQUE
      * @return multitype:Application_Model_Evento
      */
+    /*
     public function findDestaques()
     {
     	$resultSet = $this->select()
@@ -47,7 +50,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->limit(3, 0)
     	->order('realizacao')
     	->query();
-    	 
+    
     	$eventosDestaque = array();
     	foreach ($resultSet as $row) {
     
@@ -59,13 +62,57 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	}
     	return $eventosDestaque;
     }
+    */
+    
+    
+    
+
+    /**
+     * Retorna os eventos em DESTAQUE por cidade
+     * @return multitype:Application_Model_Evento
+     */
+    public function findByCityDestaques($idCity)
+    {
+    	$resultSet = $this->select()
+    	->setIntegrityCheck(false) // allows joins
+    	->from('eventos')
+    	->joinRight( //join na tabela LOCAL ENDERECOS
+    			array(
+    					'local_enderecos'		=>	'local_enderecos'
+    			),
+    			'local_enderecos.id				=	eventos.id_endereco',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'id_cidade'		=>	'local_enderecos.id_cidade',
+    					'rua'				=>	'local_enderecos.rua',
+    					'numero'			=>	'local_enderecos.numero',
+    					'complemento'		=>	'local_enderecos.complemento'
+    			)
+    	)
+    	->where('ativo = ?', '1')
+    	->where('destaque = ?', '1')
+    	->where('local_enderecos.id_cidade = ?', $idCity)
+    	->order('realizacao');
+    	
+    	//Zend_Debug::dump($resultSet->query());
+    	$eventos = array();
+    	foreach ($resultSet->query() as $row) {
+    
+    		$eventoModel = new Application_Model_Evento();
+    		$eventoModel->setOptions($row);
+    		$eventoModel->setParceiro($row['id_parceiro']);
+    		$eventoModel->setEndereco($row['id_endereco']);
+    
+    		$eventos[] = $eventoModel;
+    	}
+    	return $eventos;
+    }
+    
+    
     
 
 
-
-
     /**
-     * Retorna os eventos em DESTAQUE
+     * Retorna os eventos por CIDADE
      * @return multitype:Application_Model_Evento
      */
     public function findByCity($idCity)
