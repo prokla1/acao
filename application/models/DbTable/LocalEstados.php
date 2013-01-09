@@ -17,6 +17,10 @@ class Application_Model_DbTable_LocalEstados extends Zend_Db_Table_Abstract
     	return $localEstados;
     }
     
+
+    
+    
+
     
 }
 

@@ -11,9 +11,31 @@ class Application_Model_LocalEstados
 	
 	protected $_pais;
 	
-
+	protected $_cidades;
+	
 	
 
+
+	/**
+	 * @return the $_cidades
+	 */
+	public function getCidades() {
+		return $this->_cidades;
+	}
+
+	/**
+	 * @param field_type $_cidades
+	 */
+	public function setCidades($id_estado) {
+		
+		$cidadesTable = new Application_Model_DbTable_LocalCidades();
+		$cidades = $cidadesTable->cidadesEstado($id_estado);
+		
+		$this->_cidades = $cidades;
+	}
+	
+	
+	
 
 	/**
 	 * @param field_type $_id_parceiro
