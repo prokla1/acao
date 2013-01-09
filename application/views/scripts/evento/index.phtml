@@ -3,6 +3,10 @@
  
 $evento = $this->evento; 
 
+echo "<pre>";
+print_r($evento);
+echo "</pre>";
+
 $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 
 ?>
@@ -11,6 +15,33 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 <?php print_r($evento);?>
 </pre>
 
+<div class="ct_event" style="width: 620px; border: 1px solid green;">
+
+	<div class="event" style="width: 620px; height: 222px; border: 1px solid #E5E5E5; background: url('/img/bg_all_event.png') repeat-x;">
+		
+		<div class="ct_left_e" style="border: 1px solid red; padding: 5px; display: table; float: left;">
+			<div class="ct_flyer_e" style="border: 1px solid #E5E5E5; background: #CCC; width: 170px; height: 160px; margin-bottom: 4px;">
+				Flyer
+			</div>
+			<div class="ct_sociais_e" style="border: 1px solid #E5E5E5; width: 170px; height: 32px; background: url('/img/bg_sociall_event.png') repeat-x;">
+				<ul>
+					<li style="padding: 6px 17px; display: inline-block;"><img src="/img/btn_like.png" /></li>
+					<li style="padding: 6px 17px; display: inline-block;"><img src="/img/btn_twitter.png" /></li>
+					<li style="padding: 6px 17px; display: inline-block;"><img src="/img/btn_mail.png" /></li>
+				</ul>
+			</div>
+		
+		</div>
+		
+		<div class="ct_right_e" style="border: 1px solid red; padding: 5px; float: left; width: 420px; height: 200px;">
+		
+		
+		</div>
+	
+	</div>
+	<div class="promo_event" style="width: 620px; border: 1px solid red; height: 56px;"></div>
+
+</div>
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
@@ -42,5 +73,14 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 	<?php  echo $evento->parceiro->local->cidade->nome ?>-<?php echo $evento->parceiro->local->cidade->estado->sigla ?>
 	</p>
 	
+	
 
+	
+<?php 
+	//$this->headScript()->setSeparator(PHP_EOL)
+		//->prependFile($this->baseUrl('/js/eventos.js'));
+
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/evento.css'));
+?>
 
