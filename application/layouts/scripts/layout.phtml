@@ -78,17 +78,15 @@ echo 	$this->headMeta(),PHP_EOL;
 		<!--=============================== Page TOPO II ================================================== -->
 		<div id="ct_top">
 			<div id="top">
-				<div id="top_left" style="height: 264px; width: 420px; float: left; background: url('/img/bg_top_ii_down.png') center bottom no-repeat;"></div>
+				<div id="top_left"></div>
 				
-				<div id="top_right" style="height: 264px; width: 550px; float: left; background: url('/img/bg_img_top.png') center bottom no-repeat;">
+				<div id="top_right">
 				
-					<div style="margin: 224px 0 0 100px; height: 50px; display: table; color: black; font-weight: bold;">
+					<div id="ct_location">
 					
-						<div style="float: left; margin-right: 4px; padding-right: 20px; background: url('/img/separator.png') no-repeat center right;">
+						<div id="location">
 							Você está em:
 						</div> 
-						
-						
 						<a href="<?php echo $this->url(array('controller' => 'localidade', 'action' => 'index'), null, true); ?>">
 							<div style="color: white; padding-right: 40px; background: url('/img/btn_location.png') no-repeat center right; float: left;">
 									<?php echo $this->cityNome ?>
@@ -117,41 +115,28 @@ echo 	$this->headMeta(),PHP_EOL;
 					
 		<!--===== BUSCA AVANÇADA ====== -->	
 		
-					<div id="search_adv" style="border: 1px solid #f0f0f0; width: 620px; display: table; 
-background: rgb(255,255,255); /* Old browsers */
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-8 */
+					<div id="search_adv">
 					
-					
-					 ">
-					
-						<div id="categories" style="border-bottom: 1px solid #ccc; padding: 5px;">
+						<div id="categories">
 							<ul>
-								<li style="display: inline; padding: 2px 10px;">Bares e Restaurantes</li>
-								<li style="display: inline; padding: 2px 10px;">Casas noturnas</li>
-								<li style="display: inline; padding: 2px 10px;">Cinemas</li>
-								<li style="display: inline; padding: 2px 10px;">Teatros</li>
+								<li class="iten_category">Bares e Restaurantes</li>
+								<li class="iten_category">Casas noturnas</li>
+								<li class="iten_category">Cinemas</li>
+								<li class="iten_category">Teatros</li>
 							</ul>
 						</div>
 						
-						<div id="filter" style="padding: 16px 10px;">
+						<div id="filter">
 					
 							<table>
 							  <tr>
-							    <td style="text-align: right; width: 80px;">Local:</td>
+							    <td class="txt_input_h">Local:</td>
 							    <td><input type="" name="local_filter" size="30"/></td>
-							    <td style="text-align: right; width: 80px;">Data:</td>
+							    <td class="txt_input_h">Data:</td>
 							    <td><input type="" name="date_filter" /></td>
 							  </tr>
 							  <tr>
-							    <td style="text-align: right; width: 80px;">Genero:</td>
+							    <td class="txt_input_h">Genero:</td>
 							    <td>
 							    	<select name="genre_filter" id="genre_filter">
         								<option value="Rock">Rock</option>
@@ -159,11 +144,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
         								<option value="Eletronica">Eletronica</option>
       								</select>
       							</td>
-							    <td style="text-align: right; width: 80px;">Cidade:</td>
+							    <td class="txt_input_h">Cidade:</td>
 							    <td><input type="" name="city_filter" /></td>
 							  </tr>
 							  <tr>
-							    <td colspan="4"><a href="#" style="padding: 5px 10px; border: 1px solid #CCC; float: right; background: #999; color: #CCC;">Buscar</a></td>
+							    <td colspan="4"><a href="#" id="btn_go_filter">Buscar</a></td>
 							  </tr>
 							</table>
 				
