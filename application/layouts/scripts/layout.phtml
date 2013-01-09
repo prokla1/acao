@@ -18,6 +18,10 @@ echo 	$this->headMeta(),PHP_EOL;
 <!--=============================== Mobile Specific Metas  ================================================== -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+<meta property="og:site_name" content="Nome do seu site" />
+<meta property="og:title" content="Encontre o que tem de evento na sua região" />
+<meta property="og:image" content="http://www.seusite.com.br/imagem.jpg" />
+
 
 
 <!--=============================== CSS  ================================================== -->
@@ -50,6 +54,8 @@ echo 	$this->headMeta(),PHP_EOL;
 					<a title="Página Inicial" class="home" href="/">Início</a>
 	<!-- 				<a href="?l=pt_BR">[pt]</a> -->
 	<!-- 				<a href="?l=en">[en]</a> -->
+				<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.seusite.com.br&layout=button_count&show_faces=false&width=80&action=like&font=lucida+grande&colorscheme=light" allowtransparency="true" style="border: medium none; overflow: hidden; width: 80px; height: 21px;" frameborder="0" scrolling="no"></iframe>
+				
 				</div>
 				
 				<div class="top_menus">
@@ -73,6 +79,7 @@ echo 	$this->headMeta(),PHP_EOL;
 		<div id="ct_top">
 			<div id="top">
 				<div id="top_left" style="height: 264px; width: 420px; float: left; background: url('/img/bg_top_ii_down.png') center bottom no-repeat;"></div>
+				
 				<div id="top_right" style="height: 264px; width: 550px; float: left; background: url('/img/bg_img_top.png') center bottom no-repeat;">
 				
 					<div style="margin: 224px 0 0 100px; height: 50px; display: table; color: black; font-weight: bold;">
@@ -101,10 +108,41 @@ echo 	$this->headMeta(),PHP_EOL;
 			<div id="content">
 			
 				<div id="content_left"><!-- [start] content left -->
-					<div id="left_top">Exibindo...</div>
+					<div id="left_top">
+						<span style="float: left; width: 420px; max-width: 420px; ">Exibindo eventos do dia: 09/01/2013</span>
+						<div style="float: left; ">
+							<a href=""><div id="search">BUSCA AVANCADA</div></a>
+						</div>
+					</div>
+					
+		<!--===== BUSCA AVANÇADA ====== -->	
+		
+					<div id="search_adv" style="border: 1px solid #f0f0f0; width: 620px; display: table; background: url('/img/bg_top_content_i.png') repeat; ">
+					
+						<div id="categories" style="border-bottom: 1px solid #ccc; padding: 5px;">
+							<ul>
+								<li style="display: inline; padding: 2px 10px;">Bares e Restaurantes</li>
+								<li style="display: inline; padding: 2px 10px;">Casas noturnas</li>
+								<li style="display: inline; padding: 2px 10px;">Cinemas</li>
+								<li style="display: inline; padding: 2px 10px;">Teatros</li>
+							</ul>
+						</div>
+						
+						<div id="filter" style="padding: 16px 10px;">
+						
+							
+						
+						
+						</div>
+					
+					
+					
+					</div>					
+					
 				
 					<?php echo $this->layout()->content;?>
 				</div><!-- [end] content left -->
+				
 				
 				<div id="content_right"><!-- [start] content right -->
 					<div id="right_top">Destaques...</div>
@@ -132,11 +170,12 @@ echo 	$this->headMeta(),PHP_EOL;
 		</div>	
 <!--=============================== JS ================================================== -->
 <?php
-/*
+
 	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/show_search.js'))
 		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));
-		//->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));
-		 * */
+
+		
 		 
 	echo	$this->headScript(),PHP_EOL;
 ?>

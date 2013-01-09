@@ -101,12 +101,13 @@ body{background: url("/img/bg.png") repeat;}
 #left_top{
 	margin-bottom: 10px;
 	padding: 15px 20px;
-	background: url("/img/bg_top_content_left.png") repeat-x;
+	height: 22px;
+	background: url("/img/bg_top_content_i.png") repeat-x;
 	box-shadow: 0 1px 6px #ccc;
 }
 
 #content_right{
-	width: 354px; 
+	width: 354px;
 	float: left; 
 	display: table;
 }
@@ -114,8 +115,10 @@ body{background: url("/img/bg.png") repeat;}
 #right_top{
 	margin-bottom: 10px;
 	padding: 15px 20px;
-	background: url("/img/bg_top_content_left.png") repeat-x;
+	height: 22px;
+	background: url("/img/bg_top_content_i.png") repeat-x;
 	box-shadow: 0 1px 6px #ccc;
+	border-right: 2px solid #ccc;
 }
 
 
