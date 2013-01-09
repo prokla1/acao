@@ -51,7 +51,7 @@ echo 	$this->headMeta(),PHP_EOL;
 			<div id="top_menu"> <!-- [start] top_menu -->
 		
 				<div class="top_home">
-					<a title="Página Inicial" class="home" href="/">Início</a>
+					<a title="Página Inicial" class="home" href="/"><img src="/img/ico_home_back.png"/></a>
 	<!-- 				<a href="?l=pt_BR">[pt]</a> -->
 	<!-- 				<a href="?l=en">[en]</a> -->
 				<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.seusite.com.br&layout=button_count&show_faces=false&width=80&action=like&font=lucida+grande&colorscheme=light" allowtransparency="true" style="border: medium none; overflow: hidden; width: 80px; height: 21px;" frameborder="0" scrolling="no"></iframe>
@@ -117,7 +117,20 @@ echo 	$this->headMeta(),PHP_EOL;
 					
 		<!--===== BUSCA AVANÇADA ====== -->	
 		
-					<div id="search_adv" style="border: 1px solid #f0f0f0; width: 620px; display: table; background: url('/img/bg_top_content_i.png') repeat; ">
+					<div id="search_adv" style="border: 1px solid #f0f0f0; width: 620px; display: table; 
+background: rgb(255,255,255); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-8 */
+					
+					
+					 ">
 					
 						<div id="categories" style="border-bottom: 1px solid #ccc; padding: 5px;">
 							<ul>
@@ -129,13 +142,32 @@ echo 	$this->headMeta(),PHP_EOL;
 						</div>
 						
 						<div id="filter" style="padding: 16px 10px;">
-						
-							
-						
-						
+					
+							<table>
+							  <tr>
+							    <td style="text-align: right; width: 80px;">Local:</td>
+							    <td><input type="" name="local_filter" size="30"/></td>
+							    <td style="text-align: right; width: 80px;">Data:</td>
+							    <td><input type="" name="date_filter" /></td>
+							  </tr>
+							  <tr>
+							    <td style="text-align: right; width: 80px;">Genero:</td>
+							    <td>
+							    	<select name="genre_filter" id="genre_filter">
+        								<option value="Rock">Rock</option>
+        								<option value="Sertanejo">Sertanejo</option>
+        								<option value="Eletronica">Eletronica</option>
+      								</select>
+      							</td>
+							    <td style="text-align: right; width: 80px;">Cidade:</td>
+							    <td><input type="" name="city_filter" /></td>
+							  </tr>
+							  <tr>
+							    <td colspan="4"><a href="#" style="padding: 5px 10px; border: 1px solid #CCC; float: right; background: #999; color: #CCC;">Buscar</a></td>
+							  </tr>
+							</table>
+				
 						</div>
-					
-					
 					
 					</div>					
 					
@@ -156,7 +188,7 @@ echo 	$this->headMeta(),PHP_EOL;
 		<div id="ct_rodape">
 			<div id="rodape">
 				<ul class="menu_rodape">
-					<li class="title_menu_r">Site.com.br</li>
+					<li class="title_menu_r"><i>Site.com.br</i></li>
 					<li class="iten_menu_r">Como funciona</li>
 					<li class="iten_menu_r">Trabalhe conosco</li>				
 				</ul>
@@ -166,6 +198,12 @@ echo 	$this->headMeta(),PHP_EOL;
 					<li class="iten_menu_r">Como funciona</li>
 					<li class="iten_menu_r">Trabalhe conosco</li>				
 				</ul>		
+			</div>
+		</div>
+		
+		<div id="ct_cop">
+			<div id="cop">
+				...
 			</div>
 		</div>	
 <!--=============================== JS ================================================== -->

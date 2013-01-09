@@ -126,11 +126,22 @@ body{background: url("/img/bg.png") repeat;}
 
 #ct_rodape{
 	width: 100%; 
-	background:url('/img/bg_top_menu.png') repeat; 
 	box-shadow: 0px 0px 7px 0px black; 
 	margin-top: 80px; 
 	display: table; 
-	border-bottom: 1px solid #ccc;
+	border-top: 6px solid #000;
+
+	background: rgb(69,72,77); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ1NDg0ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-8 */
+
 }
 
 #rodape{
@@ -140,21 +151,33 @@ body{background: url("/img/bg.png") repeat;}
 }
 
 .menu_rodape{
-	padding: 20px 60px 20px 0px; 
+	padding: 40px 60px 40px 0px; 
 	float: left;
 }
 
 .title_menu_r{
 	color: white; 
 	font-family: arial; 
-	font-size: 14px;
+	font-size: 20px;
 }
 
 .iten_menu_r{
-	margin: 0px 5px; 
+	margin: 0px 20px; 
 	color: #ccc; 
 	font-family: arial; 
 	font-size: 12px;
+}
+
+#ct_cop{
+	width: 100%; 
+	border-top: 1px solid #333333; 
+	background: #111111; 
+	padding: 10px;
+}
+
+#cop{
+	width: 980px; 
+	margin: 0 auto;
 }
 
 /* #Media Queries
