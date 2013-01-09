@@ -12,16 +12,15 @@ $pages = array(
 			array(
 				'label' 		=> 	'Minha Conta',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
-				'controller' 	=> 	'me',
+				'controller' 	=> 	'usuario',
 				'action'		=> 	'index',
 				'title'			=>	'Minha Conta',
 	        ),
 			array(
-				'label' 		=> 	'Logout',
+				'label' 		=> 	'Sair',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
-				'controller' 	=> 	'users',
-				'action'		=> 	'logout',
-				'class'			=>	'menu_top',
+				'controller' 	=> 	'usuario',
+				'action'		=> 	'sair',
 				'title'			=>	'Logout',
 	        ),
  

@@ -16,24 +16,22 @@ $pages = array(
 				'action'		=> 	'index',
 				'title'			=>	'Eventos',
 	        ),
-		/*
+		
 			array(
 				'label' 		=> 	'Cadastrar',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
-				'controller' 	=> 	'users',
-				'action'		=> 	'create',
-				'class'			=>	'menu_top',
+				'controller' 	=> 	'usuario',
+				'action'		=> 	'cadastrar',
 				'title'			=>	'Cadastrar',
 	        ),
 			array(
-				'label' 		=> 	'Login',
+				'label' 		=> 	'Entrar',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
-				'controller' 	=> 	'users',
-				'action'		=> 	'login',
-				'class'			=>	'menu_top',
+				'controller' 	=> 	'usuario',
+				'action'		=> 	'entrar',
 				'title'			=>	'Login',
 	        ),
-	        */
+	        
  
     );
  
