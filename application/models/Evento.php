@@ -14,6 +14,8 @@ class Application_Model_Evento
 	protected $_parceiro;
 	protected $_endereco;
 	
+	protected $_cortesias;
+	
 	
 
 
@@ -76,6 +78,27 @@ class Application_Model_Evento
 	
 	
 
+
+
+
+	/**
+	 * @param field_type $_id_parceiro
+	 */
+	public function setCortesias($id_evento) {
+		$cortesiasTable = new Application_Model_DbTable_Cortesias();
+		$cortesias = $cortesiasTable->cortesiasByEvento($id_evento);
+		$this->_cortesias = $cortesias;
+	}
+	
+	/**
+	 * @return the $_parceiro (objeto class Parceiros)
+	 */
+	public function getCortesias() {
+		return $this->_cortesias;
+	}
+	
+	
+	
 	
 
 

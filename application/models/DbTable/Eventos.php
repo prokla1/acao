@@ -144,6 +144,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		$eventoModel->setOptions($row);
     		$eventoModel->setParceiro($row['id_parceiro']);
     		$eventoModel->setEndereco($row['id_endereco']);
+    		$eventoModel->setCortesias($row['id']);
     
     		$eventos[] = $eventoModel;
     	}
