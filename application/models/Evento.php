@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author jus
+ *
+ */
 class Application_Model_Evento
 {
 	protected $_id;
@@ -7,7 +11,9 @@ class Application_Model_Evento
 	protected $_id_endereco;
 	protected $_nome;
 	protected $_descricao;
+	protected $_capa;
 	protected $_ativo;
+	protected $_destaque;
 	protected $_realizacao;
 	protected $_hora;
 	
@@ -203,6 +209,34 @@ class Application_Model_Evento
 	 */
 	public function setDescricao($_descricao) {
 		$this->_descricao = $_descricao;
+	}
+
+	/**
+	 * @return the $_capa
+	 */
+	public function getCapa() {
+		return $this->_capa;
+	}
+
+	/**
+	 * @param field_type $_capa
+	 */
+	public function setCapa($_capa) {
+		$this->_capa = $_capa;
+	}
+
+	/**
+	 * @return the $_destaque
+	 */
+	public function getDestaque() {
+		return $this->_destaque;
+	}
+
+	/**
+	 * @param field_type $_destaque
+	 */
+	public function setDestaque($_destaque) {
+		$this->_destaque = $_destaque;
 	}
 
 	/**

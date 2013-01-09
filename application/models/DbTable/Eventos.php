@@ -161,6 +161,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	 
     	$evento->setOptions($eventos);
     	$evento->setParceiro($result->id_parceiro);
+    	$evento->setCortesias($id);
     
     	return $evento;
     }
