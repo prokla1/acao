@@ -11,6 +11,7 @@ class Application_Model_Cortesias
 	protected $_converter;
 	protected $_qtd;
 	protected $_disponivel;
+	protected $_max_converter;
 	protected $_sexo;
 	protected $_termino;
 	
@@ -190,6 +191,20 @@ class Application_Model_Cortesias
 	 */
 	public function setDisponivel($_disponivel) {
 		$this->_disponivel = $_disponivel;
+	}
+
+	/**
+	 * @return the $_max_converter
+	 */
+	public function getMax_converter() {
+		return $this->_max_converter;
+	}
+
+	/**
+	 * @param field_type $_max_converter
+	 */
+	public function setMax_converter($_max_converter) {
+		$this->_max_converter = $_max_converter;
 	}
 
 	/**
