@@ -1,5 +1,6 @@
 .ct_event{
-	width: 620px; 
+	width: 620px;
+	position: relative; 
 }
 
 .event{
@@ -50,7 +51,7 @@
 
 .event_name{
 	float: left; 
-	width: 290px; 
+	width: 250px; 
 	padding: 0 5px; 
 }
 

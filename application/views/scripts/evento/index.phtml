@@ -15,62 +15,7 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 <?php print_r($evento);?>
 </pre>
 
-<!--  
-<div class="ct_event">
-	<div class="event">
-		
-		<div class="ct_left_e">
-			<div class="ct_flyer_e">
-				Flyer
-			</div>
-			<div class="ct_sociais_e">
-				<ul>
-					<li class="social_ico_e"><img src="/img/btn_like.png" /></li>
-					<li class="social_ico_e"><img src="/img/btn_twitter.png" /></li>
-					<li class="social_ico_e"><img src="/img/btn_mail.png" /></li>
-				</ul>
-			</div>
-		</div>
-		
-		<div class="ct_right_e">
-		
-			<div class="ct_event_date">
-				<span class="event_name">Evento: <?php echo $evento->nome ?></span>
-				<span class="event_date">Data: <?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span>	
-			</div>
-			
-			<div class="ct_event_local">
-				<span class="event_local">
-				Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
-							<?php echo $evento->parceiro->nome ?>
-					   </a>
-				</span>
-				<span class="parc_aval">
-					<img src="/img/event_aval.png"/>
-				</span>	
-			</div>
 
-			<div class="ct_btn_event_desc">
-				<span class="btn_desc">
-				+ ver detalhes 
-				</span>	
-			</div>
-
-			<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
-			<div class="btn_go_event">
-				Ir para página do evento
-			</div>
-			</a>
-		
-		</div>
-	
-	</div>
-	
-	<div class="promo_event" style="width: 620px; border: 1px solid red; height: 56px;"></div>
-
-</div>
-
--->
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
