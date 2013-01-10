@@ -3,16 +3,12 @@
  
 $evento = $this->evento; 
 
-echo "<pre>";
-print_r($evento);
-echo "</pre>";
-
 $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 
 ?>
 
 <pre>
-<?php print_r($evento);?>
+<?php //print_r($evento);?>
 </pre>
 
 <!--  
@@ -102,12 +98,45 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 	<?php  echo $evento->parceiro->local->cidade->nome ?>-<?php echo $evento->parceiro->local->cidade->estado->sigla ?>
 	</p>
 	
+
+	
+		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+
+<pre>
+<?php print_r($evento->cortesias);?>
+</pre>
+
+
+		<h2>Cortesias</h2>
+		Existem <?php echo count($evento->cortesias) ?> tipos de cortesias. 
+		
+		<?php foreach ($evento->cortesias as $cortesias) : ?>
+		<hr>
+			<small>Ingresso:</small> <?php echo $cortesias->nome ?> 
+				<?php if($cortesias->descricao) : //verifica se existe descricao ?>
+					(<?php echo $cortesias->descricao ?>)
+				<?php endif; ?>
+			
+			Disponível: <?php echo $cortesias->disponivel ?> de <?php echo $cortesias->qtd ?>
+			
+			Valor: de <strike>R$ <?php echo $cortesias->valor_original ?></strike> por <?php echo $cortesias->valor ?>
+			
+			
+			<span class="cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</span>
+			
+		<?php endforeach; ?>
+	
+	<?php endif;?>
+	
+	
+	<hr />
+
 	
 
 	
 <?php 
-	//$this->headScript()->setSeparator(PHP_EOL)
-		//->prependFile($this->baseUrl('/js/eventos.js'));
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/evento.js'));
 
 	$this->headLink()
 		->prependStylesheet($this->baseUrl('/css/evento.css'));

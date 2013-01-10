@@ -7,8 +7,8 @@ class Application_Model_Cortesias
 	protected $_id_evento;
 	protected $_nome;
 	protected $_descricao;
+	protected $_valor_original;
 	protected $_valor;
-	protected $_converter;
 	protected $_qtd;
 	protected $_disponivel;
 	protected $_max_converter;
@@ -140,6 +140,20 @@ class Application_Model_Cortesias
 	}
 
 	/**
+	 * @return the $_valor_orignal
+	 */
+	public function getValor_original() {
+		return $this->_valor_original;
+	}
+
+	/**
+	 * @param field_type $_valor_orignal
+	 */
+	public function setValor_original($_valor_original) {
+		$this->_valor_original = $_valor_original;
+	}
+
+	/**
 	 * @return the $_valor
 	 */
 	public function getValor() {
@@ -151,20 +165,6 @@ class Application_Model_Cortesias
 	 */
 	public function setValor($_valor) {
 		$this->_valor = $_valor;
-	}
-
-	/**
-	 * @return the $_converter
-	 */
-	public function getConverter() {
-		return $this->_converter;
-	}
-
-	/**
-	 * @param field_type $_converter
-	 */
-	public function setConverter($_converter) {
-		$this->_converter = $_converter;
 	}
 
 	/**
