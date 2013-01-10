@@ -77,13 +77,20 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 	<hr />
 
 	
-
+	
+	<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
+	
+	
 	
 <?php 
 	$this->headScript()->setSeparator(PHP_EOL)
-		->prependFile($this->baseUrl('/js/evento.js'));
+		->prependFile($this->baseUrl('/js/evento.js'))
+		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'));
 
 	$this->headLink()
-		->prependStylesheet($this->baseUrl('/css/evento.css'));
+		->prependStylesheet($this->baseUrl('/css/evento.css'))
+		->prependStylesheet($this->baseUrl('/css/pepper-grinder/jquery-ui-1.9.2.custom.min.css'));
 ?>
+
+
 
