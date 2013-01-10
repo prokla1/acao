@@ -36,6 +36,19 @@
 	<?php  echo $evento->parceiro->local->cidade->nome ?>-<?php echo $evento->parceiro->local->cidade->estado->sigla ?>
 	</p>
 	
+	<?php //if(count($evento->cortesias) > 0) :?>
+	
+		<h2>Cortesias</h2>
+		<?php foreach ($evento->cortesias as $cortesias) : ?>
+			Ingresso: <?php echo $cortesias->nome ?> (<?php echo $cortesias->descricao ?>)
+			Disponível: <?php echo $cortesias->disponivel ?>
+			Valor: <?php echo $cortesias->converter ?>
+			<hr />
+		<?php endforeach; ?>
+	
+	<?php //endif;?>
+	
+	
 	<hr />
 <?php	endforeach;  ?>
 
