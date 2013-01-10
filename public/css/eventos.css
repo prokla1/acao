@@ -1,6 +1,7 @@
 .ct_event{
 	width: 620px;
 	position: relative; 
+	margin: 20px 0;
 }
 
 .event{
@@ -13,7 +14,7 @@
 /*CT LEFT (LOGO E SOCIAIS)*/
 
 .ct_left_e{
-	padding: 5px; 
+	padding: 8px; 
 	display: table; 
 	float: left;
 }
@@ -21,19 +22,30 @@
 .ct_flyer_e{
 	border: 1px solid #E5E5E5; 
 	background: #CCC; 
-	width: 170px; 
-	height: 160px; 
+	width: 158px; 
+	height: 158px; 
 	margin-bottom: 4px;
 }
 
+.ct_flyer_e img{
+	width: 150px; 
+	height: 150px; 
+	margin: 2px; 
+	border: 2px solid #FFF;
+}
+
+
 .ct_sociais_e{
 	border: 1px solid #E5E5E5; 
-	width: 170px; 
+	width: 158px; 
 	height: 32px; 
 	background: url('/img/bg_sociall_event.png') repeat-x;
 }
 
-.social_ico_e{padding: 6px 17px; display: inline-block;}
+.social_ico_e{
+	padding: 6px 16px; 
+	display: inline-block;
+}
 
 /*CT RIGHT (LOCAL/DATA/AVALICAÇÃO...)*/
 
@@ -71,7 +83,7 @@
 }
 
 .parc_aval{
-	float:left; 
+	margin-left: 5px;
 }
 
 .ct_btn_event_desc{
