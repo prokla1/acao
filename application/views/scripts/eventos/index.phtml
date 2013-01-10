@@ -6,6 +6,9 @@
 </pre>
 
 <div class="ct_event">
+	
+	<div class="banner_promo" style="position: absolute; width: 116px; height: 116px; background: url('/img/banner_promo.png'); right: -17; top: -13;"></div>
+	
 	<div class="event">
 		
 		<div class="ct_left_e">
@@ -41,8 +44,7 @@
 
 			<div class="ct_btn_event_desc">
 				<span class="btn_desc">
-				+ ver detalhes 
-				</span>	
+				<a href=""><div class="show_details_event" id="btndetails_<?php echo $evento->id ?>">+detalhes</div></a>
 			</div>
 
 			<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
@@ -53,6 +55,12 @@
 		
 		</div>
 	
+	</div>
+	
+	<!-- DETAILS EVENT -->	
+	
+	<div class="ct_desc_event" id="show_<?php echo $evento->id ?>" style="width: 620px; border: 1px solid #E5E5E5;">
+		dwd	 
 	</div>
 	
 	<div class="promo_event" style="width: 620px; border: 1px solid red; height: 56px;"></div>
@@ -121,8 +129,8 @@
 
 
 <?php 
-	$this->headScript()->setSeparator(PHP_EOL)
-		->prependFile($this->baseUrl('/js/eventos.js'));
+	//$this->headScript()->setSeparator(PHP_EOL)
+		//->prependFile($this->baseUrl('/js/show_details_event.js'));
 
 	$this->headLink()
 		->prependStylesheet($this->baseUrl('/css/eventos.css'));

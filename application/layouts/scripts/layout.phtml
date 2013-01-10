@@ -196,8 +196,8 @@ echo 	$this->headMeta(),PHP_EOL;
 
 	$this->headScript()->setSeparator(PHP_EOL)
 		->prependFile($this->baseUrl('/js/show_search.js'))
+		->prependFile($this->baseUrl('/js/show_details_event.js'))
 		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));
-
 		
 		 
 	echo	$this->headScript(),PHP_EOL;
