@@ -13,7 +13,6 @@
 		
 		<div class="ct_left_e">
 			<div class="ct_flyer_e">
-				Flyer
 				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
 			</div>
 			<div class="ct_sociais_e">
@@ -34,13 +33,14 @@
 			
 			<div class="ct_event_local">
 				<span class="event_local">
-				Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
-							<?php echo $evento->parceiro->nome ?>
-					   </a>
+					Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
+								<?php echo $evento->parceiro->nome ?>
+						   </a>
+					<span class="parc_aval">
+						<img src="/img/event_aval.png"/>
+					</span>	
 				</span>
-				<span class="parc_aval">
-					<img src="/img/event_aval.png"/>
-				</span>	
+
 			</div>
 
 			<div class="ct_btn_event_desc">
