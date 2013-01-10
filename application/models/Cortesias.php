@@ -15,10 +15,12 @@ class Application_Model_Cortesias
 	protected $_sexo;
 	protected $_termino;
 	
+	//protected $_genero;
+	
 
 	
 	
-
+	
 
 	/**
 	 * Retorna os atributos protected em array
@@ -219,8 +221,37 @@ class Application_Model_Cortesias
 	 */
 	public function setSexo($_sexo) {
 		$this->_sexo = $_sexo;
+		//$this->setGenero($_sexo);
 	}
 
+
+	/**
+	 * @return the $_genero
+	 */
+	public function getGenero() {
+		return $this->_genero;
+	}
+	
+	/**
+	 * @param field_type $_genero
+	 */
+	public function setGenero($_genero) {
+		switch ($_genero){
+			case 1:
+				$genero = 'Masculino';
+				break;
+			case 2:
+				$genero = 'Feminino';
+				break;
+			default:
+				$genero = 'Unissex';
+		}
+		$this->_genero = $genero;
+	}
+	
+	
+	
+	
 	/**
 	 * @return the $_termino
 	 */
