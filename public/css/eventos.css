@@ -1,0 +1,93 @@
+.ct_event{
+	width: 620px; 
+}
+
+.event{
+	width: 620px; 
+	height: 222px; 
+	border: 1px solid #E5E5E5; 
+	background: url('/img/bg_all_event.png') repeat-x;
+}
+
+/*CT LEFT (LOGO E SOCIAIS)*/
+
+.ct_left_e{
+	padding: 5px; 
+	display: table; 
+	float: left;
+}
+
+.ct_flyer_e{
+	border: 1px solid #E5E5E5; 
+	background: #CCC; 
+	width: 170px; 
+	height: 160px; 
+	margin-bottom: 4px;
+}
+
+.ct_sociais_e{
+	border: 1px solid #E5E5E5; 
+	width: 170px; 
+	height: 32px; 
+	background: url('/img/bg_sociall_event.png') repeat-x;
+}
+
+.social_ico_e{padding: 6px 17px; display: inline-block;}
+
+/*CT RIGHT (LOCAL/DATA/AVALICAÇÃO...)*/
+
+.ct_right_e{
+	padding: 5px; 
+	float: left; 
+	width: 420px; 
+	height: 200px;
+}
+
+.ct_event_date{ 
+	display: table; 
+	margin-top: 20px;
+}
+
+.event_name{
+	float: left; 
+	width: 290px; 
+	padding: 0 5px; 
+}
+
+.event_date{
+	float: left; 
+}
+
+.ct_event_local{
+	display: table; 
+	margin-top: 20px;
+}
+
+.event_local{
+	float: left; 
+	width: 290px; 
+	padding: 0 5px; 
+}
+
+.parc_aval{
+	float:left; 
+}
+
+.ct_btn_event_desc{
+	display: table; 
+	margin-top: 20px;
+}
+
+.btn_desc{
+	float: left; 
+	width: 290px; 
+	padding: 0 5px; 
+}
+
+.btn_go_event{
+	border:1px solid #CCC; 
+	display: table; 
+	margin-top: 30px; 
+	float: right;
+	padding: 3px 10px;
+}
