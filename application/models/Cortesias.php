@@ -15,7 +15,31 @@ class Application_Model_Cortesias
 	protected $_sexo;
 	protected $_termino;
 	
+	protected $_evento;
+	
+	/**
+	 * @return the $_evento
+	 */
+	public function getEvento() {
+		return $this->_evento;
+	}
+
+	/**
+	 * @param field_type $_evento
+	 */
+	public function setEvento($id_evento) {
+		$eventoTable = new Application_Model_DbTable_Eventos();
+		$eventoModel = new Application_Model_Evento();
+		$evento = $eventoTable->byId($id_evento, $eventoModel);
+		//$this->_evento = $evento;
+		$this->_evento = $evento->getArray();
+	}
+
 	//protected $_genero;
+	
+	
+	
+	
 	
 
 	

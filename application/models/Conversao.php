@@ -11,11 +11,54 @@ class Application_Model_Conversao
 	protected $_pontos;
 	protected $_reais;
 	protected $_concretizado;
+	protected $_visivel;
+	
+	
+	protected $_evento;
+	protected $_cortesia;
 	
 	
 	
-	
+	/**
+	 * @return the $_evento
+	 */
+	public function getEvento() {
+		return $this->_evento;
+	}
 
+	/**
+	 * @param field_type $_evento
+	 */
+	public function setEvento($id_evento) {
+		$eventoTable = new Application_Model_DbTable_Eventos();
+		$evento = $eventoTable->byId($id_evento);
+		$this->_evento = $evento;
+	}
+
+	/**
+	 * @return the $_cortesia
+	 */
+	public function getCortesia() {
+
+		return $this->_cortesia;
+	}
+
+	/**
+	 * @param field_type $_cortesia
+	 */
+	public function setCortesia($id_cortesia) {
+		$cortesiaTable = new Application_Model_DbTable_Cortesias();
+		$cortesiaModel = new Application_Model_Cortesias();
+		
+		$cortesia = $cortesiaTable->byId($id_cortesia, $cortesiaModel);
+		$this->_cortesia = $cortesia;
+	}
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * Retorna os atributos protected em array
@@ -189,6 +232,20 @@ class Application_Model_Conversao
 	public function setConcretizado($_concretizado) {
 		$this->_concretizado = $_concretizado;
 	}
+	/**
+	 * @return the $_visivel
+	 */
+	public function getVisivel() {
+		return $this->_visivel;
+	}
+
+	/**
+	 * @param field_type $_visivel
+	 */
+	public function setVisivel($_visivel) {
+		$this->_visivel = $_visivel;
+	}
+
 
 	
 	
