@@ -88,12 +88,10 @@
 
 .ct_btn_event_desc{
 	display: table; 
-	margin-top: 20px;
 }
 
 .btn_desc{
-	float: left; 
-	width: 290px; 
+	float: left;  
 	padding: 0 5px; 
 }
 
@@ -103,4 +101,11 @@
 	margin-top: 30px; 
 	float: right;
 	padding: 3px 10px;
+}
+
+
+/*Eu quero*/
+
+.cortesia_euquero{   /*  spam com o texto EU QUERO , para deixar em forma de link */
+	cursor: pointer;
 }

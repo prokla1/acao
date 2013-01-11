@@ -42,10 +42,18 @@
 				</span>
 
 			</div>
+			
+			<div class="ct_btns" style="border: 1px solid red; margin-top: 15px;">
 
-			<div class="ct_btn_event_desc">
-				<span class="btn_desc">
-				<a href=""><div class="show_details_event" id="btndetails_<?php echo $evento->id ?>">+detalhes</div></a>
+				<div class="ct_btn_event_desc" style="float: left;">
+					<span class="btn_desc">
+					<a href=""><div class="show_details_event" id="btndetails_<?php echo $evento->id ?>">+detalhes</div></a>
+				</div>
+				<div class="ct_btn_event_bonus">
+					<span class="btn_bonus">
+					<a href=""><div class="show_details_bonus" id="btnbonus_<?php echo $evento->id ?>">+bonus</div></a>
+				</div>
+			
 			</div>
 
 			<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
@@ -61,12 +69,57 @@
 	<!-- DETAILS EVENT -->	
 	
 	<div class="ct_desc_event" id="show_<?php echo $evento->id ?>" style="width: 620px; border: 1px solid #E5E5E5;">
-		dwd	 
+		
+		<div class="desc_event" style="padding: 20px;">
+			
+			<span class="title_details" style="font-size: 16px; color: black; font-weight: bold;">Descrição</span><br>
+			
+			<span class="text_desc"><?php echo $evento->descricao ?></span>
+			
+		</div> 
+	
 	</div>
 	
-	<div class="promo_event" style="width: 620px; border: 1px solid red; height: 56px;"></div>
+	
+	<!-- PAGE EVENT -->
+	
+	<div class="ct_promo_event" id="showpromo_<?php echo $evento->id ?>" style="width: 620px; border: 1px solid #CCC; display: table; font-size: 12px;">
+	<div class="promo_banner">PROMO</div>
+		
+		
+		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+			<?php foreach ($evento->cortesias as $cortesias) : ?>
+			
+			<div class="ct_promo" style="width: 100%; float: left;">
+			
+				<div class="promo" style="width: 540px; display:table; border: 1px solid white; float: left;">
+					<?php echo $cortesias->nome ?> 
+							
+						<?php if($cortesias->descricao) : //verifica se existe descricao ?>
+							(<?php echo $cortesias->descricao ?>)
+						<?php endif; ?>
+						
+						Disponível: <?php echo $cortesias->disponivel ?> 
+						
+						Valor: de <strike>R$ <?php echo $cortesias->valor_original ?></strike> por <?php echo $cortesias->valor ?>
+						
+						
+				</div>
+				
+				<div class="btn_promo" style="float: left; width: 60px;">
+					<span class="cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</span>
+				</div>	
+			
+			</div>
+				
+			<?php endforeach; ?>
+		<?php endif;?>
+	
+	</div>
 
-</div>
+</div> <!-- FINAL EVENT -->
+
+<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
@@ -130,9 +183,12 @@
 
 
 <?php 
-	//$this->headScript()->setSeparator(PHP_EOL)
-		//->prependFile($this->baseUrl('/js/show_details_event.js'));
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/show_details_event.js'))
+		->prependFile($this->baseUrl('/js/eventos.js'))
+		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'));
 
 	$this->headLink()
-		->prependStylesheet($this->baseUrl('/css/eventos.css'));
+		->prependStylesheet($this->baseUrl('/css/eventos.css'))
+	->prependStylesheet($this->baseUrl('/css/pepper-grinder/jquery-ui-1.9.2.custom.min.css'));
 ?>
