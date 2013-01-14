@@ -13,9 +13,13 @@ $(document).ready(function(){
 			autoOpen: false,
 			height: 300,
 			title: "Adquirir ingresso",
-			buttons: { "Ok": function() {
-				$(this).dialog("close");
-				}}
+			buttons: { "Eu quero": function() {
+							
+							},
+						"Cancelar": function(){
+							$(this).dialog("close");
+						}
+					}
 		});
 		
 		$('#dialog_cortesia').dialog('open'); 
@@ -25,9 +29,15 @@ $(document).ready(function(){
 			console.log(data);
 			
 			var html = '';
+	    	html = html + "<div>Deseja realmente adquirir o seguinte item?</div>";
+	    	html = html + "<strong>"+ data.nome+ "</strong>";
+	    	html = html + "<div>"+ data.descricao+ "</div>";
+	    	 
+	    	 
 			$.each(data, function(key, value) {
 			    	 //console.log(key + ": ->  " + value);
-			    	 html = html + key + ": ->  " + value + "<br />";
+			    	 //html = html + key + ": ->  " + value + "<br />";
+
 
 			});
 
