@@ -47,7 +47,6 @@ class Application_Model_DbTable_Cortesias extends Zend_Db_Table_Abstract
     }
     
     
-    
-      
+
 }
 

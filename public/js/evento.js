@@ -38,21 +38,7 @@ function converter(id_cortesia){
 		}
 	});		
 
-	/*
-	$.ajax({
-		url: "/conversao/converter", 
-		type: "POST", 
-		dataType : "json", 
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
-		data: {id_cortesia: id_cortesia},
-		success: function (r) {
-			console.log(r);
-			if (r.status == 'ok') { 
-				console.log(r);
-			}
-		}
-	});
-	*/
+
 }
 
 

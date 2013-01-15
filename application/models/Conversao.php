@@ -16,16 +16,36 @@ class Application_Model_Conversao
 	
 	protected $_evento;
 	protected $_cortesia;
+	protected $_usuario;
+
+
+
+	/**
+	 * @return the $_evento
+	 */
+	public function getUsuario() {
+		return $this->_usuario;
+	}
+	
+	/**
+	 * @param field_type $_evento
+	 */
+	public function setUsuario($id_usuario) {
+		$usuarioTable = new Application_Model_DbTable_Usuarios();
+		$usuario = $usuarioTable->find($id_usuario);
+		$this->_usuario = $usuario;
+	}
 	
 	
-	
+
+
 	/**
 	 * @return the $_evento
 	 */
 	public function getEvento() {
 		return $this->_evento;
 	}
-
+	
 	/**
 	 * @param field_type $_evento
 	 */
@@ -34,7 +54,8 @@ class Application_Model_Conversao
 		$evento = $eventoTable->byId($id_evento);
 		$this->_evento = $evento;
 	}
-
+	
+	
 	/**
 	 * @return the $_cortesia
 	 */
