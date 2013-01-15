@@ -27,6 +27,57 @@ class UsuarioController extends Zend_Controller_Action
     }
 
 
+    public function validateformAction()
+    {
+    	$this->_helper->layout()->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender(true);
+    	
+    	$form = new Application_Form_Entrar();
+    	
+    	if ( $form->isValid($this->getRequest()->getPost()) ) {
+    		
+    		$email = $form->getValue('email');
+    		$senha = $form->getValue('senha');
+    		
+    		$dbAdapter = Zend_Db_Table::getDefaultAdapter();
+    		
+    		$authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
+    		$authAdapter->setTableName('usuarios')
+    		->setIdentityColumn('email')
+    		->setCredentialColumn('senha')
+    		->setCredentialTreatment('MD5(?)');
+    		
+    		$authAdapter->setIdentity($email)
+    		->setCredential($senha);
+    		
+    		$auth = Zend_Auth::getInstance();
+    		$result = $auth->authenticate($authAdapter);
+    		
+    		$dados = array();
+    		if ( $result->isValid() ) {
+    		
+    			$info = $authAdapter->getResultRowObject();
+    			$storage = $auth->getStorage();
+    				
+    			$user = new Application_Model_Usuario(get_object_vars($info));
+    			$user->setSenha($senha);
+    			$storage->write($user);
+    				
+    			$dados['status'] = "sucesso";
+    		} else {
+    			$dados['status'] = "erro";
+    		}
+    		$this->_helper->json($dados);
+    		
+    		
+    	}else{
+    		$dados['status'] = "erro";
+    		$dados['msg'] = $form->getMessages();
+    		$this->_helper->json($dados);
+    	}
+    	
+    }
+
     public function entrarAction()
     {
     	 
@@ -137,7 +188,8 @@ class UsuarioController extends Zend_Controller_Action
     {
     	$auth = Zend_Auth::getInstance();
     	$auth->clearIdentity();
-    	return $this->_helper->redirector('index');
+    	//return $this->_helper->redirector('index');
+    	return $this->_redirect('/eventos');
     }
     
     

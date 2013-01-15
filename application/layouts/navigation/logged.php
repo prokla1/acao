@@ -10,6 +10,13 @@ $pages = array(
 				'title'			=>	'Início',
 	        ),
 			array(
+					'label' 		=> 	'Eventos',
+					'route'			=>	'default', //pq o navigation dava erro qdo estava num router
+					'controller' 	=> 	'eventos',
+					'action'		=> 	'index',
+					'title'			=>	'Eventos',
+			),
+			array(
 				'label' 		=> 	'Minha Conta',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
 				'controller' 	=> 	'usuario',

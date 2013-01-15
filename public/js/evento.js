@@ -5,49 +5,56 @@ $(document).ready(function(){
 		idTemp = id.split("cortesia_");
 		id_cortesia = idTemp[1];
 		
+		converter(id_cortesia);
 
-		// Dialog  CONVERTER  =======================
-		$('#dialog_cortesia').html('Carregando...')
-		.dialog({
-			modal: true,
-			autoOpen: false,
-			height: 300,
-			title: "Adquirir ingresso",
-			buttons: { "Eu quero": function() {
-							
-							},
-						"Cancelar": function(){
-							$(this).dialog("close");
-						}
-					}
-		});
-		
-		$('#dialog_cortesia').dialog('open'); 
-		
-
-		$.getJSON("/conversao/test", { id_cortesia: id_cortesia }, function(data){
-			console.log(data);
-			
-			var html = '';
-	    	html = html + "<div>Deseja realmente adquirir o seguinte item?</div>";
-	    	html = html + "<strong>"+ data.nome+ "</strong>";
-	    	html = html + "<div>"+ data.descricao+ "</div>";
-	    	 
-	    	 
-			$.each(data, function(key, value) {
-			    	 //console.log(key + ": ->  " + value);
-			    	 //html = html + key + ": ->  " + value + "<br />";
-
-
-			});
-
-			$('#dialog_cortesia').html(html);
-			
-			
-		});	
-		
-		
-		
 	});
+	
+	
+
 });
  
+
+
+function converter(id_cortesia){
+	
+
+	// Dialog  CONVERTER  =======================
+	$('#dialog_cortesia').html('Carregando...')
+	.dialog({
+		modal: true,
+		autoOpen: false, //já é criado aberto
+		height: 300,
+		title: "Adquirir ingresso"
+	});
+	
+	$('#dialog_cortesia').dialog('open'); 
+	$.ajax({
+		url: "/conversao", 
+		type: "POST", 
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+		data: { id_cortesia: id_cortesia },
+		success: function (r) {
+			$("#dialog_cortesia").html(r);
+		}
+	});		
+
+	/*
+	$.ajax({
+		url: "/conversao/converter", 
+		type: "POST", 
+		dataType : "json", 
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+		data: {id_cortesia: id_cortesia},
+		success: function (r) {
+			console.log(r);
+			if (r.status == 'ok') { 
+				console.log(r);
+			}
+		}
+	});
+	*/
+}
+
+
+
+

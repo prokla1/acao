@@ -1,4 +1,58 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Conversao</b> and script/action name <b>index</b></p>
-</div>
+<?php 
+$cortesia = $this->cortesia;
+?>
+
+
+
+
+<?php if($this->logged) :   //==============================se já estiver logado================= ?>
+
+	<h4>Deseja adquirir o seguinte item:</h4>
+	Nome <?php echo $cortesia->nome ?>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<?php else :   //===========================se não estiver logado===================== ?>
+
+<div id="div_msg_error_login"></div>
+<?php
+	echo $this->form;   //=================mostra o form de login=============
+?>
+
+
+<script type="text/javascript">
+
+	ValidateAjax = {
+	    doValidate: function(){
+	        $.post('/usuario/validateform',$('#form_login').serialize(),function(response){
+	            
+	            if(response.status == "sucesso"){
+	            	$('#div_msg_error_login').html("Logado");
+	            	converter(<?php echo $cortesia->id ?>);
+	            	
+	            }else{
+	            	$('#div_msg_error_login').html("Falha no login");
+	            }
+	        },'json');
+	    }
+	};
+
+    $('document').ready(function(){
+        $('#form_login').submit(function() {
+        	$('#div_msg_error_login').html("Processando...");
+        	ValidateAjax.doValidate();
+            return false;
+        });
+    });
+
+</script>
+ 
+<?php endif; ?>
