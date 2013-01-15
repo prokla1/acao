@@ -1,11 +1,14 @@
+<?php if(count($this->eventos) > 0) : ?>
 
-<?php foreach ($this->eventos as $evento): ?>
 
 <pre>
 <?php //print_r($evento)?>
 </pre>
 
 <div class="ct_left">
+
+<?php foreach ($this->eventos as $evento): ?>
+
 	<div class="ct_event">
 		
 		<div class="banner_promo"></div>
@@ -133,72 +136,18 @@
 	
 	</div> <!-- FINAL EVENT -->
 
-	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
-	
-	Link: 
-	<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
-		<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>
-	</a>
-	<p>
-	Realização:	<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
-	</p>
-	<p>
-	Descrição: <?php echo $evento->descricao ?>
-	</p>
-	<p>
-	Parceiro:
-		<a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
-		<?php echo $evento->parceiro->nome ?>
-		</a>
-	</p>
-	<p>
-	Descrição do parceiro: <?php echo $evento->parceiro->descricao ?>
-	</p>
-	<p>
-	Foto do parceiro: <?php echo $evento->parceiro->foto ?>
-	</p>
-	
-	<p>
-	<?php  echo $evento->parceiro->local->rua ?>, <?php echo $evento->parceiro->local->numero ?> <?php echo $evento->parceiro->local->complemento ?>
-	<?php  echo $evento->parceiro->local->cidade->nome ?>-<?php echo $evento->parceiro->local->cidade->estado->sigla ?>
-	</p>
-	
-	<?php //if(count($evento->cortesias) > 0) :?>
-	
-		<h2>Cortesias</h2>
-		<?php foreach ($evento->cortesias as $cortesias) : ?>
-			Ingresso: <?php echo $cortesias->nome ?> (<?php echo $cortesias->descricao ?>)
-			Disponível: <?php echo $cortesias->disponivel ?>
-			Valor: <?php echo $cortesias->valor ?>
-			<hr />
-		<?php endforeach; ?>
-	
-	<?php //endif;?>
-	
-	
-	<hr />
+
 <?php	endforeach;  ?>
 
-
-
-
-
-<h2>Destaques</h2>
-<?php foreach ($this->destaques as $destaques): ?>
-	Data: <?php echo date('d/m/Y', strtotime( $destaques->realizacao)) ?>
-	Nome: <?php echo $destaques->nome ?>
-	Local: <?php echo $destaques->parceiro->nome ?>
-	<br>
-	<hr>
-<?php endforeach;  ?>	
-	
 </div> <!-- #END CT LEFT -->
 
 <!-- #START DESTAQUES -->
 
 <div class="ct_right">
 
-	<div class="ct_event_destak" style="width: 346px; float: right; background: url('/img/bg_destak.png') repeat-x; border: 1px solid #E5E5E5;">
+<?php foreach ($this->destaques as $destaques): ?>
+
+	<div class="ct_event_destak" style="width: 346px; float: right; background: url('/img/bg_destak.png') repeat-x; border: 1px solid #E5E5E5; margin-bottom: 10px;">
 	
 	<span class="event_date_d" style="float: right; padding: 4px 8px; color: #FFF; background: url('/img/bg_date_destak.png') repeat-x; border-right: 5px solid black;"><?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span>
 	
@@ -208,13 +157,13 @@
 			</div>
 		</div>
 	
-		<div class="ct_right_d" style="padding: 18px 0 0;">
+		<div class="ct_right_d" style="padding: 14px 0 0;">
 		
-			<div class="ct_event_date_d">
+			<div class="ct_event_date_d" style="width: 200px; max-width: 200px; margin-bottom: 4px;">
 				<span class="event_name_d">Evento: <?php echo $evento->nome ?></span>
 			</div>
 			
-			<div class="ct_event_local_d">
+			<div class="ct_event_local_d" style="width: 200px; max-width: 200px; margin-bottom: 4px;">
 				<span class="event_local_d">
 					Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
 								<?php echo $evento->parceiro->nome ?>
@@ -227,6 +176,8 @@
 
 	</div>
 
+<?php endforeach;  ?>	
+	
 </div>
 	
 	
@@ -250,3 +201,7 @@
 		->prependStylesheet($this->baseUrl('/css/eventos.css'))
 	->prependStylesheet($this->baseUrl('/css/pepper-grinder/jquery-ui-1.9.2.custom.min.css'));
 ?>
+
+<?php else: ?> 
+nenhum  evento
+<?php endif;?>

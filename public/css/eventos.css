@@ -6,7 +6,7 @@
 .ct_event{
 	width: 612px;
 	position: relative; 
-	margin: 20px 0;
+	margin: 40px 0;
 }
 
 .banner_promo{
@@ -57,26 +57,28 @@
 .social_ico_e{
 	padding: 6px 16px; 
 	display: inline-block;
+	float: left;
 }
 
 /*CT RIGHT (LOCAL/DATA/AVALICAÇÃO...)*/
 
 .ct_right_e{
-	padding: 5px; 
+	padding: 30px 5px; 
 	float: left; 
 	width: 420px; 
 	height: 200px;
 }
 
 .ct_event_date{ 
-	display: table; 
+	height: 28px; 
 	margin-top: 20px;
 }
 
 .event_name{
 	float: left; 
-	width: 250px; 
-	padding: 0 5px; 
+	width: 250px;
+	height: 28px;
+	padding: 0 5px;
 }
 
 .event_date{
@@ -85,7 +87,8 @@
 
 .ct_event_local{
 	display: table; 
-	margin-top: 20px;
+	margin-top: 10px;
+	height: 28px;
 }
 
 .event_local{
@@ -98,16 +101,18 @@
 	margin-left: 5px;
 }
 
-.ct_btn_event_desc{
-	display: table; 
-}
 
-.ct_btns{border: 1px solid #CCC; margin-top: 15px; display: table;}
+.ct_btns{
+	border: 1px solid #CCC; 
+	margin-top: 15px; 
+	float: left; 
+	padding: 1px;
+}
 
 .btn_desc{ 
 	float: left; 
 	padding: 1px 5px; 
-	font-size: 11px; 
+	font-size: 11px;
 	margin: 1px;
 	background: #ff3019; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -124,7 +129,7 @@
 .btn_bonus{
 	float: left; 
 	padding: 1px 5px; 
-	font-size: 11px; 
+	font-size: 11px;
 	margin: 1px;
 	background: #ff3019; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -142,7 +147,6 @@
 	background: #fbfbfb; 
 	padding: 1px 3px; 
 	border-radius: 2px;
-	border: 1px solid red;
 }
 
 .btn_go_event{
@@ -239,8 +243,11 @@
 */
 
 .ct_right{
-	width: 358px;
-	float: left; 
+	width: 350px;
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 /*CT LEFT (LOGO E SOCIAIS)*/
