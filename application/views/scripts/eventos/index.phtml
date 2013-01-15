@@ -5,121 +5,133 @@
 <?php //print_r($evento)?>
 </pre>
 
-<div class="ct_event">
-	
-	<div class="banner_promo" style="position: absolute; width: 116px; height: 116px; background: url('/img/banner_promo.png'); right: -17; top: -13;"></div>
-	
-	<div class="event">
+<div class="ct_left">
+	<div class="ct_event">
 		
-		<div class="ct_left_e">
-			<div class="ct_flyer_e">
-				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
-			</div>
-			<div class="ct_sociais_e">
-				<ul>
-					<li class="social_ico_e"><img src="/img/btn_like.png" /></li>
-					<li class="social_ico_e"><img src="/img/btn_twitter.png" /></li>
-					<li class="social_ico_e"><img src="/img/btn_mail.png" /></li>
-				</ul>
-			</div>
-		</div>
+		<div class="banner_promo"></div>
 		
-		<div class="ct_right_e">
+		<div class="event">
 		
-			<div class="ct_event_date">
-				<span class="event_name">Evento: <?php echo $evento->nome ?></span>
-				<span class="event_date">Data: <?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span>	
+		<!-- #FLYER E SOCIAIS -->
+			
+			<div class="ct_left_e">
+				<div class="ct_flyer_e">
+					<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+				</div>
+				<div class="ct_sociais_e">
+					<ul>
+						<li class="social_ico_e"><img src="/img/btn_like.png" /></li>
+						<li class="social_ico_e"><img src="/img/btn_twitter.png" /></li>
+						<li class="social_ico_e"><img src="/img/btn_mail.png" /></li>
+					</ul>
+				</div>
 			</div>
 			
-			<div class="ct_event_local">
-				<span class="event_local">
-					Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
-								<?php echo $evento->parceiro->nome ?>
-						   </a>
-					<span class="parc_aval">
-						<img src="/img/event_aval.png"/>
-					</span>	
-				</span>
-
-			</div>
+			<!-- #START NOME EVENTO/DATA/LOCAL/AVALIAÇÃO -->
 			
-			<div class="ct_btns" style="border: 1px solid red; margin-top: 15px;">
-
-				<div class="ct_btn_event_desc" style="float: left;">
+			<div class="ct_right_e">
+			
+				<div class="ct_event_date">
+					<span class="event_name">Evento: <?php echo $evento->nome ?></span>
+					<span class="event_date">Data: <?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span>	
+				</div>
+				
+				<div class="ct_event_local">
+					<span class="event_local">
+						Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
+									<?php echo $evento->parceiro->nome ?>
+							   </a>
+						<span class="parc_aval">
+							<img src="/img/event_aval.png"/>
+						</span>	
+					</span>
+	
+				</div>
+				
+				
+				<div class="ct_btns">
+	
 					<span class="btn_desc">
-					<a href=""><div class="show_details_event" id="btndetails_<?php echo $evento->id ?>">+detalhes</div></a>
-				</div>
-				<div class="ct_btn_event_bonus">
+						<a href="">
+							<div class="show_details_event" id="btndetails_<?php echo $evento->id ?>">
+								+detalhes
+							</div>
+						</a>
+					</span>
+	
+	
 					<span class="btn_bonus">
-					<a href=""><div class="show_details_bonus" id="btnbonus_<?php echo $evento->id ?>">+bonus</div></a>
+						<a href="">
+							<div class="show_details_bonus" id="btnbonus_<?php echo $evento->id ?>">
+								+bonus <span class="bonus_count"><?php echo count($evento->cortesias) ?></span>
+							</div>
+						</a>
+					</span>
+	
+				
 				</div>
+	
+				<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
+					<div class="btn_go_event">
+						Ir para página do evento
+					</div>
+				</a>
 			
 			</div>
-
-			<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
-			<div class="btn_go_event">
-				Ir para página do evento
-			</div>
-			</a>
+			
+			<!-- #END NOME EVENTO/DATA/LOCAL/AVALIAÇÃO -->
+		
+		</div>
+		
+		<!-- DETAILS EVENT -->	
+		
+		<div class="ct_desc_event" id="show_<?php echo $evento->id ?>">
+			<div class="desc_event">
+				
+				<span class="title_details">Descrição</span><br>
+				<span class="text_desc"><?php echo $evento->descricao ?></span>
+				
+			</div> 
+		</div>
+		
+		
+		<!-- PROMO PAGE EVENT -->
+		
+		<div class="ct_promo_event" id="showpromo_<?php echo $evento->id ?>">
+		
+			<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+		
+			<table class="promo_table" border="0" cellspacing="0" width="610">
+					
+			  <tr class="promo_title">
+			    <td class="promo_topic">Tipo</td>
+			    <td class="promo_topic">Disponíveis</td>
+			    <td class="promo_topic_r">Valor</td>
+			    <td></td>
+			  </tr>
+			  
+			  	<?php foreach ($evento->cortesias as $cortesias) : ?>
+			  	
+			  <tr>
+			    <td class="promo_info"><?php echo $cortesias->nome ?></td>
+			    <td class="promo_info">
+			    	<span class="max_destak"><?php echo $cortesias->disponivel ?></span> de <span class="min_destak"><?php echo $cortesias->qtd ?></span>
+			    </td>
+			    <td class="promo_info">
+			    	de <span class="min_destak">R$<?php echo $cortesias->valor_original ?></span> por <span class="max_destak">R$<?php echo $cortesias->valor ?></span>
+			    </td>
+			    <td class="btn_go_promo cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</td>
+			  </tr>
+						
+				<?php endforeach; ?>
+					
+			</table>
+	
+			<?php endif;?>
 		
 		</div>
 	
-	</div>
-	
-	<!-- DETAILS EVENT -->	
-	
-	<div class="ct_desc_event" id="show_<?php echo $evento->id ?>" style="width: 620px; border: 1px solid #E5E5E5;">
-		
-		<div class="desc_event" style="padding: 20px;">
-			
-			<span class="title_details" style="font-size: 16px; color: black; font-weight: bold;">Descrição</span><br>
-			
-			<span class="text_desc"><?php echo $evento->descricao ?></span>
-			
-		</div> 
-	
-	</div>
-	
-	
-	<!-- PAGE EVENT -->
-	
-	<div class="ct_promo_event" id="showpromo_<?php echo $evento->id ?>" style="width: 620px; border: 1px solid #CCC; display: table; font-size: 12px;">
-	<div class="promo_banner">PROMO</div>
-		
-		
-		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
-			<?php foreach ($evento->cortesias as $cortesias) : ?>
-			
-			<div class="ct_promo" style="width: 100%; float: left;">
-			
-				<div class="promo" style="width: 540px; display:table; border: 1px solid white; float: left;">
-					<?php echo $cortesias->nome ?> 
-							
-						<?php if($cortesias->descricao) : //verifica se existe descricao ?>
-							(<?php echo $cortesias->descricao ?>)
-						<?php endif; ?>
-						
-						Disponível: <?php echo $cortesias->disponivel ?> 
-						
-						Valor: de <strike>R$ <?php echo $cortesias->valor_original ?></strike> por <?php echo $cortesias->valor ?>
-						
-						
-				</div>
-				
-				<div class="btn_promo" style="float: left; width: 60px;">
-					<span class="cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</span>
-				</div>	
-			
-			</div>
-				
-			<?php endforeach; ?>
-		<?php endif;?>
-	
-	</div>
-
-</div> <!-- FINAL EVENT -->
-
-<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
+	</div> <!-- FINAL EVENT -->
 
 	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
 	
@@ -178,7 +190,53 @@
 	Local: <?php echo $destaques->parceiro->nome ?>
 	<br>
 	<hr>
-<?php endforeach;  ?>
+<?php endforeach;  ?>	
+	
+</div> <!-- #END CT LEFT -->
+
+<!-- #START DESTAQUES -->
+
+<div class="ct_right">
+
+	<div class="ct_event_destak" style="width: 346px; float: right; background: url('/img/bg_destak.png') repeat-x; border: 1px solid #E5E5E5;">
+	
+	<span class="event_date_d" style="float: right; padding: 4px 8px; color: #FFF; background: url('/img/bg_date_destak.png') repeat-x; border-right: 5px solid black;"><?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span>
+	
+		<div class="ct_left_d">
+			<div class="ct_flyer_d">
+				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+			</div>
+		</div>
+	
+		<div class="ct_right_d" style="padding: 18px 0 0;">
+		
+			<div class="ct_event_date_d">
+				<span class="event_name_d">Evento: <?php echo $evento->nome ?></span>
+			</div>
+			
+			<div class="ct_event_local_d">
+				<span class="event_local_d">
+					Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
+								<?php echo $evento->parceiro->nome ?>
+						   </a>
+				</span>
+	
+			</div>
+		
+		</div>
+
+	</div>
+
+</div>
+	
+	
+
+	
+<!-- #START DIALOG CORTESIAS -->
+
+<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
+
+
 
 
 

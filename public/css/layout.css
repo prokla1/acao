@@ -109,24 +109,17 @@ body{background: url("/img/bg.png") repeat;}
 /* ================================== #CONTENT ===========================================*/
 
 #ct_content{
-	width: 100%; 
+	width: 100%;
 }
 
 #content{
 	width: 980px; 
-	max-width: 980px; 
 	margin: 0 auto; 
 	display: table;
 }
 
-#content_left{
-	width: 622px; 
-	float: left;
-	display: table;
-	margin-right: 2px;
-}
 
-#left_top{
+#top_date_search{
 	margin-bottom: 10px;
 	padding: 15px 20px;
 	height: 22px;
@@ -134,20 +127,6 @@ body{background: url("/img/bg.png") repeat;}
 	box-shadow: 0 1px 6px #ccc;
 }
 
-#content_right{
-	width: 354px;
-	float: left; 
-	display: table;
-}
-
-#right_top{
-	margin-bottom: 10px;
-	padding: 15px 20px;
-	height: 22px;
-	background: url("/img/bg_top_content_i.png") repeat-x;
-	box-shadow: 0 1px 6px #ccc;
-	border-right: 2px solid #ccc;
-}
 
 /* ================================== #BUSCA AVANÇADA ===========================================*/
 
