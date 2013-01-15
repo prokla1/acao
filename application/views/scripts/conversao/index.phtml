@@ -4,55 +4,138 @@ $cortesia = $this->cortesia;
 
 
 
+<?php  if($this->logged) :   //==============================se já estiver logado=================  ?>
+	<?php $usuario = $this->usuario; ?>
+	
+	
+	<?php if($cortesia->sexo == '3' || $cortesia->sexo == $usuario->sexo) :  //====== verifica o sexo permitido para a cortesia ?>
+			<h4>Deseja adquirir o seguinte item:</h4>
+			Nome <?php echo $cortesia->nome ?>
+			<br />
+			Descrição: <?php echo $cortesia->descricao ?>
+			<br />
+			Valor: <?php echo $cortesia->valor ?>
+			<br />
+			Disponível: <?php echo $cortesia->disponivel ?>/<?php echo $cortesia->qtd ?>
+			
+			
+			
+			<script type="text/javascript">
+				$('#dialog_cortesia').dialog({
+					buttons: { "Eu quero !": function(){
+								conversao('<?php echo $cortesia->id ?>');
+							},"Cancelar": function() {
+								$(this).dialog("close");
+							}
+					}
+				});
+		
+				function conversao(id_cortesia){
+					$.ajax({
+						url: "/conversao/converter", 
+						type: "POST", 
+						contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+						data: {id_cortesia: id_cortesia},
+						success: function (r) {
+							$("#dialog_cortesia").html(r);
+						}
+					});
+				}
+			</script>	
+					
+	
+	
+	
+	
+	
+	<?php else : //================ sexo não é permitido ou usuário não informou o sexo ?>
+	
+		<?php if($usuario->sexo == '0') :?>
+			Você ainda não informou seu sexo.
+			<hr>
+			Vá até sua conta para informar os dados necessários.
+			
+				<script type="text/javascript">
+					$('#dialog_cortesia').dialog({
+						buttons: { "Minha Conta": function(){
+								location.href= '/usuario';
+							},"Cancelar": function() {
+								$(this).dialog("close");
+							}
+						}
+					});
+				</script>
+			
+			
+			
+		<?php else : ?>
+			Este tipo de produto não é permitido para o seu sexo
+				<script type="text/javascript">
+					$('#dialog_cortesia').dialog({
+						buttons: {"Cancelar": function() {
+								$(this).dialog("close");
+							}
+						}
+					});
+				</script>
+				
+		<?php endif; ?>
+	
+	
+	
+	<?php endif;  //================ final da verificação do sexo ?>
 
-<?php if($this->logged) :   //==============================se já estiver logado================= ?>
 
-	<h4>Deseja adquirir o seguinte item:</h4>
-	Nome <?php echo $cortesia->nome ?>
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
 	
 <?php else :   //===========================se não estiver logado===================== ?>
 
-<div id="div_msg_error_login"></div>
-<?php
-	echo $this->form;   //=================mostra o form de login=============
-?>
+		<div id="div_msg_error_login"></div>
+		<?php
+			$form = $this->form;
+			$form->removeElement('submit');
+			echo $form;   //=================mostra o form de login=============
+		?>
 
 
-<script type="text/javascript">
+		<script type="text/javascript">
 
-	ValidateAjax = {
-	    doValidate: function(){
-	        $.post('/usuario/validateform',$('#form_login').serialize(),function(response){
-	            
-	            if(response.status == "sucesso"){
-	            	$('#div_msg_error_login').html("Logado");
-	            	converter(<?php echo $cortesia->id ?>);
-	            	
-	            }else{
-	            	$('#div_msg_error_login').html("Falha no login");
-	            }
-	        },'json');
-	    }
-	};
+		$('#dialog_cortesia').dialog({
+			buttons: { "Entrar": function(){
+					ValidateAjax.doValidate();
+				},"Cancelar": function() {
+					$(this).dialog("close");
+				}
+			}
+		});
 
-    $('document').ready(function(){
-        $('#form_login').submit(function() {
-        	$('#div_msg_error_login').html("Processando...");
-        	ValidateAjax.doValidate();
-            return false;
-        });
-    });
-
-</script>
+				
+			ValidateAjax = {
+			    doValidate: function(){
+			        $.post('/usuario/validateform',$('#form_login').serialize(),function(response){
+			            
+			            if(response.status == "sucesso"){
+			            	$('#div_msg_error_login').html("Logado");
+			            	converter(<?php echo $cortesia->id ?>);
+			            	
+			            }else{
+			            	$('#div_msg_error_login').html("Falha no login");
+			            }
+			        },'json');
+			    }
+			};
+		
+		    $('document').ready(function(){
+		        $('#form_login').submit(function() {
+		        	$('#div_msg_error_login').html("Processando...");
+		        	ValidateAjax.doValidate();
+		            return false;
+		        });
+		    });
+		
+		</script>
  
 <?php endif; ?>

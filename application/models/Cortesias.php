@@ -32,7 +32,7 @@ class Application_Model_Cortesias
 		$eventoModel = new Application_Model_Evento();
 		$evento = $eventoTable->byId($id_evento, $eventoModel);
 		//$this->_evento = $evento;
-		$this->_evento = $evento->getArray();
+		$this->_evento = $evento; //->getArray();
 	}
 
 	//protected $_genero;
