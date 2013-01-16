@@ -1,3 +1,8 @@
+<?php 
+	$rodape = $this->partial('partials/rodape.phtml');
+	$topo =  $this->partial('partials/topo.phtml');
+	$busca_avancada =  $this->partial('partials/busca_avancada.phtml');
+?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -45,7 +50,7 @@ echo 	$this->headMeta(),PHP_EOL;
 	
 		<!--=============================== Page Navigation TOPO ================================================== -->
 		<?php 
-			echo $this->partial('partials/topo.phtml');
+			echo $topo;
 		?>
 
 		
@@ -90,47 +95,9 @@ echo 	$this->headMeta(),PHP_EOL;
 					</div>
 					
 		<!--===== BUSCA AVANÇADA ====== -->	
-		
-					<div id="search_adv">
+		<?php echo $busca_avancada; ?>					
 					
-						<div id="categories">
-							<ul>
-								<li class="iten_category">Bares e Restaurantes</li>
-								<li class="iten_category">Casas noturnas</li>
-								<li class="iten_category">Cinemas</li>
-								<li class="iten_category">Teatros</li>
-							</ul>
-						</div>
-						
-						<div id="filter">
 					
-							<table>
-							  <tr>
-							    <td class="txt_input_h">Local:</td>
-							    <td><input type="" name="local_filter" size="30"/></td>
-							    <td class="txt_input_h">Data:</td>
-							    <td><input type="" name="date_filter" /></td>
-							  </tr>
-							  <tr>
-							    <td class="txt_input_h">Genero:</td>
-							    <td>
-							    	<select name="genre_filter" id="genre_filter">
-        								<option value="Rock">Rock</option>
-        								<option value="Sertanejo">Sertanejo</option>
-        								<option value="Eletronica">Eletronica</option>
-      								</select>
-      							</td>
-							    <td class="txt_input_h">Cidade:</td>
-							    <td><input type="" name="city_filter" /></td>
-							  </tr>
-							  <tr>
-							    <td colspan="4"><a href="#" id="btn_go_filter">Buscar</a></td>
-							  </tr>
-							</table>
-				
-						</div>
-					
-					</div>					
 					
 				
 						<?php echo $this->layout()->content;?>
@@ -140,12 +107,8 @@ echo 	$this->headMeta(),PHP_EOL;
 		</div>
 
 		<!--=============================== Page Rodapé ================================================== -->
-		<?php 
-			echo $this->partial('partials/rodape.phtml');
-		?>
+		<?php echo $rodape; ?>
 
-		
-		
 
 
 <!--=============================== JS ================================================== -->
