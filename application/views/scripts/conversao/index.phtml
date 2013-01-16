@@ -39,6 +39,12 @@ $cortesia = $this->cortesia;
 				$('#dialog_cortesia').dialog({
 					buttons: { "Eu quero !": function(){
 								conversao('<?php echo $cortesia->id ?>');
+								$('#dialog_cortesia').dialog({
+									buttons:{"Cancelar": function(){
+											$(this).dialog("close");
+										}
+									}
+								});
 							},"Cancelar": function() {
 								$(this).dialog("close");
 							}
