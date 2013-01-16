@@ -5,9 +5,12 @@
 <div class="ct_max bg_top" style="width: 100%; text-align: center;">
 	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
 		<div class="topo" style="height: 265px; position: relative;">
+		
+		<!-- LEFT -->
+			
 			<div class="ct_left" style="position: absolute;">
 			
-				<div class="ct_logo_sociais" style="float: left; padding: 40px 10px 0 40px;">
+				<div class="ct_logo_sociais" style="float: left; padding: 40px 20px 0 20px;">
 					<div class="logo_parceiro">
 					
 						<img alt="<?php echo $parceiro->nome ?>" src="/img/parceiros/<?php echo $parceiro->foto?> "/>
@@ -26,7 +29,7 @@
 				<div class="info_parceiro" style="float:left; margin: 80px 0; width: 350px; position: relative;">
 				
 					<ul style="position: absolute;">
-						<li><?php echo $parceiro->nome ?></li>
+						<li><span class="title_destak" style="font-size: 24px; color: #F60;"><?php echo $parceiro->nome ?></span></li>
 						<li><?php echo $parceiro->local->cidade->nome ?> - <?php echo $parceiro->local->cidade->estado->sigla ?></li>
 						<li>ver descrição do local</li>
 					</ul>
@@ -34,27 +37,26 @@
 				</div>
 			</div>
 			
-			<div class="ct_left" style="position: absolute; right: 0; border: 1px solid red;">
+			<!-- RIGHT -->
 			
-				<div class="ct_btns_topo" style="float: left; padding: 40px 10px 0 40px;">
-					<div class="btns">
-					
+			<div class="ct_right" style="position: absolute; right: 0;">
+				
+				<div class="ct_btns_top" style="margin: 60px 20px 0 0;">	
 					<ul>
-						<li class="btn_top">BOTAO</li>
-						<li class="btn_top">BOTAO II</li>
-						<li class="btn_top">BOTAO III</li>
+						<li class="btn_top">Avaliação</li>
+						<li class="btn_top">Pagamentos</li>
+						<li class="btn_top">Horários</li>
 					</ul>
-					
-					</div>
-					<div class="ct_location" style="text-align: right;">
-					
-						location
-					
-					</div>
 				</div>
+					
+				<div class="ct_location" style="width: 400px; margin: 160px 0 0;">
+				
+					location
+				
+				</div>
+				
 			</div>
-		
-		
+			
 		</div>
 	</div>
 </div>
@@ -63,18 +65,18 @@
 <!-- BARRA -->
 
 
-<div class="ct_max" style="width: 100%; border: 1px solid red; text-align: center;">
-	<div class="ct_min" style="width: 980px; border: 1px solid red; margin: 0 auto; text-align: left;">
-		<div class="line_down_topo" style="height: 55px; border: 1px solid black; position: relative;">
-			<div class="ct_left" style="border: 1px solid blue; position: absolute;">
+<div class="ct_max" style="width: 100%; text-align: center;">
+	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
+		<div class="line_down_topo" style="position: relative;">
+			<div class="ct_left" style="position: absolute;">
 			
-				<div class="title_line_down">TITULO</div>
+				<div class="title_line_down">Exibindo: ...</div>
 			
 			</div>
 			
-			<div class="ct_right" style="border: 1px solid blue; position: absolute; right: 0;">
+			<div class="ct_right" style="position: absolute; right: 0;">
 			
-				<div class="btn_search">BUSCA</div>
+				<div class="btn_search">BUSCA AVANÇADA</div>
 			
 			</div>
 		
@@ -86,27 +88,39 @@
 <!-- AGENDA/RIGHT -->
 
 
-<div class="ct_max bg_top" style="width: 100%; border: 1px solid red; text-align: center;">
-	<div class="ct_min" style="width: 980px; border: 1px solid red; margin: 0 auto; text-align: left;">
-		<div class="line_down_topo" style="height: 55px; border: 1px solid black; position: relative;">
-			<div class="ct_left" style="border: 1px solid blue; position: absolute;">
+<div class="ct_max" style="width: 100%; text-align: center;">
+	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
+		<div class="ct_all_p" style="position: relative;">
+			<div class="ct_left" style="position: absolute;">
 			
-				<div class="events_parceiro">eventos</div>
+				<div>Exibe aqui</div>
 			
 			</div>
 			
-			<div class="ct_right" style="border: 1px solid blue; position: absolute; right: 0;">
+			<div class="ct_right" style="position: absolute; right: 0;">
 			
-				<div class="right_parceiro">RIGHT</div>
-			
+				<div class="ct_photos" style="width: 346px; border: 1px solid red;">
+					PHOTOS
+				</div>
+				
+				<div class="ct_location_map" style="width: 346px; border: 1px solid red;">
+					LOCALIZAÇÃO
+				</div>
+
+				<div class="ct_contact" style="width: 346px; border: 1px solid red;">
+					CONTATO
+				</div>
 			</div>
 		
 		</div>
 	</div>
 </div>
 
-<?php 
 
+<br>
+
+
+<?php 
 
 
 echo "<pre>";
