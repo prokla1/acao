@@ -133,3 +133,14 @@
 <?php	endforeach;  ?>
 
 </div> <!-- #END CT LEFT -->
+
+
+
+	<?php 
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/eventos_partial.css'));
+	
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/eventos_partial.js'))
+		->prependFile($this->baseUrl('/js/cortesia.js'));
+	?>	
