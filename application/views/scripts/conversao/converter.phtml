@@ -49,26 +49,30 @@ $usuario = $this->usuario;
 		
 	<?php else :  // tudo validado, agora finalmente efetua a troca ?>
 	
-	<?php 
+	<?php
 		$conversaoTable = new Application_Model_DbTable_Conversao();
-		
-		$conversoes = $conversaoTable->jaConverteu($usuario->id, $cortesia->id);
-		
-		echo "<hr>";
-		print_r($conversoes);
-		
-		if($conversoes){
-			echo "já converteu";
-		}else{
-			$conversaoTable->converter($cortesia, $usuario);   // converte, grava a converção
-			echo "convertido";
-		}
+		$jaconverteu = $conversaoTable->jaConverteu($usuario->id, $cortesia->id); //qtd de cortesias adquiridas
 	?>
+		
+		
+		<?php if($jaconverteu >= $cortesia->max_converter) : //usuario ja converteu esta cortesia ?>
+			<h3>Você já adquiriu <?php echo $jaconverteu ?> deste produto</h3>
+			O limite para este produto é de: <?php echo $cortesia->max_converter ?> por usuário.
+			Indique a seus amigos
+			
+			
+			
+		<?php else : //usuario ainda nao converteu ?>
+		<?php 			
+			$conversaoTable->converter($cortesia, $usuario);   // converte, grava a converção
+		?>
+			<h3>Adquirido com sucesso</h3>
+			Dirija-se até um posto de troca para resgatar seu produto:
+			<div><?php echo $cortesia->nome ?></div>
 	
-	<h3>Adquirido com sucesso</h3>
-	Dirija-se até um posto de troca para resgatar seu produto:
-	<div><?php echo $cortesia->nome ?></div>
+		<?php endif; ?>
 	
+
 		<script type="text/javascript">
 		$('#dialog_cortesia').dialog({
 			buttons: { "Fechar": function() {

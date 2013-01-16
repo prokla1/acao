@@ -39,17 +39,14 @@ class Application_Model_DbTable_Conversao extends Zend_Db_Table_Abstract
     /**
      * Verifica se o usuario já converteu a cortesia pelo ID_USUARIO e ID_CORTESIA
      * @param String $id_usuario, $id_cortesia
-     * @return boolean FALSE / TRUE
+     * @return inteiro QTD de coversoes
      */
     public function jaConverteu($id_usuario, $id_cortesia){
     	$resultSet = $this->select()
 	    	->from('conversao')
 	    	->where('id_cortesia = ?', $id_cortesia)
-	    	->order('hora')
-	    	->query();
-    	
-    
-    	return $result->toArray(); //(count($this->fetchAll($where)) == 0) ? false : true;
+	    	->where('id_usuario = ?', $id_usuario);
+    	return count($this->fetchAll($resultSet)->toArray());
     }
 
 

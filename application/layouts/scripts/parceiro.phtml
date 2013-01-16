@@ -44,33 +44,11 @@ echo 	$this->headMeta(),PHP_EOL;
 	
 	
 		<!--=============================== Page Navigation TOPO ================================================== -->
-		<div id="ct_menu" style="text-align: center;"><!-- [start] ct_menu -->
+		<?php 
+			echo $this->partial('partials/topo.phtml');
+		?>
 		
-			<div id="top_menu"> <!-- [start] top_menu -->
 		
-				<div class="top_home">
-	<!-- 				<a href="?l=pt_BR">[pt]</a> -->
-	<!-- 				<a href="?l=en">[en]</a> -->
-				<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.seusite.com.br&layout=button_count&show_faces=false&width=80&action=like&font=lucida+grande&colorscheme=light" allowtransparency="true" style="border: medium none; overflow: hidden; width: 80px; height: 21px;" frameborder="0" scrolling="no"></iframe>
-				
-				</div>
-				
-				<div class="top_menus">
-					<?php 
-					
-					if ( !Zend_Auth::getInstance()->hasIdentity() ){ 
-						//echo $this->navigation()->setTranslator(Zend_Registry::get('Zend_Translate'))->menu()->renderMenu(Zend_Registry::get('default'));
-						echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('default'));
-					}else {
-						echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
-						}
-						
-					?>	
-				</div>
-				
-			</div> <!-- [end] top_menu -->
-
-		</div><!-- [end] ct_menu -->
 
 		<!--=============================== Page TOPO II ================================================== -->
 		<div id="ct_top">
@@ -111,47 +89,9 @@ echo 	$this->headMeta(),PHP_EOL;
 					</div>
 					
 		<!--===== BUSCA AVANÇADA ====== -->	
-		
-					<div id="search_adv">
-					
-						<div id="categories">
-							<ul>
-								<li class="iten_category">Bares e Restaurantes</li>
-								<li class="iten_category">Casas noturnas</li>
-								<li class="iten_category">Cinemas</li>
-								<li class="iten_category">Teatros</li>
-							</ul>
-						</div>
-						
-						<div id="filter">
-					
-							<table>
-							  <tr>
-							    <td class="txt_input_h">Local:</td>
-							    <td><input type="" name="local_filter" size="30"/></td>
-							    <td class="txt_input_h">Data:</td>
-							    <td><input type="" name="date_filter" /></td>
-							  </tr>
-							  <tr>
-							    <td class="txt_input_h">Genero:</td>
-							    <td>
-							    	<select name="genre_filter" id="genre_filter">
-        								<option value="Rock">Rock</option>
-        								<option value="Sertanejo">Sertanejo</option>
-        								<option value="Eletronica">Eletronica</option>
-      								</select>
-      							</td>
-							    <td class="txt_input_h">Cidade:</td>
-							    <td><input type="" name="city_filter" /></td>
-							  </tr>
-							  <tr>
-							    <td colspan="4"><a href="#" id="btn_go_filter">Buscar</a></td>
-							  </tr>
-							</table>
-				
-						</div>
-					
-					</div>					
+		<?php 
+			echo $this->partial('partials/busca_avancada.phtml');
+		?>				
 					
 					
 					<h2>TEMPLATE</h2>   
@@ -164,11 +104,9 @@ echo 	$this->headMeta(),PHP_EOL;
 		</div>
 
 		<!--=============================== Page Rodapé ================================================== -->
-		
-		
-		<div id="ct_rodape">
-			<div id="rodape">HAHA</div>
-		</div>
+		<?php 
+			echo $this->partial('partials/rodape.phtml');
+		?>
 		
 		
 
