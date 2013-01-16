@@ -1,7 +1,94 @@
+<?php $parceiro = $this->parceiro; ?>
 
+<!-- TOPO -->
+
+<div class="ct_max bg_top" style="width: 100%; border: 1px solid red; text-align: center;">
+	<div class="ct_min" style="width: 980px; border: 1px solid red; margin: 0 auto; text-align: left;">
+		<div class="topo" style="height: 265px; border: 1px solid black; position: relative;">
+			<div class="ct_left" style="border: 1px solid blue; position: absolute;">
+			
+				<div class="ct_logo_sociais" style="border: 1px solid red; float: left;">
+					<div class="logo_parceiro">
+					
+						<img alt="<?php echo $parceiro->nome ?>" src="/img/parceiros/<?php echo $parceiro->foto?> "/>
+					
+					</div>
+					<div class="sociais_parceiro" style="float: right;">
+					
+						<ul>
+							<li class="social_ico_p"><img src="/img/btn_twitter_p.png" /></li>
+							<li class="social_ico_p"><img src="/img/btn_face_p.png" /></li>
+						</ul>
+					
+					</div>
+				</div>
+				
+				<div class="info_parceiro" style="border: 1px solid red; float: left;">
+				
+					<ul>
+						<li><?php echo $parceiro->nome ?></li>
+						<li><?php echo $parceiro->local->cidade->nome ?> - <?php echo $parceiro->local->cidade->estado->sigla ?></li>
+						<li>ver descrição do local</li>
+					</ul>
+				
+				</div>
+				
+			</div>
+			
+			<div class="ct_right" style="border: 1px solid blue; position: absolute; right: 0;">CT RIGHT</div>
+		
+		</div>
+	</div>
+</div>
+
+
+<!-- BARRA -->
+
+
+<div class="ct_max" style="width: 100%; border: 1px solid red; text-align: center;">
+	<div class="ct_min" style="width: 980px; border: 1px solid red; margin: 0 auto; text-align: left;">
+		<div class="line_down_topo" style="height: 55px; border: 1px solid black; position: relative;">
+			<div class="ct_left" style="border: 1px solid blue; position: absolute;">
+			
+				<div class="title_line_down">TITULO</div>
+			
+			</div>
+			
+			<div class="ct_right" style="border: 1px solid blue; position: absolute; right: 0;">
+			
+				<div class="btn_search">BUSCA</div>
+			
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+<!-- AGENDA/RIGHT -->
+
+
+<div class="ct_max bg_top" style="width: 100%; border: 1px solid red; text-align: center;">
+	<div class="ct_min" style="width: 980px; border: 1px solid red; margin: 0 auto; text-align: left;">
+		<div class="line_down_topo" style="height: 55px; border: 1px solid black; position: relative;">
+			<div class="ct_left" style="border: 1px solid blue; position: absolute;">
+			
+				<div class="events_parceiro">eventos</div>
+			
+			</div>
+			
+			<div class="ct_right" style="border: 1px solid blue; position: absolute; right: 0;">
+			
+				<div class="right_parceiro">RIGHT</div>
+			
+			</div>
+		
+		</div>
+	</div>
+</div>
 
 <?php 
-$parceiro = $this->parceiro;
+
 
 
 echo "<pre>";
