@@ -192,11 +192,11 @@
 
 
 
-
 <?php 
 	$this->headScript()->setSeparator(PHP_EOL)
 		->prependFile($this->baseUrl('/js/show_details_event.js'))
 		->prependFile($this->baseUrl('/js/eventos.js'))
+		->prependFile($this->baseUrl('/js/cortesia.js'))
 		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'));
 
 	$this->headLink()

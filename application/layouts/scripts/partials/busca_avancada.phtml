@@ -17,7 +17,7 @@
 							    <td class="txt_input_h">Local:</td>
 							    <td><input type="" name="local_filter" size="30"/></td>
 							    <td class="txt_input_h">Data:</td>
-							    <td><input type="" name="date_filter" /></td>
+							    <td><input type="text" name="date_filter" id="date_filter" /></td>
 							  </tr>
 							  <tr>
 							    <td class="txt_input_h">Genero:</td>
@@ -49,5 +49,5 @@
 
 
 	$this->headScript()->setSeparator(PHP_EOL)
-	->prependFile($this->baseUrl('/js/show_search.js'));
+	->appendFile($this->baseUrl('/js/show_search.js'));
 	?>
