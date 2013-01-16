@@ -7,6 +7,19 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
 
     
 
+    /*
+     * seleciona o usuario pelo ID
+     * retorn objeto USUARIO
+     */
+    public function byId($id, Application_Model_Usuario $usuario)
+    {
+    	$result = $this->fetchRow('id = '.$id);
+    	$usuarios = $result->toArray();
+    	$usuario->setOptions($usuarios);
+    	return $usuario;
+    }
+    
+    
     
     public function save(Application_Model_Usuario $usuario)
     {

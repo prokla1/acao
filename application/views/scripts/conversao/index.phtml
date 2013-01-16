@@ -4,7 +4,7 @@ $cortesia = $this->cortesia;
 
 
 
-<?php  if($this->logged) :   //==============================se já estiver logado=================  ?>
+<?php  if($this->logged) :   //==============================se já estiver logado=================//  ?>
 	<?php $usuario = $this->usuario; ?>
 	
 	
@@ -17,6 +17,21 @@ $cortesia = $this->cortesia;
 			Valor: <?php echo $cortesia->valor ?>
 			<br />
 			Disponível: <?php echo $cortesia->disponivel ?>/<?php echo $cortesia->qtd ?>
+			
+			
+			
+			<h5>Convertidos: <?php echo $qtd_convertidos = count($this->conversoes)?></h5>
+			<div id="list_convertidos_<?php echo $cortesia->id ?>">
+				<ul>
+					<?php foreach ($this->conversoes as $conversoes) :   //============= lista as conversoes ja realizadas para este produto ===========//  ?>
+						<li>
+							<?php echo date('d/m/Y H:i:s', strtotime( $conversoes->hora )) ?> 
+							- 
+							<?php echo ( $conversoes->visivel == '1' ) ? $conversoes->usuario->nome : "--Oculto--" ; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
 			
 			
 			
@@ -48,7 +63,7 @@ $cortesia = $this->cortesia;
 	
 	
 	
-	<?php else : //================ sexo não é permitido ou usuário não informou o sexo ?>
+	<?php else : //================ sexo não é permitido ou usuário não informou o sexo========// ?>
 	
 		<?php if($usuario->sexo == '0') :?>
 			Você ainda não informou seu sexo.
@@ -83,7 +98,7 @@ $cortesia = $this->cortesia;
 	
 	
 	
-	<?php endif;  //================ final da verificação do sexo ?>
+	<?php endif;  //================ final da verificação do sexo=========// ?>
 
 
 
@@ -91,13 +106,13 @@ $cortesia = $this->cortesia;
 
 
 	
-<?php else :   //===========================se não estiver logado===================== ?>
+<?php else :   //===========================se não estiver logado=====================// ?>
 
 		<div id="div_msg_error_login"></div>
 		<?php
 			$form = $this->form;
 			$form->removeElement('submit');
-			echo $form;   //=================mostra o form de login=============
+			echo $form;   //=================mostra o form de login=============//
 		?>
 
 
