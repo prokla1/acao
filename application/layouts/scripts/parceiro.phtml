@@ -63,18 +63,6 @@ echo 	$this->headMeta(),PHP_EOL;
 				
 				<div id="top_right">
 				
-					<div id="ct_location">
-					
-						<div id="location">
-							Você está em:
-						</div> 
-						<a href="<?php echo $this->url(array('controller' => 'localidade', 'action' => 'index'), null, true); ?>">
-							<div style="color: white; padding-right: 40px; background: url('/img/btn_location.png') no-repeat center right; float: left;">
-									<?php echo $this->cityNome ?>
-							</div>
-						</a>
-						
-					</div>
 				
 				</div>
 			</div>
@@ -86,16 +74,10 @@ echo 	$this->headMeta(),PHP_EOL;
 		<div id="ct_content">
 			<div id="content">
 			
-					<div id="top_date_search">
-						<div style="float: left; width: 420px; max-width: 420px;">Exibindo eventos do dia: 09/01/2013</div>
-						<div style="float: left;margin-top: -6px;">
-							<a href=""><div id="search"><img src="/img/btn_search.png" /></div></a>
-						</div>
-					</div>
 					
 		<!--===== BUSCA AVANÇADA ====== -->	
 		<?php 
-			echo $busca_avancada;
+			//echo $busca_avancada;
 		?>				
 					
 
@@ -116,13 +98,9 @@ echo 	$this->headMeta(),PHP_EOL;
 		
 		
 
+
 <!--=============================== JS ================================================== -->
 <?php
-
-	$this->headScript()->setSeparator(PHP_EOL)
-		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));
-		
-		 
 	echo	$this->headScript(),PHP_EOL;
 ?>
 
