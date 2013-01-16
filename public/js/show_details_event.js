@@ -1,6 +1,6 @@
 // JavaScript Document
 
-// EXIBE FILTRO
+// EXIBE DETALHES EVENTO
 
 $(document).ready(function(){
  $('.ct_desc_event').hide();

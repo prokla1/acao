@@ -32,6 +32,8 @@
 					<span class="event_date">Data: <?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span>	
 				</div>
 				
+				<?php if ($evento->parceiro) : ?>
+				
 				<div class="ct_event_local">
 					<span class="event_local">
 						Local: <a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
@@ -43,6 +45,8 @@
 					</span>
 	
 				</div>
+				
+				<?php endif;?>
 				
 				
 				<div class="ct_btns">
@@ -135,6 +139,9 @@
 </div> <!-- #END CT LEFT -->
 
 
+<!-- #START DIALOG CORTESIAS -->
+
+<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
 
 	<?php 
 	$this->headLink()
