@@ -1,0 +1,23 @@
+.bg_top{background: #fbfbfb;}
+
+.logo_parceiro{
+	border: 1px solid #E5E5E5; 
+	background: #CCC; 
+	width: 158px; 
+	height: 158px; 
+	margin-bottom: 4px;
+}
+
+.logo_parceiro img{
+	width: 150px; 
+	height: 150px; 
+	margin: 2px; 
+	border: 2px solid #FFF;
+	background: #333;
+}
+
+.social_ico_p{
+	padding: 4px 2px; 
+	display: inline-block;
+	float: left;
+}
