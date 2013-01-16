@@ -103,11 +103,12 @@ $eventos = $this->eventos;
 			<div class="ct_right" style="position: absolute; right: 0;">
 			
 				<div class="ct_photos" style="width: 346px; border: 1px solid red;">
-					PHOTOS
+					<div><?php echo $this->partial('partials/fotos.phtml', array('fotos' => $parceiro->fotos)); ?></div>
+				
 				</div>
 				
 				<div class="ct_location_map" style="width: 346px; border: 1px solid red;">
-					LOCALIZAÇÃO
+					<div><?php echo $this->partial('partials/mapa.phtml', array('local' => $parceiro->local)); ?></div>
 				</div>
 
 				<div class="ct_contact" style="width: 346px; border: 1px solid red;">

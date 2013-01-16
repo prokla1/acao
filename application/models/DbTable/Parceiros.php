@@ -15,6 +15,7 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     	$parceiros = $result->toArray();    	 
     	$parceiro->setOptions($parceiros);
     	$parceiro->setLocal($result->id_endereco);
+    	$parceiro->setFotos($id);
     
     	return $parceiro;
     }

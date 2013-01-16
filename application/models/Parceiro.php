@@ -13,14 +13,36 @@ class Application_Model_Parceiro
 	protected $_hora;
 	
 	protected $_local;
+	protected $_fotos;
 	
-	
+
 
 
 
 
 	/**
 	 * @param field_type $_id_parceiro
+	 */
+	public function setFotos($id_parceiro) {
+		$fotos = new Application_Model_DbTable_ParceirosFotos();
+		$this->_fotos = $fotos->fotosByParceiro($id_parceiro);
+	}
+	
+	/**
+	 * @return the $_fotos (objeto class Application_Model_ParceirosFotos)
+	 */
+	public function getFotos() {
+		return $this->_fotos;
+	}
+	
+	
+		
+
+
+
+
+	/**
+	 * @param field_type $_id_endereco
 	 */
 	public function setLocal($id_endereco) {
 		$localEnderecoTable = new Application_Model_DbTable_LocalEnderecos();
@@ -32,7 +54,7 @@ class Application_Model_Parceiro
 	}
 	
 	/**
-	 * @return the $_parceiro (objeto class Parceiros)
+	 * @return the $_local (objeto class Local)
 	 */
 	public function getLocal() {
 		return $this->_local;

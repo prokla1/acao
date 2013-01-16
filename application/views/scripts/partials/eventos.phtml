@@ -4,7 +4,9 @@
 
 	<div class="ct_event">
 		
-		<div class="banner_promo"></div>
+		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+			<div class="banner_promo"></div>
+		<?php endif; ?>
 		
 		<div class="event">
 		
