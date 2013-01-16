@@ -25,7 +25,6 @@ class EventosController extends Zend_Controller_Action
     	if(empty($dia_base)){
     		$dia_base = time(); //+86400*50;  //86400 = 1 dia
     	}
-    		print_r($dia_base);
     	
     	$eventos = new Application_Model_DbTable_Eventos();
     	//$this->view->eventos = $eventos->findByCity($this->cityId);

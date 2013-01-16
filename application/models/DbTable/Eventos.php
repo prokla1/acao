@@ -163,7 +163,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))
     	->order('eventos.hora');
     	 
-    	Zend_Debug::dump($resultSet->query());
+    	//Zend_Debug::dump($resultSet->query());
     	$eventos = array();
     	foreach ($resultSet->query() as $row) {
     
