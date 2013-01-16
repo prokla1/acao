@@ -45,4 +45,9 @@
 	<?php 
 	$this->headLink()
 		->prependStylesheet($this->baseUrl('/css/busca_avancada.css'));
+	
+
+
+	$this->headScript()->setSeparator(PHP_EOL)
+	->prependFile($this->baseUrl('/js/show_search.js'));
 	?>
