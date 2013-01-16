@@ -3,7 +3,7 @@ body{
 }
 
 .bg_top{
-	background: #fbfbfb;
+	
 }
 
 .logo_parceiro{
@@ -29,15 +29,17 @@ body{
 }
 
 .btn_top{
-	padding: 4px 2px; 
+	padding: 4px 6px; 
 	display: inline;
+	border: 1px solid #fbfbfb;
+	background: #f8f8f8;
+	border-radius: 5px;
 }
 
 
 /*BARRA BAIXO TOP*/
 
 .line_down_topo{
-	margin-bottom: 30px;
 	height: 55px;
 	background: url("/img/bg_top_content_i.png") repeat-x;
 	box-shadow: 0 1px 6px #ccc;
