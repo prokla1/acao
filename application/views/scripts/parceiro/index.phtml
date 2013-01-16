@@ -2,18 +2,18 @@
 
 <!-- TOPO -->
 
-<div class="ct_max bg_top" style="width: 100%; border: 1px solid red; text-align: center;">
-	<div class="ct_min" style="width: 980px; border: 1px solid red; margin: 0 auto; text-align: left;">
-		<div class="topo" style="height: 265px; border: 1px solid black; position: relative;">
-			<div class="ct_left" style="border: 1px solid blue; position: absolute;">
+<div class="ct_max bg_top" style="width: 100%; text-align: center;">
+	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
+		<div class="topo" style="height: 265px; position: relative;">
+			<div class="ct_left" style="position: absolute;">
 			
-				<div class="ct_logo_sociais" style="border: 1px solid red; float: left;">
+				<div class="ct_logo_sociais" style="float: left; padding: 40px 10px 0 40px;">
 					<div class="logo_parceiro">
 					
 						<img alt="<?php echo $parceiro->nome ?>" src="/img/parceiros/<?php echo $parceiro->foto?> "/>
 					
 					</div>
-					<div class="sociais_parceiro" style="float: right;">
+					<div class="sociais_parceiro" style="text-align: right;">
 					
 						<ul>
 							<li class="social_ico_p"><img src="/img/btn_twitter_p.png" /></li>
@@ -23,9 +23,9 @@
 					</div>
 				</div>
 				
-				<div class="info_parceiro" style="border: 1px solid red; float: left;">
+				<div class="info_parceiro" style="float:left; margin: 80px 0; width: 350px; position: relative;">
 				
-					<ul>
+					<ul style="position: absolute;">
 						<li><?php echo $parceiro->nome ?></li>
 						<li><?php echo $parceiro->local->cidade->nome ?> - <?php echo $parceiro->local->cidade->estado->sigla ?></li>
 						<li>ver descrição do local</li>
@@ -35,7 +35,23 @@
 				
 			</div>
 			
-			<div class="ct_right" style="border: 1px solid blue; position: absolute; right: 0;">CT RIGHT</div>
+			<div class="ct_right" style="position: absolute; right: 0; border: 1px solid green;">
+			
+				<div class="ct_btn_top" style="border: 1px solid red; height: 300px;">
+					<ul>
+						<li class="btn_top">AVAL</li>
+						<li class="btn_top">PAGTOS</li>
+						<li class="btn_top">HORÁRIOS</li>
+					</ul>					
+				</div>
+
+				<div class="ct_location" style="border: 1px solid red;">
+					<ul>
+						<li>Você está em: Cidade</li>
+					</ul>					
+				</div>
+					
+			</div>
 		
 		</div>
 	</div>
