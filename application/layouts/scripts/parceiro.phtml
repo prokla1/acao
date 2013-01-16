@@ -1,3 +1,8 @@
+<?php 
+	$rodape = $this->partial('partials/rodape.phtml');
+	$topo =  $this->partial('partials/topo.phtml');
+	$busca_avancada =  $this->partial('partials/busca_avancada.phtml');
+?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -45,7 +50,7 @@ echo 	$this->headMeta(),PHP_EOL;
 	
 		<!--=============================== Page Navigation TOPO ================================================== -->
 		<?php 
-			echo $this->partial('partials/topo.phtml');
+			echo $topo;
 		?>
 		
 		
@@ -90,7 +95,7 @@ echo 	$this->headMeta(),PHP_EOL;
 					
 		<!--===== BUSCA AVANÇADA ====== -->	
 		<?php 
-			echo $this->partial('partials/busca_avancada.phtml');
+			echo $busca_avancada;
 		?>				
 					
 
@@ -108,7 +113,7 @@ echo 	$this->headMeta(),PHP_EOL;
 
 		<!--=============================== Page Rodapé ================================================== -->
 		<?php 
-			echo $this->partial('partials/rodape.phtml');
+			echo $rodape;
 		?>
 		
 		

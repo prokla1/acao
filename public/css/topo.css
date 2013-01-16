@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+
+/* ================================== #Menu Style ===========================================*/
+#ct_menu{
+	width: 100%;
+	padding: 12px;
+	background: url("/img/bg_top_menu.png") repeat-x;
+	box-shadow: 0 1px 6px black;
+	display: table;
+	position: absolute;
+	z-index: 10;
+	text-align: center;
+}
+
+#top_menu{
+	width: 980px;
+	margin: 0 auto;
+}
+
+.top_home{
+	float: left;
+}
+
+
+.top_menus{
+	float: right;
+}
+.navigation li{
+	display: inline;
+	padding: 5px 10px;
+}
+.navigation li a{
+	color: #ccc;
+}
+.navigation li a:hover{
+	color: graytext;
+}
+
+.navigation li a:activate{
+	color: red;
+}
