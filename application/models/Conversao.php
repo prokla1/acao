@@ -12,6 +12,7 @@ class Application_Model_Conversao
 	protected $_reais;
 	protected $_concretizado;
 	protected $_visivel;
+	protected $_hora;
 	
 	
 	protected $_evento;
@@ -32,7 +33,7 @@ class Application_Model_Conversao
 	 */
 	public function setUsuario($id_usuario) {
 		$usuarioTable = new Application_Model_DbTable_Usuarios();
-		$usuario = $usuarioTable->find($id_usuario);
+		$usuario = $usuarioTable->byId($id_usuario, new Application_Model_Usuario());
 		$this->_usuario = $usuario;
 	}
 	
@@ -266,6 +267,20 @@ class Application_Model_Conversao
 	public function setVisivel($_visivel) {
 		$this->_visivel = $_visivel;
 	}
+	/**
+	 * @return the $_hora
+	 */
+	public function getHora() {
+		return $this->_hora;
+	}
+
+	/**
+	 * @param field_type $_hora
+	 */
+	public function setHora($_hora) {
+		$this->_hora = $_hora;
+	}
+
 
 
 	
