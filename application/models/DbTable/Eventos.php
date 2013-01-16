@@ -160,7 +160,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	)
     	->where('eventos.ativo = ?', '1')
     	->where('local_enderecos.id_cidade = ?', $idCity)
-    	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))
+    	->where('eventos.realizacao >= ?', date('Y-m-d', $dia_base))  //alterar para '=' para filtra so do dia
     	->order('eventos.hora');
     	 
     	//Zend_Debug::dump($resultSet->query());
