@@ -5,7 +5,12 @@ class Application_Model_DbTable_Conversao extends Zend_Db_Table_Abstract
 
     protected $_name = 'conversao';
 
+
     
+    /**
+     * faz a conversao, grava os dados reverente a convesao e diminui a disponibilidade da cortesia
+     * @return resultado do insert
+     */
     public function converter(Application_Model_Cortesias $cortesia,  Application_Model_Usuario $usuario)
     {
     	$cortesiasTable = new Application_Model_DbTable_Cortesias();
@@ -30,7 +35,22 @@ class Application_Model_DbTable_Conversao extends Zend_Db_Table_Abstract
     }
 
     
+
+    /**
+     * Verifica se o usuario já converteu a cortesia pelo ID_USUARIO e ID_CORTESIA
+     * @param String $id_usuario, $id_cortesia
+     * @return boolean FALSE / TRUE
+     */
+    public function jaConverteu($id_usuario, $id_cortesia){
+    	$resultSet = $this->select()
+	    	->from('conversao')
+	    	->where('id_cortesia = ?', $id_cortesia)
+	    	->order('hora')
+	    	->query();
+    	
     
+    	return $result->toArray(); //(count($this->fetchAll($where)) == 0) ? false : true;
+    }
 
 
 

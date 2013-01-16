@@ -5,7 +5,7 @@ class ParceiroController extends Zend_Controller_Action
 
     public function init()
     {
-    	
+    	$this->_helper->layout->setLayout('parceiro');
     }
 
     public function indexAction()

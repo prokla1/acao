@@ -48,9 +48,21 @@ $usuario = $this->usuario;
 		
 		
 	<?php else :  // tudo validado, agora finalmente efetua a troca ?>
+	
 	<?php 
-	$conversaoTable = new Application_Model_DbTable_Conversao();
-	$conversaoTable->converter($cortesia, $usuario);   // converte, grava a converção
+		$conversaoTable = new Application_Model_DbTable_Conversao();
+		
+		$conversoes = $conversaoTable->jaConverteu($usuario->id, $cortesia->id);
+		
+		echo "<hr>";
+		print_r($conversoes);
+		
+		if($conversoes){
+			echo "já converteu";
+		}else{
+			$conversaoTable->converter($cortesia, $usuario);   // converte, grava a converção
+			echo "convertido";
+		}
 	?>
 	
 	<h3>Adquirido com sucesso</h3>
