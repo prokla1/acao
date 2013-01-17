@@ -19,8 +19,8 @@ $(document).ready(function(){
 	
 	$("#date_filter_view").datepicker({
 	    dateFormat: "DD, d 'de' MM, yy",
-	    setDate:defaultDate,
-	    //altField: "#date_filter",
+	    //setDate:defaultDate,
+	    //altField: "#d",
 	    //altFormat: "@",
 	    onSelect : function(dateText, inst)
 	    {
