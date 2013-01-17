@@ -102,12 +102,18 @@ $eventos = $this->eventos;
 			
 			<div class="ct_right" style="position: absolute; right: 0;">
 			
-				<div class="ct_photos" style="width: 346px; border: 1px solid red;">
+				<div class="ct_photos" style="width: 346px; border: 1px solid #CCC; background: #000; margin: 10px 0px;">
 					<div><?php echo $this->partial('partials/fotos.phtml', array('fotos' => $parceiro->fotos)); ?></div>
 				
 				</div>
 				
-				<div class="ct_location_map" style="width: 346px; border: 1px solid red;">
+				<div class="ct_location_map" style="width: 346px; border: 1px solid #CCC; background: #EFEFEF; margin: 10px 0px; padding: 6px 0;">
+					<div style="margin: 0 6px 6px 6px; padding: 10px; background: #fbfbfb; border: 1px dotted #CCC; border-radius: 5px; ">
+						<ul>
+							<li><?php echo $parceiro->local->rua ?> - <?php echo $parceiro->local->numero ?></li>
+							<li><?php echo $parceiro->local->complemento ?></li>
+						</ul>
+					</div>
 					<div><?php echo $this->partial('partials/mapa.phtml', array('local' => $parceiro->local)); ?></div>
 				</div>
 
