@@ -1,6 +1,52 @@
 @CHARSET "UTF-8";
 
+.ct_info_event{
+	display: table; 
+	width: 980px;
+	border: 1px solid red;
+	background: #fbfbfb;
+	border: 1px solid #E5E5E5; 
+}
 
-.cortesia_euquero{   /*  spam com o texto EU QUERO , para deixar em forma de link */
-	cursor: pointer;
+.flyer_parceiro{
+	border: 1px solid #E5E5E5; 
+	background: #CCC; 
+	width: 258px; 
+	height: 258px; 
+	margin-bottom: 4px;
+}
+
+.flyer_parceiro img{
+	width: 250px; 
+	height: 250px; 
+	margin: 2px; 
+	border: 2px solid #FFF;
+	background: #333;
+}
+
+.ct_sociais_event{
+	border: 1px solid #E5E5E5; 
+	width: 258px; 
+	height: 32px; 
+	background: url('/img/bg_sociall_event.png') repeat-x;
+}
+
+.social_event_e{
+	padding: 6px 30px; 
+	display: inline-block;
+	float: left;
+}
+
+
+.ct_breadcrumb{
+	float: left; 
+	width: 420px; 
+	max-width: 420px; 
+	padding: 18px 0 0 20px;
+}
+
+.info_eventx{
+	margin-top: 80px;
+	display: table; 
+	width: 660px;
 }
