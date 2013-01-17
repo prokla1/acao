@@ -5,7 +5,7 @@ class EventoController extends Zend_Controller_Action
 
     public function init()
     {
-    	//$this->_helper->layout->setLayout('parceiro');
+    	$this->_helper->layout->setLayout('parceiro');
     	/*
     	$sess = new Zend_Session_Namespace('City');
     	$this->cityId = $sess->id;

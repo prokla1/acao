@@ -5,15 +5,15 @@ $eventos = $this->eventos;
 
 <!-- TOPO -->
 
-<div class="ct_max bg_top" style="width: 100%; text-align: center; background: url('/img/bg_top_parc.png');">
-	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
-		<div class="topo" style="height: 265px; background: url('/img/bg_parc_center.png');">
+<div class="ct_max bg_top">
+	<div class="ct_min">
+		<div class="topo">
 		
 		<!-- LEFT -->
 			
 			<div class="ct_l">
 			
-				<div class="ct_logo_sociais" style="float: left; padding: 40px 20px 0 20px;">
+				<div class="ct_logo_sociais">
 					<div class="logo_parceiro">
 					
 						<img alt="<?php echo $parceiro->nome ?>" src="/img/parceiros/<?php echo $parceiro->foto?> "/>
@@ -29,10 +29,14 @@ $eventos = $this->eventos;
 					</div>
 				</div>
 				
-				<div class="info_parceiro" style="float:left; margin: 80px 0; width: 400px;">
+				<div class="info_parceiro">
 				
 					<ul>
-						<li><span class="title_destak" style="font-size: 24px; color: #F60;"><?php echo $parceiro->nome ?></span></li>
+						<li>
+						<span class="title_destak">
+							<?php echo $parceiro->nome ?>
+						</span>
+						</li>
 						<li><?php echo $parceiro->local->cidade->nome ?> - <?php echo $parceiro->local->cidade->estado->sigla ?></li>
 						<li>ver descrição do local</li>
 					</ul>
@@ -42,9 +46,9 @@ $eventos = $this->eventos;
 			
 			<!-- RIGHT -->
 			
-			<div class="ct_r" style="float: right; width: 350px;">
+			<div class="ct_top_r">
 				
-				<div class="ct_btns_top" style="margin: 0 auto; text-align: center; margin-top: 50px;">	
+				<div class="ct_btns_top">	
 					<ul>
 						<li class="btn_top">Avaliação</li>
 						<li class="btn_top">Pagamentos <span>»</span></li>
@@ -54,7 +58,7 @@ $eventos = $this->eventos;
 			
 			</div>
 			
-			<div class="ct_local" style="display: table; float: right; margin-top: 160px;">
+			<div class="ct_local">
 				
 				<div><?php echo $this->partial('partials/location.phtml'); ?></div>
 								
@@ -68,18 +72,18 @@ $eventos = $this->eventos;
 <!-- BARRA -->
 
 
-<div class="ct_max" style="width: 100%; text-align: center;">
-	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
+<div class="ct_max">
+	<div class="ct_min">
 		<div class="line_down_topo">
 			<div class="ct_l">
 			
-				<div style="float: left; width: 420px; max-width: 420px; padding: 18px 0 0 20px;">Exibindo: Próximos eventos</div>
+				<div class="title_">Exibindo: Próximos eventos</div>
 			
 			</div>
 			
-			<div class="ct_r" style="float: right;">
+			<div class="ct_r">
 			
-				<div class="btn_search" style="padding: 10px;"><a href=""><img src="/img/btn_search.png" /></a></div>
+				<div class="btn_search"><a href=""><img src="/img/btn_search.png" /></a></div>
 			
 			</div>
 		
@@ -91,32 +95,32 @@ $eventos = $this->eventos;
 <!-- AGENDA/RIGHT -->
 
 
-<div class="ct_max" style="width: 100%; text-align: center;">
-	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
-		<div class="ct_all_p" style="width: 980px; display: table;">
+<div class="ct_max">
+	<div class="ct_min">
+		<div class="ct_all_p">
 			
-			<div class="ct_left">
+			<div class="ct_leftx">
 			
 				<div><?php echo $this->partial('partials/eventos.phtml', array('eventos' => $eventos)); ?></div>
 				
-				<div>
+				<div class="ct_comment_face">
+				
 					<div id="fb-root"></div>
 						<script src="http://connect.facebook.net/pt_BR/all.js#appId=412280312184447&amp;xfbml=1"></script>
-					<fb:comments href="acao.dev" num_posts="5" width="620"></fb:comments>
+					<fb:comments num_posts="5" width="602"></fb:comments>
 				
 				</div>
 			
 			</div>
 			
-			<div class="ct_r" style="float: right;">
+			<div class="ct_r">
 			
-				<div class="ct_photos" style="width: 346px; border: 1px solid #CCC; background: #000; margin: 10px 0px;">
+				<div class="ct_photos">
 					<div><?php echo $this->partial('partials/fotos.phtml', array('fotos' => $parceiro->fotos)); ?></div>
-				
 				</div>
 				
-				<div class="ct_location_map" style="width: 346px; border: 1px solid #CCC; background: #EFEFEF; margin: 10px 0px; padding: 6px 0;">
-					<div style="margin: 0 6px 6px 6px; padding: 10px; background: #fbfbfb; border: 1px dotted #CCC; border-radius: 5px; ">
+				<div class="ct_location_map">
+					<div class="ct_info_end">
 						<ul>
 							<li><?php echo $parceiro->local->rua ?> - <?php echo $parceiro->local->numero ?></li>
 							<li><?php echo $parceiro->local->complemento ?></li>
@@ -125,8 +129,8 @@ $eventos = $this->eventos;
 					<div><?php echo $this->partial('partials/mapa.phtml', array('local' => $parceiro->local)); ?></div>
 				</div>
 
-				<div class="ct_contact" style="width: 346px; border: 1px solid #CCC; background: #EFEFEF; margin: 10px 0px; padding: 6px 0;">
-					<div style="margin: 0 6px 6px 6px; padding: 10px; background: #fbfbfb; border: 1px dotted #CCC; border-radius: 5px; ">
+				<div class="ct_contact">
+					<div class="bg_contact">
 						<ul>
 							<li><?php echo $parceiro->local->rua ?> - <?php echo $parceiro->local->numero ?></li>
 							<li><?php echo $parceiro->local->complemento ?></li>
