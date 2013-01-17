@@ -27,7 +27,7 @@ class EventosController extends Zend_Controller_Action
     	}
     	
     	
-    	$dia_base = time() - (86400 * 300);  //86400 = 1 dia  //deletar
+    	//$dia_base = time() - (86400 * 300);  //86400 = 1 dia  //deletar
     	
     	
     	$eventos = new Application_Model_DbTable_Eventos();

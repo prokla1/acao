@@ -160,8 +160,8 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	)
     	->where('eventos.ativo = ?', '1')
     	->where('local_enderecos.id_cidade = ?', $idCity)
-    	->where('eventos.realizacao >= ?', date('Y-m-d', $dia_base))  //alterar para '=' para filtra so do dia
-    	->order('eventos.hora');
+    	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))  //alterar para '>=' para trazer os proximos
+    	->order('eventos.realizacao');
     	 
     	//Zend_Debug::dump($resultSet->query());
     	$eventos = array();

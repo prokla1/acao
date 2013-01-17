@@ -1,4 +1,39 @@
-		
+<?php 
+
+	$dias = array();
+	$dias_semana = array('Dom', 'Seg', 'Ter', 'Quar', 'Qui', 'Sex', 'Sáb');
+	$dias_semana_long = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado');
+	$dia_base = time();
+			
+	for($i = -3; $i < 4; $i++){
+		$dias[] = $dia_base + ($i * 86400);
+	}
+
+	$week = array();
+	$week['prev'] = ($dias[0]-(86400*4));
+	$week['next'] = ($dias[6]+(86400*4));
+?>	
+
+<div class="container_calendario">	
+	<div id="date_left" class="date_arrow" rel="<?php echo $week['prev']; ?>"> << </div>
+		<ul id="ul_calendar">
+				<?php
+					foreach($dias as $dia){
+						(date('d/m', $dia) == date('d/m', $dia_base)) ? $active = 'class="active"' : $active = "";
+						
+						echo "<li $active rel='".$dia."'>".$dias_semana[date('w', $dia)]." ". date('d/m', $dia)."</li>";
+					}
+				?>
+		</ul>
+	<div id="date_right"class="date_arrow" rel="<?php echo $week['next']; ?>"> >> </div>
+</div>	
+
+<h5 style="clear:both;">Exibindo eventos de:</h5>
+    <input type="text" name="date_filter_view" id="date_filter_view" value="<?php echo "Quinta, 10 de Janeiro, 2013";//date('d/m/Y', $dia_base)?>" />
+    <input type="text" name="date_filter" id="date_filter" style="display: none;" />
+								    
+<!-- 							    
+
 					<div id="search_adv">
 					
 						<div id="categories">
@@ -17,7 +52,10 @@
 							    <td class="txt_input_h">Local:</td>
 							    <td><input type="" name="local_filter" size="30"/></td>
 							    <td class="txt_input_h">Data:</td>
-							    <td><input type="text" name="date_filter" id="date_filter" /></td>
+							    <td>
+								    <input type="text" name="date_filter_view" id="date_filter_view" />
+								    <input type="text" name="date_filter" id="date_filter" />
+							    </td>
 							  </tr>
 							  <tr>
 							    <td class="txt_input_h">Genero:</td>
@@ -39,8 +77,7 @@
 						</div>
 					
 					</div>	
-					
-					
+ -->						
 		
 	<?php 
 	$this->headLink()
@@ -51,3 +88,24 @@
 	$this->headScript()->setSeparator(PHP_EOL)
 	->appendFile($this->baseUrl('/js/show_search.js'));
 	?>
+	
+<script type="text/javascript">
+	var defaultDate = "<?php echo date('Y-m-d', $dia_base)?>";
+</script>
+	
+	
+	<style>
+.date_arrow, ul#ul_calendar{
+	float: left;
+}
+ul#ul_calendar li{
+	float: left;
+	white-space: nowrap;
+	margin: 2px;
+	cursor: pointer;
+}
+ul#ul_calendar li.active, ul#ul_calendar li:hover{
+	background:transparent url(/img/date_day_active.png) center center no-repeat;
+	color: #000;
+}
+</style>

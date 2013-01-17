@@ -38,9 +38,10 @@ echo 	$this->headMeta(),PHP_EOL;
 <link rel="stylesheet" href="/css/layout.css"  media="screen" type="text/css" />
 
 <?php 
+	$this->headLink()
+	->prependStylesheet($this->baseUrl('/css/pepper-grinder/jquery-ui-1.9.2.custom.min.css'));
 	echo 	$this->headLink(),PHP_EOL;
 ?>
-
 
 </head>
 <body>
@@ -107,8 +108,9 @@ echo 	$this->headMeta(),PHP_EOL;
 <?php
 
 	$this->headScript()->setSeparator(PHP_EOL)
-		->appendFile($this->baseUrl('/js/show_details_event.js'))
-		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));
+		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
+		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'))
+		->appendFile($this->baseUrl('/js/show_details_event.js'));
 		
 		 
 	echo	$this->headScript(),PHP_EOL;

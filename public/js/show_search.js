@@ -17,8 +17,11 @@ $(document).ready(function(){
 	
 	
 	
-	$("#date_filter").datepicker({
-	    dateFormat: 'dd/mm/yy',
+	$("#date_filter_view").datepicker({
+	    dateFormat: "DD, d 'de' MM, yy",
+	    setDate:defaultDate,
+	    altField: "#date_filter",
+	    altFormat: "@",
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'
 	        ],
 	    dayNamesMin: [
