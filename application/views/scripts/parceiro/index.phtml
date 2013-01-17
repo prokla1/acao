@@ -54,7 +54,7 @@ $eventos = $this->eventos;
 					
 				<div class="ct_location" style="width: 400px; margin: 160px 0 0;">
 				
-					location
+					Location			
 				
 				</div>
 				
@@ -73,13 +73,13 @@ $eventos = $this->eventos;
 		<div class="line_down_topo" style="position: relative;">
 			<div class="ct_left">
 			
-				<div class="title_line_down">Exibindo: ...</div>
+				<div style="float: left; width: 420px; max-width: 420px; padding: 18px 0 0 20px;">Exibindo: Próximos eventos</div>
 			
 			</div>
 			
 			<div class="ct_right" style="position: absolute; right: 0;">
 			
-				<div class="btn_search">BUSCA AVANÇADA</div>
+				<div class="btn_search" style="padding: 10px;"><a href=""><img src="/img/btn_search.png" /></a></div>
 			
 			</div>
 		
@@ -94,7 +94,7 @@ $eventos = $this->eventos;
 <div class="ct_max" style="width: 100%; text-align: center;">
 	<div class="ct_min" style="width: 980px; margin: 0 auto; text-align: left;">
 		<div class="ct_all_p" style="position: relative;">
-			<div class="ct_left" style="border: 1px solid red; position: absolute;">
+			<div class="ct_left" style="position: absolute;">
 			
 				<div><?php echo $this->partial('partials/eventos.phtml', array('eventos' => $eventos)); ?></div>
 			
@@ -119,10 +119,6 @@ $eventos = $this->eventos;
 		</div>
 	</div>
 </div>
-
-
-<hr>
-
 
 
 
