@@ -13,73 +13,193 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 </pre>
 
 
+<!-- TOPO -->
 
-	<h5>id:<?php echo $evento->id ?>  Nome: <?php echo $evento->nome ?></h5>
-	
-	Link: 
-	<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
-		<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>
-	</a>
-	<p>
-	Realização:	<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
-	</p>
-	<p>
-	Descrição: <?php echo $evento->descricao ?>
-	</p>
-	<p>
-	Parceiro:
-		<a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?> ">
-		<?php echo $evento->parceiro->nome ?>
-		</a>
-	</p>
-	<p>
-	Descrição do parceiro: <?php echo $evento->parceiro->descricao ?>
-	</p>
-	<p>
-	Foto do parceiro: <?php echo $evento->parceiro->foto ?>
-	</p>
-	
-	<p>
-	<?php  echo $evento->parceiro->local->rua ?>, <?php echo $evento->parceiro->local->numero ?> <?php echo $evento->parceiro->local->complemento ?>
-	<?php  echo $evento->parceiro->local->cidade->nome ?>-<?php echo $evento->parceiro->local->cidade->estado->sigla ?>
-	</p>
-	
-
-	
-		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
-
-<pre>
-<?php //print_r($evento->cortesias);?>
-</pre>
-
-
-		<h2>Cortesias</h2>
-		Existem <?php echo count($evento->cortesias) ?> tipos de cortesias. 
+<div class="ct_max bg_top">
+	<div class="ct_min">
+		<div class="topo">
 		
-		<?php foreach ($evento->cortesias as $cortesias) : ?>
-		<hr>
-			<small>Ingresso:</small> <?php echo $cortesias->nome ?> 
-				<?php if($cortesias->descricao) : //verifica se existe descricao ?>
-					(<?php echo $cortesias->descricao ?>)
-				<?php endif; ?>
+		<!-- LEFT -->
 			
-			Disponível: <?php echo $cortesias->disponivel ?> de <?php echo $cortesias->qtd ?>
+			<div class="ct_l">
 			
-			Valor: de <strike>R$ <?php echo $cortesias->valor_original ?></strike> por <?php echo $cortesias->valor ?>
+				<div class="ct_logo_sociais">
+					<div class="logo_parceiro">
+					
+						<img alt="<?php echo $parceiro->nome ?>" src="/img/parceiros/<?php echo $parceiro->foto?> "/>
+					
+					</div>
+					<div class="sociais_parceiro" style="text-align: right;">
+					
+						<ul>
+							<li class="social_ico_p"><img src="/img/btn_twitter_p.png" /></li>
+							<li class="social_ico_p"><img src="/img/btn_face_p.png" /></li>
+						</ul>
+					
+					</div>
+				</div>
+				
+				<div class="info_parceiro">
+				
+					<ul>
+						<li>
+						<span class="title_destak">
+							<?php echo $parceiro->nome ?>
+						</span>
+						</li>
+						<li><?php echo $parceiro->local->cidade->nome ?> - <?php echo $parceiro->local->cidade->estado->sigla ?></li>
+						<li>ver descrição do local</li>
+					</ul>
+				
+				</div>
 			
+			</div>
 			
-			<span class="cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</span>
+			<!-- RIGHT -->
 			
-		<?php endforeach; ?>
+			<div class="ct_top_r">
+				
+				<div class="ct_btns_top">	
+					<ul>
+						<li class="btn_top">Avaliação</li>
+						<li class="btn_top">Pagamentos <span>»</span></li>
+						<li class="btn_top">Horários <span>»</span></li>
+					</ul>
+				</div>
+			
+			</div>
+			
+			<div class="ct_local">
+				
+				<div><?php echo $this->partial('partials/location.phtml'); ?></div>
+								
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+<!-- BARRA -->
+
+
+<div class="ct_max">
+	<div class="ct_min">
+		<div class="line_down_topo">
+			<div class="ct_l">
+			
+				<div class="ct_breadcrumb">BREADCRUMB</div>
+			
+			</div>
+			
+			<div class="ct_r">
+			
+				<div class="btn_search"><a href=""><img src="/img/btn_search.png" /></a></div>
+			
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+<!-- AGENDA/RIGHT -->
+
+
+<div class="ct_max">
+	<div class="ct_min">
 	
-	<?php endif;?>
-	
-	
-	<hr />
+		<div class="ct_info_event">
+			
+			<div class="ct_logo_sociais">
+				<div class="flyer_parceiro">
+				
+					<img src="/img/eventos/<?php echo $evento->capa ?>" />
+				
+				</div>
+				<div class="ct_sociais_event">
+					<ul>
+						<li class="social_event_e"><img src="/img/btn_like.png" /></li>
+						<li class="social_event_e"><img src="/img/btn_twitter.png" /></li>
+						<li class="social_event_e"><img src="/img/btn_mail.png" /></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="info_eventx">
+			
+				<div class="ct_name_local_date" style="display: table; width: 100%; background: white; border: 1px dotted #ccc; padding: 2px 10px; border-radius: 8px;">
+			
+					<div class="name_local" style="float: left;">
+						
+						<ul>
+							<li style="float: left; font-size: 18px;"><?php echo $evento->nome?></li>
+							<li style="float: left; padding: 2px;">- <?php echo $parceiro->local->cidade->nome ?> -</li>
+							<li style="float: left; padding: 2px;"> <?php echo $parceiro->local->cidade->estado->sigla ?></li> 
+						</ul>
+					</div>
+					<div class="event_date" style="display: table; float: right; background: #FEF3F5; padding: 2px 6px;" >
+						<?php echo $evento->realizacao?>
+					</div>
+				
+				</div>	
+				
+				<div class="event_description" style="float: left; text-align: justify;">
+					<div class="title_event_x" style="padding: 10px 0;">Descrição</div>
+					<?php echo $evento->descricao?>
+				</div>
+				
+			
+			</div>
+		
+		</div>	
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<!--  <div class="ct_r">
+			
+				<div class="ct_photos">
+					<div><?php echo $this->partial('partials/fotos.phtml', array('fotos' => $parceiro->fotos)); ?></div>
+				</div>
+				
+				<div class="ct_location_map">
+					<div class="ct_info_end">
+						<ul>
+							<li><?php echo $parceiro->local->rua ?> - <?php echo $parceiro->local->numero ?></li>
+							<li><?php echo $parceiro->local->complemento ?></li>
+						</ul>
+					</div>
+					<div><?php echo $this->partial('partials/mapa.phtml', array('local' => $parceiro->local)); ?></div>
+				</div>
+
+				<div class="ct_contact">
+					<div class="bg_contact">
+						<ul>
+							<li><?php echo $parceiro->local->rua ?> - <?php echo $parceiro->local->numero ?></li>
+							<li><?php echo $parceiro->local->complemento ?></li>
+						</ul>
+					</div>
+				</div>
+			</div> -->
+		
+	</div>
+</div>
+
+
+
+
 
 	
 	
-	<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
+<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
 	
 	
 	
@@ -95,3 +215,7 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 
 
 
+
+<pre>
+<?php print_r($evento);?>
+</pre>
