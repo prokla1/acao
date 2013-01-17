@@ -20,8 +20,14 @@ $(document).ready(function(){
 	$("#date_filter_view").datepicker({
 	    dateFormat: "DD, d 'de' MM, yy",
 	    setDate:defaultDate,
-	    altField: "#date_filter",
-	    altFormat: "@",
+	    //altField: "#date_filter",
+	    //altFormat: "@",
+	    onSelect : function(dateText, inst)
+	    {
+	        var epoch = $.datepicker.formatDate('@', $(this).datepicker('getDate')) / 1000;
+
+	        $('#d').val(epoch);
+	    },
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'
 	        ],
 	    dayNamesMin: [

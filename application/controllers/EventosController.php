@@ -21,7 +21,7 @@ class EventosController extends Zend_Controller_Action
     		return $this->_forward('index', 'localidade');
     	}
     	
-    	$dia_base = $this->_getParam('dia');
+    	$dia_base = $this->_getParam('d');
     	if(empty($dia_base)){
     		$dia_base = time(); //+86400*50;  //86400 = 1 dia
     	}
