@@ -133,12 +133,12 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 					<div class="name_local" style="float: left;">
 						
 						<ul>
-							<li style="float: left; font-size: 18px;"><?php echo $evento->nome?></li>
-							<li style="float: left; padding: 2px;">- <?php echo $parceiro->local->cidade->nome ?> -</li>
-							<li style="float: left; padding: 2px;"> <?php echo $parceiro->local->cidade->estado->sigla ?></li> 
+							<li style="float: left; font-size: 18px; padding: 2px;"><?php echo $evento->nome?></li>
+							<li style="float: left; padding: 3px 2px 0px;">- <?php echo $parceiro->local->cidade->nome ?> -</li>
+							<li style="float: left; padding: 4px;"> <?php echo $parceiro->local->cidade->estado->sigla ?></li> 
 						</ul>
 					</div>
-					<div class="event_date" style="display: table; float: right; background: #FEF3F5; padding: 2px 6px;" >
+					<div class="event_date" style="display: table; float: right; background: #FEF3F5; padding: 4px 6px; font-size: 18px;" >
 						<?php echo $evento->realizacao?>
 					</div>
 				
@@ -167,7 +167,7 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 			<!--  <div class="ct_r">
 			
 				<div class="ct_photos">
-					<div><?php echo $this->partial('partials/fotos.phtml', array('fotos' => $parceiro->fotos)); ?></div>
+					<div><?php //echo $this->partial('partials/fotos.phtml', array('fotos' => $parceiro->fotos)); ?></div>
 				</div>
 				
 				<div class="ct_location_map">
