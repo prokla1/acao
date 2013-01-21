@@ -23,7 +23,7 @@ function converter(id_cortesia){
 	.dialog({
 		modal: true,
 		autoOpen: false, //já é criado aberto
-		height: 300,
+		minHeight: 50,
 		title: "Adquirir ingresso"
 	});
 	
