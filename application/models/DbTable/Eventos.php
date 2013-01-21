@@ -44,7 +44,8 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 	    	->from('eventos')
 	    	->where('eventos.ativo = ?', '1')
 	    	->where('eventos.realizacao >= ?', date('Y-m-d', time()))
-	    	->order('eventos.realizacao');
+	    	->order('eventos.realizacao')
+    		->limit(10,0);
     	
     	//Zend_Debug::dump($resultSet->query());
     	$eventos = array();
