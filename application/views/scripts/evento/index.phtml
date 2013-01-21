@@ -128,7 +128,7 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 			
 			<div class="info_eventx">
 			
-				<div class="ct_name_local_date" style="display: table; width: 100%; background: white; border: 1px dotted #ccc; padding: 2px 10px; border-radius: 8px;">
+				<div class="ct_name_local_date" style="display: table; width: 100%; background: white; border: 1px dotted #ccc; padding: 20px 10px; border-radius: 8px;">
 			
 					<div class="name_local" style="float: left;">
 						
@@ -138,15 +138,52 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 							<li style="float: left; padding: 4px;"> <?php echo $parceiro->local->cidade->estado->sigla ?></li> 
 						</ul>
 					</div>
-					<div class="event_date" style="display: table; float: right; background: #FEF3F5; padding: 4px 6px; font-size: 18px;" >
+					<div class="event_date" style="display: table; float: right; padding: 4px 6px; font-size: 18px;" >
 						<?php echo $evento->realizacao?>
 					</div>
 				
 				</div>	
 				
-				<div class="event_description" style="float: left; text-align: justify;">
-					<div class="title_event_x" style="padding: 10px 0;">Descrição</div>
+				<!-- DESCRIÇÃO -->
+				
+				<div class="event_description" style="float: left; text-align: justify; margin: 20px 0;">
 					<?php echo $evento->descricao?>
+				</div>
+				
+				<!-- PROMO -->
+				
+				<div class="ct_promo_event" id="showpromo_<?php echo $evento->id ?>">
+		
+					<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+				
+					<table class="promo_table" border="0" cellspacing="0" width="650px">
+							
+					  <tr class="promo_title">
+					    <td class="promo_topic">Tipo</td>
+					    <td class="promo_topic">Disponíveis</td>
+					    <td class="promo_topic_r">Valor</td>
+					    <td></td>
+					  </tr>
+					  
+					  	<?php foreach ($evento->cortesias as $cortesias) : ?>
+					  	
+					  <tr>
+					    <td class="promo_info"><?php echo $cortesias->nome ?></td>
+					    <td class="promo_info">
+					    	<span class="max_destak"><?php echo $cortesias->disponivel ?></span> de <span class="min_destak"><?php echo $cortesias->qtd ?></span>
+					    </td>
+					    <td class="promo_info">
+					    	de <span class="min_destak">R$<?php echo $cortesias->valor_original ?></span> por <span class="max_destak">R$<?php echo $cortesias->valor ?></span>
+					    </td>
+					    <td class="btn_go_promo cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</td>
+					  </tr>
+								
+						<?php endforeach; ?>
+							
+					</table>
+			
+					<?php endif;?>
+			
 				</div>
 				
 			
@@ -216,6 +253,4 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 
 
 
-<pre>
-<?php print_r($evento);?>
-</pre>
+

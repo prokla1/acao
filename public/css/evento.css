@@ -5,7 +5,8 @@
 	width: 980px;
 	border: 1px solid red;
 	background: #fbfbfb;
-	border: 1px solid #E5E5E5; 
+	border: 1px solid #E5E5E5;
+	padding-bottom: 40px;
 }
 
 .flyer_parceiro{
@@ -32,7 +33,7 @@
 }
 
 .social_event_e{
-	padding: 6px 30px; 
+	padding: 6px 34px; 
 	display: inline-block;
 	float: left;
 }
@@ -46,7 +47,69 @@
 }
 
 .info_eventx{
-	margin-top: 80px;
+	margin-top: 40px;
 	display: table; 
 	width: 660px;
+}
+
+
+
+/*PROMOÇÃO INFO*/
+
+.ct_promo_event{
+	width: 650px; 
+	border: 1px solid #CCC; 
+	display: table; 
+	font-size: 12px;
+}
+
+.promo_table{
+	font-family: Verdana, Geneva, sans-serif; 
+	font-size: 11px;
+}
+
+.promo_title{
+	background: #f8f8f8;
+}
+
+.promo_topic{
+	padding: 4px 10px; 
+	text-align: center; 
+	border-right: 1px solid #EBEBEB;
+}
+
+.promo_topic_r{
+	padding: 4px 10px; 
+	text-align: center;
+}
+
+.promo_info{
+	padding: 4px 10px; 
+	text-align: center; 
+	border-right: 1px dotted #F4F4F4; 
+	border-bottom: 1px dotted #F4F4F4;
+	background: #DDD;
+}
+
+.btn_go_promo{
+	padding: 4px 10px; 
+	text-align: center; 
+	background: #f8f8f8; 
+	border-right:1px solid #CCC; 
+	border-bottom:1px solid #EEE;
+}
+
+.max_destak{
+	font-size:14px; color: #F60;
+}
+
+.min_destak{
+	font-size:11px; 
+	color: #F60;
+	text-decoration: line-through;
+}
+
+
+.cortesia_euquero{   /*  spam com o texto EU QUERO , para deixar em forma de link */
+	cursor: pointer;
 }
