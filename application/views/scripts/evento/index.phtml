@@ -90,9 +90,9 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 			
 				<div class="ct_breadcrumb">
 					<ul>
-						<li class="bread_left"><span class="bread_center">Home</span><div class="bread_right"></div></li>
-						<li class="bread_left"><span class="bread_center">Parceiro</span><div class="bread_right"></div></li>
-						<li class="bread_left"><span class="bread_center">Evento</span><div class="bread_right"></div></li>
+						<li class="bread_left"><a href="#"><span class="bread_center">Home</span></a><div class="bread_right"></div></li>
+						<li class="bread_left"><a href="#"><span class="bread_center"><?php echo $parceiro->nome ?></span></a><div class="bread_right"></div></li>
+						<li class="bread_left"><a href="#"><span class="bread_center"><?php echo $evento->nome?></span></a><div class="bread_right"></div></li>
 					</ul>
 				</div>
 			
