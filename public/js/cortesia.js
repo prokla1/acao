@@ -23,7 +23,7 @@ function converter(id_cortesia){
 	.dialog({
 		modal: true,
 		autoOpen: false, //já é criado aberto
-		minHeight: 50,
+		width: 'auto',
 		title: "Adquirir ingresso"
 	});
 	
@@ -35,6 +35,8 @@ function converter(id_cortesia){
 		data: { id_cortesia: id_cortesia },
 		success: function (r) {
 			$("#dialog_cortesia").html(r);
+			$('#dialog_cortesia').dialog('close'); 
+			$('#dialog_cortesia').dialog('open'); 
 		}
 	});		
 
