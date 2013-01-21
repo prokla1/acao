@@ -59,14 +59,8 @@ $this->headTitle(' Evento ' . $evento->nome);  //titulo da página
 			
 			<div class="ct_top_r">
 				
-				<div class="ct_btns_top">	
-					<ul>
-						<li class="btn_top">Avaliação</li>
-						<li class="btn_top">Pagamentos <span>»</span></li>
-						<li class="btn_top">Horários <span>»</span></li>
-					</ul>
-				</div>
-			
+				<?php echo $this->partial('partials/btns_top.phtml', array('parceiro' => $parceiro)); ?>	
+
 			</div>
 			
 			<div class="ct_local">
