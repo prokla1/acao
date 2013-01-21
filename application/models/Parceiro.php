@@ -12,6 +12,10 @@ class Application_Model_Parceiro
 	protected $_id_endereco;
 	protected $_funcionamento;
 	protected $_pagamento;
+	protected $_telefone;
+	protected $_num_votos;
+	protected $_total_pontos;
+	protected $_rating;
 	protected $_hora;
 	
 	protected $_local;
@@ -287,6 +291,65 @@ class Application_Model_Parceiro
 	public function setPagamento($_pagamento) {
 		$this->_pagamento = $_pagamento;
 	}
+	/**
+	 * @return the $_telefone
+	 */
+	public function getTelefone() {
+		return $this->_telefone;
+	}
+
+	/**
+	 * @param field_type $_telefone
+	 */
+	public function setTelefone($_telefone) {
+		$this->_telefone = $_telefone;
+	}
+
+	/**
+	 * @return the $_num_votos
+	 */
+	public function getNum_votos() {
+		return $this->_num_votos;
+	}
+
+	/**
+	 * @param field_type $_num_votos
+	 */
+	public function setNum_votos($_num_votos) {
+		$this->_num_votos = $_num_votos;
+	}
+
+	/**
+	 * @return the $_total_pontos
+	 */
+	public function getTotal_pontos() {
+		return $this->_total_pontos;
+	}
+
+	/**
+	 * @param field_type $_total_pontos
+	 */
+	public function setTotal_pontos($_total_pontos) {
+		$this->_total_pontos = $_total_pontos;
+	}
+
+	/**
+	 * @return the $_rating
+	 */
+	public function getRating() {
+		return $this->_rating;
+	}
+
+	/**
+	 * @param field_type $_rating
+	 */
+	public function setRating($_rating) {
+		$num_votos = $this->_num_votos;
+		$total_pontos = $this->_total_pontos;
+		$rating = ($this->_num_votos > 0) ? $total_pontos / $num_votos : 0;
+		$this->_rating = $rating;
+	}
+
 
 
 	

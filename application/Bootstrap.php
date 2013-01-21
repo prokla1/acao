@@ -54,7 +54,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'nome'			=>	':nome'
 				))
 		);	
-		
+
 		$router->addRoute(
 				'parceiro',
 				new Zend_Controller_Router_Route('parceiro/:id/:nome', array(
@@ -63,6 +63,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'action'		=>	'index',
 						'id'   			=>	':id',
 						'nome'			=>	':nome'
+				))
+		);
+		$router->addRoute(
+				'rating',
+				new Zend_Controller_Router_Route('rating/:rating/:id', array(
+						'module' => 'default',
+						'controller'	=>	'parceiro',
+						'action'		=>	'rating',
+						'rating'		=>	':rating',
+						'id'   			=>	':id'
 				))
 		);	
 		
