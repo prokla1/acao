@@ -53,11 +53,15 @@ $eventos = $this->eventos;
 						<li class="btn_top">Avaliação</li>
 						<li class="btn_top panel_command" rel="pagamentos">
 							Pagamentos <span>»</span>
-							<div class="panel_content" id="panel_content_pagamentos">Formas de pagamento aceitas</div>
+							<div class="panel_content" id="panel_content_pagamentos">
+								<?php echo $parceiro->pagamento ?>
+							</div>
 						</li>
 						<li class="btn_top panel_command" rel="horarios">
 							Horários <span>»</span>
-							<div class="panel_content" id="panel_content_horarios">Horários de funcionamento</div>
+							<div class="panel_content" id="panel_content_horarios">
+								<?php echo $parceiro->funcionamento ?>
+							</div>
 						</li>
 					</ul>
 				</div>
