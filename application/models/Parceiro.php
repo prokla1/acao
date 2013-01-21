@@ -10,6 +10,8 @@ class Application_Model_Parceiro
 	protected $_foto;
 	protected $_ativo;
 	protected $_id_endereco;
+	protected $_funcionamento;
+	protected $_pagamento;
 	protected $_hora;
 	
 	protected $_local;
@@ -258,6 +260,34 @@ class Application_Model_Parceiro
 	public function setHora($_hora) {
 		$this->_hora = $_hora;
 	}
+	/**
+	 * @return the $_funcionamento
+	 */
+	public function getFuncionamento() {
+		return $this->_funcionamento;
+	}
+
+	/**
+	 * @param field_type $_funcionamento
+	 */
+	public function setFuncionamento($_funcionamento) {
+		$this->_funcionamento = $_funcionamento;
+	}
+
+	/**
+	 * @return the $_pagamento
+	 */
+	public function getPagamento() {
+		return $this->_pagamento;
+	}
+
+	/**
+	 * @param field_type $_pagamento
+	 */
+	public function setPagamento($_pagamento) {
+		$this->_pagamento = $_pagamento;
+	}
+
 
 	
 	
