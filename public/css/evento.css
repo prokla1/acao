@@ -41,9 +41,28 @@
 
 .ct_breadcrumb{
 	float: left; 
-	width: 420px; 
 	max-width: 420px; 
-	padding: 18px 0 0 20px;
+	padding: 12px 0 0 40px;
+}
+
+.bread_left{
+	float: left; 
+	height:33px; 
+	margin-left: -15px;
+}
+
+.bread_center{
+	background: url('/img/bg_breadcrumb.png') repeat-x; 
+	float: left; 
+	padding: 6px 10px; 
+	border-bottom: 1px solid #FEDBD6;
+}
+
+.bread_right{
+	float: left;
+	width:17px; 
+	height:33px; 
+	background: url('/img/bg_breadcrumb_seta.png') no-repeat;
 }
 
 .info_eventx{
@@ -58,7 +77,6 @@
 
 .ct_promo_event{
 	width: 650px; 
-	border: 1px solid #CCC; 
 	display: table; 
 	font-size: 12px;
 }
