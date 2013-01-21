@@ -51,8 +51,14 @@ $eventos = $this->eventos;
 				<div class="ct_btns_top">	
 					<ul>
 						<li class="btn_top">Avaliação</li>
-						<li class="btn_top">Pagamentos <span>»</span></li>
-						<li class="btn_top">Horários <span>»</span></li>
+						<li class="btn_top panel_command" rel="pagamentos">
+							Pagamentos <span>»</span>
+							<div class="panel_content" id="panel_content_pagamentos">Formas de pagamento aceitas</div>
+						</li>
+						<li class="btn_top panel_command" rel="horarios">
+							Horários <span>»</span>
+							<div class="panel_content" id="panel_content_horarios">Horários de funcionamento</div>
+						</li>
 					</ul>
 				</div>
 			
@@ -67,6 +73,15 @@ $eventos = $this->eventos;
 		</div>
 	</div>
 </div>
+
+<?php 
+	$this->headScript()->setSeparator(PHP_EOL)
+	->prependFile($this->baseUrl('/js/panels.js'));
+	
+
+	$this->headLink()
+	->prependStylesheet($this->baseUrl('/css/panels.css'));
+?>
 
 
 <!-- BARRA -->
@@ -142,8 +157,6 @@ $eventos = $this->eventos;
 		</div>
 	</div>
 </div>
-
-
 
 
 

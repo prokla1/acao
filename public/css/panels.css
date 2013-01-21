@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.panel_command{
+	position: relative;
+	cursor: pointer;
+}
+.panel_content{
+	display: none;
+	z-index: 5;
+	top: 105%;
+	right: 0;
+	position: absolute;
+	padding: 10px;
+	background: #fbfbfb;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	cursor: auto;
+}
