@@ -74,7 +74,11 @@ $usuario = $this->usuario;
 	
 
 		<script type="text/javascript">
+
+		//$('#dialog_cortesia').dialog("close");
+		$('#dialog_cortesia').dialog("open");
 		$('#dialog_cortesia').dialog({
+			width: 'auto',
 			buttons: { "Fechar": function() {
 						$(this).dialog("close");
 					}

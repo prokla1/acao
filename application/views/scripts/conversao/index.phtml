@@ -44,7 +44,11 @@ $cortesia = $this->cortesia;
 			
 			
 			<script type="text/javascript">
+
+
 				$('#dialog_cortesia').dialog({
+					width: 'auto',
+					resizable: true,
 					buttons: { "Eu quero !": function(){
 								conversao('<?php echo $cortesia->id ?>');
 								$('#dialog_cortesia').dialog({
@@ -85,6 +89,7 @@ $cortesia = $this->cortesia;
 			Vá até sua conta para informar os dados necessários.
 			
 				<script type="text/javascript">
+
 					$('#dialog_cortesia').dialog({
 						buttons: { "Minha Conta": function(){
 								location.href= '/usuario';
@@ -100,6 +105,7 @@ $cortesia = $this->cortesia;
 		<?php else : ?>
 			Este tipo de produto não é permitido para o seu sexo
 				<script type="text/javascript">
+
 					$('#dialog_cortesia').dialog({
 						buttons: {"Cancelar": function() {
 								$(this).dialog("close");
@@ -151,6 +157,7 @@ $cortesia = $this->cortesia;
 			            
 			            if(response.status == "sucesso"){
 			            	$('#div_msg_error_login').html("Logado");
+			            	$("#content_top_menus").html(response.navigation);
 			            	converter(<?php echo $cortesia->id ?>);
 			            	
 			            }else{

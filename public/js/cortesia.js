@@ -19,15 +19,18 @@ function converter(id_cortesia){
 	
 
 	// Dialog  CONVERTER  =======================
+	
 	$('#dialog_cortesia').html('Carregando...')
 	.dialog({
+		resizable: true,
+		position: ['center', 'center'],
 		modal: true,
-		autoOpen: false, //já é criado aberto
+		autoOpen: true, //já é criado aberto
 		width: 'auto',
 		title: "Adquirir ingresso"
 	});
 	
-	$('#dialog_cortesia').dialog('open'); 
+	 
 	$.ajax({
 		url: "/conversao", 
 		type: "POST", 
@@ -35,8 +38,7 @@ function converter(id_cortesia){
 		data: { id_cortesia: id_cortesia },
 		success: function (r) {
 			$("#dialog_cortesia").html(r);
-			$('#dialog_cortesia').dialog('close'); 
-			$('#dialog_cortesia').dialog('open'); 
+
 		}
 	});		
 
