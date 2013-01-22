@@ -22,11 +22,13 @@ $(document).ready(function(){
 	    //setDate:defaultDate,
 	    //altField: "#d",
 	    //altFormat: "@",
+	    showAnim: 'slideDown',
 	    onSelect : function(dateText, inst)
 	    {
 	        var epoch = $.datepicker.formatDate('@', $(this).datepicker('getDate')) / 1000;
 
 	        $('#d').val(epoch);
+	        $('#form_busca_eventos').submit();
 	    },
 	    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'
 	        ],
