@@ -10,16 +10,31 @@ class UsuarioController extends Zend_Controller_Action
     	$this->cityId = $sess->id;
     	$this->cityNome = $sess->nome;
     	$this->view->cityNome = $this->cityNome;
-    }
-
-    public function indexAction()
-    {
+    	
+    	
+    	$logged = false;
+    	
     	$auth = Zend_Auth::getInstance();
     	if($auth->hasIdentity())
     	{
     		$user = $auth->getIdentity();
+    		$this->usuario = $user;
+    		$logged = true;
+    	}
+    	 
+    	$this->logged = $logged;
+    }
+
+    
+    
+    public function indexAction()
+    {
+    	if($this->logged)
+    	{
+    		$user = Zend_Auth::getInstance()->getIdentity();
     		$this->view->usuario = $user;
-    	}else{
+    	}else
+    	{
     		//return $this->_helper->redirector('entrar');
     		return $this->_forward('entrar', 'usuario');
     		
@@ -27,6 +42,24 @@ class UsuarioController extends Zend_Controller_Action
     }
 
 
+    public function entrarAjaxAction()
+    {
+    	$this->_helper->layout->setLayout('ajax');
+    
+    	if(!$this->logged)
+    	{
+    		$form = new Application_Form_Entrar();
+    		$this->view->form = $form;
+    	}else
+    	{
+    		$this->view->usuario = $this->usuario;
+    	}
+    }
+        
+
+    
+    
+    
     public function validateformAction()
     {
     	$this->_helper->layout()->disableLayout();
@@ -64,6 +97,11 @@ class UsuarioController extends Zend_Controller_Action
     			$storage->write($user);
     				
     			$dados['status'] = "sucesso";
+    			
+    			    
+    			$navigation = $this->view->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
+    			$dados['navigation'] = $navigation;
+    			
     		} else {
     			$dados['status'] = "erro";
     		}

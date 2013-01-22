@@ -11,17 +11,44 @@
 			
 				</div>
 				
-				<div class="top_menus">
+				<div class="top_menus" id="content_top_menus">
 					<?php 
 					
 					if ( !Zend_Auth::getInstance()->hasIdentity() ){ 
 						//echo $this->navigation()->setTranslator(Zend_Registry::get('Zend_Translate'))->menu()->renderMenu(Zend_Registry::get('default'));
 						echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('default'));
+						?>
+						<div id="div_form_ajax">
+							<div class="top_form_ajax"></div>
+							<div id="div_msg_error_login"></div>	
+							<form id="form_login" name="form_login" enctype="application/x-www-form-urlencoded" action="" method="post">
+								<dl class="zend_form">
+									<dt id="email-label">
+										<label for="email" class="required" style="text-align: left;">Email:</label>
+									</dt>
+									<dd id="email-element">
+										<input type="text" name="email" id="email" value="">
+									</dd>
+									<dt id="senha-label">
+										<label for="senha" class="required" style="text-align: left;">Senha:</label>
+									</dt>
+									<dd id="senha-element">
+										<input type="password" name="senha" id="senha" value="">
+									</dd>
+									<dd id="submit-element">
+										<input type="submit" name="submit" id="submitbutton" value="Logar">
+									</dd>
+								</dl>
+							</form>
+						</div>	
+
+						<?php 
 					}else {
 						echo $this->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
 						}
 						
 					?>	
+
 				</div>
 				
 			</div> <!-- [end] top_menu -->
@@ -30,7 +57,10 @@
 		
 		
 		
-	<?php 
+	<?php
 	$this->headLink()
 		->prependStylesheet($this->baseUrl('/css/topo.css'));
-	?>	
+
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/topo.js'))
+	?>

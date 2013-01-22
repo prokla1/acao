@@ -16,7 +16,6 @@ $pages = array(
 				'action'		=> 	'index',
 				'title'			=>	'Eventos',
 	        ),
-		
 			array(
 				'label' 		=> 	'Cadastrar',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
@@ -30,6 +29,9 @@ $pages = array(
 				'controller' 	=> 	'usuario',
 				'action'		=> 	'entrar',
 				'title'			=>	'Login',
+				'id'			=>	'login_link',
+				//'params'     => array('rel' => 'login'),
+				'class'			=>	'login_link',
 	        ),
 	        
  

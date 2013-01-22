@@ -2,6 +2,32 @@
 
 
 /* ================================== #Menu Style ===========================================*/
+
+/** box login **/
+#div_form_ajax{
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 50px;
+	z-index: 3;
+	background-color: white;
+	color: #333;
+	border: 1px solid #eaeaea;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 0 5px rgba(1,1,1,0.1);
+	-webkit-box-shadow: 0 0 0 5px rgba(1,1,1,0.1);
+	box-shadow: 0 0 0 5px rgba(1,1,1,0.1);
+	text-align: left;
+	padding: 10px;
+	margin: 5px;
+}
+.top_form_ajax{
+	margin-top: -40px;
+	height: 30px;
+	background: url("/img/bg_corner_box.png") no-repeat bottom right;
+}
+
+
 #ct_menu{
 	width: 100%;
 	padding: 12px;
@@ -25,6 +51,7 @@
 
 .top_menus{
 	float: right;
+	position: relative;
 }
 .navigation li{
 	display: inline;

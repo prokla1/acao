@@ -30,11 +30,11 @@ class ParceiroController extends Zend_Controller_Action
         if($_POST['rating'] > 0 && $_POST['rating'] < 6){
         	
         	$id_parceiro = $_POST['id'];
-        	$ratingTable = new Application_Model_DbTable_Parceiros();
-        	$rating = $ratingTable->rating($id_parceiro, $_POST['rating']);
+        	$parceirosTable = new Application_Model_DbTable_Parceiros();
+        	$parceiro = $parceirosTable->rating($id_parceiro, $_POST['rating']);
         	
         	$dados['status'] = "sucess";
-        	$dados['rating'] = $rating->getRating();
+        	$dados['rating'] = $parceiro->getRating();
         	
         }else{
         	$dados['status'] = "fail";
