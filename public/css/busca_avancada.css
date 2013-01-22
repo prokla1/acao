@@ -3,21 +3,65 @@
 
 /* ================================== #BUSCA AVANÇADA ===========================================*/
 
-/*CALENDARIO*/
+/*CALENDARIO - Exibe dia de hoje e input com calendário*/
+
+.ct_date{
+	float: left; 
+	width: 420px; 
+	max-width: 420px;
+}
+
+.text_date{
+	float: left; 
+	margin-right: 5px;
+}
+
+.input_none_date{
+	display: none;
+}
+
+.input_show_date{
+	border: 0; 
+	cursor: pointer; 
+	font-weight: bold; 
+	margin-top: -4px; 
+	background: url('/img/calendar.gif') right no-repeat; 
+	width: 220px;
+}
+
+
+
+
+
+/*CALENDARIO DOS PROXIMOS 7 DIAS*/
+
+.ct_calendar{
+	float: left; 
+	border: 1px solid #ccc;
+	margin: -12px 0 0 0; 
+	float: right; 
+	padding: 4px 2px; 
+	background: #E6E6E6;
+}
 
 ul#ul_calendar{
 	float: left;
-	background: #fbfbfb;
 }
 
 ul#ul_calendar li{
+	font-size: 12px;
 	float: left;
 	white-space: nowrap;
-	width: 80px;
+	width: 65px;
 	margin: 0 2px;
-	border: 1px solid #CCC;
+	border: 1px solid #fbfbfb;
 	cursor: pointer;
 	text-align: center;
+	padding: 5px 0;
+}
+
+ul#ul_calendar li{
+	background: #fbfbfb;
 }
 
 ul#ul_calendar li.active a{
@@ -27,9 +71,6 @@ ul#ul_calendar li.active a{
 ul#ul_calendar li.active, ul#ul_calendar li:hover{
 	background:#f60;
 	border: 1px solid #BB3D00;
-	font-size: 16px;
-	padding: 10px 0;
-	margin-top: -10px;
 }
 
 /* ==========*/

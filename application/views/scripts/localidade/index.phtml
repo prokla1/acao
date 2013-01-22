@@ -1,12 +1,23 @@
+<style>
+body {background: #CCC;}
 
-<h1>Selecione a cidade</h1>
+</style>
 
-<ul>
-	<?php foreach ($this->localidades as $localidade) : ?>
-		<li>
-			<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
-				<?php echo $localidade->nome ?>
-			</a>
-		</li>
-	<?php endforeach; ?>
-</ul>
+
+
+<div style="width: 980px; height: 300px; margin-top: -150px; margin-left: -490px; border: 5px solid #E0E0E0;  position: absolute; top: 50%; left: 50%; background: #fbfbfb;">
+
+	<h1>Selecione a cidade</h1>
+	
+	<ul>
+		<?php foreach ($this->localidades as $localidade) : ?>
+			<li>
+				<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
+					<?php echo $localidade->nome ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+
+</div>
+	

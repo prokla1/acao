@@ -117,6 +117,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	)
     	->where('ativo = ?', '1')
     	->where('destaque = ?', '1')
+    	->where('realizacao >= ?', date('Y-m-d', time()))
     	->where('local_enderecos.id_cidade = ?', $idCity)
     	->order('realizacao');
     	

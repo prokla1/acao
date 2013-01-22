@@ -1,56 +1,67 @@
-<?php if(count($this->eventos) > 0) : ?>
+<div style="border: 1px solid red; width: 980px; display: table; background: #fbfbfb; border: 1px solid #E5E5E5 ">
 
-<?php echo $this->partial('partials/eventos.phtml', array('eventos' => $this->eventos)); ?>
-
-
-<?php else: ?> 
-nenhum  evento
-<?php endif;?>
-
-
-
-<!-- #START DESTAQUES -->
-
-<div class="ct_right">
-
-<div class="destak_title" style="padding: 15px; background: #FBDAD7; border-left: 4px solid #F9AEAC; border-bottom: 1px solid #F9AEAC; margin-bottom: 10px;">Destaques</div>
-
-<?php foreach ($this->destaques as $destaques): ?>
-
-	<div class="ct_event_destak" style="width: 346px; float: right; background: url('/img/bg_destak.png') repeat-x; border: 1px solid #E5E5E5; margin-bottom: 10px;">
+	<div class="ct_left">
 	
-	<span class="event_date_d" style="float: right; padding: 4px 8px; color: #FFF; background: url('/img/bg_date_destak.png') repeat-x; border-right: 5px solid black;"><?php echo date('d/m/Y', strtotime( $destaques->realizacao)) ?></span>
+	<?php if(count($this->eventos) > 0) : ?>
 	
-		<div class="ct_left_d">
-			<div class="ct_flyer_d">
-				<img alt="<?php echo $destaques->nome ?>" src="/img/eventos/<?php echo $destaques->capa?> "/>
-			</div>
-		</div>
 	
-		<div class="ct_right_d" style="padding: 14px 0 0;">
-		
-			<div class="ct_event_date_d" style="width: 200px; max-width: 200px; margin-bottom: 4px;">
-				<span class="event_name_d">Evento: <?php echo $destaques->nome ?></span>
-			</div>
-			
-			<div class="ct_event_local_d" style="width: 200px; max-width: 200px; margin-bottom: 4px;">
-				<span class="event_local_d">
-					Local: <a href="	<?php echo $this->url(array('id' => $destaques->parceiro->id, 'nome' => $destaques->parceiro->nome), 'parceiro') ?> ">
-								<?php echo $destaques->parceiro->nome ?>
-						   </a>
-				</span>
 	
-			</div>
-		
-		</div>
-
+	<?php echo $this->partial('partials/eventos.phtml', array('eventos' => $this->eventos)); ?>
+	
+	
+	<?php else: ?> 
+	nenhum  evento
+	<?php endif;?>
+	
 	</div>
-
-<?php endforeach;  ?>	
+	
+	<!-- #START DESTAQUES -->
+	
+	<div class="ct_right">
+	
+	<div class="destak_title">» Destaques</div>
+	
+	<?php foreach ($this->destaques as $destaques): ?>
+	
+	<!-- DESTAQUE MODELO -->
+	
+		<div class="ct_event_destak">
+		
+		<span class="event_date_d"><?php echo date('d/m/Y', strtotime( $destaques->realizacao)) ?></span>
+		
+			<div class="ct_left_d">
+				<div class="ct_flyer_d">
+					<img alt="<?php echo $destaques->nome ?>" src="/img/eventos/<?php echo $destaques->capa?> "/>
+				</div>
+			</div>
+		
+			<div class="ct_right_d">
+			
+				<div class="ct_event_date_d" style="">
+					<span class="txt_min_destk">Evento: </span>
+					<span class="event_name_d"><?php echo $destaques->nome ?></span>
+				</div>
+				
+				<div class="ct_event_local_d">
+					<span class="txt_min_destk">Local:</span> 
+						<span class="event_local_d">
+							<a href="	<?php echo $this->url(array('id' => $destaques->parceiro->id, 'nome' => $destaques->parceiro->nome), 'parceiro') ?> ">
+								<?php echo $destaques->parceiro->nome ?>
+							</a>
+							
+						</span>
+	
+				</div>
+			
+			</div>
+	
+		</div>
+	
+	<?php endforeach;  ?>	
+		
+	</div>
 	
 </div>
-	
-
 
 
 

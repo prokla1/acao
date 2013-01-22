@@ -6,9 +6,33 @@
 .ct_right{
 	width: 350px;
 	float: right;
-	position: absolute;
-	right: 0;
-	top: 0;
+	background: #fbfbfb;
+}
+
+.destak_title{
+	padding: 10px; 
+	background: #900;
+	color: #f60;
+	border-left: 4px solid #F9AEAC; 
+	border-bottom: 1px solid #F9AEAC; 
+	margin-bottom: 10px;
+}
+
+/*CT DESTQUE*/
+
+.ct_event_destak{
+	width: 340px; 
+	float: right; 
+	background: url('/img/bg_destak.png') repeat-x; 
+	border: 1px solid #E5E5E5; 
+	margin: 0 2px 10px 0;
+}
+
+.event_date_d{
+	float: right; 
+	padding: 4px 8px; 
+	color: #FFF; 
+	background: url('/img/bg_date_destak.png') repeat-x; 
 }
 
 /*CT LEFT (LOGO E SOCIAIS)*/
@@ -36,4 +60,26 @@
 
 .ct_right_d{ 
 	float: left;
+	padding: 14px 0 0;
 }
+
+.ct_event_date_d{
+	width: 200px; 
+	max-width: 200px; 
+	margin-bottom: 4px
+}
+
+.ct_event_local_d{
+	width: 200px; 
+	max-width: 200px; 
+	margin-bottom: 4px;
+}
+
+.txt_min_destk{
+	font-size: 11px;
+}
+.event_name_d{font-weight: bold;}
+
+
+
+.event_local_d{font-weight: bold;}

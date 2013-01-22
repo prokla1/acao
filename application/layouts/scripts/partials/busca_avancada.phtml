@@ -13,7 +13,7 @@
 		$dia_base = $_GET['d'];
 	}
 			
-	for($i = -1; $i < 6; $i++){
+	for($i = 0; $i < 7; $i++){
 		$dias[] = $dia_base + ($i * 86400);
 	}
 
@@ -28,21 +28,20 @@
 </script>
 
 <div id="top_date_search">
-	<div style="float: left; width: 420px; max-width: 420px;">
-		<span style="float: left; margin-right: 5px;">Exibindo eventos de:</span> 
+	
+	<div class="ct_date">
+		
+		<span class="text_date">Exibindo eventos de:</span> 
+		
 		<form id="form_busca_eventos">
 		    <input type="text" name="d" id="d" style="display: none;" value="<?php echo $dia_base ?>" />
-		    <input type="text" name="date_filter_view" id="date_filter_view"  readonly="readonly" style="border: 0; cursor: pointer; font-weight: bold; margin-top: -4px; background: url('/img/calendar.gif') right no-repeat; width: 220px;" value="<?php echo $defaulDate; ?>" />
+		    <input type="text" name="date_filter_view" id="date_filter_view"  readonly="readonly" class="input_show_date" style="border: 0; cursor: pointer; font-weight: bold; margin-top: -4px; background: url('/img/calendar.gif') right no-repeat; width: 220px;" value="<?php echo $defaulDate; ?>" />
 		</form>
 	
 	</div>
-	<div style="float: left;margin-top: -6px;">
-		<a href=""><div id="search"><img src="/img/btn_search.png" /></div></a>
-	</div>
-</div>
 	
-<div class="container_calendario" style="border: 1px solid #CCC; width: 620px; display: table;">	
-		<ul id="ul_calendar" style="padding: 12px 8px 2px 8px;">
+	<div class="ct_calendar">
+		<ul id="ul_calendar">
 				<?php
 					foreach($dias as $dia){
 						(date('d/m', $dia) == date('d/m', $dia_base)) ? $active = 'class="active"' : $active = "";
@@ -57,7 +56,12 @@
 					}
 				?>
 		</ul>
-</div>	
+
+	</div>
+	
+</div>
+	
+	
 
 								    
 <!-- 							    

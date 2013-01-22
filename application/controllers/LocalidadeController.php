@@ -31,6 +31,9 @@ class LocalidadeController extends Zend_Controller_Action
     public function indexAction()
     {
         //print_r($this->_getAllParams());
+        
+    	$this->_helper->layout->setLayout('location');
+    	
     	$cidadesTable = new Application_Model_DbTable_LocalCidades();
     	$localidades = $cidadesTable->cidadesName();
     	$this->view->localidades = $localidades;
