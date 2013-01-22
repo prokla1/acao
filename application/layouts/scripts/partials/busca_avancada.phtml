@@ -26,10 +26,19 @@
 <script type="text/javascript">
 	var defaultDate = "<?php echo $defaulDate; ?>";
 </script>
+
+<div id="top_date_search">
+	<div style="float: left; width: 420px; max-width: 420px;">
+		Exibindo eventos de: <span style="font-weight: bold;"><?php echo $defaulDate; ?></span>
 	
-<div class="container_calendario">	
-	<div id="date_left" class="date_arrow" rel="<?php echo $week['prev']; ?>"> << </div>
-		<ul id="ul_calendar">
+	</div>
+	<div style="float: left;margin-top: -6px;">
+		<a href=""><div id="search"><img src="/img/btn_search.png" /></div></a>
+	</div>
+</div>
+	
+<div class="container_calendario" style="border: 1px solid #CCC; width: 620px; display: table;">	
+		<ul id="ul_calendar" style="padding: 12px 8px 2px 8px;">
 				<?php
 					foreach($dias as $dia){
 						(date('d/m', $dia) == date('d/m', $dia_base)) ? $active = 'class="active"' : $active = "";
@@ -44,7 +53,6 @@
 					}
 				?>
 		</ul>
-	<div id="date_right"class="date_arrow" rel="<?php echo $week['next']; ?>"> >> </div>
 </div>	
 
 <h5 style="clear:both;">Exibindo eventos de:</h5>
@@ -112,18 +120,3 @@
 	?>
 
 	
-	<style>
-.date_arrow, ul#ul_calendar{
-	float: left;
-}
-ul#ul_calendar li{
-	float: left;
-	white-space: nowrap;
-	margin: 2px;
-	cursor: pointer;
-}
-ul#ul_calendar li.active, ul#ul_calendar li:hover{
-	background:transparent url(/img/date_day_active.png) center center no-repeat;
-	color: #000;
-}
-</style>

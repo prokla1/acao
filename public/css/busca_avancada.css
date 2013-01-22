@@ -3,6 +3,37 @@
 
 /* ================================== #BUSCA AVANÇADA ===========================================*/
 
+/*CALENDARIO*/
+
+ul#ul_calendar{
+	float: left;
+	background: #fbfbfb;
+}
+
+ul#ul_calendar li{
+	float: left;
+	white-space: nowrap;
+	width: 80px;
+	margin: 0 2px;
+	border: 1px solid #CCC;
+	cursor: pointer;
+	text-align: center;
+}
+
+ul#ul_calendar li.active a{
+	color: #FFE9D2;
+}
+
+ul#ul_calendar li.active, ul#ul_calendar li:hover{
+	background:#f60;
+	border: 1px solid #BB3D00;
+	font-size: 16px;
+	padding: 10px 0;
+	margin-top: -10px;
+}
+
+/* ==========*/
+
 #search_adv{
 	border: 1px solid #f0f0f0; 
 	width: 620px; 
