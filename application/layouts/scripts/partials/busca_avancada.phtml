@@ -29,7 +29,11 @@
 
 <div id="top_date_search">
 	<div style="float: left; width: 420px; max-width: 420px;">
-		Exibindo eventos de: <span style="font-weight: bold;"><?php echo $defaulDate; ?></span>
+		<span style="float: left; margin-right: 5px;">Exibindo eventos de:</span> 
+		<form>
+		    <input type="text" name="d" id="d" style="display: none;" value="<?php echo $dia_base ?>" />
+		    <input type="text" name="date_filter_view" id="date_filter_view"  readonly="readonly" style="border: 0; cursor: pointer; font-weight: bold; margin-top: -4px; background: url('/img/calendar.gif') right no-repeat; width: 220px;" value="<?php echo $defaulDate; ?>" />
+		</form>
 	
 	</div>
 	<div style="float: left;margin-top: -6px;">
@@ -56,11 +60,7 @@
 </div>	
 
 <h5 style="clear:both;">Exibindo eventos de:</h5>
-<form>
-    <input type="text" name="d" id="d" style="display: none;" value="<?php echo $dia_base ?>" />
-    <input type="text" name="date_filter_view" id="date_filter_view"  readonly="readonly" value="<?php echo $defaulDate; ?>" />
-    <input type="submit" value="Pesquisar">
-</form>
+
 								    
 <!-- 							    
 
