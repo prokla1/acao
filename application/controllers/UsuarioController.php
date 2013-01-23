@@ -25,8 +25,6 @@ class UsuarioController extends Zend_Controller_Action
     	$this->logged = $logged;
     }
 
-    
-    
     public function indexAction()
     {
     	if($this->logged)
@@ -37,10 +35,10 @@ class UsuarioController extends Zend_Controller_Action
     	{
     		//return $this->_helper->redirector('entrar');
     		return $this->_forward('entrar', 'usuario');
-    		
     	}
+    		
+    	
     }
-
 
     public function entrarAjaxAction()
     {
@@ -54,12 +52,9 @@ class UsuarioController extends Zend_Controller_Action
     	{
     		$this->view->usuario = $this->usuario;
     	}
+    	
     }
-        
 
-    
-    
-    
     public function validateformAction()
     {
     	$this->_helper->layout()->disableLayout();
@@ -216,12 +211,7 @@ class UsuarioController extends Zend_Controller_Action
     	 
     	$this->view->form = $form;
     }
-    
 
-
-    
-    
-    
     public function sairAction()
     {
     	$auth = Zend_Auth::getInstance();
@@ -229,9 +219,24 @@ class UsuarioController extends Zend_Controller_Action
     	//return $this->_helper->redirector('index');
     	return $this->_redirect('/eventos');
     }
-    
-    
+
+    public function dadosAction()
+    {
+        // action body
+    }
+
+    public function facebookAction()
+    {
+        // action body
+        $this->view->parametros = $this->_getAllParams();
+    }
+
+
 }
+
+
+
+
 
 
 
