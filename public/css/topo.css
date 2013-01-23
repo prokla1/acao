@@ -48,6 +48,13 @@
 	float: left;
 }
 
+.ico_home{
+	width: 55px; 
+	height: 48px; 
+	float: left; 
+	background: url('/img/ico_home_back.png') no-repeat; 
+	margin-top: -12px;
+}
 
 .top_menus{
 	float: right;

@@ -37,8 +37,7 @@
 
 .ct_calendar{
 	float: left; 
-	border: 1px solid #ccc;
-	margin: -12px 0 0 0; 
+	margin: -15px 0 0 0; 
 	float: right; 
 	padding: 4px 2px; 
 	background: #E6E6E6;
@@ -57,7 +56,12 @@ ul#ul_calendar li{
 	border: 1px solid #fbfbfb;
 	cursor: pointer;
 	text-align: center;
-	padding: 5px 0;
+	padding: 10px 0;
+	font-weight: bold;
+}
+
+ul#ul_calendar li a{
+	color: #000;
 }
 
 ul#ul_calendar li{
@@ -71,6 +75,7 @@ ul#ul_calendar li.active a{
 ul#ul_calendar li.active, ul#ul_calendar li:hover{
 	background:#f60;
 	border: 1px solid #BB3D00;
+	color: #FFF;
 }
 
 /* ==========*/
