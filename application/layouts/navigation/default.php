@@ -2,33 +2,35 @@
  
 $pages = array(
 			array(
-				'label' 		=> 	'Início',
+				'label' 		=> 	'Cadastrar evento',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
-				'controller' 	=> 	'index',
+				'controller' 	=> 	'eventos',
 				'action'		=> 	'index',
-				'class'			=>	'home',
-				'title'			=>	'Início',
-	        ),
+				'title'			=>	'Quero cadastrar um evento',
+				'class'         => 	'cadevents_link',
+			),
 			array(
 				'label' 		=> 	'Eventos',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
 				'controller' 	=> 	'eventos',
 				'action'		=> 	'index',
-				'title'			=>	'Eventos',
+				'title'			=>	'Quero encontrar eventos',
+				'class'         => 	'events_link',
 	        ),
 			array(
 				'label' 		=> 	'Cadastrar',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
 				'controller' 	=> 	'usuario',
 				'action'		=> 	'cadastrar',
-				'title'			=>	'Cadastrar',
+				'title'			=>	'Quero me cadastrar',
+				'class'			=>	'cad_link',
 	        ),
 			array(
 				'label' 		=> 	'Entrar',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
 				'controller' 	=> 	'usuario',
 				'action'		=> 	'entrar',
-				'title'			=>	'Login',
+				'title'			=>	'Quero fazer login',
 				'id'			=>	'login_link',
 				//'params'     => array('rel' => 'login'),
 				'class'			=>	'login_link',

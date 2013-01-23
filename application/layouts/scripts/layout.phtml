@@ -1,8 +1,8 @@
 <?php 
 	$rodape = $this->partial('partials/rodape.phtml');
 	$topo =  $this->partial('partials/topo.phtml');
-	$busca_avancada =  $this->partial('partials/busca_avancada.phtml');
-	$location = $this->partial('partials/location.phtml');
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
@@ -58,44 +58,15 @@ echo 	$this->headMeta(),PHP_EOL;
 		?>
 
 		
-
-
-		<!--=============================== Page TOPO II ================================================== -->
-		<div id="ct_top">
-			<div id="top">
-				
-				<div id="top_left"></div>
-				
-				<div id="top_right">
-				
-					<div style="margin-top: 160px; float: right; padding: 10px 20px;">
-				
-					<?php echo $location; ?>
-					
-					</div>
-				
-				</div>
-			</div>
-		</div>
-		
 	
 	
 		<!--=============================== Page Content ================================================== -->	
-		<div id="ct_content">
-			<div id="content">
-			
-					
-		<!--===== BUSCA AVANÇADA ====== -->	
-		<?php echo $busca_avancada; ?>					
-					
-					
+		
 					
 				
 						<?php echo $this->layout()->content;?>
 				
-			
-			</div>
-		</div>
+		
 
 		<!--=============================== Page Rodapé ================================================== -->
 		<?php echo $rodape; ?>
