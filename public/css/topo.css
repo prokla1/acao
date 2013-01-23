@@ -59,18 +59,44 @@
 .top_menus{
 	float: right;
 	position: relative;
+	margin: 4px 0 0;
 }
+
+
+/*BOTOES TOPO*/
+
 .navigation li{
 	display: inline;
-	padding: 5px 10px;
+	margin: 0 10px;
 }
+
+.cadevents_link{
+	padding: 2px 8px 2px 24px; 
+	background: url("/img/bg_link_cadevent.png") no-repeat;
+}
+
+.events_link{
+	padding: 2px 8px 2px 8px; 
+}
+
+.cad_link{
+	padding: 2px 8px 2px 24px; 
+	background: url("/img/bg_link_cad.png") no-repeat;
+}
+
+.login_link{
+	padding: 2px 8px 2px 24px; 
+	background: url("/img/bg_link_login.png") no-repeat;
+} 
+
 .navigation li a{
-	color: #ccc;
+	color: #fbfbfb;
 }
 .navigation li a:hover{
-	color: graytext;
+	color: #CCC;
 }
 
 .navigation li a:activate{
-	color: red;
+	color: orange;
 }
+
