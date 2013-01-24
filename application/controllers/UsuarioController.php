@@ -228,7 +228,55 @@ class UsuarioController extends Zend_Controller_Action
     public function facebookAction()
     {
         // action body
-        $this->view->parametros = $this->_getAllParams();
+    	$dados = array();
+    	
+    	$this->_helper->layout()->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender(true);
+    	
+    	$user_post = $this->_getParam('user');
+        
+        if($user_post)
+        {
+        	
+        	$response = $this->_getParam('r');
+        	$token = $response['accessToken'];
+        	
+        	$user_get = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$token), true);
+        	
+        	if($user_get) //se no get encontrou as permissoes para o token postado
+        	{
+        		$dados['user_get'] = $user_get;
+        		
+        		
+        		 
+        		$userTable = new Application_Model_DbTable_Usuarios();
+        		$user = $userTable->byEmailFace( $user_get, new Application_Model_Usuario());
+        		
+        		if($user)
+        		{
+        			$dados['status'] = 'sucesso';
+        			
+        			$auth = Zend_Auth::getInstance();
+        			$storage = $auth->getStorage();
+        			$storage->write($user);
+        			$dados['user'] = $user->getArray();
+        			
+        			$navigation = $this->view->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
+        			$dados['navigation'] = $navigation;
+        		
+        		}else //if($user)
+        		{
+        			$dados['status'] = 'falha';
+        		}       		
+        		
+        	} //if($user_get)
+
+        }//if($user_post)
+    	
+
+  
+        
+        $this->_helper->json($dados);
     }
 
 

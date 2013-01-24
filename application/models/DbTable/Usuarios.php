@@ -5,12 +5,12 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
 
     protected $_name = 'usuarios';
 
-    
+
 
     /*
      * seleciona o usuario pelo ID
-     * retorn objeto USUARIO
-     */
+    * retorn objeto USUARIO
+    */
     public function byId($id, Application_Model_Usuario $usuario)
     {
     	$result = $this->fetchRow('id = '.$id);
@@ -19,7 +19,38 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
     	return $usuario;
     }
     
+
+
+    /*
+     * seleciona o usuario pelo EMAIL vindo do FACE
+    * retorn objeto USUARIO
+    */
+    public function byEmailFace($user_get, Application_Model_Usuario $usuario)
+    {
+    	$select = $this->select()->where('email = ?', $user_get['email']);
+    	$result = $this->fetchRow($select);
+    	    	
+    	//$result = $this->fetchRow('email = '.$email);
+    	//$usuario = $user_get;
+    	if($result)
+    	{
+	    	$usuarios = $result->toArray();
+	    	$usuario->setOptions($usuarios);
+    	}else 
+    	{
+    		//save
+    		$usuario->setId_facebook($user_get['id']);
+    		$usuario->setNome($user_get['name']);
+    		$usuario->setEmail($user_get['email']);
+    		$usuario->setNascimento($user_get['birthday']);
+    		$usuario->setAtivo('1');
+    		$usuario->setArray_face(json_encode($user_get));
+    		$this->insert($usuario->getArray());
+    	}
+    	return $usuario;
+    }
     
+      
     
     public function save(Application_Model_Usuario $usuario)
     {
