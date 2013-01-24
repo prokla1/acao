@@ -13,7 +13,7 @@ $(document).ready(function(){
 	$('#ocultar_filtro').click(function(event){
 		event.preventDefault();
 		$("#search_adv").hide("slow");
-	});
+});
 	
 	
 	

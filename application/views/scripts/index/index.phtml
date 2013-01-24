@@ -2,14 +2,41 @@
 <div id="initial" style="background: #E6E6E6;">
 	<div id="ct_initial" style="border: 1px solid #CCC; width: 980px; margin: 0 auto; padding: 80px 0;">
 	
-		<div id="ct_logo" style="border: 1px solid red; width: 300px; height: 200px; margin: 0 auto; margin-bottom: 30px;"></div>
-		<div id="ct_location" style="border-top: 1px solid #fbfbfb; margin: 0 auto; padding: 20px 10px; background: #CCC;">
-			<div id="location" style="float: left;">Informe sua localidade: Selecione</div>
-			<div id="ct_alternate" style="float: right;">Não encontrou sua cidade?</div>
+	
+	
+		
+		<div id="ct_location" style="border-top: 1px solid #fbfbfb; margin: 0 auto; height: 80px; background: #CCC;">
+			
+			<div id="location" style="float: left;">Informe sua localidade: <a href="" id="btn_selcity">Selecione</a></div>
+			<div id="categories" style="float: right;">Cadastrados:</div>
+		
 		</div>
-		<div id="ct_cities" style="border-top: 1px solid #fbfbfb; margin: 0 auto; padding: 20px 10px; background: #CCC; display: none;">
-			Exibe cidades
+		
+		<div id="ct_cities" style="background: #333; display: table; width: 980px; ">
+		
+		<div id="ct_alternate" style="float: right; margin: 10px 0 0 0;"><a href="" id="btn_nocity" style="color: red; padding: 10px 20px; border: 1px solid red; background: #999;">Não encontrou sua cidade?</a></div>
+			
+			<div style="background: #000; margin-top: 10px;">
+				<div id="no_cities" style="border: 1px solid red;">Form para nova cidade</div>
+			</div>
+			
+			<ul style="float: left; padding: 20px 40px; color: #CCC;">
+				<li style="font-size: 18px;">Santa Catarina</li>
+				<li style="padding: 10px 30px;">Florianópolis</li>
+			</ul>
 		</div>
+		
 	
 	</div>
 </div>	
+
+
+
+<?php 
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/showcity_index.js'));
+	
+	$this->headLink()
+	->prependStylesheet($this->baseUrl('/css/index.css'));
+
+?>
