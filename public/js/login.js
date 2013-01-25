@@ -74,6 +74,8 @@
                         } else {
                             //user cancelled login or did not grant authorization
                         	alert('Não foi possível conectrar através do Facebook');
+    		            	$('#fb-auth-loading').hide();
+    		            	$('#fb-auth-button').show();
                         }
                     }, {scope:'email,user_birthday,publish_stream'}); //{scope:'email,user_birthday,status_update,publish_stream,user_about_me'});  	
             }
@@ -95,7 +97,7 @@
     (function() {
         var e = document.createElement('script'); e.async = true;
         e.src = document.location.protocol 
-            + '//connect.facebook.net/en_US/all.js';
+            + '//connect.facebook.net/pt_BR/all.js';
         document.getElementById('fb-root').appendChild(e);
     }());
     
