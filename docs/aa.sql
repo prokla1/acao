@@ -3,11 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 23, 2013 at 12:11 PM
+-- Generation Time: Jan 25, 2013 at 03:14 PM
 -- Server version: 5.1.66-0ubuntu0.11.10.3
 -- PHP Version: 5.3.14
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -436,20 +435,20 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_facebook` varchar(20) DEFAULT NULL,
   `nome` varchar(100) NOT NULL,
-  `cpf` bigint(11) unsigned zerofill NOT NULL DEFAULT '00000000000',
+  `cpf` bigint(11) unsigned zerofill DEFAULT '00000000000',
   `email` varchar(50) NOT NULL,
-  `senha` varchar(32) NOT NULL,
-  `sexo` enum('0','1','2') NOT NULL DEFAULT '0' COMMENT '0-> Pendente / 1->Masculino / 2->Feminino',
+  `senha` varchar(32) DEFAULT NULL,
+  `sexo` enum('0','1','2') DEFAULT '0' COMMENT '0-> Pendente / 1->Masculino / 2->Feminino',
   `nascimento` date NOT NULL,
-  `foto` varchar(255) NOT NULL DEFAULT 'null.jpg',
+  `foto` varchar(255) DEFAULT 'null.jpg',
   `ativo` enum('0','1') NOT NULL DEFAULT '0' COMMENT '0 -> NAO // 1 -> SIM',
-  `email_verificado` enum('0','1') NOT NULL DEFAULT '0' COMMENT '0 -> NAO // 1 -> SIM',
+  `email_verificado` enum('0','1') DEFAULT '0' COMMENT '0 -> NAO // 1 -> SIM',
   `id_endereco` int(11) DEFAULT NULL,
   `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `array_face` text NOT NULL,
+  `array_face` text,
   PRIMARY KEY (`id`),
   KEY `id_endereco` (`id_endereco`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `usuarios`
@@ -458,8 +457,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`id`, `id_facebook`, `nome`, `cpf`, `email`, `senha`, `sexo`, `nascimento`, `foto`, `ativo`, `email_verificado`, `id_endereco`, `hora`, `array_face`) VALUES
 (1, '', 'Juscelino Iene Cordeiro da Silva', 00000000000, 'jus@jus.com', '202cb962ac59075b964b07152d234b70', '0', '0000-00-00', 'null.jpg', '1', '0', NULL, '2012-06-05 20:31:07', ''),
 (2, '', 'Elias Augusto de Oliveira', 00000000000, 'elias@elias.com', '202cb962ac59075b964b07152d234b70', '0', '0000-00-00', 'null.jpg', '1', '0', NULL, '2012-06-05 20:32:39', ''),
-(12, '100001551508566', 'Juscelino Iene', 00000000000, 'ju.impossivel@gmail.com', 'Facebook', '1', '1982-11-21', 'null.jpg', '0', '0', NULL, '2012-06-11 23:00:46', '{"id":"100001551508566","name":"Juscelino Iene","first_name":"Juscelino","last_name":"Iene","link":"http:\\/\\/www.facebook.com\\/juscelino.iene","username":"juscelino.iene","birthday":"11\\/21\\/1982","location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"gender":"male","email":"ju.impossivel@gmail.com","timezone":-3,"locale":"pt_BR","verified":true,"updated_time":"2012-06-11T22:58:59+0000"}'),
-(18, NULL, 'teste', 00000000001, 'teste@teste.com', '698dc19d489c4e4db73e28a713eab07b', '1', '1982-11-21', 'null.jpg', '0', '0', NULL, '2013-01-15 20:53:40', '');
+(18, NULL, 'teste', 00000000001, 'teste@teste.com', '698dc19d489c4e4db73e28a713eab07b', '1', '1982-11-21', 'null.jpg', '0', '0', NULL, '2013-01-15 20:53:40', ''),
+(27, '100001551508566', 'Juscelino Iene', NULL, 'ju.impossivel@gmail.com', NULL, '1', '1982-11-21', NULL, '1', '1', NULL, '2013-01-25 14:04:36', '{"id":"100001551508566","name":"Juscelino Iene","first_name":"Juscelino","last_name":"Iene","link":"http:\\/\\/www.facebook.com\\/juscelino.iene","username":"juscelino.iene","birthday":"11\\/21\\/1982","hometown":{"id":"107664652596260","name":"Apucarana"},"location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"sports":[{"id":"160899230620548","name":"Levantamento de copo","description":"Movimento repetitivo prolongado."}],"favorite_teams":[{"id":"204073162943401","name":"Clube de Regatas do Flamengo"}],"gender":"male","email":"ju.impossivel@gmail.com","timezone":-2,"locale":"pt_BR","languages":[{"id":"108083115891989","name":"Portugu\\u00eas"},{"id":"450169151702580","name":"Portuguese"}],"verified":true,"updated_time":"2013-01-25T03:20:05+0000"}');
 
 --
 -- Constraints for dumped tables
@@ -549,7 +548,6 @@ ALTER TABLE `rel_local_usuario`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_endereco`) REFERENCES `local_enderecos` (`id`);
-SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
