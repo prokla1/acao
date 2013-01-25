@@ -9,7 +9,7 @@ $usuario = $this->usuario;
 		
 		
 		
-	<?php elseif ($usuario->cpf == 0) :  //verifica se o CPF do usuario esta cadastrado ?>
+	<?php elseif ($usuario->cpf == 0 || $usuario->cpf == null) :  //verifica se o CPF do usuario esta cadastrado ?>
 		<h3>CPF inválido</h3>
 		Seu CPF é necessário para resgatar o produto, acesse sua conta para cadastra-lo.
 			

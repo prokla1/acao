@@ -83,7 +83,7 @@ $cortesia = $this->cortesia;
 	
 	<?php else : //================ sexo não é permitido ou usuário não informou o sexo========// ?>
 	
-		<?php if($usuario->sexo == '0') :?>
+		<?php if($usuario->sexo == '0' || $usuario->sexo == null) :?>
 			Você ainda não informou seu sexo.
 			<hr>
 			Vá até sua conta para informar os dados necessários.

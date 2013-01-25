@@ -199,13 +199,18 @@ class UsuarioController extends Zend_Controller_Action
     			try {
     				// insert user
     				$mapper->save($user);
-    				$this->view->message = "Usuário foi salvo com sucesso!";
+    				
+    				$auth = Zend_Auth::getInstance();
+    				$storage = $auth->getStorage();
+    				$storage->write($user);
+    				
+    				$this->view->msg = "Usuário foi salvo com sucesso!";
+    				$this->view->user = $user;
+    				
     			} catch (Exception $e) {
-    				$this->view->assign('message', $e->getMessage());
+    				$this->view->assign('msg', $e->getMessage());
     			}
     			
-    			// get all users
-    			return $this->_helper->redirector('index');
     		}
     	}
     	 
@@ -227,7 +232,6 @@ class UsuarioController extends Zend_Controller_Action
 
     public function facebookAction()
     {
-        // action body
     	$dados = array();
     	
     	$this->_helper->layout()->disableLayout();
@@ -243,11 +247,8 @@ class UsuarioController extends Zend_Controller_Action
         	
         	$user_get = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$token), true);
         	
-        	if($user_get) //se no get encontrou as permissoes para o token postado
+        	if($user_get && $user_get['email'] == $user_post['email']) //se no get encontrou as permissoes para o token postado
         	{
-        		$dados['user_get'] = $user_get;
-        		
-        		
         		 
         		$userTable = new Application_Model_DbTable_Usuarios();
         		$user = $userTable->byEmailFace( $user_get, new Application_Model_Usuario());
@@ -255,11 +256,12 @@ class UsuarioController extends Zend_Controller_Action
         		if($user)
         		{
         			$dados['status'] = 'sucesso';
+        			$dados['msg'] = 'Cadastrado com sucesso';
         			
         			$auth = Zend_Auth::getInstance();
         			$storage = $auth->getStorage();
         			$storage->write($user);
-        			$dados['user'] = $user->getArray();
+        			//$dados['user'] = $user->getArray();
         			
         			$navigation = $this->view->navigation()->menu()->renderMenu(Zend_Registry::get('logged'));
         			$dados['navigation'] = $navigation;
@@ -267,12 +269,20 @@ class UsuarioController extends Zend_Controller_Action
         		}else //if($user)
         		{
         			$dados['status'] = 'falha';
+        			$dados['msg'] = 'Não foi possível efetuar seu cadastro ou os dados estão incompletos';
         		}       		
         		
-        	} //if($user_get)
+        	}else  //if($user_get)
+        	{
+        		$dados['status'] = 'falha';
+        		$dados['msg'] = 'Os dados enviados estão incorretos ou você não permitiu o login pelo Facebook';
+        	}
 
-        }//if($user_post)
-    	
+        }else //if($user_post)
+        {
+        	$dados['status'] = 'falha';
+        	$dados['msg'] = 'Falha na requisição';
+        }
 
   
         

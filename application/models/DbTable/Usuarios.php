@@ -23,6 +23,7 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
 
     /*
      * seleciona o usuario pelo EMAIL vindo do FACE
+     * ou salva caso ele ainda não exista
     * retorn objeto USUARIO
     */
     public function byEmailFace($user_get, Application_Model_Usuario $usuario)
@@ -30,8 +31,6 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
     	$select = $this->select()->where('email = ?', $user_get['email']);
     	$result = $this->fetchRow($select);
     	    	
-    	//$result = $this->fetchRow('email = '.$email);
-    	//$usuario = $user_get;
     	if($result)
     	{
 	    	$usuarios = $result->toArray();
@@ -42,8 +41,24 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
     		$usuario->setId_facebook($user_get['id']);
     		$usuario->setNome($user_get['name']);
     		$usuario->setEmail($user_get['email']);
-    		$usuario->setNascimento($user_get['birthday']);
+    		$usuario->setNascimento(date('Y-m-d', strtotime($user_get['birthday'])));
     		$usuario->setAtivo('1');
+    		$usuario->setEmail_verificado('1');
+    		
+    		$sexo = '0';
+    		switch ($user_get['gender'])
+    		{
+    			case 'male':
+    				$sexo = '1';
+    				break;
+    			case 'female':
+    				$sexo = '2';
+    				break;
+    			default:
+    				$sexo = '0';
+    		}
+    		$usuario->setSexo($sexo);
+    		
     		$usuario->setArray_face(json_encode($user_get));
     		$this->insert($usuario->getArray());
     	}
@@ -67,11 +82,19 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
     		unset($data['id']);
     
     		// is unique eamil?
-    		if($this->isUniqueEmail($usuario->getEmail())){
-    			$this->insert($data);
-    		}
-    		else {
-    			throw new Exception('This email is already being used.');
+    		if($this->isUniqueEmail($usuario->getEmail()))
+    		{
+//     			if($this->isUniqueCPF($usuario->getCpf()))
+//     			{
+    				$this->insert($data);
+//     			}else 
+//     			{
+//     				throw new Exception('Este CPF já esta sendo utilizado.');
+//     			}
+    			
+    		}else 
+    		{
+    			throw new Exception('Este email já esta sendo utilizado.');
     		}
     			
     	} else {
@@ -79,17 +102,25 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
     	}
     }
     
-    
-    
+
+
     /**
      * Verifica se o email já existe
      * @param String $email
      * @return boolean
      */
     public function isUniqueEmail($email){
-    	$where = $this->getDefaultAdapter()
-    			->quoteInto('email = ?', $email);
+    	$where = $this->getDefaultAdapter()->quoteInto('email = ?', $email);
+    	return (count($this->fetchAll($where)) == 0) ? true : false;
+    }    
     
+    /**
+     * Verifica se o CPF já existe
+     * @param String $cpf
+     * @return boolean
+     */
+    public function isUniqueCPF($cpf){
+    	$where = $this->getDefaultAdapter()->quoteInto('cpf = ?', $cpf);
     	return (count($this->fetchAll($where)) == 0) ? true : false;
     }
     

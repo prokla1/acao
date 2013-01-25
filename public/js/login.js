@@ -50,11 +50,8 @@
 
        
        function updateButton(response) {
-            button       =   document.getElementById('fb-auth');
-            userInfo     =   document.getElementById('user-info');
-            
-            console.log('function updateButton(response)');
-            console.log(response);
+    	   $('#fb-auth_button').hide();
+    	   $('#fb-auth_loading').show();
             
             if (response.authResponse) {
                 //user is already logged in and connected
@@ -62,15 +59,13 @@
                     login(response, info);
                 });
                 
-                button.onclick = function() {
+//                button.onclick = function() {
 //                    FB.logout(function(response) {
 //                        logout(response);
 //                    });
-                };
+//                };
             } else {
                 //user is not connected to your app or logged out
-                button.innerHTML = 'Login';
-                button.onclick = function() {
                     FB.login(function(response) {
                         if (response.authResponse) {
                             FB.api('/me', function(info) {
@@ -78,15 +73,17 @@
                             });	   
                         } else {
                             //user cancelled login or did not grant authorization
+                        	alert('Não foi possível conectrar através do Facebook');
                         }
                     }, {scope:'email,user_birthday,publish_stream'}); //{scope:'email,user_birthday,status_update,publish_stream,user_about_me'});  	
-                };
             }
         }
         
         // run once with current status and whenever the status changes
-       
-       $('#fb-auth').click(function(event){
+       $('#fb-auth').click(function(){
+    	   console.log('clicou');
+    	   $('#fb-auth-button').hide();
+    	   $('#fb-auth-loading').show();
 	       	FB.getLoginStatus(updateButton);
 	       	FB.Event.subscribe('auth.statusChange', updateButton);	
        });
@@ -105,27 +102,15 @@
 
     
     function login(response, info){
-    	console.log('function login(response, info)');
-    	console.log(response);
-    	console.log(info);
-//        if (response.authResponse) {
-//            var accessToken                                 =   response.authResponse.accessToken;
-//            
-//            userInfo.innerHTML                             = '<img src="https://graph.facebook.com/' + info.id + '/picture">' + info.name
-//                                                             + "<br /> Token de acesso: " + accessToken;
-//            button.innerHTML                               = 'Logout';
-//            showLoader(false);
-//            document.getElementById('other').style.display = "block";
-    	
 		        $.post('/usuario/facebook',{ user: info, r: response.authResponse },function(r){
 		            if(r.status == "sucesso"){
 		            	$("#content_top_menus").html(r.navigation);
 		            }else{
-		            	alert("Falha no login! Preencha corretamente.");
-		            	console.log(r);
+		            	$('#fb-auth-loading').hide();
+		            	$('#fb-auth-button').show();
+		            	alert(r.msg);
 		            }
 		        },'json');
-//        }
     }
 
     function logout(response){
