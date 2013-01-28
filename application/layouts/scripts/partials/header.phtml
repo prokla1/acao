@@ -1,0 +1,30 @@
+	<div class="header">
+		<div class="header_home">
+			<a href="/">
+				<img src="/img/header_home.png" />
+			</a>
+		</div>
+		
+		<ul class="header_menu">
+			<li class="events">
+				<a href="/eventos">
+					Eventos
+				</a>
+			</li>
+			<li class="register">
+				<a href="/cadastrese">
+					Cadastre-se
+				</a>
+			</li>
+			<li class="login">
+				<a href="/entrar">
+					Entrar
+				</a>
+			</li>
+		</ul>
+		
+	</div>
+
+	<?php
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/header.css'));
+	?>

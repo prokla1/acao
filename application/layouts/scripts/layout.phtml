@@ -1,6 +1,6 @@
 <?php 
-	$rodape = $this->partial('partials/rodape.phtml');
-	$topo =  $this->partial('partials/topo.phtml');
+	$footer = $this->partial('partials/footer.phtml');
+	$header =  $this->partial('partials/header.phtml');
 
 
 ?>
@@ -18,13 +18,6 @@ echo 	$this->headTitle(),PHP_EOL;
 echo 	$this->headMeta(),PHP_EOL;
 ?>
 
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-
-<!--=============================== Mobile Specific Metas  ================================================== -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <meta property="og:site_name" content="Nome do seu site" />
 <meta property="og:title" content="Encontre o que tem de evento na sua região" />
@@ -33,13 +26,11 @@ echo 	$this->headMeta(),PHP_EOL;
 
 
 <!--=============================== CSS  ================================================== -->
-<link rel="stylesheet" href="/css/base.css"  media="screen" type="text/css" />
-<link rel="stylesheet" href="/css/skeleton.css"  media="screen" type="text/css" />
 <link rel="stylesheet" href="/css/layout.css"  media="screen" type="text/css" />
 
 <?php 
-	$this->headLink()
-	->prependStylesheet($this->baseUrl('/css/new_style/jquery-ui-1.10.0.custom.min.css'));
+// 	$this->headLink()
+// 	->prependStylesheet($this->baseUrl('/css/new_style/jquery-ui-1.10.0.custom.min.css'));
 	echo 	$this->headLink(),PHP_EOL;
 ?>
 
@@ -52,34 +43,131 @@ echo 	$this->headMeta(),PHP_EOL;
 	
 	
 	
-		<!--=============================== Page Navigation TOPO ================================================== -->
+		<!--=============================== Page Navigation HEADER ================================================== -->
 		<?php 
-			echo $topo;
+			echo $header;
 		?>
 
+		<div class="header-extra">
 		
-	
+			<div class="eventer">
+				<a href="/">
+					<img alt="eVenter" src="/img/eventer.png">
+				</a>
+			</div>
+			
+				<ul class="header-extra_menu">
+					<li><a class="active" href="/eventos/casas-noturnas/">Casas noturnas</a></li>
+					<li><a href="/eventos/teatro/">Teatro</a></li>
+					<li><a href="/eventos/cinema/">Cinema</a></li>
+				</ul>
+		
+		</div>
+		<div class="location">
+			<div class="location_wrap">
+				<div class="location_label">
+					Cidade:
+				</div>
+				<div class="location_content">
+					Ainda não selecionada
+				</div>
+			</div>
+		
+		</div>
+		
+		<style>
+		div.location
+		{
+			background-color: #F9F9F9;
+			height: 73px;
+		}
+		div.location div.location_wrap
+		{
+			float: right;
+			margin-right: 50px;
+			line-height: 73px;
+		}
+		div.location div.location_label
+		{
+			float: left;
+			line-height: 73px;
+			height: 73px;
+			padding-left: 45px;
+			padding-right: 10px;
+			font-size: 26px;
+			font-weight: bold;
+			background: transparent url("/img/location_label.png") left center no-repeat;
+		}
+		div.location div.location_content
+		{
+			float: left;
+			line-height: 73px;			
+			font-size: 26px;
+			font-weight: bold;
+			color: #666666;
+			padding-right: 40px;
+			background: transparent url("/img/location_content.png") right center no-repeat;			
+		}
+		
+		div.header-extra
+		{
+			height: 214px;
+			background: url("/img/header-extra_back.png");
+			border-bottom: 1px dashed #666666;
+		}
+		div.header-extra div.eventer
+		{
+			float: left;
+			padding: 50px;
+		}
+		div.header-extra ul.header-extra_menu
+		{
+			float: right;
+			margin: 80px 50px 0 0;
+		}
+		div.header-extra ul.header-extra_menu li
+		{
+			float: left;
+			text-transform: uppercase;
+		}
+		div.header-extra ul.header-extra_menu li a
+		{
+			font: normal normal bold 20px Arial, Sans-Serif;
+			line-height: 50px;
+			display: block;	
+			margin: 0 15px;
+			color: #666666;
+			text-shadow:1px 1px #696862;
+		}		
+		div.header-extra ul.header-extra_menu li a.active
+		{
+			color: #00CCFF;
+		}		
+		div.header-extra ul.header-extra_menu li a:HOVER
+		{
+			color: #00CCFF;
+		}		
+		
+		
+		</style>
 	
 		<!--=============================== Page Content ================================================== -->	
-		
-					
-				
-						<?php echo $this->layout()->content;?>
+						<?php //echo $this->layout()->content;?>
 				
 		
 
-		<!--=============================== Page Rodapé ================================================== -->
-		<?php echo $rodape; ?>
+		<!--=============================== Page FOOTER ================================================== -->
+		<?php  echo $footer; ?>
 
 
 
 <!--=============================== JS ================================================== -->
 <?php
 
-	$this->headScript()->setSeparator(PHP_EOL)
-		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
-		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'))		
-		->appendFile($this->baseUrl('/js/show_details_event.js'));
+// 	$this->headScript()->setSeparator(PHP_EOL)
+// 		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
+// 		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'))		
+// 		->appendFile($this->baseUrl('/js/show_details_event.js'));
 		
 		 
 	echo	$this->headScript(),PHP_EOL;

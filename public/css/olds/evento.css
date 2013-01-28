@@ -1,0 +1,133 @@
+@CHARSET "UTF-8";
+
+.ct_info_event{
+	display: table; 
+	width: 980px;
+	border: 1px solid red;
+	background: #fbfbfb;
+	border: 1px solid #E5E5E5;
+	padding-bottom: 40px;
+}
+
+.flyer_parceiro{
+	border: 1px solid #E5E5E5; 
+	background: #CCC; 
+	width: 258px; 
+	height: 258px; 
+	margin-bottom: 4px;
+}
+
+.flyer_parceiro img{
+	width: 250px; 
+	height: 250px; 
+	margin: 2px; 
+	border: 2px solid #FFF;
+	background: #333;
+}
+
+.ct_sociais_event{
+	border: 1px solid #E5E5E5; 
+	width: 258px; 
+	height: 32px; 
+	background: url('/img/bg_sociall_event.png') repeat-x;
+}
+
+.social_event_e{
+	padding: 6px 34px; 
+	display: inline-block;
+	float: left;
+}
+
+
+.ct_breadcrumb{
+	float: left; 
+	max-width: 420px; 
+	padding: 12px 0 0 40px;
+}
+
+.bread_left{
+	float: left; 
+	height:33px; 
+	margin-left: -15px;
+}
+
+.bread_center{
+	background: url('/img/bg_breadcrumb.png') repeat-x; 
+	float: left; 
+	padding: 6px 10px; 
+	border-bottom: 1px solid #FEDBD6;
+}
+
+.bread_right{
+	float: left;
+	width:17px; 
+	height:33px; 
+	background: url('/img/bg_breadcrumb_seta.png') no-repeat;
+}
+
+.info_eventx{
+	margin-top: 40px;
+	display: table; 
+	width: 660px;
+}
+
+
+
+/*PROMOÇÃO INFO*/
+
+.ct_promo_event{
+	width: 650px; 
+	display: table; 
+	font-size: 12px;
+}
+
+.promo_table{
+	font-family: Verdana, Geneva, sans-serif; 
+	font-size: 11px;
+}
+
+.promo_title{
+	background: #f8f8f8;
+}
+
+.promo_topic{
+	padding: 4px 10px; 
+	text-align: center; 
+	border-right: 1px solid #EBEBEB;
+}
+
+.promo_topic_r{
+	padding: 4px 10px; 
+	text-align: center;
+}
+
+.promo_info{
+	padding: 4px 10px; 
+	text-align: center; 
+	border-right: 1px dotted #F4F4F4; 
+	border-bottom: 1px dotted #F4F4F4;
+	background: #DDD;
+}
+
+.btn_go_promo{
+	padding: 4px 10px; 
+	text-align: center; 
+	background: #f8f8f8; 
+	border-right:1px solid #CCC; 
+	border-bottom:1px solid #EEE;
+}
+
+.max_destak{
+	font-size:14px; color: #F60;
+}
+
+.min_destak{
+	font-size:11px; 
+	color: #F60;
+	text-decoration: line-through;
+}
+
+
+.cortesia_euquero{   /*  spam com o texto EU QUERO , para deixar em forma de link */
+	cursor: pointer;
+}

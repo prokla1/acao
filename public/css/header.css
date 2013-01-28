@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+
+div.header
+{
+	background-color: #696862;
+	height: 40px;
+	position: relative;
+}
+div.header_home
+{
+	width: 42px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	left: 30px
+}
+
+ul.header_menu
+{
+	float: right;
+	margin-right: 30px;
+}	
+
+ul.header_menu li
+{
+	float: left;
+	text-transform: uppercase;
+	border-left: 1px solid #333333;
+	color: #F2F2F2;
+	font-weight: bold;
+	font-size: 12px;
+}
+ul.header_menu li.login
+{
+	background: #696862 url("/img/header_menu_login.png") no-repeat 30px center;
+}	
+ul.header_menu li.register
+{
+	background: #595853 url("/img/header_menu_register.png") no-repeat 20px center;
+}	
+ul.header_menu li.events
+{
+	background: #595853 url("/img/header_menu_events.png") no-repeat 20px center;
+}
+ul.header_menu li a
+{
+	display: block;
+	color: #F2F2F2;
+	line-height: 40px;
+	padding-left: 60px;
+	padding-right: 30px;		
+}
+ul.header_menu li a:HOVER 
+{
+	color: #FFF;
+}

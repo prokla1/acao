@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+
+
+/* ================================== #RODAPÉ ===========================================*/
+
+#ct_rodape{
+	width: 100%; 
+	float: left;  
+	background: url("/img/bg_rodape.png"); 
+	height: 160px;
+	text-align: center;
+}
+
+#rodape{
+	color: #FFF;
+	padding: 40px 0;
+	width: 980px; 
+	margin: 0 auto;
+	text-align: left;
+}
+
+

@@ -1,0 +1,95 @@
+<?php 
+	$rodape = $this->partial('partials/rodape.phtml');
+	$topo =  $this->partial('partials/topo.phtml');
+
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php 
+echo 	$this->headTitle(),PHP_EOL;
+echo 	$this->headMeta(),PHP_EOL;
+?>
+
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+
+<!--=============================== Mobile Specific Metas  ================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta property="og:site_name" content="Nome do seu site" />
+<meta property="og:title" content="Encontre o que tem de evento na sua região" />
+<meta property="og:image" content="http://www.seusite.com.br/imagem.jpg" />
+
+
+
+<!--=============================== CSS  ================================================== -->
+<link rel="stylesheet" href="/css/base.css"  media="screen" type="text/css" />
+<link rel="stylesheet" href="/css/skeleton.css"  media="screen" type="text/css" />
+<link rel="stylesheet" href="/css/layout.css"  media="screen" type="text/css" />
+
+<?php 
+	$this->headLink()
+	->prependStylesheet($this->baseUrl('/css/new_style/jquery-ui-1.10.0.custom.min.css'));
+	echo 	$this->headLink(),PHP_EOL;
+?>
+
+</head>
+<body>
+
+
+
+	<!--=============================== Page Layout ================================================== -->
+	
+	
+	
+		<!--=============================== Page Navigation TOPO ================================================== -->
+		<?php 
+			echo $topo;
+		?>
+
+		
+	
+	
+		<!--=============================== Page Content ================================================== -->	
+		
+					
+				
+						<?php echo $this->layout()->content;?>
+				
+		
+
+		<!--=============================== Page Rodapé ================================================== -->
+		<?php echo $rodape; ?>
+
+
+
+<!--=============================== JS ================================================== -->
+<?php
+
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
+		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'))		
+		->appendFile($this->baseUrl('/js/show_details_event.js'));
+		
+		 
+	echo	$this->headScript(),PHP_EOL;
+?>
+
+	
+	
+	
+	
+<!--=============================== End Document ================================================== -->	
+</body>
+</html>
+

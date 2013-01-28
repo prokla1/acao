@@ -1,0 +1,180 @@
+body{
+	background: url('/img/bg.png') repeat; 
+}
+
+.ct_max{
+	width: 100%; 
+	text-align: center;
+}
+
+.ct_min{
+	width: 980px; 
+	margin: 0 auto; 
+	text-align: left;
+}
+
+.ct_r{
+	float: right;
+}
+
+/*TOPO*/
+
+.topo{
+	height: 200px; 
+	background: url('/img/bg_parc_center.png');
+}
+
+.bg_top{
+	background: url('/img/bg_top_parc.png') repeat-x;
+}
+
+.ct_logo_sociais{
+	float: left; 
+	padding: 40px 20px 0 20px;
+}
+
+.logo_parceiro{
+	border: 1px solid #E5E5E5; 
+	background: #CCC; 
+	width: 108px; 
+	height: 108px; 
+	margin-bottom: 4px;
+}
+
+.logo_parceiro img{
+	width: 100px; 
+	height: 100px; 
+	margin: 2px; 
+	border: 2px solid #FFF;
+	background: #333;
+}
+
+
+
+.social_ico_p{
+	padding: 4px 2px; 
+	display: inline-block;
+	float: left;
+}
+
+.info_parceiro{
+	float:left; 
+	margin: 64px 0 0 0; 
+	width: 400px;
+}
+
+.title_destak{
+	font-size: 24px; 
+	color: #F60;
+}
+
+.ct_top_r{
+	float: right; 
+	width: 350px;
+}
+
+.ct_btns_top{
+	margin: 0 auto; 
+	text-align: center; 
+	margin-top: 50px;
+}
+
+.btn_top{
+	padding: 4px 6px; 
+	display: inline;
+	border: 1px solid #fbfbfb;
+	background: #f8f8f8;
+	border-radius: 5px;
+	margin: 1px;
+}
+
+.ct_local{
+	display: table; 
+	float: right; 
+	margin-top: 100px;
+}
+
+.btn_search{
+	padding: 10px;
+}
+
+/*BARRA BAIXO TOP*/
+
+.line_down_topo{
+	height: 55px;
+	background: url("/img/bg_top_content_i.png") repeat-x;
+	box-shadow: 0 1px 6px #ccc;
+	
+}
+
+.title_{
+	float: left; 
+	width: 420px; 
+	max-width: 420px; 
+	padding: 18px 0 0 20px;
+}
+
+
+/*AGENDA AND RIGHT*/
+
+.ct_all_p{
+	width: 980px; 
+	display: table;
+}
+
+.ct_leftx{
+	width: 620px;
+	float: left; 
+	display: table;
+}
+
+.ct_comment_face{
+	border: 1px dotted #CCC; 
+	display: table; 
+	padding: 4px;
+}
+
+
+.ct_photos{
+	width: 346px; 
+	border: 1px solid #CCC; 
+	background: #000; 
+	margin: 10px 0px;
+}
+
+.ct_location_map{
+	width: 346px; 
+	border: 1px solid #CCC; 
+	background: #EFEFEF; 
+	margin: 10px 0px; 
+	padding: 6px 0;
+}
+
+.ct_info_end{
+	margin: 0 6px 6px 6px; 
+	padding: 10px; 
+	background: #fbfbfb; 
+	border: 1px dotted #CCC; 
+	border-radius: 5px;
+}
+
+.ct_contact{
+	width: 346px; 
+	border: 1px solid #CCC; 
+	background: #EFEFEF; 
+	margin: 10px 0px; 
+	padding: 6px 0;
+}
+
+.bg_contact{
+	margin: 0 6px 6px 6px; 
+	padding: 10px; 
+	background: #fbfbfb; 
+	border: 1px dotted #CCC; 
+	border-radius: 5px;
+}
+
+
+.cortesia_euquero{   /*  spam com o texto EU QUERO , para deixar em forma de link */
+	cursor: pointer;
+}

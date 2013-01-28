@@ -1,0 +1,92 @@
+	<div class="footer">
+	
+		<div class="footer_icon">
+			<img alt="eVenter" src="/img/footer_icon.png">
+		</div>
+
+		<div class="footer_menu">
+		
+			<ul>
+				<li><a href="/">Como funciona</a></li>
+				<li><a href="/">Pontos de retirada</a></li>
+				<li><a href="/">Divulgue seu evento</a></li>
+				<li><a href="/">Trabalhe conosco</a></li>
+				<li class="footer_face"><a href="//fb.com/eventer"><img src="/img/facebook.png" /></a></li>
+			</ul>
+		
+		</div>
+		<div class="footer_end">
+			<div>
+				Política de privacidade
+			</div>
+			<div>
+				Termos de uso
+			</div>
+			<div class="copyright">
+				Copyright
+			</div>
+		
+		</div>
+		
+	</div>
+	
+	<style>
+	div.footer
+	{
+		position: relative;
+	}
+	div.footer div.footer_icon
+	{
+		position: absolute;
+		left: 30px;
+		top: -7px;
+	}
+	
+	div.footer_menu
+	{
+		height: 92px;
+		background: #000 url("/img/footer_back.png");
+	}
+	div.footer_menu ul
+	{
+		margin-left: 100px;
+		float: right;
+		width: 90%;
+		line-height: 90px;
+	}	
+	div.footer_menu ul li
+	{
+		float: left;
+		width: 19%;
+		padding-left: 30px;
+		background: transparent url("/img/footer_menu_back.png") left center no-repeat;
+	}	
+	div.footer_menu ul li.footer_face
+	{
+		width: 20px;
+		background: none;
+		padding-top: 12px;
+	}
+	div.footer_menu ul li a
+	{
+		color: #00CCFF;
+		font-weight: bold;
+		font-size: 17px;
+		white-space: nowrap;
+		display: block;
+	}	
+	div.footer_menu ul li a:HOVER
+	{
+		color: #7DE6FF;
+	}	
+	
+	div.footer_end
+	{
+		height: 47px;
+		background-color: #000;
+	}
+	</style>
+
+	<?php
+	//$this->headLink()->prependStylesheet($this->baseUrl('/css/footer.css'));
+	?>
