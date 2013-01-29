@@ -1,0 +1,124 @@
+<?php 
+
+	$dias = array();
+	$dias_semana = array('Dom', 'Seg', 'Ter', 'Quar', 'Qui', 'Sex', 'Sáb');
+	$dias_semana_long = array('Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo');
+	$mes_long = array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro',
+	    'Outubro','Novembro','Dezembro');
+	//$dia_base = time();
+	
+	if(empty($_GET['d'])){
+		$dia_base = time(); //+86400*50;  //86400 = 1 dia
+	}else{
+		$dia_base = $_GET['d'];
+	}
+			
+	for($i = 0; $i < 7; $i++){
+		$dias[] = $dia_base + ($i * 86400);
+	}
+
+	$week = array();
+	$week['prev'] = ($dias[0]-(86400*4));
+	$week['next'] = ($dias[6]+(86400*4));
+	$defaulDate = $dias_semana_long[date('w', $dia_base)].", ".date('d', $dia_base) ." de ". $mes_long[(date('n', $dia_base)-1)]. ", ".date('Y', $dia_base);
+?>	
+	
+<script type="text/javascript">
+	var defaultDate = "<?php echo $defaulDate; ?>";
+</script>
+
+<div id="top_date_search">
+	
+	<div class="ct_date">
+		
+		<span class="text_date">Exibindo eventos de:</span> 
+		
+		<form id="form_busca_eventos">
+		    <input type="text" name="d" id="d" style="display: none;" value="<?php echo $dia_base ?>" />
+		    <input type="text" name="date_filter_view" id="date_filter_view"  readonly="readonly" class="input_show_date" style="border: 0; cursor: pointer; font-weight: bold; margin-top: -4px; background: url('/img/calendar.gif') right no-repeat; width: 220px;" value="<?php echo $defaulDate; ?>" />
+		</form>
+	
+	</div>
+	
+	<div class="ct_calendar">
+		<ul id="ul_calendar">
+				<?php
+					foreach($dias as $dia){
+						(date('d/m', $dia) == date('d/m', $dia_base)) ? $active = 'class="active"' : $active = "";
+						
+						echo "
+							<li $active rel='".$dia."'>
+								<a href='/eventos?d=".$dia."'>
+									".$dias_semana[date('w', $dia)]." ". date('d/m', $dia)."
+								</a>
+							</li>"
+							;
+					}
+				?>
+		</ul>
+
+	</div>
+	
+</div>
+	
+	
+
+								    
+<!-- 							    
+
+					<div id="search_adv">
+					
+						<div id="categories">
+							<ul>
+								<li class="iten_category">Bares e Restaurantes</li>
+								<li class="iten_category">Casas noturnas</li>
+								<li class="iten_category">Cinemas</li>
+								<li class="iten_category">Teatros</li>
+							</ul>
+						</div>
+						
+						<div id="filter">
+					
+							<table>
+							  <tr>
+							    <td class="txt_input_h">Local:</td>
+							    <td><input type="" name="local_filter" size="30"/></td>
+							    <td class="txt_input_h">Data:</td>
+							    <td>
+								    <input type="text" name="date_filter_view" id="date_filter_view" />
+								    <input type="text" name="date_filter" id="date_filter" />
+							    </td>
+							  </tr>
+							  <tr>
+							    <td class="txt_input_h">Genero:</td>
+							    <td>
+							    	<select name="genre_filter" id="genre_filter">
+        								<option value="Rock">Rock</option>
+        								<option value="Sertanejo">Sertanejo</option>
+        								<option value="Eletronica">Eletronica</option>
+      								</select>
+      							</td>
+							    <td class="txt_input_h">Cidade:</td>
+							    <td><input type="" name="city_filter" /></td>
+							  </tr>
+							  <tr>
+							    <td colspan="4"><a href="#" id="btn_go_filter">Buscar</a></td>
+							  </tr>
+							</table>
+				
+						</div>
+					
+					</div>	
+ -->						
+		
+	<?php 
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/busca_avancada.css'));
+	
+
+
+	$this->headScript()->setSeparator(PHP_EOL)
+	->appendFile($this->baseUrl('/js/show_search.js'));
+	?>
+
+	

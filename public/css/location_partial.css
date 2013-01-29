@@ -1,16 +1,42 @@
 @CHARSET "UTF-8";
 
-
-
-#ct_location{
-	display: table; 
-	color: black; 
-	font-weight: bold; 
+div.location
+{
+	background-color: #F9F9F9;
+	height: 73px;
 }
-
-#location{
-	float: left; 
-	margin-right: 4px; 
-	padding-right: 20px; 
-	background: url('/img/separator.png') no-repeat center right;
+div.location div.location_wrap
+{
+	float: right;
+	margin-right: 50px;
+	line-height: 73px;
+}
+div.location div.location_label
+{
+	float: left;
+	line-height: 73px;
+	height: 73px;
+	padding-left: 45px;
+	padding-right: 10px;
+	font-size: 26px;
+	font-weight: bold;
+	background: transparent url("/img/location_label.png") left center no-repeat;
+}
+div.location div.location_content
+{
+	float: left;
+	line-height: 73px;			
+	font-size: 26px;
+	font-weight: bold;
+	color: #666666;
+	padding-right: 40px;
+	background: transparent url("/img/location_content.png") right center no-repeat;			
+}
+div.location div.location_content a
+{
+	color: #666666;
+}
+div.location div.location_content a:HOVER
+{
+	color: #000;
 }

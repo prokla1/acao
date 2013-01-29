@@ -1,23 +1,63 @@
-<style>
-body {background: #CCC;}
-
-</style>
+<?php echo $this->partial('partials/location.phtml'); ?>
 
 
-
-<div style="width: 980px; height: 300px; margin-top: -150px; margin-left: -490px; border: 5px solid #E0E0E0;  position: absolute; top: 50%; left: 50%; background: #fbfbfb;">
-
-	<h1>Selecione a cidade</h1>
 	
-	<ul>
-		<?php foreach ($this->localidades as $localidade) : ?>
-			<li>
-				<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
-					<?php echo $localidade->nome ?>
-				</a>
-			</li>
-		<?php endforeach; ?>
-	</ul>
+<div class="content">
+	<div class="cities">
+		<ul>
+			<?php foreach ($this->localidades as $localidade) : ?>
+				<li>
+					<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
+						<?php echo $localidade->nome ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+
+	<div class="headline">
+		Encontre os <span>próximos</span> eventos
+	</div>
 
 </div>
-	
+
+<style>
+div.content
+{
+	background: transparent url("/img/index_back.png") center repeat-x;
+	height: 371px;
+}
+
+div.content div.cities
+{
+	float: left;
+	margin: 50px 0 0 200px;
+	color: #FF9900;
+	font-size: 20px;
+	line-height: 150%;
+}
+div.content div.cities ul li a
+{
+	color: #FF9900;
+	font-weight: bold;
+}
+
+div.content div.headline
+{
+	color: #FFF;
+	font-size: 40px;
+	font-weight: bold;
+	width: 420px;
+	letter-spacing: 1px;
+	line-height: 120%;
+	float: right;
+	padding-top: 140px;
+	margin-right: 50px;
+	background: transparent url("/img/index_arrow.png") right 50px no-repeat;
+}
+div.content div.headline span
+{
+	color: #FF9900;
+	font-size: 50px;
+}
+</style>

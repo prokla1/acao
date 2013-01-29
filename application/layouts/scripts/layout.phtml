@@ -1,8 +1,6 @@
 <?php 
 	$footer = $this->partial('partials/footer.phtml');
 	$header =  $this->partial('partials/header.phtml');
-
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
@@ -38,128 +36,48 @@ echo 	$this->headMeta(),PHP_EOL;
 <body>
 
 
-
 	<!--=============================== Page Layout ================================================== -->
-	
-	
-	
-		<!--=============================== Page Navigation HEADER ================================================== -->
-		<?php 
-			echo $header;
-		?>
+	<div class="global">
+		<div class="wrapper">
 
-		<div class="header-extra">
-		
-			<div class="eventer">
-				<a href="/">
-					<img alt="eVenter" src="/img/eventer.png">
-				</a>
-			</div>
+	
+	
+	
+			<!--=============================== Page Navigation HEADER ================================================== -->
+			<?php 
+				echo $header;
+			?>
+	
+			<div class="header-extra">
 			
+				<div class="eventer">
+					<a href="/">
+						<img alt="eVenter" src="/img/eventer.png">
+					</a>
+				</div>
+				
 				<ul class="header-extra_menu">
 					<li><a class="active" href="/eventos/casas-noturnas/">Casas noturnas</a></li>
 					<li><a href="/eventos/teatro/">Teatro</a></li>
 					<li><a href="/eventos/cinema/">Cinema</a></li>
 				</ul>
-		
-		</div>
-		<div class="location">
-			<div class="location_wrap">
-				<div class="location_label">
-					Cidade:
-				</div>
-				<div class="location_content">
-					Ainda não selecionada
-				</div>
+			
 			</div>
+
 		
-		</div>
-		
-		<style>
-		div.location
-		{
-			background-color: #F9F9F9;
-			height: 73px;
-		}
-		div.location div.location_wrap
-		{
-			float: right;
-			margin-right: 50px;
-			line-height: 73px;
-		}
-		div.location div.location_label
-		{
-			float: left;
-			line-height: 73px;
-			height: 73px;
-			padding-left: 45px;
-			padding-right: 10px;
-			font-size: 26px;
-			font-weight: bold;
-			background: transparent url("/img/location_label.png") left center no-repeat;
-		}
-		div.location div.location_content
-		{
-			float: left;
-			line-height: 73px;			
-			font-size: 26px;
-			font-weight: bold;
-			color: #666666;
-			padding-right: 40px;
-			background: transparent url("/img/location_content.png") right center no-repeat;			
-		}
-		
-		div.header-extra
-		{
-			height: 214px;
-			background: url("/img/header-extra_back.png");
-			border-bottom: 1px dashed #666666;
-		}
-		div.header-extra div.eventer
-		{
-			float: left;
-			padding: 50px;
-		}
-		div.header-extra ul.header-extra_menu
-		{
-			float: right;
-			margin: 80px 50px 0 0;
-		}
-		div.header-extra ul.header-extra_menu li
-		{
-			float: left;
-			text-transform: uppercase;
-		}
-		div.header-extra ul.header-extra_menu li a
-		{
-			font: normal normal bold 20px Arial, Sans-Serif;
-			line-height: 50px;
-			display: block;	
-			margin: 0 15px;
-			color: #666666;
-			text-shadow:1px 1px #696862;
-		}		
-		div.header-extra ul.header-extra_menu li a.active
-		{
-			color: #00CCFF;
-		}		
-		div.header-extra ul.header-extra_menu li a:HOVER
-		{
-			color: #00CCFF;
-		}		
-		
-		
-		</style>
 	
-		<!--=============================== Page Content ================================================== -->	
+			<!--=============================== Page Content ================================================== -->	
 						<?php echo $this->layout()->content;?>
 				
 		
-
+		
+		</div> <!-- <div class="wrapper"> -->
 		<!--=============================== Page FOOTER ================================================== -->
 		<?php  echo $footer; ?>
 
 
+	</div> <!-- <div class="global">  -->
+	
 
 <!--=============================== JS ================================================== -->
 <?php

@@ -1,34 +1,25 @@
 <?php 
 	$sess = new Zend_Session_Namespace('City');
-?>	
+?>
 
-<?php if($sess->id) :?>
-	<div id="ct_location">
-		<div id="location">
-			Você está em:
-		</div> 
-		<a href="/localidade">
-			<div style="color: white; padding-right: 40px; background: url('/img/btn_location.png') no-repeat center right; float: left;">
-					<?php echo $sess->nome; ?>
+		<div class="location">
+			<div class="location_wrap">
+				<div class="location_label">
+					Cidade:
+				</div>
+				<div class="location_content">
+					<a href="/localidade">
+						<?php if($sess->id) :?>
+							<?php echo $sess->nome; ?>
+						<?php else :?>
+							Ainda não selecionada
+						<?php endif; ?>
+					</a>
+				</div>
 			</div>
-		</a>
-	</div>
-	
-<?php else :?>
-	<div id="ct_location">
-		<div id="location">
 		
-		</div> 
-		<a href="/localidade">
-			<div style="color: white; padding-right: 40px; background: url('/img/btn_location.png') no-repeat center right; float: left;">
-					Informe sua localização
-			</div>
-		</a>
-	</div>
-<?php endif; ?>
-
-
+		</div>
+		
 <?php 
-	$this->headLink()
-		->prependStylesheet($this->baseUrl('/css/location_partial.css'));
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/location_partial.css'));
 ?>

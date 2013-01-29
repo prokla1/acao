@@ -1,54 +1,16 @@
-<!--=============================== Page TOPO II ================================================== -->
-<div id="ct_top">
-	<div id="top">
-		
-		<div id="top_left"></div>
-		
-		<div id="top_right">
-		
-			<div style="margin-top: 160px; float: right; padding: 10px 20px;">
-		
-			<?php echo $this->partial('partials/location.phtml'); ?>
-			
-			</div>
-		
-		</div>
-	</div>
-</div>
+<?php echo $this->partial('partials/location.phtml'); ?>
 
-
-
-
-<div id="ct_content">
-	<div id="content">
-		
-					
-				
-					
-				
-			
-	
-		
-		
-<!--===== BUSCA AVANÇADA ====== -->	
-<?php echo $this->partial('partials/busca_avancada.phtml'); ?>	
-
-<div class="content_ct">
-
-	<div class="ct_left">
-	
 	<?php if(count($this->eventos) > 0) : ?>
-	
-	
-	
-	<?php echo $this->partial('partials/eventos.phtml', array('eventos' => $this->eventos)); ?>
-	
-	
+		<?php echo $this->partial('partials/eventos.phtml', array('eventos' => $this->eventos)); ?>
 	<?php else: ?> 
-	nenhum  evento
+		nenhum  evento
 	<?php endif;?>
-	
-	</div>
+
+<?php 
+/*
+ 
+
+
 	
 	<!-- #START DESTAQUES -->
 	
@@ -96,22 +58,7 @@
 		
 	</div>
 	
-</div>
 
 
-		
-		
-		
-		
-	</div>
-</div>
-
-
-<?php 
-	$this->headScript()->setSeparator(PHP_EOL)
-		->prependFile($this->baseUrl('/js/show_details_event.js'))
-		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'));
-
-	$this->headLink()
-		->prependStylesheet($this->baseUrl('/css/eventos.css'));
+ */
 ?>
