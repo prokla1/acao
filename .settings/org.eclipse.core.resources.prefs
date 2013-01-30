@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
-encoding//application/layouts/scripts/ajax.phtml=UTF-8
-encoding//application/layouts/scripts/layout\ old.phtml=UTF-8
 encoding//application/layouts/scripts/layout.phtml=UTF-8
+encoding//application/layouts/scripts/olds/ajax.phtml=UTF-8
+encoding//application/layouts/scripts/olds/layout\ old.phtml=UTF-8
+encoding//application/layouts/scripts/parceiro.phtml=UTF-8
 encoding/<project>=UTF-8

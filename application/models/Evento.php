@@ -88,7 +88,7 @@ class Application_Model_Evento
 
 
 	/**
-	 * @param field_type $_id_parceiro
+	 * @param field_type $id_evento
 	 */
 	public function setCortesias($id_evento) {
 		$cortesiasTable = new Application_Model_DbTable_Cortesias();

@@ -17,13 +17,14 @@ echo 	$this->headMeta(),PHP_EOL;
 ?>
 
 
-<meta property="og:site_name" content="Nome do seu site" />
-<meta property="og:title" content="Encontre o que tem de evento na sua região" />
-<meta property="og:image" content="http://www.seusite.com.br/imagem.jpg" />
+<meta property="og:site_name" content="eVenter" />
+<meta property="og:title" content="Encontre os melhores eventos na sua cidade" />
+<meta property="og:image" content="http://www.eventer.com.br/img/eventer.png" />
 
 
 
 <!--=============================== CSS  ================================================== -->
+<link rel="stylesheet" href="/css/base.css"  media="screen" type="text/css" />
 <link rel="stylesheet" href="/css/layout.css"  media="screen" type="text/css" />
 
 <?php 
@@ -84,7 +85,6 @@ echo 	$this->headMeta(),PHP_EOL;
 	$this->headScript()->setSeparator(PHP_EOL)
 		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
 		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));	
-// 		->appendFile($this->baseUrl('/js/show_details_event.js'));
 		
 		 
 	echo	$this->headScript(),PHP_EOL;

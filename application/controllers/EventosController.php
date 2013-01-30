@@ -34,8 +34,8 @@ class EventosController extends Zend_Controller_Action
     	//$this->view->eventos = $eventos->findByCity($this->cityId);
     	$this->view->eventos = $eventos->findByCityAndDate($this->cityId, $dia_base);
     	
-    	$eventosTable = new Application_Model_DbTable_Eventos();
-    	$this->view->destaques = $eventosTable->findByCityDestaques($this->cityId);
+//     	$eventosTable = new Application_Model_DbTable_Eventos();
+//     	$this->view->destaques = $eventosTable->findByCityDestaques($this->cityId);
     }
 
     
