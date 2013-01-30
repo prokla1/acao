@@ -27,8 +27,7 @@ echo 	$this->headMeta(),PHP_EOL;
 <link rel="stylesheet" href="/css/layout.css"  media="screen" type="text/css" />
 
 <?php 
-// 	$this->headLink()
-// 	->prependStylesheet($this->baseUrl('/css/new_style/jquery-ui-1.10.0.custom.min.css'));
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/new_style/jquery-ui-1.10.0.custom.min.css'));
 	echo 	$this->headLink(),PHP_EOL;
 ?>
 
@@ -82,16 +81,17 @@ echo 	$this->headMeta(),PHP_EOL;
 <!--=============================== JS ================================================== -->
 <?php
 
-// 	$this->headScript()->setSeparator(PHP_EOL)
-// 		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
-// 		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'))		
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
+		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));	
 // 		->appendFile($this->baseUrl('/js/show_details_event.js'));
 		
 		 
 	echo	$this->headScript(),PHP_EOL;
 ?>
 
-	
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+
 	
 	
 	

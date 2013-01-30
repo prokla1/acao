@@ -1,0 +1,79 @@
+@CHARSET "UTF-8";
+
+div.calendar
+{
+	background: transparent url("/img/eventos_calendar_line.png") top center repeat-x;
+}
+div.calendar div.calendar_wrap
+{	
+	background: transparent url("/img/eventos_calendar_back.png") center top no-repeat;
+	width: 985px;
+	margin: 0 auto;
+}
+div.calendar div.calendar_wrap div.calendar_container
+{
+	height: 100px;
+	margin: 0 auto;
+	width: 925px;	
+	padding-top: 12px;
+}
+div.calendar span.calendar_arrow
+{
+	float: left;
+}
+div.calendar span.calendar_icon
+{
+	float: left;
+	margin-left: 20px;
+	cursor: pointer;
+}
+div.calendar ul li
+{
+	float: left;
+	border: 1px solid #FFF;
+	border-left: 0;
+	border-right: 0;
+	background-color: #E2F2FC;
+}
+div.calendar ul li:HOVER
+{
+	background-color: #0099FF;
+}
+div.calendar ul li.active
+{
+	background-color: #0099FF;
+}
+div.calendar ul li a
+{
+	float: left;
+	border: 1px solid #FFF;
+	height: 63px;
+	width: 110px;
+	padding-top: 10px;
+	position: relative;
+}
+div.calendar ul li a div.date_active
+{
+	background: transparent url("/img/eventos_calendar_active.png") center bottom no-repeat;
+	position: absolute;
+	left: 39px;
+	bottom: -16px;
+	width: 32px;
+	height: 16px;
+}
+div.calendar ul li a div.date_week
+{
+	color: #333333;
+	font-size: 14px;
+	width: 100%;
+	text-align: center;
+	float: left;
+}
+div.calendar ul li a div.date_month
+{
+	color: #333333;
+	font-size: 25px;
+	width: 100%;
+	text-align: center;
+	float: left;
+}

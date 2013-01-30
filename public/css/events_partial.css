@@ -1,0 +1,198 @@
+@CHARSET "UTF-8";
+
+div.evento_wrap
+{
+	margin-bottom: 70px;
+}
+
+div.evento_promotions
+{
+	width: 928px;
+}
+
+
+div.evento_promotions div.cortesia_euquero
+{
+	cursor: pointer;
+	background: transparent url("/img/evento_promotions_iwant.png") 10px center no-repeat;
+	text-transform: uppercase;
+}
+
+
+
+div.evento_promotions table
+{
+	width: 928px;
+	border: 1px dashed #CCCCCC;
+	border-top: 0px;
+	border-spacing: 0;
+	background: transparent url("/img/evento_promotions_table_thead.png") top repeat-x;
+	
+}
+
+div.evento_promotions table .max_destak
+{
+	color: #00CCFF;
+	font-size: 25px;
+}
+div.evento_promotions table .min_destak
+{
+	color: #00CCFF;
+	font-size: 15px;
+}
+
+div.evento_promotions table tbody
+{
+	background-color: #F2F2F2;	
+	border: 1px dashed #CCC;
+	border-top: 0px;
+}
+
+div.evento_promotions table tbody tr
+{
+	border-top: 1px solid #FFF;
+}
+
+div.evento_promotions table tbody tr:HOVER
+{
+	background-color: #F6F6F6;
+}
+
+div.evento_promotions table tbody td
+{
+	font-size: 15px;
+	line-height: 46px;
+	text-align: center;
+}
+
+
+div.evento_promotions table thead th
+{
+	line-height: 48px;
+	font-size: 15px;
+/* 	height: 48px; */
+	text-transform: uppercase;
+	text-align: center;
+	background: transparent url("/img/evento_promotions_table_thead_icon.png") center 35px no-repeat;
+}
+
+
+div.evento_promotions table thead th.th_empty
+{
+	background-image: none;
+}
+
+
+
+div.evento_content
+{
+	background: transparent url("/img/evento_container_back.png");
+	position: relative;
+}
+div.evento_content div.evento_flyer
+{
+	position: relative;
+	background: transparent url("/img/evento_flyer_back.png");
+	width: 192px;
+	height: 270px;
+}
+
+div.evento_content div.evento_flyer div.evento_promo
+{
+	position: absolute;
+	left: -10px;
+	top: 15px;
+}
+div.evento_content div.evento_flyer div.evento_flyer_mold
+{
+	width: 158px;
+	height: 158px;
+	background: transparent url("/img/evento_flyer_mold.png") center center no-repeat;
+	position: absolute;
+	left: 18px;
+	top: 75px;
+}
+
+div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img
+{
+	width: 150px;
+	height: 150px;
+	padding-top: 4px;
+	margin: 0 auto;	
+}
+div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img img
+{
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+}
+
+div.evento_content div.evento_description
+{
+	position: absolute;
+	top: 80px;
+	left: 210px;
+}
+div.evento_description_label
+{
+	color: #999999;
+	font-size: 18px;
+	float: left;
+	width: 60px;
+	text-align: right;
+	margin-top: 10px;
+}
+div.evento_description_content
+{
+	font-size: 22px;
+	color: #000;
+	white-space: nowrap;
+	padding-left: 70px;
+	margin-top: 10px;
+}
+
+div.evento_content div.evento_description button
+{
+	width: 145px;
+	height: 40px;
+	border: 0;
+	cursor: pointer;
+	text-indent: 999999em;
+	margin-top: 50px;
+}
+
+div.evento_content div.evento_description button.evento_description_button_details
+{
+	background: transparent url("/img/evento_description_button_details.png") left center no-repeat;
+}
+div.evento_content div.evento_description button.evento_description_button_promotions
+{
+	background: transparent url("/img/evento_description_button_promotions.png") left center no-repeat;	
+}
+
+
+div.evento_content div.evento_date
+{
+	background: transparent url("/img/evento_date.png") center center no-repeat;
+	width: 207px;
+	height: 270px;
+	position: absolute;
+	right: -10px;
+	top: 0;
+}
+
+
+div.evento_content div.evento_date a
+{
+	display: block;
+	width: 100%;
+	height: 165px;
+	text-indent: -9999em;
+}
+
+div.evento_content div.evento_date span
+{
+	display: block;
+	margin: 45px 40px;
+	font-size: 30px;
+}

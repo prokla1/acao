@@ -1,401 +1,102 @@
 <?php foreach ($this->eventos as $evento): ?>
 
+<div class="evento_wrap">
 
-<div class="evento_content">
-
-	<div class="evento_flyer">
-		<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+	<div class="evento_content">
+	
+		<div class="evento_flyer">
 		
-		<div class="evento_flyer_mold">
-			<div class="evento_flyer_img">
-				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
-			</div>
-		</div>
-	</div>
-	
-	<div class="evento_description">
-	
-		<div class="evento_description_label">
-			evento:
-		</div>
-		<div class="evento_description_content">
-			<?php echo $evento->nome ?>
-		</div>
-	
-		<div class="evento_description_label">
-			local:
-		</div>
-		<div class="evento_description_content">
-			<?php echo $evento->parceiro->nome ?>
-		</div>
-		
-		<button type="button" class="evento_description_button_details">Detalhes</button>
-		<button type="button" class="evento_description_button_promotions">Promoções</button>
-		
-	</div>
-	
-	<div class="evento_date">
-		<span>
-			<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
-		</span>
-	</div>
-
-</div>
-
-
-
-<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+			<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+				<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+			<?php endif; ?>
 			
-<div class="evento_promotions" id="showpromo_<?php echo $evento->id ?>">
-
-	<table>
-		<thead>
-		  <tr>
-		    <th>Tipo</th>
-		    <th>Disponíveis</th>
-		    <th>Valor</th>
-		    <th class="th_empty"></th>
-		  </tr>
-		</thead>
-		<tbody>
-		
-	  	<?php foreach ($evento->cortesias as $cortesias) : ?>
-		  <tr>
-		    <td><?php echo $cortesias->nome ?></td>
-		    <td>
-		    	<span class="max_destak"><?php echo $cortesias->disponivel ?></span> de <span class="min_destak"><?php echo $cortesias->qtd ?></span>
-		    </td>
-		    <td>
-		    	de <span class="min_destak">R$<?php echo $cortesias->valor_original ?></span> por <span class="max_destak">R$<?php echo $cortesias->valor ?></span>
-		    </td>
-		    <td>Eu quero</td>
-		  </tr>
-		<?php endforeach; ?>
-		
-		</tbody>
-	</table>
-
-</div>
-		
-		<?php endif;?>
-		
-		
-
-<style>
-
-div.evento_promotions
-{
-	width: 928px;
-}
-
-div.evento_promotions table
-{
-	width: 928px;
-	border: 1px dashed #CCCCCC;
-	border-top: 0px;
-	border-spacing: 0;
-	background: transparent url("/img/evento_promotions_table_thead.png") top repeat-x;
-	
-}
-
-div.evento_promotions table .max_destak
-{
-	color: #00CCFF;
-	font-size: 25px;
-}
-div.evento_promotions table .min_destak
-{
-	color: #00CCFF;
-	font-size: 15px;
-}
-
-div.evento_promotions table tbody
-{
-	background-color: #F2F2F2;	
-	border: 1px dashed #CCC;
-	border-top: 0px;
-}
-
-div.evento_promotions table tbody tr
-{
-	border-top: 1px solid #FFF;
-}
-
-div.evento_promotions table tbody td
-{
-	font-size: 15px;
-	line-height: 46px;
-	text-align: center;
-}
-
-
-div.evento_promotions table thead th
-{
-	line-height: 48px;
-	font-size: 15px;
-	height: 48px;
-	text-transform: uppercase;
-	text-align: center;
-	background: transparent url("/img/evento_promotions_table_thead_icon.png") center 35px no-repeat;
-}
-
-
-div.evento_promotions table thead th.th_empty
-{
-	background-image: none;
-}
-
-
-
-div.evento_content
-{
-	background: transparent url("/img/evento_container_back.png");
-	position: relative;
-}
-div.evento_content div.evento_flyer
-{
-	position: relative;
-	background: transparent url("/img/evento_flyer_back.png");
-	width: 192px;
-	height: 270px;
-}
-
-div.evento_content div.evento_flyer div.evento_promo
-{
-	position: absolute;
-	left: -10px;
-	top: 15px;
-}
-div.evento_content div.evento_flyer div.evento_flyer_mold
-{
-	width: 158px;
-	height: 158px;
-	background: transparent url("/img/evento_flyer_mold.png") center center no-repeat;
-	position: absolute;
-	left: 18px;
-	top: 75px;
-}
-
-div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img
-{
-	width: 150px;
-	height: 150px;
-	padding-top: 4px;
-	margin: 0 auto;	
-}
-div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img img
-{
-	width: 150px;
-	height: 150px;
-	margin: 0 auto;
-}
-
-div.evento_content div.evento_description
-{
-	position: absolute;
-	top: 80px;
-	left: 210px;
-}
-div.evento_description_label
-{
-	color: #999999;
-	font-size: 18px;
-	float: left;
-	width: 60px;
-	text-align: right;
-	margin-top: 10px;
-}
-div.evento_description_content
-{
-	font-size: 22px;
-	color: #000;
-	white-space: nowrap;
-	padding-left: 70px;
-	margin-top: 10px;
-}
-
-div.evento_content div.evento_description button
-{
-	width: 145px;
-	height: 40px;
-	border: 0;
-	cursor: pointer;
-	text-indent: 999999em;
-	margin-top: 50px;
-}
-
-div.evento_content div.evento_description button.evento_description_button_details
-{
-	background: transparent url("/img/evento_description_button_details.png") left center no-repeat;
-}
-div.evento_content div.evento_description button.evento_description_button_promotions
-{
-	background: transparent url("/img/evento_description_button_promotions.png") left center no-repeat;	
-}
-
-
-div.evento_content div.evento_date
-{
-	background: transparent url("/img/evento_date.png") center center no-repeat;
-	width: 207px;
-	height: 270px;
-	position: absolute;
-	right: -10px;
-	top: 0;
-}
-
-div.evento_content div.evento_date span
-{
-	display: block;
-	margin: 40px 25px;
-	font-size: 30px;
-}
-</style>
-
-
-
-<?php /*
-	<div class="ct_event">
-		
-		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
-			<div class="banner_promo"></div>
-		<?php endif; ?>
-		
-		<div class="event">
-		
-		<!-- #FLYER E SOCIAIS -->
 			
-			<div class="ct_left_e">
-				<div class="ct_flyer_e">
+			<div class="evento_flyer_mold">
+				<div class="evento_flyer_img">
 					<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
 				</div>
-				<div class="ct_sociais_e">
-					<ul>
-						<li class="social_ico_e"><img src="/img/btn_like.png" /></li>
-						<li class="social_ico_e"><img src="/img/btn_twitter.png" /></li>
-						<li class="social_ico_e"><img src="/img/btn_mail.png" /></li>
-					</ul>
-				</div>
 			</div>
-			
-			<!-- #START NOME EVENTO/DATA/LOCAL/AVALIAÇÃO -->
-			
-			<div class="ct_right_e">
-			
-				<div class="ct_event_date">
-					<span class="event_name"><span class="text_min_e">evento:</span><span class="tex_max_e"><?php echo $evento->nome ?></span></span>
-					<span class="event_date"><span class="text_min_e">data:</span><span class="text_date_e"><?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span></span>	
-				</div>
-				
-				<?php if ($evento->parceiro) : ?>
-				
-				<div class="ct_event_local">
-					<div class="event_local">
-						<span class="text_min_e">local:</span>
-							<span class="text_local_e">
-							 	<a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?>  ">
-									<?php echo $evento->parceiro->nome ?>
-							   </a>
-							</span>
-						<span class="parc_aval">
-							<img src="/img/event_aval.png"/>
-						</span>	
-					</div>
-	
-				</div>
-				
-				<?php endif;?>
-				
-				
-				<div class="ct_btns">
-	
-					<span class="btn_desc">
-						<a href="">
-							<div class="show_details_event" id="btndetails_<?php echo $evento->id ?>">
-								+detalhes
-							</div>
-						</a>
-					</span>
-	
-	
-					<span class="btn_bonus">
-						<a href="">
-							<div class="show_details_bonus" id="btnbonus_<?php echo $evento->id ?>">
-								+bonus <span class="bonus_count"><?php echo count($evento->cortesias) ?></span>
-							</div>
-						</a>
-					</span>
-	
-				
-				</div>
-	
-				<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
-					<div class="btn_go_event">
-
-					</div>
+		</div>
+		
+		<div class="evento_description">
+		
+			<div class="evento_description_label">
+				evento:
+			</div>
+			<div class="evento_description_content">
+				<a href="<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>">
+					<?php echo $evento->nome ?>
+					
 				</a>
-			
+			</div>
+		
+			<div class="evento_description_label">
+				local:
+			</div>
+			<div class="evento_description_content">
+			 	<a href="<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?>  ">
+					<?php echo $evento->parceiro->nome ?>
+					
+				</a>
 			</div>
 			
-			<!-- #END NOME EVENTO/DATA/LOCAL/AVALIAÇÃO -->
-		
+			<button type="button" class="evento_description_button_details">Detalhes</button>
+			<button type="button" class="evento_description_button_promotions">Promoções</button>
+			
 		</div>
 		
-		<!-- DETAILS EVENT -->	
-		
-		<div class="ct_desc_event" id="show_<?php echo $evento->id ?>">
-			<div class="desc_event">
+		<div class="evento_date" onclick="">
+			<span>
+				<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
 				
-				<span class="title_details">Descrição</span><br>
-				<span class="text_desc"><?php echo $evento->descricao ?></span>
+			</span>
+			<a href="<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>">
+				<?php echo $evento->nome ?>
 				
-			</div> 
+			</a>
 		</div>
-		
-		
-		<!-- PROMO PAGE EVENT -->
+	
+	</div>
 
-		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
-					
-		<div class="ct_promo_event" id="showpromo_<?php echo $evento->id ?>">
-		
-			<table class="promo_table" border="0" cellspacing="0" width="610">
-					
-			  <tr class="promo_title">
-			    <td class="promo_topic">Tipo</td>
-			    <td class="promo_topic">Disponíveis</td>
-			    <td class="promo_topic_r">Valor</td>
-			    <td></td>
-			  </tr>
-			  
+
+
+	<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+		<div class="evento_promotions" id="showpromo_<?php echo $evento->id ?>">
+			<table>
+				<thead>
+				  <tr>
+				    <th>Tipo</th>
+				    <th>Disponíveis</th>
+				    <th>Valor</th>
+				    <th class="th_empty"></th>
+				  </tr>
+				</thead>
+				<tbody>
 			  	<?php foreach ($evento->cortesias as $cortesias) : ?>
 			  	
-			  <tr>
-			    <td class="promo_info"><?php echo $cortesias->nome ?></td>
-			    <td class="promo_info">
-			    	<span class="max_destak"><?php echo $cortesias->disponivel ?></span> de <span class="min_destak"><?php echo $cortesias->qtd ?></span>
-			    </td>
-			    <td class="promo_info">
-			    	de <span class="min_destak">R$<?php echo $cortesias->valor_original ?></span> por <span class="max_destak">R$<?php echo $cortesias->valor ?></span>
-			    </td>
-			    <td class="btn_go_promo cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</td>
-			  </tr>
-						
+				  <tr>
+				    <td><?php echo $cortesias->nome ?></td>
+				    <td>
+				    	<span class="max_destak"><?php echo $cortesias->disponivel ?></span> de <span class="min_destak"><?php echo $cortesias->qtd ?></span>
+				    </td>
+				    <td>
+				    	de <span class="min_destak">R$<?php echo $cortesias->valor_original ?></span> por <span class="max_destak">R$<?php echo $cortesias->valor ?></span>
+				    </td>
+				    <td>
+				    	<div class="cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>" >
+				    		Eu quero
+				    	</div>
+				    </td>
+				  </tr>
 				<?php endforeach; ?>
-					
+				
+				</tbody>
 			</table>
-	
 		</div>
-		
-		<?php endif;?>
-		
-	</div> <!-- FINAL EVENT -->
-	
-	
-	<div class="spacer"></div>
-*/?>
+	<?php endif;?>
 
-<?php	endforeach;  ?>
+</div>
+<?php endforeach;  ?>
 
 
 
@@ -405,8 +106,7 @@ div.evento_content div.evento_date span
 
 
 	<?php 
-// 	$this->headLink()
-// 		->prependStylesheet($this->baseUrl('/css/eventos_partial.css'));
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/events_partial.css'));
 	
 // 	$this->headScript()->setSeparator(PHP_EOL)
 // 		->prependFile($this->baseUrl('/js/eventos_partial.js'))

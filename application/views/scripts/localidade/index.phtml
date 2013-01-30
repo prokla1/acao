@@ -1,17 +1,19 @@
 <?php echo $this->partial('partials/location.phtml'); ?>
 
-
 	
-<div class="content">
+<div class="content_localidade">
 	<div class="cities">
 		<ul>
 			<?php foreach ($this->localidades as $localidade) : ?>
+			
 				<li>
 					<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
 						<?php echo $localidade->nome ?>
+						
 					</a>
 				</li>
 			<?php endforeach; ?>
+			
 		</ul>
 	</div>
 
@@ -22,13 +24,13 @@
 </div>
 
 <style>
-div.content
+div.content_localidade
 {
 	background: transparent url("/img/index_back.png") center repeat-x;
 	height: 371px;
 }
 
-div.content div.cities
+div.content_localidade div.cities
 {
 	float: left;
 	margin: 50px 0 0 200px;
@@ -36,18 +38,18 @@ div.content div.cities
 	font-size: 20px;
 	line-height: 150%;
 }
-div.content div.cities ul li a
+div.content_localidade div.cities ul li a
 {
 	color: #FF9900;
 	font-weight: bold;
 }
 
-div.content div.headline
+div.content_localidade div.headline
 {
 	color: #FFF;
 	font-size: 40px;
 	font-weight: bold;
-	width: 420px;
+	width: 380px;
 	letter-spacing: 1px;
 	line-height: 120%;
 	float: right;
@@ -55,7 +57,7 @@ div.content div.headline
 	margin-right: 50px;
 	background: transparent url("/img/index_arrow.png") right 50px no-repeat;
 }
-div.content div.headline span
+div.content_localidade div.headline span
 {
 	color: #FF9900;
 	font-size: 50px;

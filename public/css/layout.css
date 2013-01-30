@@ -35,7 +35,8 @@
 ================================================== */
 	body {
 		background: #fff;
-		font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+/* 		font-family: 'Dosis', sans-serif; */
+		font: 14px/21px "Dosis", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #444;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
@@ -54,7 +55,7 @@
 }
 .wrapper
 {
-	padding-bottom: 160px;
+	padding-bottom: 140px;
 }
 .footer
 {
@@ -125,7 +126,9 @@
 	}
 	div.header-extra ul.header-extra_menu li a
 	{
-		font: normal normal bold 20px Arial, Sans-Serif;
+/* 		font: normal normal bold 20px Arial, Sans-Serif; */
+		font-weight: bold;
+		font-size: 30px;
 		line-height: 50px;
 		display: block;	
 		margin: 0 15px;

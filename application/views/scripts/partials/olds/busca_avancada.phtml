@@ -20,11 +20,11 @@
 	$week = array();
 	$week['prev'] = ($dias[0]-(86400*4));
 	$week['next'] = ($dias[6]+(86400*4));
-	$defaulDate = $dias_semana_long[date('w', $dia_base)].", ".date('d', $dia_base) ." de ". $mes_long[(date('n', $dia_base)-1)]. ", ".date('Y', $dia_base);
+	$defaultDate = $dias_semana_long[date('w', $dia_base)].", ".date('d', $dia_base) ." de ". $mes_long[(date('n', $dia_base)-1)]. ", ".date('Y', $dia_base);
 ?>	
 	
 <script type="text/javascript">
-	var defaultDate = "<?php echo $defaulDate; ?>";
+	var defaultDate = "<?php echo $defaultDate; ?>";
 </script>
 
 <div id="top_date_search">
@@ -35,7 +35,7 @@
 		
 		<form id="form_busca_eventos">
 		    <input type="text" name="d" id="d" style="display: none;" value="<?php echo $dia_base ?>" />
-		    <input type="text" name="date_filter_view" id="date_filter_view"  readonly="readonly" class="input_show_date" style="border: 0; cursor: pointer; font-weight: bold; margin-top: -4px; background: url('/img/calendar.gif') right no-repeat; width: 220px;" value="<?php echo $defaulDate; ?>" />
+		    <input type="text" name="date_filter_view" id="date_filter_view"  readonly="readonly" class="input_show_date" style="border: 0; cursor: pointer; font-weight: bold; margin-top: -4px; background: url('/img/calendar.gif') right no-repeat; width: 220px;" value="<?php echo $defaultDate; ?>" />
 		</form>
 	
 	</div>
