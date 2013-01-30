@@ -1,6 +1,122 @@
 <?php foreach ($this->eventos as $evento): ?>
 
 
+<div class="evento_content">
+
+	<div class="evento_flyer">
+		<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+		
+		<div class="evento_flyer_mold">
+			<div class="evento_flyer_img">
+				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+			</div>
+		</div>
+	</div>
+	
+	<div class="evento_description">
+	
+		<div class="evento_description_label">
+			evento:
+		</div>
+		<div class="evento_description_content">
+			<?php echo $evento->nome ?>
+		</div>
+	
+		<div class="evento_description_label">
+			local:
+		</div>
+		<div class="evento_description_content">
+			<?php echo $evento->parceiro->nome ?>
+		</div>
+	</div>
+	
+	<div class="evento_date">
+		<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
+	</div>
+
+</div>
+
+<style>
+div.evento_content
+{
+	background: transparent url("/img/evento_container_back.png");
+	position: relative;
+}
+div.evento_content div.evento_flyer
+{
+	position: relative;
+	background: transparent url("/img/evento_flyer_back.png");
+	width: 192px;
+	height: 270px;
+}
+
+div.evento_content div.evento_flyer div.evento_promo
+{
+	position: absolute;
+	left: -10px;
+	top: 15px;
+}
+div.evento_content div.evento_flyer div.evento_flyer_mold
+{
+	width: 158px;
+	height: 158px;
+	background: transparent url("/img/evento_flyer_mold.png") center center no-repeat;
+	position: absolute;
+	left: 18px;
+	top: 75px;
+}
+
+div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img
+{
+	width: 150px;
+	height: 150px;
+	padding-top: 4px;
+	margin: 0 auto;	
+}
+div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img img
+{
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+}
+
+div.evento_content div.evento_description
+{
+	position: absolute;
+	top: 80px;
+	left: 210px;
+}
+div.evento_description_label
+{
+	color: #999999;
+	font-size: 18px;
+	float: left;
+	width: 60px;
+	text-align: right;
+	margin-top: 10px;
+}
+div.evento_description_content
+{
+	font-size: 22px;
+	color: #000;
+	white-space: nowrap;
+	padding-left: 70px;
+	margin-top: 10px;
+}
+
+div.evento_content div.evento_date
+{
+	background: transparent url("/img/evento_date.png") center center no-repeat;
+	width: 207px;
+	height: 270px;
+	position: absolute;
+	right: -10px;
+	top: 0;
+}
+</style>
+
+
+
 <?php /*
 	<div class="ct_event">
 		
