@@ -41,8 +41,9 @@
 			</div>
 			
 			<button type="button" class="evento_description_button_details">Detalhes</button>
-			<button type="button" class="evento_description_button_promotions">Promoções</button>
-			
+			<?php if(count($evento->cortesias) > 0) : ?>
+				<button type="button" class="evento_description_button_promotions" id="btnbonus_<?php echo $evento->id ?>">Promoções</button>
+			<?php endif; ?>
 		</div>
 		
 		<div class="evento_date" onclick="">
@@ -107,8 +108,5 @@
 
 	<?php 
 	$this->headLink()->prependStylesheet($this->baseUrl('/css/events_partial.css'));
-	
-// 	$this->headScript()->setSeparator(PHP_EOL)
-// 		->prependFile($this->baseUrl('/js/eventos_partial.js'))
-// 		->prependFile($this->baseUrl('/js/cortesia.js'));
+	$this->headScript()->prependFile($this->baseUrl('/js/events_partial.js'))
 	?>	

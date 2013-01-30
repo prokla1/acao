@@ -31,7 +31,11 @@
 <div class="calendar">
 	<div class="calendar_wrap">
 		<div class="calendar_container">
-			<span class="calendar_arrow"><img alt="" src="/img/eventos_calendar_arrow_left.png"></span>
+			<span class="calendar_arrow">
+				<a href="/eventos?d=<?php echo ($dias[0] - (86400*4)) ?>">
+					<img alt="" src="/img/eventos_calendar_arrow_left.png">
+				</a>
+			</span>
 				<ul>
 						<?php
 							foreach($dias as $dia){
@@ -57,7 +61,11 @@
 							}
 						?>
 				</ul>
-			<span class="calendar_arrow"><img src="/img/eventos_calendar_arrow_right.png"></span>
+			<span class="calendar_arrow">
+				<a href="/eventos?d=<?php echo ($dias[6] + (86400*4)) ?>">
+					<img alt="" src="/img/eventos_calendar_arrow_right.png">
+				</a>
+			</span>
 			<span class="calendar_icon">
 				<form id="form_busca_eventos">
 				    <input style="display: none;" type="text" name="d" id="d" value="<?php echo $dia_base ?>" />
