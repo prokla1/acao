@@ -89,7 +89,33 @@
 
 /* #Buttons
 ================================================== */
-
+button 
+{
+	position: relative;
+	overflow: visible;
+	display: inline-block;
+	padding: 7px 10px 7px 20px;
+	border: 0;
+	margin: 0;
+	text-decoration: none;
+	text-align: center;
+	font: 12px/normal arial,sans-serif;
+	color: #FFF;
+	white-space: nowrap;
+	cursor: pointer;
+	outline: 0;
+	border-radius: 4px;
+	zoom: 1;
+	-webkit-box-shadow: 1px 1px 4px rgba(50,50,50,0.25);
+	-moz-box-shadow: 1px 1px 3px rgba(50,50,50,0.25);
+	box-shadow: 1px 1px 3px rgba(50,50,50,0.25);
+	background: transparent url("/img/global_button_blue_back.png");
+}
+button span
+{
+	padding-right: 20px;
+	background: transparent url("/img/global_button_blue_span.png") center right no-repeat;
+}
 
 /* #Forms
 ================================================== */
