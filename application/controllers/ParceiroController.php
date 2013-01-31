@@ -32,16 +32,26 @@ class ParceiroController extends Zend_Controller_Action
 
     public function eventoAction()
     {
-    	$eventosTable = new Application_Model_DbTable_Eventos();
-    	$eventoModel = new Application_Model_Evento();
-    	$evento = $eventosTable->byId($this->_getParam('idE'), $eventoModel);
-    	//$evento = $eventosTable->byId($this->_getParam('idE'), $eventoModel, $this->parceiro);
-    	 
-    	if($evento)
-    		$this->view->evento = $evento;
-    	else
-    		return $this->_helper->redirector('index', 'eventos');
-    	
+    	if(is_numeric($this->_getParam('idE')))
+    	{
+	    	$eventosTable = new Application_Model_DbTable_Eventos();
+	    	$eventoModel = new Application_Model_Evento();
+	    	$evento = $eventosTable->byId($this->_getParam('idE'), $eventoModel);
+	    	//$evento = $eventosTable->byId($this->_getParam('idE'), $eventoModel, $this->parceiro);
+	    	 
+	    	if(empty($evento))
+	    	{
+	    		$eventosTable = new Application_Model_DbTable_Eventos();
+	    		$eventoModel = new Application_Model_Evento();
+	    		$evento = $eventosTable->byNext($this->parceiro->id, $eventoModel);
+	    	}
+    	}else
+    	{
+    		$eventosTable = new Application_Model_DbTable_Eventos();
+    		$eventoModel = new Application_Model_Evento();
+    		$evento = $eventosTable->byNext($this->parceiro->id, $eventoModel);
+    	}
+    	$this->view->evento = $evento;
     }
     
     

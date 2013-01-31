@@ -233,14 +233,14 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 
 
     /*
-     *Pega o EVENTO pelo ID, sem o PARCEIRO 
-     *Parceiro já esta no controller
-     */
+     *Pega o EVENTO pelo ID, sem o PARCEIRO
+    *Parceiro já esta no controller
+    */
     public function byId($id, Application_Model_Evento $evento)
     {
     	$result = $this->fetchRow('id = '.$id);
     
-    	 
+    
     	if($result)
     	{
     		$eventos = $result->toArray();
@@ -254,7 +254,27 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     
     	return $evento;
     }
-
+    
+    
+    /**
+     * Retorna os eventos de um parceiro ID_PARCEIRO
+     */
+    public function byNext($id_parceiro, Application_Model_Evento $evento)
+    {
+    	$resultSet = $this->select()
+    	->from('eventos')
+    	->where('eventos.id_parceiro = ?', $id_parceiro)
+    	->where('eventos.ativo = ?', '1')
+    	->where('eventos.realizacao >= ?', date('Y-m-d', time()))
+    	->limit(1)
+    	->query();
+    	
+    	$evento->setOptions($resultSet->fetch());
+    	$evento->setCortesias($evento->id);
+    	return $evento;
+    }
+    
+    
 
 /*
  * pega o evento pelo ID e ja add o objeto PARCEIRO

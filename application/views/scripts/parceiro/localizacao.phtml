@@ -1,4 +1,55 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Parceiro</b> and script/action name <b>localizacao</b></p>
-</div>
+
+<?php $local = $this->parceiro->local; ?>
+<div class="location-view">
+				
+				
+			 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+		    <script>
+		    
+		    var geocoder;
+		    var map;
+		    var marker;
+		    
+			function carregarNoMapa() {
+		    	
+		    	var address = "<?php echo $local->rua .", ". $local->numero ." - ". $local->cidade->nome .", ". $local->cidade->estado->nome; ?>";
+		        geocoder.geocode({ 'address': address + ', Brasil', 'region': 'BR' }, function (results, status) {
+		            if (status == google.maps.GeocoderStatus.OK) {
+		                if (results[0]) {
+		                    var latitude = results[0].geometry.location.lat();
+		                    var longitude = results[0].geometry.location.lng();
+		                    var location = new google.maps.LatLng(latitude, longitude);
+		                    marker.setPosition(location);
+		                    map.setCenter(location);
+		                    map.setZoom(15);
+		                }
+		            }
+		        });
+		    }
+		     
+		    function initialize() {
+		        var latlng = new google.maps.LatLng(-27.59449,-48.613901);
+		        var options = {
+		            zoom: 5,
+		            center: latlng,
+		            mapTypeId: google.maps.MapTypeId.ROADMAP
+		        };
+		     
+		        map = new google.maps.Map(document.getElementById("map"), options);
+		        geocoder = new google.maps.Geocoder();
+		        marker = new google.maps.Marker({
+		            map: map,
+		            draggable: true,
+		        });
+		     
+		        marker.setPosition(latlng);
+		        carregarNoMapa();
+		    }
+
+		    google.maps.event.addDomListener(window, 'load', initialize);
+		    </script>
+				
+		   <div id="map" style="width: 900px; height: 500px; margin: 0 auto; text-align: center; border: 1px solid #FFF;"></div>
+				
+	</div>

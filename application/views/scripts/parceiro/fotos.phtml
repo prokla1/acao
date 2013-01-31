@@ -1,4 +1,17 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Parceiro</b> and script/action name <b>fotos</b></p>
+<div id="fotos" style="width: 900px; height: 600px; background: #000; margin: 0 auto; text-align: center;">
+	<?php foreach ($this->parceiro->fotos as $fotos) :?>
+		<a href="/img/parceiros/<?php echo $fotos->url ?>">
+			<img src="/img/parceiros/<?php echo $fotos->url ?>"  data-big="/img/parceiros/<?php echo $fotos->url ?>" data-title="My title" data-description="<?php echo $fotos->url ?>" />
+		</a>
+	<?php endforeach; ?>
 </div>
+	<?php 
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/galleria.classic.css'));
+	
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/galleria-1.2.9.min.js'))
+		->appendFile($this->baseUrl('/js/galleria.classic.min.js'))
+		->appendFile($this->baseUrl('/js/parceiro_fotos.js'));
+	?>	
+
