@@ -1,44 +1,61 @@
 
+/* ********  PARCEIRO  - HEADER *********** */
 	
-	/* ********  HEADER PARCEIRO *********** */
+div.header-extra
+{
+	height: 214px;
+	background: url("/img/header-extra_back.png");
+	border-bottom: 1px dashed #666666;
+}
+div.header-extra div.eventer
+{
+	float: left;
+	padding: 50px;
+}
+div.header-extra ul.header-extra_menu
+{
+	float: right;
+	margin: 80px 50px 0 0;
+}
+div.header-extra ul.header-extra_menu li
+{
+	float: left;
+	text-transform: uppercase;
+}
+div.header-extra ul.header-extra_menu li a
+{
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 50px;
+	display: block;	
+	margin: 0 15px;
+	color: #666666;
+	text-shadow:1px 1px #696862;
+}		
+div.header-extra ul.header-extra_menu li a.active
+{
+	color: #00CCFF;
+}		
+div.header-extra ul.header-extra_menu li a:HOVER
+{
+	color: #00CCFF;
+}
+
+
+
+	
+/* ********  PARCEIRO - CONTENT *********** */
+	
+div.parceiro_content {
+	border: 1px dashed #CCCCCC;
+	background-color: #FFF;
+	border-radius: 5px;
+	width: 928px;
+	margin: 0 auto;
+	padding: 30px 25px 0 25px;
+	margin-bottom: 30px;	
+	margin-top: 40px;	
+}
+
+
 		
-	div.header-extra
-	{
-		height: 214px;
-		background: url("/img/header-extra_back.png");
-		border-bottom: 1px dashed #666666;
-	}
-	div.header-extra div.eventer
-	{
-		float: left;
-		padding: 50px;
-	}
-	div.header-extra ul.header-extra_menu
-	{
-		float: right;
-		margin: 80px 50px 0 0;
-	}
-	div.header-extra ul.header-extra_menu li
-	{
-		float: left;
-		text-transform: uppercase;
-	}
-	div.header-extra ul.header-extra_menu li a
-	{
-/* 		font: normal normal bold 20px Arial, Sans-Serif; */
-		font-weight: bold;
-		font-size: 30px;
-		line-height: 50px;
-		display: block;	
-		margin: 0 15px;
-		color: #666666;
-		text-shadow:1px 1px #696862;
-	}		
-	div.header-extra ul.header-extra_menu li a.active
-	{
-		color: #00CCFF;
-	}		
-	div.header-extra ul.header-extra_menu li a:HOVER
-	{
-		color: #00CCFF;
-	}

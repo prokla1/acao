@@ -43,7 +43,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	/*
  	* Muda de:  /evento/index/id/3
 	* Para:   /evento/3/Sertanejo+Universitario
- 	*/		
+ 	*/		/*
 		$router->addRoute(
 				'evento',
 				new Zend_Controller_Router_Route('evento/:id/:nome', array(
@@ -54,17 +54,71 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'nome'			=>	':nome'
 				))
 		);	
-
+		*/
+		$router->addRoute(
+				'evento',
+				new Zend_Controller_Router_Route('parceiro/:idP/:nomeP/evento/:idE/:nomeE', array(
+						'module' => 'default',
+						'controller'	=>	'parceiro',
+						'action'		=>	'evento',
+						'idP'   		=>	':idP',
+						'nomeP'			=>	':nomeP',
+						'idE'   		=>	':idE',
+						'nomeE'			=>	':nomeE'
+				))
+		);
 		$router->addRoute(
 				'parceiro',
-				new Zend_Controller_Router_Route('parceiro/:id/:nome', array(
+				new Zend_Controller_Router_Route('parceiro/:idP/:nomeP', array(
 						'module' => 'default',
 						'controller'	=>	'parceiro',
 						'action'		=>	'index',
-						'id'   			=>	':id',
-						'nome'			=>	':nome'
+						'idP'   		=>	':idP',
+						'nomeP'			=>	':nomeP'
 				))
 		);
+		$router->addRoute(
+				'agenda',
+				new Zend_Controller_Router_Route('parceiro/:idP/:nomeP/agenda', array(
+						'module' => 'default',
+						'controller'	=>	'parceiro',
+						'action'		=>	'agenda',
+						'idP'   		=>	':idP',
+						'nomeP'			=>	':nomeP'
+				))
+		);
+		$router->addRoute(
+				'fotos',
+				new Zend_Controller_Router_Route('parceiro/:idP/:nomeP/fotos', array(
+						'module' => 'default',
+						'controller'	=>	'parceiro',
+						'action'		=>	'fotos',
+						'idP'   		=>	':idP',
+						'nomeP'			=>	':nomeP'
+				))
+		);
+		$router->addRoute(
+				'localizacao',
+				new Zend_Controller_Router_Route('parceiro/:idP/:nomeP/localizacao', array(
+						'module' => 'default',
+						'controller'	=>	'parceiro',
+						'action'		=>	'localizacao',
+						'idP'   		=>	':idP',
+						'nomeP'			=>	':nomeP'
+				))
+		);
+		$router->addRoute(
+				'contato',
+				new Zend_Controller_Router_Route('parceiro/:idP/:nomeP/contato', array(
+						'module' => 'default',
+						'controller'	=>	'parceiro',
+						'action'		=>	'contato',
+						'idP'   		=>	':idP',
+						'nomeP'			=>	':nomeP'
+				))
+		);
+		
+		
 		$router->addRoute(
 				'rating',
 				new Zend_Controller_Router_Route('rating/:rating/:id', array(
@@ -75,6 +129,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'id'   			=>	':id'
 				))
 		);	
+		
+		
 		
 		$router->addRoute(
 				'localidade',

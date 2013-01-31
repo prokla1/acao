@@ -1,6 +1,7 @@
 <?php 
 	$footer = $this->partial('partials/footer.phtml');
 	$header =  $this->partial('partials/header.phtml');
+	$parceiro_header =  $this->partial('partials/parceiro_header.phtml', array('parceiro' => $this->parceiro));	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
@@ -49,11 +50,17 @@ echo 	$this->headMeta(),PHP_EOL;
 			?>
 	
 	
+			<?php 
+				echo $parceiro_header;
+			?>
 	
 			<!--=============================== Page Content ================================================== -->	
-						<?php echo $this->layout()->content;?>
+				<div class="parceiro_content">
+					<?php echo $this->layout()->content;?>
+				</div>	
+
 				
-		
+				
 		
 		</div> <!-- <div class="wrapper"> -->
 		<!--=============================== Page FOOTER ================================================== -->

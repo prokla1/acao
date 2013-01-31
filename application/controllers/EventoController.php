@@ -26,7 +26,12 @@ class EventoController extends Zend_Controller_Action
     	$eventoModel = new Application_Model_Evento();
     	$evento = $eventosTable->byId($this->_getParam('id'), $eventoModel);
     	
-    	$this->view->evento = $evento;
+    	if($evento)
+    		$this->view->evento = $evento;
+    	else
+    		return $this->_helper->redirector('index', 'eventos');
+    	 
+    	
     	$this->view->parceiro = $evento->getParceiro();
     	
     	/*

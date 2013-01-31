@@ -24,7 +24,7 @@
 				evento:
 			</div>
 			<div class="evento_description_content">
-				<a href="<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>">
+				<a href="<?php echo $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento') ?>">
 					<?php echo $evento->nome ?>
 					
 				</a>
@@ -34,7 +34,7 @@
 				local:
 			</div>
 			<div class="evento_description_content">
-			 	<a href="<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?>  ">
+			 	<a href="<?php echo $this->url(array('idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'parceiro') ?>  ">
 					<?php echo $evento->parceiro->nome ?>
 					
 				</a>
@@ -46,12 +46,12 @@
 			<?php endif; ?>
 		</div>
 		
-		<div class="evento_date" onclick="">
+		<div class="evento_date">
 			<span>
 				<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
 				
 			</span>
-			<a href="<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?>">
+			<a href="<?php echo $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento') ?>">
 				<?php echo $evento->nome ?>
 				
 			</a>

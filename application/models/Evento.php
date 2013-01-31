@@ -111,11 +111,19 @@ class Application_Model_Evento
 	/**
 	 * @param field_type $_id_parceiro
 	 */
+	public function setParceiroObj($parceiro0bj) {
+		$this->_parceiro = $parceiro0bj;
+	}
+
+
+	/**
+	 * @param field_type $_id_parceiro
+	 */
 	public function setParceiro($id_parceiro) {
-			$parceiroTable = new Application_Model_DbTable_Parceiros();
-			$parceiroModel = new Application_Model_Parceiro();
-			$parceiro = $parceiroTable->byId($id_parceiro, $parceiroModel);
-			$this->_parceiro = $parceiro;
+		$parceiroTable = new Application_Model_DbTable_Parceiros();
+		$parceiroModel = new Application_Model_Parceiro();
+		$parceiro = $parceiroTable->byId($id_parceiro, $parceiroModel);
+		$this->_parceiro = $parceiro;
 	}
 	
 	/**

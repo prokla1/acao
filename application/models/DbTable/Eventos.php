@@ -38,10 +38,11 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     /**
      * Retorna os eventos de um parceiro ID_PARCEIRO
      */
-    public function findByParceiro($id_parceiro)
+    public function findByParceiro($id_parceiro, Application_Model_Parceiro $parceiro = null)
     {
     	$resultSet = $this->select()
 	    	->from('eventos')
+	    	->where('eventos.id_parceiro = ?', $id_parceiro)
 	    	->where('eventos.ativo = ?', '1')
 	    	->where('eventos.realizacao >= ?', date('Y-m-d', time()))
 	    	->order('eventos.realizacao')
@@ -53,7 +54,11 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);
-    		//$eventoModel->setParceiro($row['id_parceiro']);
+    			if($parceiro)
+    				$eventoModel->setParceiroObj($parceiro);
+    			else 
+    				$eventoModel->setParceiro($row['id_parceiro']);
+    			
     		//$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
     	
@@ -224,21 +229,58 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	return $eventos;
     }
     
-    
-    
 
+
+
+    /*
+     *Pega o EVENTO pelo ID, sem o PARCEIRO 
+     *Parceiro já esta no controller
+     */
     public function byId($id, Application_Model_Evento $evento)
     {
     	$result = $this->fetchRow('id = '.$id);
-    	$eventos = $result->toArray();
+    
     	 
-    	$evento->setOptions($eventos);
-    	$evento->setParceiro($result->id_parceiro);
-    	$evento->setCortesias($id);
+    	if($result)
+    	{
+    		$eventos = $result->toArray();
+    		$evento->setOptions($eventos);
+    		$evento->setCortesias($id);
+    	}else
+    	{
+    		$evento = null;
+    	}
+    
     
     	return $evento;
     }
+
+
+/*
+ * pega o evento pelo ID e ja add o objeto PARCEIRO
+ */
+    /*
+    public function byId($id, Application_Model_Evento $evento, Application_Model_Parceiro $parceiro)
+    {
+    	$result = $this->fetchRow('id = '.$id);
     
+    	 
+    	if($result)
+    	{
+    		$eventos = $result->toArray();
+    		$evento->setOptions($eventos);
+    		//$evento->setParceiro($result->id_parceiro);
+    		$evento->setParceiroObj($parceiro);
+    		$evento->setCortesias($id);
+    	}else
+    	{
+    		$evento = null;
+    	}
+    
+    
+    	return $evento;
+    }
+ */   
     
     
  /*   

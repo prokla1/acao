@@ -1,0 +1,211 @@
+<?php 
+$parceiro = $this->parceiro; 
+?>
+
+
+<div class="parceiro_header">
+	<div class="parceiro_header_wrap">
+
+		<div class="parceiro_summary">
+			<div class="parceiro_logo">
+				<img alt="<?php echo $parceiro->nome ?>" src="/img/parceiros/<?php echo $parceiro->foto?> "/>
+			</div>
+			<div class="parceiro_data">
+				<h2><?php echo $parceiro->nome ?> <span>(casas noturnas)</span></h2>
+				<h3><?php echo $parceiro->local->cidade->nome ?> - <?php echo $parceiro->local->cidade->estado->sigla ?></h3>
+				<h4>Ver descrição do local</h4>
+			</div>
+		</div>
+		
+		<div class="parceiro_information">
+			<ul>
+				<li>Avaliação</li>
+				<li><button><span>Horários</span></button></li>
+				<li><button><span>Formas de pgto</span></button></li>
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+<div class="parceiro_menu">
+	<div class="parceiro_menu_wrap">
+	<?php $router = Zend_Controller_Front::getInstance()->getRouter()->getCurrentRouteName(); ?>
+		<ul>
+			<li>
+				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'evento') ?>">
+					Evento
+					<?php if($router == 'evento') echo '<div class="menu_active"></div>'; ?>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'agenda') ?>">
+					Agenda
+					<?php if($router == 'agenda') echo '<div class="menu_active"></div>'; ?>
+				</a>
+			</li>
+			<li>
+				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'fotos') ?>">
+					Fotos
+					<?php if($router == 'fotos') echo '<div class="menu_active"></div>'; ?>
+				</a>
+			</li>
+				<li>
+				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'localizacao') ?>">
+				Localização
+					<?php if($router == 'localizacao') echo '<div class="menu_active"></div>'; ?>
+				</a>
+			</li>
+				<li>
+					<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'contato') ?>">
+					Contato
+					<?php if($router == 'contato') echo '<div class="menu_active"></div>'; ?>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+
+<hr class="parceiro_bar" />
+
+
+
+<style>
+div.parceiro_header
+{
+	height: 216px;
+	background: transparent url("/img/parceiro_header_back.png");
+	border-bottom: 1px dashed #666666
+}
+div.parceiro_header div.parceiro_header_wrap 
+{
+	width: 980px;
+	margin: 0 auto;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary
+{
+	float: left;
+	margin-top: 36px;
+}
+
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary div.parceiro_logo {
+	background: transparent url("/img/parceiro_logo_mold.png") center center no-repeat;
+	width: 142px;
+	height: 150px;
+	float: left;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary div.parceiro_logo img {
+	width: 134px;
+	height: 134px;
+	margin: 4px;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary  div.parceiro_data
+{
+	float: left;
+	margin: 25px 0 0 20px;
+	width: 430px;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary  div.parceiro_data h2
+{
+	color: #006699;
+	font-size: 38px;
+	line-height: 105%;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary  div.parceiro_data h2 span
+{
+	color: #CCCCCC;
+	font-size: 20px;
+}
+
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary  div.parceiro_data h3
+{
+	color: #333333;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 5px 0;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_summary  div.parceiro_data h4
+{
+	color: #666666;
+	font-size: 12px;
+	padding-left: 15px;
+	background: transparent url("/img/global_list_icon.png") center left no-repeat;
+}
+
+
+div.parceiro_header div.parceiro_header_wrap div.parceiro_information
+{
+	float: right;
+	margin-top: 70px;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_information ul li
+{
+	float: left;
+	margin: 0 5px;
+}
+div.parceiro_header div.parceiro_header_wrap div.parceiro_information ul li button
+{
+	text-transform: uppercase;
+	-webkit-box-shadow: 1px 1px 4px rgba(50,50,50,0.25); 
+ 	-moz-box-shadow: 1px 1px 3px rgba(50,50,50,0.25); 
+ 	box-shadow: 1px 1px 3px rgba(50,50,50,0.25); 
+}
+
+
+div.parceiro_menu
+{
+	height: 73px;
+	background-color: #F1F6F9;
+}
+div.parceiro_menu div.parceiro_menu_wrap
+{
+	margin: 0 auto;
+	width: 850px;
+}
+
+
+div.parceiro_menu div.parceiro_menu_wrap ul li
+{
+	float: left;
+	font-size: 26px;
+	margin: 0 1px;
+	background-color: #C9E6FB;
+	width: 168px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+div.parceiro_menu div.parceiro_menu_wrap ul li a:HOVER
+{
+	color: #00B0DD;
+}
+
+div.parceiro_menu div.parceiro_menu_wrap ul li a
+{
+	line-height: 73px;
+	color: #00CCFF;
+	display: block;
+	position: relative;
+}
+
+div.parceiro_menu div.parceiro_menu_wrap ul li div.menu_active {
+	background: transparent url("/img/parceiro_menu_active.png") center bottom no-repeat;
+	position: absolute;
+	left: 65px;
+	bottom: -16px;
+	width: 32px;
+	height: 16px;
+}
+
+
+hr.parceiro_bar
+{
+	background: transparent url("/img/eventos_calendar_line.png") top center repeat-x;
+	height: 10px;
+}
+</style>
