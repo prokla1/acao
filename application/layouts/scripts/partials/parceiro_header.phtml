@@ -44,7 +44,7 @@ $parceiro = $this->parceiro;
 			<li>
 				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'agenda') ?>">
 					Agenda
-					<?php if($router == 'agenda') echo '<div class="menu_active"></div>'; ?>
+					<?php if($router == 'agenda'|| $router == 'parceiro') echo '<div class="menu_active"></div>'; ?>
 				</a>
 			</li>
 			<li>

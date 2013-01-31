@@ -1,3 +1,5 @@
+<?php if(count($this->parceiro->fotos) > 0)  : ?>
+
 <div id="fotos" style="width: 900px; height: 600px; background: #000; margin: 0 auto; text-align: center;">
 	<?php foreach ($this->parceiro->fotos as $fotos) :?>
 		<a href="/img/parceiros/<?php echo $fotos->url ?>">
@@ -15,3 +17,8 @@
 		->appendFile($this->baseUrl('/js/parceiro_fotos.js'));
 	?>	
 
+<?php else : ?>
+
+nenhuma foto
+
+<?php endif; ?>
