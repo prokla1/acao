@@ -88,6 +88,7 @@ div.evento_content
 {
 	background: transparent url("/img/evento_container_back.png");
 	position: relative;
+	border: 1px solid #E9E9E9;
 }
 div.evento_content div.evento_flyer
 {
@@ -110,7 +111,7 @@ div.evento_content div.evento_flyer div.evento_flyer_mold
 	background: transparent url("/img/evento_flyer_mold.png") center center no-repeat;
 	position: absolute;
 	left: 18px;
-	top: 75px;
+	top: 65px;
 }
 
 div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img
@@ -125,6 +126,10 @@ div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img i
 	width: 150px;
 	height: 150px;
 	margin: 0 auto;
+}
+
+.ct_icos{
+	margin: 8px 0 10px 0;
 }
 
 div.evento_content div.evento_description
@@ -177,7 +182,7 @@ div.evento_content div.evento_date
 	width: 207px;
 	height: 270px;
 	position: absolute;
-	right: -10px;
+	right: -12px;
 	top: 0;
 }
 
