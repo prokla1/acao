@@ -19,7 +19,20 @@ $parceiro = $this->parceiro;
 		
 		<div class="parceiro_information">
 			<ul>
-				<li>Avaliação</li>
+				<li>
+					<div id="rate_<?php echo $parceiro->id; ?>">
+   						<ul class="star-rating" style="margin: 0 auto;">
+   							<li class="current-rating" id="current-rating" style="width: <?php echo ($parceiro->rating * 20); ?>%;"></li>
+						    <li><a href="#" title="Péssimo" rel="<?php echo $parceiro->id ?>" class="star1" >1</a></li>
+						    <li><a href="#" title="Ruim" rel="<?php echo $parceiro->id ?>" class="star2" >2</a></li>
+						    <li><a href="#" title="Regular" rel="<?php echo $parceiro->id ?>" class="star3" >3</a></li>
+						    <li><a href="#" title="Bom" rel="<?php echo $parceiro->id ?>" class="star4" >4</a></li>
+						    <li><a href="#" title="Ótimo" rel="<?php echo $parceiro->id ?>" class="star5" >5</a></li>
+						</ul>
+					</div>
+				
+				
+				</li>
 				<li><button><span>Horários</span></button></li>
 				<li><button><span>Formas de pgto</span></button></li>
 			</ul>
@@ -108,7 +121,7 @@ div.parceiro_header div.parceiro_header_wrap div.parceiro_summary  div.parceiro_
 {
 	float: left;
 	margin: 25px 0 0 20px;
-	width: 430px;
+	width: 390px;
 }
 div.parceiro_header div.parceiro_header_wrap div.parceiro_summary  div.parceiro_data h2
 {
@@ -208,4 +221,76 @@ hr.parceiro_bar
 	background: transparent url("/img/eventos_calendar_line.png") top center repeat-x;
 	height: 10px;
 }
+
+
+
+
+
+
+
+
+/* *****  RATING  ***** */
+
+.star-rating,
+.star-rating a:hover,
+.star-rating a:active,
+.star-rating .current-rating{
+background: url(/img/stars_rating.png) left -1000px repeat-x;
+cursor: pointer;
+}
+.star-rating{
+position:relative;
+width:120px;
+height:25px;
+overflow:hidden;
+list-style:none;
+margin:0;
+padding:0;
+background-position: left top;
+}
+.star-rating li{
+display: inline;
+}
+.star-rating a,
+.star-rating .current-rating{
+position:absolute;
+top:0;
+left:0;
+text-indent:-1000em;
+height:24px;
+line-height:24px;
+outline:none;
+overflow:hidden;
+border: none;
+}
+.star-rating a:hover,
+.star-rating a:active{
+background-position: left bottom;
+}
+.star-rating a.star1{
+width:20%;
+z-index:6;
+}
+.star-rating a.star2{
+width:40%;
+z-index:5;
+}
+.star-rating a.star3{
+width:60%;
+z-index:4;
+}
+.star-rating a.star4{
+width:80%;
+z-index:3;
+}
+.star-rating a.star5{
+width:100%;
+z-index:2;
+}
+.star-rating .current-rating{
+z-index:1;
+margin: 0 !important;
+background-position: left center;
+}	
+
 </style>
