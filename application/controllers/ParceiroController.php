@@ -55,7 +55,7 @@ class ParceiroController extends Zend_Controller_Action
     	if($evento)
     		$this->view->evento = $evento;
     	else
-    		return $this->_helper->redirector('index', 'eventos');
+    		return $this->_forward('agenda', 'parceiro');
     	
     }
     
