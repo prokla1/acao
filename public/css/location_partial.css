@@ -1,9 +1,11 @@
 @CHARSET "UTF-8";
 
+
 div.location
 {
 	background-color: #F9F9F9;
 	height: 73px;
+	position: relative;
 }
 div.location div.location_wrap
 {
@@ -39,4 +41,51 @@ div.location div.location_content a
 div.location div.location_content a:HOVER
 {
 	color: #000;
+}
+
+
+
+
+
+
+div.ajax_content_localidade
+{
+ 	height: 240px; 
+	background: transparent url("/img/body.png") repeat;
+	display: none;
+/* 	position: absolute; */
+	z-index: 60;
+}
+
+div.ajax_content_localidade div.cities
+{
+	float: left;
+	margin: 40px 0 0 200px;
+	color: #FF9900;
+	font-size: 20px;
+	line-height: 150%;
+}
+div.ajax_content_localidade div.cities ul li a
+{
+	color: #FF9900;
+	font-weight: bold;
+}
+
+div.ajax_content_localidade div.headline
+{
+	color: #FFF;
+	font-size: 40px;
+	font-weight: bold;
+	width: 380px;
+	letter-spacing: 1px;
+	line-height: 120%;
+	float: right;
+	padding-top: 70px;
+	margin-right: 50px;
+	background: transparent url("/img/index_arrow.png") right 5px no-repeat;
+}
+div.ajax_content_localidade div.headline span
+{
+	color: #FF9900;
+	font-size: 50px;
 }

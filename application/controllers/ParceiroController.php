@@ -51,7 +51,12 @@ class ParceiroController extends Zend_Controller_Action
     		$eventoModel = new Application_Model_Evento();
     		$evento = $eventosTable->byNext($this->parceiro->id, $eventoModel);
     	}
-    	$this->view->evento = $evento;
+    	
+    	if($evento)
+    		$this->view->evento = $evento;
+    	else
+    		return $this->_forward('agenda', 'parceiro');
+    	
     }
     
     
