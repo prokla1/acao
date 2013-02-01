@@ -21,6 +21,39 @@
 		</div>
 		
 <?php 
-	$this->headLink()->prependStylesheet($this->baseUrl('/css/location_partial.css'));
+if(!$this->clean) {
+?>		
+<?php 
+$cidadesTable = new Application_Model_DbTable_LocalCidades();
+$localidades = $cidadesTable->cidadesName();
+?>
+<div class="ajax_content_localidade">
+	<div class="cities">
+		<ul>
+			<?php foreach ($localidades as $localidade) : ?>
+			
+				<li>
+					<a href="<?php echo $this->url(array('id' => $localidade->id, 'nome' => $localidade->nome), 'localidade') ?> ">
+						<?php echo $localidade->nome ?>
+						
+					</a>
+				</li>
+			<?php endforeach; ?>
+			
+		</ul>
+	</div>
+
+	<div class="headline">
+		Encontre os <span>próximos</span> eventos
+	</div>
+
+</div>
+<?php 
 	$this->headScript()->prependFile($this->baseUrl('/js/location_partial.js'))
 ?>
+<?php  } ?>
+		
+<?php 
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/location_partial.css'));
+?>
+

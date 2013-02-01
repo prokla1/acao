@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+.global
+{   
+	background: transparent url("/img/body.png") repeat !important;
+}
+div.content_localidade
+{
+ 	height: 240px; 
+}
+
+div.content_localidade div.cities
+{
+	float: left;
+	margin: 40px 0 0 200px;
+	color: #FF9900;
+	font-size: 20px;
+	line-height: 150%;
+}
+div.content_localidade div.cities ul li a
+{
+	color: #FF9900;
+	font-weight: bold;
+}
+
+div.content_localidade div.headline
+{
+	color: #FFF;
+	font-size: 40px;
+	font-weight: bold;
+	width: 380px;
+	letter-spacing: 1px;
+	line-height: 120%;
+	float: right;
+	padding-top: 70px;
+	margin-right: 50px;
+	background: transparent url("/img/index_arrow.png") right 5px no-repeat;
+}
+div.content_localidade div.headline span
+{
+	color: #FF9900;
+	font-size: 50px;
+}

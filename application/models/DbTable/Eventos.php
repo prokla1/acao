@@ -268,9 +268,14 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->where('eventos.realizacao >= ?', date('Y-m-d', time()))
     	->limit(1)
     	->query();
-    	
-    	$evento->setOptions($resultSet->fetch());
-    	$evento->setCortesias($evento->id);
+    	if($resultSet->fetch())
+    	{
+	    	$evento->setOptions($resultSet->fetch());
+	    	$evento->setCortesias($evento->id);
+    	}else
+    	{
+    		$evento = null;
+    	}
     	return $evento;
     }
     
