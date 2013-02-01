@@ -1,12 +1,32 @@
 	$(document).ready(function() {
-		$('ul.navigation #menu-login_link').click(function(event){
+		
+		var esconde = true;
+		$("#form_login").mouseover(function(){	
+			esconde = false;
+		});
+		$("#form_login").mouseout(function(){
+			esconde = true;
+		});
+		
+		
+		$('ul li a.login').click(function(event){
 			event.preventDefault();
-			$("#div_form_ajax").toggle();
+			esconde = false;
+			$(".msg_error").empty();
+			$("#form_login").show();
+			console.log('clicou no ul li.login');
+		});
+		
+		$("body").click(function() {
+			if(esconde){
+				$("#form_login").hide();
+				$(".msg_error").hide().empty();
+			}    
 		});
 		
 		
         $('#form_login_ajax').submit(function() {
-        	$('#msg_error_login').html("Processando...");
+        	$('.msg_error').show().html("Processando...");
         	ValidateAjax.doValidate();
             return false;
         });
@@ -19,11 +39,11 @@
 		    doValidate: function(){
 		        $.post('/usuario/validateform',{ email: $('input[name="e"]').val(), senha: $('input[name="s"]').val() },function(response){
 		            if(response.status == "sucesso"){
-		            	$('#div_msg_error_login').html("Logado");
-		            	$("#div_form_ajax").toggle();
-		            	$("#content_top_menus").html(response.navigation);
+		            	$('.msg_error').show().html("Logado");
+		            	$("#form_login").hide();
+		            	$("#navigation_wrap").html(response.navigation);
 		            }else{
-		            	$('#msg_error_login').html("Falha no login! Preencha corretamente.");
+		            	$('.msg_error').show().html("Falha no login! Preencha corretamente.");
 		            }
 		        },'json');
 		    }
@@ -106,7 +126,7 @@
     function login(response, info){
 		        $.post('/usuario/facebook',{ user: info, r: response.authResponse },function(r){
 		            if(r.status == "sucesso"){
-		            	$("#content_top_menus").html(r.navigation);
+		            	$("#navigation_wrap").html(r.navigation);
 		            }else{
 		            	$('#fb-auth-loading').hide();
 		            	$('#fb-auth-button').show();

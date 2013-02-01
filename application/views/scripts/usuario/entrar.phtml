@@ -1,2 +1,125 @@
-<h2>Entrar</h2>
-<?php echo $this->form; ?>
+<div id="form_login">
+	<div id="top_form"></div>
+    <div id="ct_form">
+    	<div id="form">
+    	<form id="form_login_ajax" name="form_login" enctype="application/x-www-form-urlencoded" action="" method="post">
+    	
+          <table border="0">
+            <tr>
+              <td colspan="2">
+                <label for="email" class="text_form_login">Seu email</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" height="60">
+                <input type="text" name="e" id="e" class="input_login" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <label for="senha" class="text_form_login">Senha de acesso</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" height="60">
+                <input type="password" name="s" id="s" class="input_login" />
+              </td>
+            </tr>
+            <tr height="80">
+              <td width="180">
+              	<span class="text_senha">Esqueceu sua senha? <a href="#" class="link_senha">Clique aqui</a></span>
+              </td>
+              <td>
+             	 <img src="/img/login_btn_login.png" id="submitbutton" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" >
+              	<span class="msg_error">Erro! Verfique os dados digitados.</span>
+              </td>
+            </tr>    
+            <tr height="120">
+              <td colspan="2" ><img src="/img/login_btn_facebook_l.png" /></td>
+            </tr>
+
+          </table>
+		</form>
+          
+         </div>
+    </div>
+</div>
+
+
+
+
+
+<style>
+
+/* ESTRUTURA */
+
+#form_login{
+	width: 405px; 
+	height: 405px;  
+	border: 1px solid #000; 
+	position: relative; 
+	z-index: 10; 
+	margin-top: 30px; 
+	background: url("/img/login_bg_i.png"); 
+}
+#top_form{
+	height: 25px; 
+	width: 58px; 
+	position: absolute; 
+	right: 0; 
+	margin-top: -25px; 
+	margin-right: -1px; 
+	z-index: 11; 
+	background: url("/img/login_topimg.png") center center no-repeat; 
+}
+#ct_form{
+	border:1px solid #2C2C2C; 
+	width: 390px; 
+	height: 390px; 
+	margin: 6px; 
+	background: #505050;
+}
+
+#form{margin: 15px 2px;}
+
+/* TEXT AND INPÙTS */
+
+.text_senha{
+	font-size: 12px; 
+	color: #CCC; 
+	padding-left: 4px;
+	}
+
+.link_senha{
+	color: white;
+}
+
+.text_form_login{
+	color: #00CCFF; 
+	font-size: 14px;
+}
+
+.input_login{
+	width: 362px; 
+	height: 48px; 
+	border-radius: 6px; 
+	padding: 0 8px; 
+	background: #EAF2F7; 
+	font-size: 14px; 
+	color: #036; 
+	border: 0px;
+}
+
+.msg_error{
+	background: #333; 
+	padding: 4px 81px; 
+	margin-left: 5px;
+	display: none;
+}
+
+</style>
+
