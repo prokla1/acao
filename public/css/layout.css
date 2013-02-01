@@ -4,7 +4,7 @@
 		
 	div.header-extra
 	{
-		height: 214px;
+		height: 180px;
 		background: url("/img/header-extra_back.png");
 		border-bottom: 1px dashed #666666;
 	}
