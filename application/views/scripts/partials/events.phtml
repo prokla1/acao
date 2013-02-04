@@ -1,4 +1,17 @@
+<?php $events =  array() ; ?>
 <?php foreach ($this->eventos as $evento): ?>
+
+<?php 
+$event = array();
+$event['id'] = $evento->id;
+$event['nome'] = $evento->nome;
+$event['url'] =  $this->serverUrl() . $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento');
+$event['imagem']  = $this->serverUrl() ."/img/eventos/".$evento->capa;
+$event['data'] =  date('d/m/Y', strtotime( $evento->realizacao));
+$event['descricao'] =  $evento->descricao;
+$events[] = $event;
+?>
+
 
 <div class="evento_wrap">
 
@@ -17,7 +30,7 @@
 				</div>
 				<div class="ct_icos">
 					<ul>
-						<li style="float: left;" onclick='share("http://acao.dev<?php echo $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento') ?>", "http://acao.dev/img/eventos/<?php echo $evento->capa?>", "<?php echo $evento->nome ?>")' >
+						<li style="float: left;" onclick='share("<?php echo $evento->id ?>");' >
 							<img src="img/btn_events_facebook.png">
 							
 						</li>
@@ -110,6 +123,11 @@
 
 </div>
 <?php endforeach;  ?>
+
+<script type="text/javascript">
+var events = <?php echo json_encode($events); ?>;
+</script>
+
 
 
 
