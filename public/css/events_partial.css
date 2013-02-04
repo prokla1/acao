@@ -98,6 +98,22 @@ div.evento_content div.evento_flyer
 	height: 270px;
 }
 
+div.evento_content div.evento_flyer div.evento_flyer_zoom
+{
+	display: none;
+}
+div.evento_content div.evento_flyer div.evento_flyer_zoom img
+{
+	max-width: 500px;
+	max-height: 500px;
+}
+.li_zoom{
+	cursor: pointer;
+}
+button span {
+	background-image: none;
+}
+
 div.evento_content div.evento_flyer div.evento_promo
 {
 	position: absolute;

@@ -17,12 +17,17 @@
 				</div>
 				<div class="ct_icos">
 					<ul>
-						<li style="float: left;"><img src="img/btn_events_facebook.png"></li>
+						<li style="float: left;" onclick='share("http://acao.dev<?php echo $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento') ?>", "http://acao.dev/img/eventos/<?php echo $evento->capa?>", "<?php echo $evento->nome ?>")' >
+							<img src="img/btn_events_facebook.png">
+							
+						</li>
 						<li style="float: left;"><img src="img/btn_events_mail.png"></li>
-						<li style="float: left;"><img src="img/btn_events_zoom.png"></li>
+						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: left;"><img src="img/btn_events_zoom.png"></li>
 					</ul>
 				</div>
 			</div>
+			
+			<div class="evento_flyer_zoom" id="flyer_<?php echo $evento->id ?>"><img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/></div>
 		</div>
 		
 		<div class="evento_description">

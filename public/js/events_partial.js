@@ -1,6 +1,36 @@
 
 //JavaScript Document
 
+
+ 
+            
+//// COMPARTILHAR O EVENTO
+            $('.event_share').click(function(){
+            	//var url = $(this).attr('rel');
+            	//graphStreamPublish(url, picture, name);
+            });
+            
+            
+            
+
+//ZOOOOOOMMMMMM
+$('.li_zoom').click(function(){
+	var flyer = $(this).attr('rel');
+	console.log(flyer);
+	$('#'+flyer).dialog({
+		resizable: false,
+		position: ['center', 'center'],
+		modal: true,
+		autoOpen: true, //já é criado aberto
+		width: 'auto',
+		buttons: {"Fechar": function() {
+			$(this).dialog("close");
+		}
+}
+	});
+	$(".ui-dialog-titlebar").hide() ;
+});
+
 //EXIBE INGRESSOS
 
 $(document).ready(function(){
