@@ -14,10 +14,10 @@ function share(id) {
 function shareEvent(event) {
 	console.log(event);
 	
-//	streamShare(event.url);
+	streamShare(event.url);
 //	graphStreamPublishFB(event);  // nao abre o modal
 //	streamPublish(event);
-	sendFB(event);
+//	sendFB(event);
 //	feedFB(event);
 //	appRequestsFB(event);
 	

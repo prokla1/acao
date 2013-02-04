@@ -3,7 +3,7 @@
 	$header =  $this->partial('partials/header.phtml');
 	$parceiro_header =  $this->partial('partials/parceiro_header.phtml', array('parceiro' => $this->parceiro));	
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<?php echo $this->doctype('XHTML1_RDFA'); ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
@@ -18,9 +18,6 @@ echo 	$this->headMeta(),PHP_EOL;
 ?>
 
 
-<meta property="og:site_name" content="Nome do seu site" />
-<meta property="og:title" content="Encontre o que tem de evento na sua região" />
-<meta property="og:image" content="http://www.seusite.com.br/imagem.jpg" />
 
 
 
