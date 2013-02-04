@@ -21,7 +21,7 @@ $parceiro = $this->parceiro;
 			<ul>
 				<li>
 					<div id="rate_<?php echo $parceiro->id; ?>">
-   						<ul class="star-rating" style="margin: 0 auto;">
+   						<ul class="star-rating" style="margin: 0 auto; margin-top: 4px;">
    							<li class="current-rating" id="current-rating" style="width: <?php echo ($parceiro->rating * 20); ?>%;"></li>
 						    <li><a href="#" title="Péssimo" rel="<?php echo $parceiro->id ?>" class="star1" >1</a></li>
 						    <li><a href="#" title="Ruim" rel="<?php echo $parceiro->id ?>" class="star2" >2</a></li>
@@ -241,7 +241,7 @@ cursor: pointer;
 .star-rating{
 position:relative;
 width:110px;
-height:25px;
+height:23px;
 overflow:hidden;
 list-style:none;
 margin:0;

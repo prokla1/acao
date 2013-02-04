@@ -20,14 +20,12 @@ div.content_localidade div.cities
 div.content_localidade div.cities ul li a
 {
 	color: #FF9900;
-	font-weight: bold;
 }
 
 div.content_localidade div.headline
 {
 	color: #FFF;
 	font-size: 40px;
-	font-weight: bold;
 	width: 380px;
 	letter-spacing: 1px;
 	line-height: 120%;

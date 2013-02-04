@@ -34,7 +34,11 @@ ul.navigation li
 ul.navigation li a.login
 {
 	background: #696862 url("/img/header_menu_login.png") no-repeat 30px center;
-	
+	color: #0FF;
+}
+ul.navigation li a.login:hover
+{
+	color: #00CCFF;
 }	
 ul.navigation li a.register
 {

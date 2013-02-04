@@ -21,18 +21,16 @@ div.location div.location_label
 	padding-left: 45px;
 	padding-right: 10px;
 	font-size: 26px;
-	font-weight: bold;
-	background: transparent url("/img/location_label.png") left center no-repeat;
 }
 div.location div.location_content
 {
 	float: left;
 	line-height: 73px;			
 	font-size: 26px;
-	font-weight: bold;
 	color: #666666;
 	padding-right: 40px;
-	background: transparent url("/img/location_content.png") right center no-repeat;			
+	
+	
 }
 div.location div.location_content a
 {
@@ -68,14 +66,12 @@ div.ajax_content_localidade div.cities
 div.ajax_content_localidade div.cities ul li a
 {
 	color: #FF9900;
-	font-weight: bold;
 }
 
 div.ajax_content_localidade div.headline
 {
 	color: #FFF;
 	font-size: 40px;
-	font-weight: bold;
 	width: 380px;
 	letter-spacing: 1px;
 	line-height: 120%;
