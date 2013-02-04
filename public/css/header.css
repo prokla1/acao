@@ -70,6 +70,7 @@ ul.navigation li a:HOVER
 
 /* ESTRUTURA  BOX LOGIN */
 
+#form_login td {vertical-align: middle;}
 #form_login{
 	width: 405px; 
 	height: 405px;  
@@ -79,7 +80,7 @@ ul.navigation li a:HOVER
 	right: 50px; 
 	z-index: 10; 
 	margin-top: 30px; 
-	background: url("/img/login_bg_i.png"); 
+	background: url("/img/BGrepeat_fqpd.png"); 
 	display: none;
 }
 #top_form{
@@ -90,7 +91,7 @@ ul.navigation li a:HOVER
 	margin-top: -25px; 
 	margin-right: -1px; 
 	z-index: 11; 
-	background: url("/img/login_topimg.png") center center no-repeat; 
+	background: url(/img/top_modal.png) center center no-repeat; 
 }
 #ct_form{
 	border:1px solid #2C2C2C; 
@@ -100,34 +101,37 @@ ul.navigation li a:HOVER
 	background: #505050;
 }
 
-#form{margin: 15px 2px;}
+#form{margin: 26px 24px;}
 
 /* TEXT AND INPÙTS */
 
-.text_senha{
-	font-size: 12px; 
-	color: #CCC; 
-	padding-left: 4px;
-	}
-
-.link_senha{
-	color: white;
-}
-
-.text_form_login{
-	color: #00CCFF; 
-	font-size: 14px;
-}
-
 .input_login{
-	width: 362px; 
+	width: 320px; 
 	height: 48px; 
 	border-radius: 6px; 
 	padding: 0 8px; 
-	background: #EAF2F7; 
+	background: #000000; 
 	font-size: 14px; 
-	color: #036; 
+	color: #999; 
 	border: 0px;
+}
+.span1{
+	color: #00CCFF; 
+	font-size: 15px;
+}
+
+.span2{
+	color: #00CCFF; 
+	font-size: 16px; 
+	margin: 0 auto; 
+	text-align: center;
+}
+
+
+.btn_no_city{
+	background: url(/img/btn_no_city.png) no-repeat; 
+	padding-left: 26px;
+	color: whitesmoke;
 }
 
 .msg_error{
