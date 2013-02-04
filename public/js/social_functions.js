@@ -1,4 +1,29 @@
 
+
+function share(id) {
+	$.each(events, function(key, value) {
+	     if(value.id == id){
+	    	 var event = value;
+	    	 shareEvent(event);
+	     }
+	});
+	
+}
+
+
+function shareEvent(event) {
+	console.log(event);
+	
+//	streamShare(event.url);
+//	graphStreamPublishFB(event);  // nao abre o modal
+//	streamPublish(event);
+	sendFB(event);
+//	feedFB(event);
+//	appRequestsFB(event);
+	
+}
+
+
 	/**     ----------------------------------------  login with facebook ----------------------- **/
     var button;
     var userInfo;
@@ -66,20 +91,94 @@
         d.getElementsByTagName('head')[0].appendChild(js);
       }(document));
  
- 
     
+function feedFB(evento){
+	var publish = {
+			  method: 'feed',
+			  message: 'Vamos?',
+			  name: evento.nome,
+			  caption: evento.data,
+			  description: (
+			      evento.descricao
+			  ),
+			  link: evento.url,
+			  picture: evento.imagem,
+			  actions: [
+			    { name: evento.nome, link: evento.url }
+			  ],
+			  properties: [
+			    { text: 'Quero ir', href: evento.url},
+			    { text: 'Outos eventos', href: 'http://eventer.com.br/'}
+			  ],
+			  user_message_prompt: 'Compartilhe este evento com seus amigos'
+			};
+			 
+			FB.ui(publish, function(response) { 
+				  console.log(response);
+			  });
+}
+ 
+function streamPublish(evento){
+	FB.ui({
+		  method: "stream.publish",
+		  display: "iframe",
+		  user_message_prompt: "Convide os amigos para este evento!",
+		  message: "Eu vou!! VAMOS?? ",
+		  attachment: {
+		     name: "Altas festas, vamos?",
+		     caption: evento.nome,
+		     description: evento.descricao,
+		     href: evento.url,
+		     media:[{"type":"image","src":evento.imagem,"href":evento.url}],
+		     properties:{
+		       "1)":{"text":"Quero ir","href":evento.url},
+		       "2)":{"text":"Ver outros eventos","href":"http://eventer.com.br/"},
+		     }
+		  },
+		  action_links: [{ text: 'eVenter.com.br', href: 'http://eventer.com.br' }]
+		 },
+		 function(response) {
+		   if (response && response.post_id) {
+		     //alert('Post was published.');
+			   console.log(response);
+		   } else {
+		     //alert('Post was not published.');
+			   console.log(response);
+		   }
+		 }
+		);
+}
 
-    function share(url, picture, name){
+
+function appRequestsFB(evento){
+	
+	FB.ui({
+		  method: 'apprequests',
+		  message: (evento.nome).substring(0,250),
+		  data: evento.nome,
+		  title: 'Convide seus amigos para ' + evento.nome
+		});
+}
+
+
+
+	function sendFB(evento){
+		FB.ui({
+		    method: "send",
+		    name: evento.nome,
+		    link: evento.url,
+		    description: evento.descricao
+		  }, 
+		  function(response) { 
+			  console.log(response);
+		  }
+		 );
+	}
+
+    function streamShare(url){
         var share = {
-//            method: 'stream.share',
-//            u: url,
-            
             method: 'stream.share',
             u: url,
-            picture: picture,
-            name: name,
-            caption: 'Ingressos free',
-            description: 'Aproveite, consiga entradas gratis'
         };
 
         FB.ui(share, function(response) { 
@@ -88,16 +187,16 @@
     }
     
     
-    
-    function graphStreamPublish(url, picture, name){
+
+    function graphStreamPublishFB(evento){
         
         FB.api('/me/feed', 'post', 
             {
                 message     : "Aproveite!",
-                link        : url,
-                picture     : picture,
-                name        : name,
-                description : 'Veja os eventos de sua cidade e consiga convites gratuitos'
+                link        : evento.url,
+                picture     : evento.imagem,
+                name        : evento.nome,
+                description : evento.descricao
                 
         }, 
         function(response) {
