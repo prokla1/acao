@@ -17,6 +17,7 @@ class Application_Model_Usuario
 	protected $_id_endereco;
 	protected $_hora;
 	protected $_array_face;
+	protected $_admin;
 	
 	
 
@@ -277,6 +278,20 @@ class Application_Model_Usuario
 	public function setArray_face($_array_face) {
 		$this->_array_face = $_array_face;
 	}
+	/**
+	 * @return the $_admin
+	 */
+	public function getAdmin() {
+		return $this->_admin;
+	}
+
+	/**
+	 * @param field_type $_admin
+	 */
+	public function setAdmin($_admin) {
+		$this->_admin = $_admin;
+	}
+
 
 	
 	
