@@ -6,12 +6,14 @@
 	{
 		height: 180px;
 		background: url("/img/header-extra_back.png");
-		border-bottom: 1px dashed #666666;
+		border-bottom: 1px dashed #ccc;
 	}
 	div.header-extra div.eventer
 	{
 		float: left;
-		padding: 50px;
+		padding: 44px 60px;
+		position: absolute;
+		z-index: 9999;
 	}
 	div.header-extra ul.header-extra_menu
 	{

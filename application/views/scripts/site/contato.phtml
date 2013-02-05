@@ -1,19 +1,30 @@
-<div id="contact_ct" style="background: #F3F3F3; height: 500px; width: 100%; ">
+<div class="ct_int">
 	
-	<div class="title_int" style="width: 980px; font-size: 30px; color: #069; padding: 30px 0; margin: 0 auto; ">Contate-nos</div>
-	
-	<div class="ct_page" style="width: 980px;  margin: 0 auto;">
 
-	<table border="0">
+	<div class="ct_title">
+		
+		<div class="ct_center" style="">
+		
+			<div class="title_int">Contacte-nos</div>
+		
+		</div>
+	
+	</div>
+
+
+	
+	<div class="ct_content">
+
+	<table border="0" style="margin: 0 auto;">
 	  <tr>
-	    <td width="482"><label for="nome">Seu nome</label></td>
+	    <td width="430"><label for="nome">Seu nome</label></td>
 	    <td width="19">&nbsp;</td>
 	    <td width="393"><label for="email">Seu email</label></td>
 	  </tr>
 	  <tr>
-	    <td><input type="text" name="nome" id="nome" class="input_cad"/></td>
+	    <td><input type="text" name="nome" id="nome" class="input_z"/></td>
 	    <td>&nbsp;</td>
-	    <td><input type="text" name="email" id="email" class="input_cad"/></td>
+	    <td><input type="text" name="email" id="email" class="input_z"/></td>
 	  </tr>
 	  <tr>
 	    <td colspan="3">&nbsp;</td>
@@ -24,10 +35,10 @@
 	    <td><label for="r_senha">Assunto</label></td>
 	  </tr>
 	  <tr>
-	    <td><input type="password" name="senha" id="senha" class="input_cad"/></td>
+	    <td><input type="text" name="phone" id="phone" class="input_z"/></td>
 	    <td>&nbsp;</td>
 	    <td>
-	        <select name="partnumber" class="estilo_select">
+	        <select name="partnumber" class="select_z">
 	        		<option></option>
 	                <option value="2928" style="color: #036;" >Contato direto</option>
 	                <option value="2928" style="color: #036;" >Comercial</option>
@@ -56,7 +67,7 @@
 	  </tr>
 	  <tr>
 	    <td colspan="3">
-	   	 	<img src="/img/btn_contato.png" class="btn_cad"/>
+	   	 	<img src="/img/btn_contato.png" class="btn_cad" style="float: right;"/>
 	    </td>
 	  </tr>
 	 </table>
@@ -68,5 +79,5 @@
 </div>
 
 <?php 
-	$this->headLink()->prependStylesheet($this->baseUrl('/css/contato.css'));
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/pages_int.css'));
 ?>
