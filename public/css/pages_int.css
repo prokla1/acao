@@ -1,8 +1,10 @@
 /*ESTILO PÁGINA*/
 
+body{background: #F9F9F9;}
+
 .ct_int
 	{
-	background: #F9F9F9; height: 600px; width: 100%;
+	width: 100%; display: table;
 }
 
 .ct_int .ct_title
@@ -31,7 +33,7 @@
 
 .ct_int .ct_content
 	{
-	width: 980px;  margin: 0 auto; padding: 40px 0; border: 1px dashed #C6E2FF; background: white;
+	width: 980px;  margin: 0 auto; padding: 40px 0; border: 1px dashed #C6E2FF; background: white; margin-bottom: 30px;
 }
 
 

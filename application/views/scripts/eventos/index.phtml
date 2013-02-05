@@ -9,7 +9,7 @@
 	<?php if(count($this->eventos) > 0) : ?>
 		<?php echo $this->partial('partials/events.phtml', array('eventos' => $this->eventos)); ?>
 	<?php else: ?> 
-		<div style="text-align: center; margin-bottom: 30px; font-weight: bold;">Nenhum evento cadastrado para esta data</div>
+		<div style="text-align: center; margin-bottom: 30px; font-weight: bold; padding: 10px;">Nenhum evento cadastrado para esta data</div>
 	<?php endif;?>
 </div>	
 <?php 

@@ -1,4 +1,78 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Site</b> and script/action name <b>trabalheConosco</b></p>
+<div class="ct_int">
+	
+
+	<div class="ct_title">
+		
+		<div class="ct_center">
+		
+			<div class="title_int">Trabalhe conosco</div>
+		
+		</div>
+	
+	</div>
+
+
+	
+	<div class="ct_content">
+
+	<table border="0" style="margin: 0 auto;">
+	  <tr>
+	    <td width="430"><label for="nome">Seu nome</label></td>
+	    <td width="19">&nbsp;</td>
+	    <td width="393"><label for="email">Seu email</label></td>
+	  </tr>
+	  <tr>
+	    <td><input type="text" name="nome" id="nome" class="input_z"/></td>
+	    <td>&nbsp;</td>
+	    <td><input type="text" name="email" id="email" class="input_z"/></td>
+	  </tr>
+	  <tr>
+	    <td colspan="3">&nbsp;</td>
+	  </tr>
+	  <tr>
+	    <td><label for="senha">Telefone</label></td>
+	    <td>&nbsp;</td>
+	    <td><label for="r_senha">Assunto</label></td>
+	  </tr>
+	  <tr>
+	    <td><input type="text" name="phone" id="phone" class="input_z"/></td>
+	    <td>&nbsp;</td>
+	    <td>
+	        <select name="partnumber" class="select_z">
+	                <option selected="selected" value="Trabalhe conosco" sele style""color: #036;" >Trabalhe conosco</option>
+	        </select>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="3">&nbsp;</td>
+	  </tr>
+	  <tr>
+	    <td><label for="mensagem">Mensagem</label></td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	  </tr>
+	  <tr>
+	    <td colspan="3">
+	   	 <textarea name="mensagem" id="mensagem" cols="45" rows="5"></textarea></td>
+	  </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+	  </tr>
+	  <tr>
+	    <td colspan="3">
+	   	 	<img src="/img/btn_contato.png" class="btn_cad" style="float: right;"/>
+	    </td>
+	  </tr>
+	 </table>
+	
+	
+	</div>
+	
+	
 </div>
+
+<?php 
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/pages_int.css'));
+?>
