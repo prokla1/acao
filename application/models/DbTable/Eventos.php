@@ -256,6 +256,32 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     }
     
     
+
+
+
+    /*
+     *Pega o EVENTO pelo URL AMIGAVEL, sem o PARCEIRO
+    *Parceiro já esta no controller
+    */
+    public function byUrl($url, Application_Model_Evento $evento)
+    {
+    	$result = $this->fetchRow($this->select()->where('url_amigavel = ?', $url));
+    
+    	if($result)
+    	{
+    		$eventos = $result->toArray();
+    		$evento->setOptions($eventos);
+    		$evento->setCortesias($evento->id);
+    	}else
+    	{
+    		$evento = null;
+    	}
+    
+    
+    	return $evento;
+    }
+    
+    
     /**
      * Retorna os eventos de um parceiro ID_PARCEIRO
      */
@@ -266,9 +292,10 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->where('eventos.id_parceiro = ?', $id_parceiro)
     	->where('eventos.ativo = ?', '1')
     	->where('eventos.realizacao >= ?', date('Y-m-d', time()))
+    	->order('eventos.realizacao')
     	->limit(1)
     	->query();
-    	if($resultSet->fetch())
+    	if($resultSet)
     	{
 	    	$evento->setOptions($resultSet->fetch());
 	    	$evento->setCortesias($evento->id);

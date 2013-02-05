@@ -46,34 +46,36 @@ $parceiro = $this->parceiro;
 
 <div class="parceiro_menu">
 	<div class="parceiro_menu_wrap">
-	<?php $router = Zend_Controller_Front::getInstance()->getRouter()->getCurrentRouteName(); ?>
+	<?php 
+		$router = Zend_Controller_Front::getInstance()->getRequest()->getActionName(); 
+	?>
 		<ul>
 			<li>
-				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'evento') ?>">
+				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'evento'), 'default', true) ?>">
 					Evento
 					<?php if($router == 'evento') echo '<div class="menu_active"></div>'; ?>
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'agenda') ?>">
+				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'agenda'), 'default', true) ?>">
 					Agenda
 					<?php if($router == 'agenda'|| $router == 'parceiro') echo '<div class="menu_active"></div>'; ?>
 				</a>
 			</li>
 			<li>
-				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'fotos') ?>">
+				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'fotos'), 'default', true) ?>">
 					Fotos
 					<?php if($router == 'fotos') echo '<div class="menu_active"></div>'; ?>
 				</a>
 			</li>
-				<li>
-				<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'localizacao') ?>">
+			<li>
+				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'localizacao'), 'default', true) ?>">
 				Localização
 					<?php if($router == 'localizacao') echo '<div class="menu_active"></div>'; ?>
 				</a>
 			</li>
 				<li>
-					<a href="<?php echo $this->url(array('idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'contato') ?>">
+					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'contato'), 'default', true) ?>">
 					Contato
 					<?php if($router == 'contato') echo '<div class="menu_active"></div>'; ?>
 				</a>

@@ -7,6 +7,7 @@
 class Application_Model_Evento
 {
 	protected $_id;
+	protected $_url_amigavel;
 	protected $_id_parceiro;
 	protected $_id_endereco;
 	protected $_nome;
@@ -288,6 +289,34 @@ class Application_Model_Evento
 	public function setHora($_hora) {
 		$this->_hora = $_hora;
 	}
+	/**
+	 * @return the $_url_amigavel
+	 */
+	public function getUrl_amigavel() {
+		return $this->_url_amigavel;
+	}
+
+	/**
+	 * @param field_type $_url_amigavel
+	 */
+	public function setUrl_amigavel($_url_amigavel) {
+		$this->_url_amigavel = $_url_amigavel;
+	}
+
+	/**
+	 * @return the $_id_endereco
+	 */
+	public function getId_endereco() {
+		return $this->_id_endereco;
+	}
+
+	/**
+	 * @param field_type $_id_endereco
+	 */
+	public function setId_endereco($_id_endereco) {
+		$this->_id_endereco = $_id_endereco;
+	}
+
 
 
 

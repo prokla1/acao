@@ -5,7 +5,7 @@
 $event = array();
 $event['id'] = $evento->id;
 $event['nome'] = $evento->nome;
-$event['url'] =  $this->serverUrl() . $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento');
+$event['url'] =  $this->serverUrl() .'/' . $evento->parceiro->url_amigavel . '/' . $evento->url_amigavel;
 $event['imagem']  = $this->serverUrl() ."/img/eventos/".$evento->capa;
 $event['data'] =  date('d/m/Y', strtotime( $evento->realizacao));
 $event['descricao'] =  $evento->descricao;
@@ -31,16 +31,22 @@ $events[] = $event;
 				<div class="ct_icos">
 					<ul>
 						<li style="float: left;" onclick='share("<?php echo $evento->id ?>");' >
-							<img src="img/btn_events_facebook.png">
+							<img src="/img/btn_events_facebook.png">
 							
 						</li>
-						<li style="float: left;"><img src="img/btn_events_mail.png"></li>
-						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: left;"><img src="img/btn_events_zoom.png"></li>
+						<li style="float: left;">
+							<img src="/img/btn_events_mail.png">
+						</li>
+						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: left;">
+							<img src="/img/btn_events_zoom.png">
+						</li>
 					</ul>
 				</div>
 			</div>
 			
-			<div class="evento_flyer_zoom" id="flyer_<?php echo $evento->id ?>"><img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/></div>
+			<div class="evento_flyer_zoom" id="flyer_<?php echo $evento->id ?>">
+				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+			</div>
 		</div>
 		
 		<div class="evento_description">
@@ -49,7 +55,7 @@ $events[] = $event;
 				evento:
 			</div>
 			<div class="evento_description_content">
-				<a href="<?php echo $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento') ?>">
+				<a href="<?php echo $this->serverUrl() .'/' . $evento->parceiro->url_amigavel . '/' . $evento->url_amigavel ?>">
 					<?php echo $evento->nome ?>
 					
 				</a>
@@ -59,7 +65,7 @@ $events[] = $event;
 				local:
 			</div>
 			<div class="evento_description_content">
-			 	<a href="<?php echo $this->url(array('idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'parceiro') ?>  ">
+			 	<a href="<?php echo $this->serverUrl() .'/' . $evento->parceiro->url_amigavel ?>  ">
 					<?php echo $evento->parceiro->nome ?>
 					
 				</a>
@@ -76,7 +82,7 @@ $events[] = $event;
 				<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>
 				
 			</span>
-			<a href="<?php echo $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $evento->parceiro->id, 'nomeP' => $evento->parceiro->nome), 'evento') ?>">
+			<a href="<?php echo $this->serverUrl() .'/' . $evento->parceiro->url_amigavel . '/' . $evento->url_amigavel ?>">
 				<?php echo $evento->nome ?>
 				
 			</a>

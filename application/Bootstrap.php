@@ -147,8 +147,32 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	
 	
 	
+
 	
 	
+
+	/**
+	 * envia as requisicoes pro helper
+	 * la verifica se o controller existe,
+	 * senao envia pro controller do parceiro
+	 */
+	protected function _initShowParceiro()
+	{
+		$front = Zend_Controller_Front::getInstance();
+		$front->registerPlugin(new Plugins_Parceiro());
+	
+	}
+// 	protected function _initHelpers()
+// 	{
+// 		$viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer');
+// 		$viewRenderer->initView();
+	
+// 		// add zend view helper path
+// 		$viewRenderer->view->addHelperPath('/Helpers/');
+	
+// 		// add zend action helper path
+// 		Zend_Controller_Action_HelperBroker::addPath('/Helpers/');
+// 	}	
 
 }
 
