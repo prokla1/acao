@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2013 at 11:20 PM
+-- Generation Time: Feb 05, 2013 at 04:01 PM
 -- Server version: 5.1.67-0ubuntu0.11.10.1
 -- PHP Version: 5.3.14
 
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `eventos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url_amigavel` text NOT NULL,
   `id_parceiro` int(11) NOT NULL,
-  `id_endereco` int(11) NOT NULL,
+  `id_endereco` int(11) DEFAULT NULL,
   `nome` varchar(150) NOT NULL,
   `descricao` text NOT NULL,
   `capa` varchar(255) NOT NULL DEFAULT 'null.jpg',
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `eventos` (
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`),
   KEY `id_endereco` (`id_endereco`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 --
 -- Dumping data for table `eventos`
@@ -150,7 +150,7 @@ INSERT INTO `eventos` (`id`, `url_amigavel`, `id_parceiro`, `id_endereco`, `nome
 (4, 'candy+box ', 3, 2, 'Candy Box ', 'Atrações:<br>\r\nCandy Box\r\n<p>Desde os anos 70 até os dias de hoje! É assim que a CandyBox vem munida, e muito bem munida. Versões pesadas de Tina Turner, Donna Summer, Depeche Mode, New Order, Cardigans, Madonna, Lady Gaga, Katy Perry e um set Rock n Roll com Nirvana, Blondie, Stones, Acdc (entre muitos outros), serão apresentados pelos ex integrantes da extinta banda Funkzilla e prometem chacoalhar os palcos carentes de novidades na linha pop/rock/disco.\r\n</p>\r\n<p>\r\nA banda é formada por Michelle Oliveira no vocal, Beto Fonseca na bateria, Adriano Baboo no baixo, Willian Rita nos teclados e Thomas Costello na guitarra. E quinta-feira é noite de Ladies Free no John Bull Floripa e até a meia noite as mulheres não pagam entrada.\r\n</p>', 'null.jpg', '1', '1', '2013-02-28', '2013-02-04 19:43:19'),
 (5, 'pop+rock+original', 4, 3, 'Pop Rock Original', 'Pop Rock Original Cervejaria Original \r\n<p>\r\n<b>Atrações:</b>\r\nBanda Gandaya', 'null.jpg', '1', '0', '2013-02-28', '2013-02-04 19:43:19'),
 (35, 'festival+de+bandas', 6, 5, 'Festival de Bandas', 'Dia 12 de janeiro, a IDEM BAR reúne as melhores duplas sertanejas para o Festival de Bandas, trazendo ao público as principais músicas da atualidade! Sábado, a Idem será um verdadeiro SHOW DE SERTANEJO!\r\n\r\n<p>\r\n<h3>Atrações</h3>\r\n<ol>\r\n<li>Banda tal</li>\r\n<li>Banda tal</li>\r\n<li>Banda tal</li>\r\n</ol>\r\n</p>', 'idem-bar-festival-de-bandas.jpg', '1', '1', '2013-02-28', '2013-02-04 19:43:19'),
-(36, 'edio+e+thiago+rafael+yared', 6, 5, 'EDIO E THIAGO + RAFAEL YARED', 'SÁBADO | 23.02\r\nEDIO E THIAGO + RAFAEL YARED', 'idem-fev-23_2013.jpg', '1', '1', '2013-02-23', '2013-02-04 23:50:46');
+(88, 'herbert-medeiros+cleiton-e-conrado', 6, NULL, 'HERBERT MEDEIROS + CLEITON E CONRADO', 'SEXTA-FEIRA | 22.02\r\nHERBERT MEDEIROS + CLEITON E CONRADO', 'evento_511145e66e01c.jpg', '1', '0', '2013-02-22', '2013-02-05 17:48:22');
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `eventos_fotos` (
   `url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_evento` (`id_evento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `eventos_fotos`
@@ -443,6 +443,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `id_endereco` int(11) DEFAULT NULL,
   `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `array_face` text,
+  `admin` enum('0','1') NOT NULL DEFAULT '0' COMMENT '0-> NAO || 1-> SIM',
   PRIMARY KEY (`id`),
   KEY `id_endereco` (`id_endereco`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
@@ -451,12 +452,12 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `id_facebook`, `nome`, `cpf`, `email`, `senha`, `sexo`, `nascimento`, `foto`, `ativo`, `email_verificado`, `id_endereco`, `hora`, `array_face`) VALUES
-(1, '', 'Juscelino Iene Cordeiro da Silva', 00000000000, 'jus@jus.com', '202cb962ac59075b964b07152d234b70', '0', '0000-00-00', 'null.jpg', '1', '0', NULL, '2012-06-05 20:31:07', ''),
-(2, '', 'Elias Augusto de Oliveira', 00000000000, 'elias@elias.com', '202cb962ac59075b964b07152d234b70', '0', '0000-00-00', 'null.jpg', '1', '0', NULL, '2012-06-05 20:32:39', ''),
-(18, NULL, 'teste', 00000000001, 'teste@teste.com', '698dc19d489c4e4db73e28a713eab07b', '1', '1982-11-21', 'null.jpg', '0', '0', NULL, '2013-01-15 20:53:40', ''),
-(27, '100001551508566', 'Juscelino Iene', NULL, 'ju.impossivel@gmail.com', NULL, '1', '1982-11-21', NULL, '1', '1', NULL, '2013-01-25 14:04:36', '{"id":"100001551508566","name":"Juscelino Iene","first_name":"Juscelino","last_name":"Iene","link":"http:\\/\\/www.facebook.com\\/juscelino.iene","username":"juscelino.iene","birthday":"11\\/21\\/1982","hometown":{"id":"107664652596260","name":"Apucarana"},"location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"sports":[{"id":"160899230620548","name":"Levantamento de copo","description":"Movimento repetitivo prolongado."}],"favorite_teams":[{"id":"204073162943401","name":"Clube de Regatas do Flamengo"}],"gender":"male","email":"ju.impossivel@gmail.com","timezone":-2,"locale":"pt_BR","languages":[{"id":"108083115891989","name":"Portugu\\u00eas"},{"id":"450169151702580","name":"Portuguese"}],"verified":true,"updated_time":"2013-01-25T03:20:05+0000"}'),
-(28, '100004671760264', 'Juscelino NetChefs', NULL, 'juscelino@netchefs.com.br', NULL, '1', '1982-11-21', NULL, '1', '1', NULL, '2013-02-02 22:27:20', '{"id":"100004671760264","name":"Juscelino NetChefs","first_name":"Juscelino","last_name":"NetChefs","link":"http:\\/\\/www.facebook.com\\/juscelino.netchefs","username":"juscelino.netchefs","birthday":"11\\/21\\/1982","hometown":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"work":[{"employer":{"id":"417145488333485","name":"NetChefs (Delivery Online)"},"location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"position":{"id":"103148596409273","name":"Socio"},"description":"Delivery Online - NetChefs \\u00e9 uma pra\\u00e7a de alimenta\\u00e7\\u00e3o virtual.\\nMaior comodidade e vantagens para o consumidor fazer seu pedido delivery","start_date":"0000-00"}],"education":[{"school":{"id":"177300002318530","name":"Senai Santa Catarina"},"type":"College"}],"gender":"male","email":"juscelino@netchefs.com.br","timezone":-2,"locale":"pt_BR","verified":true,"updated_time":"2013-01-14T22:00:37+0000"}');
+INSERT INTO `usuarios` (`id`, `id_facebook`, `nome`, `cpf`, `email`, `senha`, `sexo`, `nascimento`, `foto`, `ativo`, `email_verificado`, `id_endereco`, `hora`, `array_face`, `admin`) VALUES
+(1, '', 'Juscelino Iene Cordeiro da Silva', 00000000000, 'jus@jus.com', '202cb962ac59075b964b07152d234b70', '0', '0000-00-00', 'null.jpg', '1', '0', NULL, '2012-06-05 20:31:07', '', '0'),
+(2, '', 'Elias Augusto de Oliveira', 00000000000, 'elias@elias.com', '202cb962ac59075b964b07152d234b70', '0', '0000-00-00', 'null.jpg', '1', '0', NULL, '2012-06-05 20:32:39', '', '0'),
+(18, NULL, 'teste', 00000000001, 'teste@teste.com', '698dc19d489c4e4db73e28a713eab07b', '1', '1982-11-21', 'null.jpg', '0', '0', NULL, '2013-01-15 20:53:40', '', '1'),
+(27, '100001551508566', 'Juscelino Iene', NULL, 'ju.impossivel@gmail.com', NULL, '1', '1982-11-21', NULL, '1', '1', NULL, '2013-01-25 14:04:36', '{"id":"100001551508566","name":"Juscelino Iene","first_name":"Juscelino","last_name":"Iene","link":"http:\\/\\/www.facebook.com\\/juscelino.iene","username":"juscelino.iene","birthday":"11\\/21\\/1982","hometown":{"id":"107664652596260","name":"Apucarana"},"location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"sports":[{"id":"160899230620548","name":"Levantamento de copo","description":"Movimento repetitivo prolongado."}],"favorite_teams":[{"id":"204073162943401","name":"Clube de Regatas do Flamengo"}],"gender":"male","email":"ju.impossivel@gmail.com","timezone":-2,"locale":"pt_BR","languages":[{"id":"108083115891989","name":"Portugu\\u00eas"},{"id":"450169151702580","name":"Portuguese"}],"verified":true,"updated_time":"2013-01-25T03:20:05+0000"}', '0'),
+(28, '100004671760264', 'Juscelino NetChefs', NULL, 'juscelino@netchefs.com.br', NULL, '1', '1982-11-21', NULL, '1', '1', NULL, '2013-02-02 22:27:20', '{"id":"100004671760264","name":"Juscelino NetChefs","first_name":"Juscelino","last_name":"NetChefs","link":"http:\\/\\/www.facebook.com\\/juscelino.netchefs","username":"juscelino.netchefs","birthday":"11\\/21\\/1982","hometown":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"work":[{"employer":{"id":"417145488333485","name":"NetChefs (Delivery Online)"},"location":{"id":"106339232734991","name":"Florian\\u00f3polis, Santa Catarina"},"position":{"id":"103148596409273","name":"Socio"},"description":"Delivery Online - NetChefs \\u00e9 uma pra\\u00e7a de alimenta\\u00e7\\u00e3o virtual.\\nMaior comodidade e vantagens para o consumidor fazer seu pedido delivery","start_date":"0000-00"}],"education":[{"school":{"id":"177300002318530","name":"Senai Santa Catarina"},"type":"College"}],"gender":"male","email":"juscelino@netchefs.com.br","timezone":-2,"locale":"pt_BR","verified":true,"updated_time":"2013-01-14T22:00:37+0000"}', '0');
 
 --
 -- Constraints for dumped tables
