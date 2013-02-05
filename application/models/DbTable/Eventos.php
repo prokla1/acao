@@ -5,7 +5,32 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
 
     protected $_name = 'eventos';
     
+
     
+    public function save(Application_Model_Evento $evento)
+    {
+    	$data = array(
+    			'url_amigavel' => $evento->getUrl_amigavel(),
+    			'id_parceiro' => $evento->getId_parceiro(),
+    			'id_endereco' => null,
+    			'nome' => $evento->getNome(),
+    			'descricao' => $evento->getDescricao(),
+    			'capa' => $evento->getCapa(),
+    			'ativo' => $evento->getAtivo(),
+    			'destaque' => $evento->getDestaque(),
+    			'realizacao' => $evento->getRealizacao(),
+    	);
+    
+    	// id == null -> insert
+    	if (null === ($id = $evento->getId())) {
+    			unset($data['id']);
+    			return $this->insert($data);
+    		} else {
+    			return $this->update($data, array('id = ?' => $id));
+    		}
+    	}
+    	
+    	
     
     /**
      * Retorna todos os "EVENTOS" ativos no banco

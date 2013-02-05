@@ -1,10 +1,10 @@
 	$(document).ready(function() {
 		
 		var esconde = true;
-		$("#form_login").mouseover(function(){	
+		$("#div_form_login").mouseover(function(){	
 			esconde = false;
 		});
-		$("#form_login").mouseout(function(){
+		$("#div_form_login").mouseout(function(){
 			esconde = true;
 		});
 		
@@ -13,13 +13,13 @@
 			event.preventDefault();
 			esconde = false;
 			$(".msg_error").empty();
-			$("#form_login").show();
+			$("#div_form_login").show();
 			console.log('clicou no ul li.login');
 		});
 		
 		$("body").click(function() {
 			if(esconde){
-				$("#form_login").hide();
+				$("#div_form_login").hide();
 				$(".msg_error").hide().empty();
 			}    
 		});
@@ -40,7 +40,7 @@
 		        $.post('/usuario/validateform',{ email: $('input[name="e"]').val(), senha: $('input[name="s"]').val() },function(response){
 		            if(response.status == "sucesso"){
 		            	$('.msg_error').show().html("Logado");
-		            	$("#form_login").hide();
+		            	$("#div_form_login").hide();
 		            	$("#navigation_wrap").html(response.navigation);
 		            }else{
 		            	$('.msg_error').show().html("Falha no login! Preencha corretamente.");

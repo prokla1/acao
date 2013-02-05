@@ -70,8 +70,8 @@ ul.navigation li a:HOVER
 
 /* ESTRUTURA  BOX LOGIN */
 
-#form_login td {vertical-align: middle;}
-#form_login{
+#div_form_login td {vertical-align: middle;}
+#div_form_login{
 	width: 405px; 
 	height: 405px;  
 	border: 1px solid #000; 

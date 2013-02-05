@@ -7,6 +7,8 @@ class Application_Form_Entrar extends Zend_Form
     {
         $this->setName('form_login');
         $this->setAttrib('id', 'form_login');
+        $this->setAction('/usuario/entrar');
+        $this->setMethod('post');
 
         $email = new Zend_Form_Element_Text('email');
         $email->setLabel('Email:')
