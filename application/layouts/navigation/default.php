@@ -12,9 +12,9 @@ $pages = array(
 			array(
 				'label' 		=> 	'Divulgue seu evento',
 				'route'			=>	'default', //pq o navigation dava erro qdo estava num router
-				'controller' 	=> 	'usuario',
-				'action'		=> 	'cadastrar',
-				'title'			=>	'Cadastre-se',
+				'controller' 	=> 	'site',
+				'action'		=> 	'divulgar-evento',
+				'title'			=>	'Divulgue seu evento',
 				'class'         => 	'register',
 	        ),
 			array(
