@@ -33,8 +33,18 @@ $parceiro = $this->parceiro;
 				
 				
 				</li>
-				<li><button><span>Horários</span></button></li>
-				<li><button><span>Formas de pgto</span></button></li>
+				<li class="panel_label">
+					<button><span>Horários</span></button>
+					<div class="panel_value">
+						<?php echo $parceiro->funcionamento ?>
+					</div>
+				</li>
+				<li class="panel_label">
+					<button><span>Formas de pgto</span></button>
+					<div class="panel_value">
+						<?php echo $parceiro->pagamento ?>
+					</div>
+				</li>
 			</ul>
 		</div>
 

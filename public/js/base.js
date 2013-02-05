@@ -1,0 +1,10 @@
+$(document).ready(function(){
+	$(".panel_label").hover(
+			function(){
+				$(this).children("div").show();
+			},
+			function(){
+				$(".panel_value").hide();
+			}
+	);
+});

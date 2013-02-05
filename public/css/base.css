@@ -123,3 +123,33 @@ button span
 /* #Misc
 ================================================== */
 
+
+/*========== #Panels ============
+				<li class="panel_label">
+					<button><span>texto</span></button>
+					<div class="panel_value">
+						conteúdo
+					</div>
+				</li>
+*/
+li.panel_label
+{
+	position: relative;
+}
+li.panel_label div.panel_value
+{
+	position: absolute;
+	display: none;
+	top: 125%;
+	right: 0;
+	z-index: 9;
+	padding: 5px;
+	background-color: white;
+	color: #333;
+	border: 1px solid #eaeaea;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 0 2px rgba(1,1,1,0.1);
+	-webkit-box-shadow: 0 0 0 2px rgba(1,1,1,0.1);
+	box-shadow: 0 0 0 2px rgba(1,1,1,0.1);
+	text-align: left;
+}
