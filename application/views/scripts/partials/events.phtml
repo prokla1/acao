@@ -21,6 +21,9 @@ $events[] = $event;
 		
 			<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
 				<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+				<?php else:?>
+				<div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div>
+				
 			<?php endif; ?>
 			
 			
@@ -30,14 +33,14 @@ $events[] = $event;
 				</div>
 				<div class="ct_icos">
 					<ul>
-						<li style="float: left;" onclick='share("<?php echo $evento->id ?>");' >
+						<li style="float: left; margin-right: 2px; cursor: pointer;" onclick='share("<?php echo $evento->id ?>");' >
 							<img src="/img/btn_events_facebook.png">
 							
 						</li>
-						<li style="float: left;">
+						<li style="float: left; cursor: pointer;">
 							<img src="/img/btn_events_mail.png">
 						</li>
-						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: left;">
+						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer;">
 							<img src="/img/btn_events_zoom.png">
 						</li>
 					</ul>
