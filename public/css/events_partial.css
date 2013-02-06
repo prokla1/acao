@@ -107,6 +107,9 @@ div.evento_content div.evento_flyer div.evento_flyer_zoom img
 	max-width: 500px;
 	max-height: 500px;
 }
+
+.ct_icos{margin: 8px 0 0 0;}
+
 .li_zoom{
 	cursor: pointer;
 }
@@ -143,11 +146,6 @@ div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img i
 	height: 150px;
 	margin: 0 auto;
 }
-
-.ct_icos{
-	margin: 8px 0 10px 0;
-}
-
 div.evento_content div.evento_description
 {
 	position: absolute;

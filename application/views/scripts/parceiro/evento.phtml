@@ -14,8 +14,21 @@ $this->headMeta()->appendName('og:description', $evento->descricao);
 $this->headMeta()->appendName('og:url', $this->serverUrl() . $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'evento'));
 ?>
 
+<?php 
+$event = array();
+$event['id'] = $evento->id;
+$event['nome'] = $evento->nome;
+$event['url'] =  $this->serverUrl() .'/' . $parceiro->url_amigavel . '/' . $evento->url_amigavel;
+$event['imagem']  = $this->serverUrl() ."/img/eventos/".$evento->capa;
+$event['data'] =  date('d/m/Y', strtotime( $evento->realizacao));
+$event['descricao'] =  $evento->descricao;
+$events[] = $event;
+?>
 
 
+<script type="text/javascript">
+var events = <?php echo json_encode($events); ?>;
+</script>
 
 
 <div class="evento_wrap">
@@ -50,6 +63,10 @@ $this->headMeta()->appendName('og:url', $this->serverUrl() . $this->url(array('i
 					</li>
 				</ul>
 			</div>
+		</div>
+		
+		<div class="evento_flyer_zoom" id="flyer_<?php echo $evento->id ?>">
+				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
 		</div>
 		
 		<div class="evento_description">
@@ -125,8 +142,10 @@ $this->headMeta()->appendName('og:url', $this->serverUrl() . $this->url(array('i
 <div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
 
 
-
-
+<?php 
+//$this->headLink()->prependStylesheet($this->baseUrl('/css/.css'));
+$this->headScript()->prependFile($this->baseUrl('/js/parceiro_evento.js'));
+?>	
 
 <style>
 div.evento_wrap
@@ -223,7 +242,7 @@ div.evento_content div.evento_flyer
 	position: relative;
 	background: transparent url("/img/evento_flyer_back.png");
 	width: 297px;
-	height: 360px;
+	height: 380px;
 }
 
 div.evento_content div.evento_flyer div.evento_promo
@@ -239,7 +258,7 @@ div.evento_content div.evento_flyer div.evento_flyer_mold
 	background: transparent url("/img/evento_flyer_mold_parceiro.png") center center no-repeat;
 	position: absolute;
 	left: 18px;
-	top: 75px;
+	top: 70px;
 }
 
 div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img
@@ -254,6 +273,20 @@ div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img i
 	width: 248px;
 	height: 248px;
 	margin: 0 auto;
+}
+
+div.evento_content div.evento_flyer div.ct_icos
+	{
+	padding: 0 20px;
+	width: 255px;
+	display: table; 
+	bottom: 4px; 
+	position: absolute;
+}
+
+div.evento_content div.evento_flyer_zoom
+{
+	display: none;
 }
 
 
@@ -293,6 +326,6 @@ div.evento_content div.evento_date
 	font-size: 30px;
 	position: absolute;
 	right: 30px;
-	top: 40px;;
+	top: 38px;;
 }
 </style>

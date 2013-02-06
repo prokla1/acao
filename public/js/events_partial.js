@@ -11,7 +11,7 @@ $('.li_zoom').click(function(){
 		modal: true,
 		autoOpen: true, //já é criado aberto
 		width: 'auto',
-		buttons: {"Fechar": function() {
+		buttons: {"X": function() {
 			$(this).dialog("close");
 		}
 }

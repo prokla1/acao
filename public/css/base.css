@@ -110,11 +110,12 @@ button
 	zoom: 1;
 	background: transparent url("/img/global_button_blue_back.png");
 }
-button span
+/* button span
 {
 	padding-right: 20px;
 	background: transparent url("/img/global_button_blue_span.png") center right no-repeat;
 }
+*/
 
 /* #Forms
 ================================================== */
