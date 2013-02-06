@@ -189,6 +189,9 @@ div.evento_content div.evento_description button.evento_description_button_detai
 div.evento_content div.evento_description button.evento_description_button_promotions
 {
 	background: transparent url("/img/evento_description_button_promotions.png") left center no-repeat;	
+	z-index: 1000;
+	position: absolute;
+	left: 140px;
 }
 
 

@@ -28,13 +28,14 @@ div.location div.location_content
 	line-height: 73px;			
 	font-size: 26px;
 	color: #666666;
-	padding-right: 40px;
-	
+		
 	
 }
 div.location div.location_content a
 {
 	color: #666666;
+	padding-right: 40px;
+	background: url("/img/location_content.png") center right no-repeat;
 }
 div.location div.location_content a:HOVER
 {
@@ -49,7 +50,7 @@ div.location div.location_content a:HOVER
 div.ajax_content_localidade
 {
  	height: 240px; 
-	background: transparent url("/img/body.png") repeat;
+	background: #004080;
 	display: none;
 /* 	position: absolute; */
 	z-index: 60;
@@ -58,7 +59,7 @@ div.ajax_content_localidade
 div.ajax_content_localidade div.cities
 {
 	float: left;
-	margin: 40px 0 0 200px;
+	margin: 40px 0 0 100px;
 	color: #FF9900;
 	font-size: 20px;
 	line-height: 150%;
@@ -78,7 +79,7 @@ div.ajax_content_localidade div.headline
 	float: right;
 	padding-top: 70px;
 	margin-right: 50px;
-	background: transparent url("/img/index_arrow.png") right 5px no-repeat;
+	background: transparent url("/img/index_arrow.png") right 25px no-repeat;
 }
 div.ajax_content_localidade div.headline span
 {

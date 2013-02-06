@@ -5,7 +5,7 @@ div.header-extra
 {
 	height: 214px;
 	background: url("/img/header-extra_back.png");
-	border-bottom: 1px dashed #666666;
+
 }
 div.header-extra div.eventer
 {
@@ -47,8 +47,8 @@ div.header-extra ul.header-extra_menu li a:HOVER
 /* ********  PARCEIRO - CONTENT *********** */
 	
 div.parceiro_content {
-	border: 1px dashed #CCCCCC;
-	background-color: #FFF;
+	border: 1px dashed #CCC;
+	background-color: #F4F6F7;
 	border-radius: 5px;
 	width: 928px;
 	margin: 0 auto;
