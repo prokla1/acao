@@ -36,6 +36,20 @@ $this->headMeta()->appendName('og:url', $this->serverUrl() . $this->url(array('i
 					<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
 				</div>
 			</div>
+			<div class="ct_icos">
+				<ul>
+					<li style="float: left; margin-right: 2px; cursor: pointer;" onclick='share("<?php echo $evento->id ?>");' >
+						<img src="/img/btn_events_facebook.png">
+						
+					</li>
+					<li style="float: left; cursor: pointer;">
+						<img src="/img/btn_events_mail.png">
+					</li>
+					<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer;">
+						<img src="/img/btn_events_zoom.png">
+					</li>
+				</ul>
+			</div>
 		</div>
 		
 		<div class="evento_description">
@@ -241,6 +255,7 @@ div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img i
 	height: 248px;
 	margin: 0 auto;
 }
+
 
 div.evento_content div.evento_description
 {
