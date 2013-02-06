@@ -23,7 +23,7 @@ class AdminController extends Zend_Controller_Action
     	
     	if(!$admin)
     	{
-    		return $this->_forward('entrar', 'usuario');
+    		return $this->_forward('entrar','admin');
     	}
     	
     }
@@ -35,7 +35,8 @@ class AdminController extends Zend_Controller_Action
 
     public function entrarAction()
     {
-    	return $this->_forward('entrar', 'usuario');
+    	$form = new Application_Form_Entrar();
+    	$this->view->form = $form;
     }
 
     public function parceiroCadastrarAction()

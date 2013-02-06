@@ -1,11 +1,3 @@
-
-<?php 
-	//echo $this->form;
-?>
-
-
-<style>
-
 body{
 	background: rgb(228,245,252); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -23,66 +15,10 @@ div.wrap_formall{
 	padding-top: 140px;
 }
 
-div.wrap_formall h1{font-size: 14px;}
+div.wrap_formall div.wrap_menu{width: 900px; margin: 0 auto;}
+
+div.wrap_formall div.wrap_menu li{display: inline-block; border-left: 1px solid #F9F9FF; border-top: 1px solid #F9F9FF; border-right: 1px solid #F9F9FF; padding: 10px 20px; margin: 0 1px;}
 
 div.wrap_formall div.wrap_form{
 	border: 1px solid #F9F9FF; width: 880px; margin: 0 auto; background: #E1F0FF; padding: 40px 26px; display: table; border-radius: 5px;
 }
-
-div.wrap_formall div.wrap_form dt{
-	margin: 6px 0 0 6px;
-}
-
-div.wrap_formall div.wrap_form dt, div.wrap_formall div.wrap_form dd{
-	float: left;
-}
-
-div.wrap_formall div.wrap_form input
-	{
-	width: 260px; height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; outline: 0 none;
-}
-
-div.wrap_formall div.wrap_form input[type="submit"]
-	{
-	width: 200px; height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; cursor: pointer;
-}
-
-
-	
-</style>
-						
-<div class="wrap_formall">
-
-<h1>Área Administrativa[<a href="/admin">admin</a>]</h1>
-
-	<div class="wrap_form">
-	
-		<form id="form_login" name="form_login" enctype="application/x-www-form-urlencoded" action="/usuario/entrar" method="post">
-			<dl class="zend_form">
-				
-				<dt id="email-label">
-					<label for="email" class="required">Email:</label>
-				</dt>
-				
-				<dd id="email-element">
-					<input type="text" name="email" id="email" value="">
-				</dd>
-			
-				<dt id="senha-label">
-					<label for="senha" class="required">Senha:</label>
-				</dt>
-			
-				<dd id="senha-element">
-					<input type="password" name="senha" id="senha" value="">
-				</dd>
-				
-				<dt id="submit-label">&#160;</dt>
-				<dd id="submit-element">
-					<input type="submit" name="submit" id="submitbutton" value="Logar">
-				</dd>
-			</dl>
-		</form>
-	
-	</div>
-
-</div>

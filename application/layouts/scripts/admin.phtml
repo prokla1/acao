@@ -24,6 +24,8 @@ echo 	$this->headMeta(),PHP_EOL;
 <link rel="stylesheet" href="/css/base.css"  media="screen" type="text/css" />
 
 <?php 
+	$this->headLink()
+	->prependStylesheet($this->baseUrl('/css/admin.css'));
 	$this->headLink()->prependStylesheet($this->baseUrl('/css/new_style/jquery-ui-1.10.0.custom.min.css'));
 	echo $this->headLink(),PHP_EOL;
 ?>
@@ -46,10 +48,68 @@ echo 	$this->headMeta(),PHP_EOL;
 	
 	
 			<!--=============================== Page Content ================================================== -->	
-				<h1>Área Administrativa - tenha cuidado  [<a href="/admin">admin</a>]</h1>
+				
 				<div class="admin_content">
-					<?php echo $this->layout()->content;?>
-				</div>	
+				
+				<div class="wrap_formall">
+
+					<div class="wrap_menu">
+				
+					
+					   	<ul>
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'evento-cadastrar'), 'default', true); ?>">
+							    	Evento -> Cadastrar
+							    </a>
+							</li>
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceiro-cadastrar'), 'default', true); ?>">
+							    	Parceiro -> Cadastrar
+							    </a>
+							</li>
+							<!-- 
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceiro-deletar'), 'default', true); ?>">
+							    	parceiroDeletarAction
+							    </a>
+							</li>
+							 -->
+							<!-- 
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'evento-deletar'), 'default', true); ?>">
+							    	eventoDeletarAction
+							    </a>
+							</li>
+							 -->
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'endereco-cadastrar'), 'default', true); ?>">
+							    	Endereco -> Cadastrar
+							    </a>
+							</li>
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'cidade-cadastrar'), 'default', true); ?>">
+							    	Cidade -> Cadastrar
+							    </a>
+							</li>
+							<li>
+								<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'estado-cadastrar'), 'default', true); ?>">
+							    	Estado -> Cadastrar
+							    </a>
+							</li>
+						</ul>
+					
+					
+					
+					</div>
+
+					<div class="wrap_form">
+				 	
+				 		<?php echo $this->layout()->content;?>   
+				 
+					</div>
+	</div>
+					
+</div>	
 
 				
 				
@@ -68,7 +128,7 @@ echo 	$this->headMeta(),PHP_EOL;
 	$this->headScript()->setSeparator(PHP_EOL)
 		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
 		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));	
-		
+	
 		 
 	echo	$this->headScript(),PHP_EOL;
 ?>
