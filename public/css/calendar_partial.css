@@ -57,7 +57,7 @@ div.calendar ul li a div.date_active
 	background: transparent url("/img/eventos_calendar_active.png") center bottom no-repeat;
 	position: absolute;
 	left: 39px;
-	bottom: -16px;
+	bottom: -15px;
 	width: 32px;
 	height: 16px;
 }
