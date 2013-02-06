@@ -38,11 +38,85 @@ class AdminController extends Zend_Controller_Action
     	return $this->_forward('entrar', 'usuario');
     }
 
-    
-    
     public function parceiroCadastrarAction()
     {
-        // action body
+    		$request = $this->getRequest();
+    		$form    = new Application_Form_ParceiroCadastrar();
+    		
+    		if ($this->getRequest()->isPost()) {
+    			if ($form->isValid($request->getPost())) {
+	 
+
+    					
+		    					$path = APPLICATION_PATH . '/../public/img/parceiros/';
+		    					$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
+		    					
+		    							$name = $_FILES['foto']['name'];
+		    							$tmp = $_FILES['foto']['tmp_name'];
+		    								
+		    							
+		    							@list($txt, $ext) = explode(".", $name);
+		    							if(in_array($ext,$valid_formats))
+		    							{
+		    								$actual_image_name = $form->getValue('url_amigavel').'.'.strtolower($ext);
+		    									
+			    								if(move_uploaded_file($tmp, $path.$actual_image_name))
+			    								{
+			    					
+			    									$thumb150px = new Plugins_EasyThumbnail($path.$actual_image_name, $path.$actual_image_name, 150);
+			    									if ($thumb150px) {
+			    										$msg[] = array(
+			    												'status'	=>	'ok',
+			    												'url'		=>	$actual_image_name,
+			    												'msg'		=>	'Sucesso 150px: '. $name
+			    										);
+			    										
+			    										$parceiro = new Application_Model_Parceiro($form->getValues());
+			    										$parceiro->setFoto($actual_image_name);
+			    										$parceiroTable  = new Application_Model_DbTable_Parceiros();
+			    										$parceiroTable->save($parceiro);
+			    										
+			    										
+			    									}else {
+			    										$msg[] = array(
+			    												'status'	=>	'fail',
+			    												'url'		=>	$actual_image_name,
+			    												'msg'		=>	$thumb150px->getErrorMsg()
+			    										);
+			    									}
+			    								}else {
+			    									$msg[] = array(
+			    											'status'	=>	'fail',
+			    											'url'		=>	null,
+			    											'msg'		=>	'Falha no envio de: '.$name
+			    									);
+			    								}
+
+			    								
+			    							}else{
+			    								$msg[] = array(
+			    										'status'	=>	'fail',
+			    										'url'		=>	null,
+			    										'msg'		=>	'Formato Inválido: '.$name
+			    								);
+			    							}
+
+
+    							
+    								
+    							echo "<pre>";
+    							print_r($msg);
+    							return print_r($parceiro);
+    							echo "</pre>";
+    							//return $this->_redirect($evento->getUrl_amigavel());
+    							
+    							//<a href="<?php echo $this->serverUrl() .'/' . $evento->parceiro->url_amigavel . '/' . $evento->url_amigavel
+    		
+    				 
+    			}
+    		}
+    		
+    		$this->view->form = $form;
     }
 
     public function parceiroDeletarAction()
@@ -137,8 +211,68 @@ class AdminController extends Zend_Controller_Action
         // action body
     }
 
+    public function enderecoCadastrarAction()
+    {
+    	$request = $this->getRequest();
+    	$form    = new Application_Form_EnderecoCadastrar();
+    	
+    	if ($this->getRequest()->isPost()) {
+    		if ($form->isValid($request->getPost())) {
+    			$eventoTable  = new Application_Model_DbTable_LocalEnderecos();
+    			$eventoTable->insert($form->getValues());
+    			echo "<pre>";
+    			return print_r($form->getValues());
+    			echo "</pre>";
+    		}
+    	}
+    	
+    	$this->view->form = $form;
+    }
+
+    public function cidadeCadastrarAction()
+    {
+    	$request = $this->getRequest();
+    	$form    = new Application_Form_CidadeCadastrar();
+    	
+    	if ($this->getRequest()->isPost()) {
+    		if ($form->isValid($request->getPost())) {
+    			$cidadeTable  = new Application_Model_DbTable_LocalCidades();
+    			$cidadeTable->insert($form->getValues());
+    			echo "<pre>";
+    			return print_r($form->getValues());
+    			echo "</pre>";
+    		}
+    	}
+    	
+    	$this->view->form = $form;
+    }
+
+    public function estadoCadastrarAction()
+    {
+    	$request = $this->getRequest();
+    	$form    = new Application_Form_EstadoCadastrar();
+    	
+    	if ($this->getRequest()->isPost()) {
+    		if ($form->isValid($request->getPost())) {
+    			$estadoTable  = new Application_Model_DbTable_LocalEstados();
+    			$estadoTable->insert($form->getValues());
+    			echo "<pre>";
+    			return print_r($form->getValues());
+    			echo "</pre>";
+    		}
+    	}
+    	
+    	$this->view->form = $form;
+    }
+
 
 }
+
+
+
+
+
+
 
 
 

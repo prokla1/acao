@@ -12,7 +12,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	$data = array(
     			'url_amigavel' => $evento->getUrl_amigavel(),
     			'id_parceiro' => $evento->getId_parceiro(),
-    			'id_endereco' => null,
+    			'id_endereco' => $evento->getId_endereco(),
     			'nome' => $evento->getNome(),
     			'descricao' => $evento->getDescricao(),
     			'capa' => $evento->getCapa(),

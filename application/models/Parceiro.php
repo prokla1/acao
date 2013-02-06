@@ -20,8 +20,29 @@ class Application_Model_Parceiro
 	
 	protected $_local;
 	protected $_fotos;
+	protected $_atividades;
 	
 
+
+
+
+
+	/**
+	 * @param field_type $_id_parceiro
+	 */
+	public function setAtividades($id_parceiro) {
+		$atividades = new Application_Model_DbTable_RelAtividades();
+		$this->_atividades = $atividades->atividadesByParceiro($id_parceiro);
+	}
+	
+	/**
+	 * @return the $_fotos (objeto class Application_Model_Atividades)
+	 */
+	public function getAtividades() {
+		return $this->_atividades;
+	}
+	
+	
 
 
 
