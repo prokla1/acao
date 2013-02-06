@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 05, 2013 at 04:01 PM
+-- Generation Time: Feb 06, 2013 at 03:29 PM
 -- Server version: 5.1.67-0ubuntu0.11.10.1
 -- PHP Version: 5.3.14
 
@@ -70,18 +70,7 @@ CREATE TABLE IF NOT EXISTS `conversao` (
   KEY `id_cortesia` (`id_cortesia`),
   KEY `id_evento` (`id_evento`),
   KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `conversao`
---
-
-INSERT INTO `conversao` (`id`, `id_cortesia`, `id_evento`, `id_usuario`, `qtd`, `pontos`, `reais`, `concretizado`, `visivel`, `hora`) VALUES
-(1, 5, 35, 18, 1, 0, '20.00', '1', '1', '2013-01-16 14:48:35'),
-(2, 5, 35, 18, 1, 0, '20.00', '1', '1', '2013-01-16 14:48:43'),
-(3, 5, 35, 18, 1, 0, '20.00', '1', '1', '2013-01-16 14:48:47'),
-(4, 5, 35, 18, 1, 0, '20.00', '1', '1', '2013-01-16 14:48:52'),
-(5, 5, 35, 18, 1, 0, '20.00', '1', '1', '2013-01-16 14:52:30');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -104,18 +93,7 @@ CREATE TABLE IF NOT EXISTS `cortesias` (
   `termino` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_evento` (`id_evento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `cortesias`
---
-
-INSERT INTO `cortesias` (`id`, `id_evento`, `nome`, `descricao`, `valor_original`, `valor`, `qtd`, `disponivel`, `max_converter`, `sexo`, `termino`) VALUES
-(1, 3, 'Masculino', '', '25.00', 5.00, 10, 10, 1, '1', '2013-01-11 00:00:00'),
-(2, 3, 'Feminimo', '', '15.00', 5.00, 10, 10, 3, '2', '2013-01-11 00:00:00'),
-(3, 35, 'Pista', 'Pista unissex', '30.00', 5.00, 10, 10, 1, '3', '2013-01-11 00:00:00'),
-(4, 35, 'Feminino', 'Camarote Feminino - Área VIP (s/consumação)', '50.00', 10.00, 5, 5, 1, '2', '2013-01-11 23:59:59'),
-(5, 35, 'Masculino', 'Camarote Masculino - Área VIP (s/consumação)', '70.00', 20.00, 10, 40, 5, '1', '2013-01-19 23:59:59');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -139,18 +117,7 @@ CREATE TABLE IF NOT EXISTS `eventos` (
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`),
   KEY `id_endereco` (`id_endereco`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
-
---
--- Dumping data for table `eventos`
---
-
-INSERT INTO `eventos` (`id`, `url_amigavel`, `id_parceiro`, `id_endereco`, `nome`, `descricao`, `capa`, `ativo`, `destaque`, `realizacao`, `hora`) VALUES
-(3, 'sertanejo+universitario', 2, 1, 'Sertanejo Universitário', 'Atrações:<br />\r\n<ul>\r\n<li>Chico Santos e Banda</li>\r\n</ul>', 'null.jpg', '1', '1', '2013-02-28', '2013-02-04 19:43:19'),
-(4, 'candy+box ', 3, 2, 'Candy Box ', 'Atrações:<br>\r\nCandy Box\r\n<p>Desde os anos 70 até os dias de hoje! É assim que a CandyBox vem munida, e muito bem munida. Versões pesadas de Tina Turner, Donna Summer, Depeche Mode, New Order, Cardigans, Madonna, Lady Gaga, Katy Perry e um set Rock n Roll com Nirvana, Blondie, Stones, Acdc (entre muitos outros), serão apresentados pelos ex integrantes da extinta banda Funkzilla e prometem chacoalhar os palcos carentes de novidades na linha pop/rock/disco.\r\n</p>\r\n<p>\r\nA banda é formada por Michelle Oliveira no vocal, Beto Fonseca na bateria, Adriano Baboo no baixo, Willian Rita nos teclados e Thomas Costello na guitarra. E quinta-feira é noite de Ladies Free no John Bull Floripa e até a meia noite as mulheres não pagam entrada.\r\n</p>', 'null.jpg', '1', '1', '2013-02-28', '2013-02-04 19:43:19'),
-(5, 'pop+rock+original', 4, 3, 'Pop Rock Original', 'Pop Rock Original Cervejaria Original \r\n<p>\r\n<b>Atrações:</b>\r\nBanda Gandaya', 'null.jpg', '1', '0', '2013-02-28', '2013-02-04 19:43:19'),
-(35, 'festival+de+bandas', 6, 5, 'Festival de Bandas', 'Dia 12 de janeiro, a IDEM BAR reúne as melhores duplas sertanejas para o Festival de Bandas, trazendo ao público as principais músicas da atualidade! Sábado, a Idem será um verdadeiro SHOW DE SERTANEJO!\r\n\r\n<p>\r\n<h3>Atrações</h3>\r\n<ol>\r\n<li>Banda tal</li>\r\n<li>Banda tal</li>\r\n<li>Banda tal</li>\r\n</ol>\r\n</p>', 'idem-bar-festival-de-bandas.jpg', '1', '1', '2013-02-28', '2013-02-04 19:43:19'),
-(88, 'herbert-medeiros+cleiton-e-conrado', 6, NULL, 'HERBERT MEDEIROS + CLEITON E CONRADO', 'SEXTA-FEIRA | 22.02\r\nHERBERT MEDEIROS + CLEITON E CONRADO', 'evento_511145e66e01c.jpg', '1', '0', '2013-02-22', '2013-02-05 17:48:22');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -165,15 +132,7 @@ CREATE TABLE IF NOT EXISTS `eventos_fotos` (
   `url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_evento` (`id_evento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `eventos_fotos`
---
-
-INSERT INTO `eventos_fotos` (`id`, `id_evento`, `url`) VALUES
-(3, 4, '02.png'),
-(4, 4, '05.png');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -189,20 +148,7 @@ CREATE TABLE IF NOT EXISTS `local_cidades` (
   `ativo` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_estado` (`id_estado`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `local_cidades`
---
-
-INSERT INTO `local_cidades` (`id`, `nome`, `id_estado`, `ativo`) VALUES
-(1, 'Florianópolis', 1, '1'),
-(2, 'São José', 1, '1'),
-(3, 'Curitiba', 2, '1'),
-(4, 'Biguaçu', 1, '0'),
-(5, 'Apucarana', 2, '1'),
-(6, 'São Sebastião', 1, '1'),
-(7, 'Palhoça', 1, '1');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -219,18 +165,7 @@ CREATE TABLE IF NOT EXISTS `local_enderecos` (
   `complemento` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cidade` (`id_cidade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `local_enderecos`
---
-
-INSERT INTO `local_enderecos` (`id`, `id_cidade`, `rua`, `numero`, `complemento`) VALUES
-(1, 2, 'Rua Gerôncio Thives', '1079', 'Barreiros (Shopping Center Itaguaçu)'),
-(2, 2, 'Rua da prefeitura', 'salas tal', 'Terra Firme'),
-(3, 1, 'rua em frente ao shopping beira mar', NULL, 'no centro'),
-(4, 2, 'rua da prefeitura', '5', 'edificio terra firme'),
-(5, 7, 'Rua Caetano Silveira de Mattos', '2463', 'Centro');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -247,15 +182,7 @@ CREATE TABLE IF NOT EXISTS `local_estados` (
   `ativo` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_pais` (`id_pais`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `local_estados`
---
-
-INSERT INTO `local_estados` (`id`, `sigla`, `nome`, `id_pais`, `ativo`) VALUES
-(1, 'SC', 'Santa Catarina', 1, '1'),
-(2, 'PR', 'Paraná', 1, '1');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -288,7 +215,7 @@ DROP TABLE IF EXISTS `parceiros`;
 CREATE TABLE IF NOT EXISTS `parceiros` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url_amigavel` varchar(255) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL COMMENT 'responsável pelo estabelecimento é um USUARIO',
+  `id_usuario` int(11) DEFAULT NULL COMMENT 'responsável pelo estabelecimento é um USUARIO',
   `nome` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
   `foto` varchar(255) NOT NULL DEFAULT 'null.jpg',
@@ -304,18 +231,7 @@ CREATE TABLE IF NOT EXISTS `parceiros` (
   PRIMARY KEY (`id`),
   KEY `id_usuario` (`id_usuario`),
   KEY `id_endereco` (`id_endereco`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `parceiros`
---
-
-INSERT INTO `parceiros` (`id`, `url_amigavel`, `id_usuario`, `nome`, `descricao`, `foto`, `ativo`, `id_endereco`, `funcionamento`, `pagamento`, `telefone`, `num_votos`, `total_pontos`, `rating`, `hora`) VALUES
-(2, 'quiosque', 1, 'Quiosque Chopp Brahma', 'Chopp da Brahma geladinho.', 'quiosque.png', '1', 1, NULL, NULL, NULL, 0, 0, '0.00', '2013-01-07 18:27:44'),
-(3, 'cervejaria-original-sao-jose', 2, 'Cervejaria Original (São José)', 'Petiscos e cerveja geladinha', 'null.jpg', '1', 2, NULL, NULL, NULL, 0, 0, '0.00', '2013-01-07 18:27:58'),
-(4, 'cervejaria-original-florianopolis', 2, 'Cervejaria Original (Florianópolis)	', 'Happy Hour no coração da cidade', '04.jpg', '1', 3, NULL, NULL, NULL, 0, 0, '0.00', '2013-01-07 18:28:04'),
-(5, 'kabutz', 2, 'Kabutz', 'Sua balada nas alturas', 'kabutz_logo.jpg', '1', 4, NULL, NULL, NULL, 0, 0, '0.00', '2013-01-31 13:46:00'),
-(6, 'idem-bar', 2, 'Idem Bar', 'Um show de sertanejo.', 'idem-bar.png', '1', 5, '<ul>\r\n<li>Quarta a Sábado</li>\r\n<li>A partir das 22h</li>\r\n</ul>', '<ul>\r\n\r\n<li>Mastercar</li>\r\n<li>Visa</li>\r\n<li>Dinheiro</li>\r\n\r\n</ul>', '(48) 3242-7055', 20, 52, '2.60', '2013-01-21 20:26:55');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -331,17 +247,6 @@ CREATE TABLE IF NOT EXISTS `parceiros_fotos` (
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `parceiros_fotos`
---
-
-INSERT INTO `parceiros_fotos` (`id`, `id_parceiro`, `url`) VALUES
-(1, 6, 'idem-18-04-2012-034.jpg'),
-(2, 6, 'idem-18-04-2012-035.jpg'),
-(3, 6, 'idem-18-04-2012-036.jpg'),
-(4, 6, 'idem-18-04-2012-044.jpg'),
-(5, 6, 'idem-18-04-2012-048.jpg');
 
 -- --------------------------------------------------------
 
@@ -359,67 +264,7 @@ CREATE TABLE IF NOT EXISTS `rel_atividade_parceiro` (
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`),
   KEY `id_atividade` (`id_atividade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `rel_atividade_parceiro`
---
-
-INSERT INTO `rel_atividade_parceiro` (`id`, `id_parceiro`, `id_atividade`, `ativo`, `hora`) VALUES
-(1, 2, 3, '1', '2012-06-05 20:35:33'),
-(2, 2, 4, '1', '2012-06-05 20:35:33'),
-(3, 3, 4, '1', '2012-06-05 20:35:45'),
-(4, 3, 5, '1', '2012-06-05 20:35:45'),
-(5, 4, 5, '1', '2012-06-23 14:31:51'),
-(6, 2, 5, '1', '2012-06-23 14:33:25');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rel_local_parceiro`
---
-
-DROP TABLE IF EXISTS `rel_local_parceiro`;
-CREATE TABLE IF NOT EXISTS `rel_local_parceiro` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_parceiro` int(11) NOT NULL,
-  `id_local` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_local` (`id_local`),
-  KEY `id_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `rel_local_parceiro`
---
-
-INSERT INTO `rel_local_parceiro` (`id`, `id_parceiro`, `id_local`) VALUES
-(1, 2, 1),
-(2, 3, 1),
-(3, 4, 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rel_local_usuario`
---
-
-DROP TABLE IF EXISTS `rel_local_usuario`;
-CREATE TABLE IF NOT EXISTS `rel_local_usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) NOT NULL,
-  `id_local` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_local` (`id_local`),
-  KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `rel_local_usuario`
---
-
-INSERT INTO `rel_local_usuario` (`id`, `id_usuario`, `id_local`) VALUES
-(1, 1, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -488,19 +333,19 @@ ALTER TABLE `eventos`
 -- Constraints for table `eventos_fotos`
 --
 ALTER TABLE `eventos_fotos`
-  ADD CONSTRAINT `eventos_fotos_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`);
+  ADD CONSTRAINT `eventos_fotos_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `local_cidades`
 --
 ALTER TABLE `local_cidades`
-  ADD CONSTRAINT `local_cidades_ibfk_1` FOREIGN KEY (`id_estado`) REFERENCES `local_estados` (`id`);
+  ADD CONSTRAINT `local_cidades_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `local_estados` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `local_enderecos`
 --
 ALTER TABLE `local_enderecos`
-  ADD CONSTRAINT `local_enderecos_ibfk_1` FOREIGN KEY (`id_cidade`) REFERENCES `local_cidades` (`id`);
+  ADD CONSTRAINT `local_enderecos_ibfk_2` FOREIGN KEY (`id_cidade`) REFERENCES `local_cidades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `local_estados`
@@ -512,14 +357,14 @@ ALTER TABLE `local_estados`
 -- Constraints for table `parceiros`
 --
 ALTER TABLE `parceiros`
-  ADD CONSTRAINT `parceiros_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `parceiros_ibfk_2` FOREIGN KEY (`id_endereco`) REFERENCES `local_enderecos` (`id`);
+  ADD CONSTRAINT `parceiros_ibfk_3` FOREIGN KEY (`id_endereco`) REFERENCES `local_enderecos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `parceiros_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
 
 --
 -- Constraints for table `parceiros_fotos`
 --
 ALTER TABLE `parceiros_fotos`
-  ADD CONSTRAINT `parceiros_fotos_ibfk_1` FOREIGN KEY (`id_parceiro`) REFERENCES `parceiros` (`id`);
+  ADD CONSTRAINT `parceiros_fotos_ibfk_2` FOREIGN KEY (`id_parceiro`) REFERENCES `parceiros` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rel_atividade_parceiro`
@@ -527,20 +372,6 @@ ALTER TABLE `parceiros_fotos`
 ALTER TABLE `rel_atividade_parceiro`
   ADD CONSTRAINT `rel_atividade_parceiro_ibfk_1` FOREIGN KEY (`id_parceiro`) REFERENCES `parceiros` (`id`),
   ADD CONSTRAINT `rel_atividade_parceiro_ibfk_2` FOREIGN KEY (`id_atividade`) REFERENCES `atividades` (`id`);
-
---
--- Constraints for table `rel_local_parceiro`
---
-ALTER TABLE `rel_local_parceiro`
-  ADD CONSTRAINT `rel_local_parceiro_ibfk_2` FOREIGN KEY (`id_parceiro`) REFERENCES `parceiros` (`id`),
-  ADD CONSTRAINT `rel_local_parceiro_ibfk_3` FOREIGN KEY (`id_local`) REFERENCES `local_enderecos` (`id`);
-
---
--- Constraints for table `rel_local_usuario`
---
-ALTER TABLE `rel_local_usuario`
-  ADD CONSTRAINT `rel_local_usuario_ibfk_1` FOREIGN KEY (`id_local`) REFERENCES `local_enderecos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `rel_local_usuario_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
 
 --
 -- Constraints for table `usuarios`

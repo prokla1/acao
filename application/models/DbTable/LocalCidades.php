@@ -6,6 +6,60 @@ class Application_Model_DbTable_LocalCidades extends Zend_Db_Table_Abstract
     protected $_name = 'local_cidades';
 
 
+    
+    
+
+    public function getEnderecosList()  //para popular o select no form de cadastro dos endereços
+    {
+    	$resultSet = $this->select()
+    	->setIntegrityCheck(false)
+    	->from(  
+    			array(
+    					'local_cidades' => 'local_cidades'
+    			),
+    			array(
+    					'local_cidades_id'			=>	'local_cidades.id',
+    					'local_cidades_nome'		=>	'local_cidades.nome',
+    					'local_cidades_id_estado'	=>	'local_cidades.id_estado'
+    			)
+    	)
+    	->joinLeft( 
+    			array(
+    					'local_estados'				=>	'local_estados'
+    			),
+    			'local_estados.id					=	local_cidades.id_estado',
+    			array(
+    					'local_estados_sigla'		=>	'local_estados.sigla',
+    					'local_estados_id_pais'		=>	'local_estados.id_pais'
+    			)
+    	)
+    	->joinLeft( 
+    			array(
+    					'local_pais'			=>	'local_pais'
+    			),
+    			'local_pais.id					=	local_estados.id_pais',
+    			array(
+    					'local_nome_pais'		=>	'local_pais.nome',
+    					'local_sigla_pais'		=>	'local_pais.sigla'
+    			)
+    	)
+    	->order('local_cidades_nome')
+    	->query()
+    	->fetchAll();
+    	$entries = array();
+    	foreach ($resultSet as $row) {
+    		$array = array();
+    		$array['key'] = $row['local_cidades_id'];
+    		$array['value'] =
+    		$row['local_cidades_nome'] . ", " .
+    		$row['local_estados_sigla'] . " - " .
+    		$row['local_sigla_pais']  
+    				;
+    				$entries[] = $array;
+    	}
+    	return $entries;
+    }
+    
 
 
     public function byId($id, Application_Model_LocalCidades $localCidades)

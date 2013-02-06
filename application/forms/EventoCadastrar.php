@@ -12,19 +12,26 @@ class Application_Form_EventoCadastrar extends Zend_Form
     	$this->setAttrib('enctype', 'multipart/form-data');
     	
 
-    	
-    	
+
+
+    	$enderecos = new Application_Model_DbTable_LocalEnderecos();
+    	$endereco_list = $enderecos->getEnderecosList();
+    	$this->addElement('select','id_endereco',
+    			array(
+    					'label' => 'Endereço: ',
+    					'multiOptions' => $endereco_list
+    			));
+
+
+
     	$parceiros = new Application_Model_DbTable_Parceiros();
-    	
     	$parceiros_list = $parceiros->getParceirosList();
-    	
-    	
     	$this->addElement('select','id_parceiro',
     			array(
     					'label' => 'Parceiro: ',
     					'multiOptions' => $parceiros_list
     			));
-    	
+    	 
 
     	// Add an email element
     	$this->addElement('text', 'realizacao', array(

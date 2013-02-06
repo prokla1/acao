@@ -13,14 +13,17 @@
 	}else{
 		$dia_base = $_GET['d'];
 	}
+	
+// 	echo 'dia base '. $dia_base . ' = ' . date('d/m/Y h:i:s', $dia_base);
+// 	echo '<hr>time() '. time(). ' = ' . date('d/m/Y h:i:s', time());;
 			
 	for($i = 0; $i < 7; $i++){
 		$dias[] = $dia_base + ($i * 86400);
 	}
 
 	$week = array();
-	$week['prev'] = ($dias[0]-(86400*4));
-	$week['next'] = ($dias[6]+(86400*4));
+	$week['prev'] = ($dias[0]-(86400*6));
+	$week['next'] = ($dias[6]+(86400*6));
 	$defaultDate = $dias_semana_long[date('w', $dia_base)].", ".date('d', $dia_base) ." de ". $mes_long[(date('n', $dia_base)-1)]. ", ".date('Y', $dia_base);
 ?>	
 	
@@ -32,7 +35,7 @@
 	<div class="calendar_wrap">
 		<div class="calendar_container">
 			<span class="calendar_arrow">
-				<a href="/eventos?d=<?php echo ($dias[0] - (86400*4)) ?>">
+				<a href="/eventos?d=<?php echo $week['prev'] ?>">
 					<img alt="" src="/img/eventos_calendar_arrow_left.png">
 				</a>
 			</span>
@@ -62,7 +65,7 @@
 						?>
 				</ul>
 			<span class="calendar_arrow">
-				<a href="/eventos?d=<?php echo ($dias[6] + (86400*4)) ?>">
+				<a href="/eventos?d=<?php echo $week['next'] ?>">
 					<img alt="" src="/img/eventos_calendar_arrow_right.png">
 				</a>
 			</span>
