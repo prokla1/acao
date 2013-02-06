@@ -26,6 +26,8 @@ $this->headMeta()->appendName('og:url', $this->serverUrl() . $this->url(array('i
 		
 			<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
 				<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+				<?php else:?>
+				<div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div>
 			<?php endif; ?>
 			
 			

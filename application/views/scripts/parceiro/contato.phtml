@@ -1,4 +1,60 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Parceiro</b> and script/action name <b>contato</b></p>
-</div>
+	<table width="960" border="0" style="margin: 0 auto;">
+	  <tr>
+	    <td height="49" colspan="3"><span class="txt_title">FORMULÁRIO DE CONTATO</span></td>
+	    <td width="17" rowspan="12">&nbsp;</td>
+	    <td width="489" rowspan="12">
+   	    <div class="ct_info"><span class="txt_contact">(48) 3035-5935</span></div>
+        	<div class="ct_info"><span class="txt_contact">contato@balada.com.br</span></div>
+        </td>
+      </tr>
+	  <tr>
+	    <td height="22">&nbsp;</td>
+	    <td width="42" rowspan="8">&nbsp;</td>
+	    <td>&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td width="287" height="22"><label for="nome">Seu nome</label></td>
+	    <td width="270"><label for="email">Seu email</label></td>
+      </tr>
+	  <tr>
+	    <td><input type="text" name="nome" id="nome" class="input_z"/></td>
+	    <td><input type="text" name="email" id="email" class="input_z"/></td>
+      </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td><label for="senha">Telefone</label></td>
+	    <td><label for="r_senha">Assunto</label></td>
+      </tr>
+	  <tr>
+	    <td><input type="text" name="phone" id="phone" class="input_z"/></td>
+	    <td>
+			<input type="text" name="assunto" id="assunto" class="input_z"/>
+	    </td>
+      </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td>&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td><label for="mensagem">Mensagem</label></td>
+	    <td>&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td colspan="3"><textarea name="mensagem" id="mensagem" cols="45" rows="5"></textarea></td>
+      </tr>
+	  <tr>
+	    <td colspan="3" height="3">&nbsp;</td>
+      </tr>
+	  <tr>
+	    <td colspan="3"><img src="/img/btn_contato.png" class="btn_cad" style="float: right;"/></td>
+      </tr>
+     </table>
+	
+	
+	
+<?php 
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/parceiro_contact.css'));
+?>
