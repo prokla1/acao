@@ -8,7 +8,9 @@ class EventosController extends Zend_Controller_Action
     	$sess = new Zend_Session_Namespace('City');
     	$this->cityId = $sess->id;
      	$this->cityNome = $sess->nome;
+     	$this->view->cityId = $this->cityId;
      	$this->view->cityNome = $this->cityNome;
+     	$this->view->doctype('XHTML1_RDFA');
     }
     
     
@@ -25,10 +27,7 @@ class EventosController extends Zend_Controller_Action
     	if(empty($dia_base)){
     		$dia_base = time(); //+86400*50;  //86400 = 1 dia
     	}
-    	
-    	
-    	//$dia_base = time() - (86400 * 300);  //86400 = 1 dia  //deletar
-    	
+    	$this->view->dia_base = $dia_base;
     	
     	$eventos = new Application_Model_DbTable_Eventos();
     	//$this->view->eventos = $eventos->findByCity($this->cityId);

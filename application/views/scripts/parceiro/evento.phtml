@@ -5,16 +5,6 @@
 $evento = $this->evento;
 $parceiro = $this->parceiro;
 
-$this->headTitle($evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->realizacao)) . ' - ' . $parceiro->nome . ' [ eVenter ] ');  //titulo da página
-
-$this->headMeta()->appendName('og:title', $evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->realizacao)) . ' - ' . $parceiro->nome . ' [ eVenter ] ');
-$this->headMeta()->appendName('og:image', $this->serverUrl() .'/img/eventos/'.$evento->capa);
-$this->headMeta()->appendName('og:site_name', 'eVenter - Entradas para o seu evento');
-$this->headMeta()->appendName('og:description', $evento->descricao);
-$this->headMeta()->appendName('og:url', $this->serverUrl() . $this->url(array('idE' => $evento->id, 'nomeE' => $evento->nome, 'idP' => $parceiro->id, 'nomeP' => $parceiro->nome), 'evento'));
-?>
-
-<?php 
 $event = array();
 $event['id'] = $evento->id;
 $event['nome'] = $evento->nome;
@@ -23,6 +13,17 @@ $event['imagem']  = $this->serverUrl() ."/img/eventos/".$evento->capa;
 $event['data'] =  date('d/m/Y', strtotime( $evento->realizacao));
 $event['descricao'] =  $evento->descricao;
 $events[] = $event;
+
+$this->headTitle($evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->realizacao)) . ' - ' . $parceiro->nome . ' [ eVenter ] ');  //titulo da página
+$this->headMeta()->setProperty('og:title', $evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->realizacao)) . ' - ' . $parceiro->nome . ' [ eVenter ] ');
+$this->headMeta()->setProperty('og:image', $this->serverUrl() .'/img/eventos/'.$evento->capa);
+$this->headMeta()->setProperty('og:site_name', 'eVenter - Entradas para o seu evento');
+$this->headMeta()->setProperty('og:description', $evento->descricao);
+$this->headMeta()->setProperty('og:url', $event['url']);
+$this->headMeta()->setProperty('og:type', 'eventer_social:event');
+$this->headMeta()->setProperty('fb:app_id', '240996152682246');
+
+
 ?>
 
 

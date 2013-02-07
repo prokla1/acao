@@ -1,5 +1,18 @@
-<?php echo $this->partial('partials/location.phtml'); ?>
+<?php
+$dia_base = $this->dia_base;
+$defaultDate = date('d', $dia_base) ."/". date('m', $dia_base). "/".date('Y', $dia_base);
+$this->headTitle(' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');  //titulo da página
 
+$this->headMeta()->setProperty('og:title', ' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');
+$this->headMeta()->setProperty('og:site_name', 'eVenter - Entradas para o seu evento');
+$this->headMeta()->setProperty('og:description', ' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');
+$this->headMeta()->setProperty('og:url', $this->serverUrl() . '/?c='. $this->cityId . '&d=' . $dia_base);
+$this->headMeta()->setProperty('og:type', 'eventer_social:event');
+$this->headMeta()->setProperty('fb:app_id', '240996152682246');
+?>
+
+
+<?php echo $this->partial('partials/location.phtml'); ?>
 
 <?php echo $this->partial('partials/calendar.phtml'); ?>
 
@@ -12,6 +25,13 @@
 		<div style="text-align: center; margin-bottom: 30px; font-weight: bold; padding: 10px;">Nenhum evento cadastrado para esta data</div>
 	<?php endif;?>
 </div>	
+
+
 <?php 
+
 	$this->headLink()->prependStylesheet($this->baseUrl('/css/eventos.css'));
+	
+	
+
+	 
 ?>

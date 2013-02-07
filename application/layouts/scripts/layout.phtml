@@ -1,21 +1,20 @@
 <?php 
 	$footer = $this->partial('partials/footer.phtml');
 	$header =  $this->partial('partials/header.phtml');
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-<head>
+	echo $this->doctype('XHTML1_RDFA');
+
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xml:lang="pt-br" lang="pt-br">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# eventer_social: http://ogp.me/ns/fb/eventer_social#">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php 
 echo 	$this->headTitle(),PHP_EOL;
 echo 	$this->headMeta(),PHP_EOL;
 ?>
-
 
 
 

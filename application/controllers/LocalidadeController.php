@@ -12,7 +12,6 @@ class LocalidadeController extends Zend_Controller_Action
     		 $sess->id = $this->_getParam('id');
     		 $sess->nome = $this->_getParam('nome');
     		 
-    		 
     		 header("Location: /eventos");
     		 //return $this->_forward('index', 'eventos');
     	}else {
@@ -30,9 +29,6 @@ class LocalidadeController extends Zend_Controller_Action
 
     public function indexAction()
     {
-    
-    	//$this->_helper->layout->setLayout('location');
-    	 
     	$cidadesTable = new Application_Model_DbTable_LocalCidades();
     	$localidades = $cidadesTable->cidadesName();
     	$this->view->localidades = $localidades;
@@ -42,7 +38,6 @@ class LocalidadeController extends Zend_Controller_Action
     	$estados = $estadoTable->fetchAll();
     	$this->view->localidades = $estados;
     	*/
-       
     }
     
 

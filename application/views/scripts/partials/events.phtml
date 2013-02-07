@@ -10,8 +10,9 @@ $event['imagem']  = $this->serverUrl() ."/img/eventos/".$evento->capa;
 $event['data'] =  date('d/m/Y', strtotime( $evento->realizacao));
 $event['descricao'] =  $evento->descricao;
 $events[] = $event;
-?>
 
+$this->headMeta()->setProperty('og:image', $event['imagem']);
+?>
 
 <div class="evento_wrap">
 

@@ -2,8 +2,8 @@
 	$footer = $this->partial('partials/footer.phtml');
 	$header =  $this->partial('partials/header.phtml');
 	$parceiro_header =  $this->partial('partials/parceiro_header.phtml', array('parceiro' => $this->parceiro));	
+	echo $this->doctype('XHTML1_RDFA');
 ?>
-<?php echo $this->doctype('XHTML1_RDFA'); ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
