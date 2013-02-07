@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 06, 2013 at 03:29 PM
+-- Generation Time: Feb 06, 2013 at 10:13 PM
 -- Server version: 5.1.67-0ubuntu0.11.10.1
 -- PHP Version: 5.3.14
 
@@ -148,7 +148,14 @@ CREATE TABLE IF NOT EXISTS `local_cidades` (
   `ativo` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_estado` (`id_estado`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `local_cidades`
+--
+
+INSERT INTO `local_cidades` (`id`, `nome`, `id_estado`, `ativo`) VALUES
+(9, 'Apucarana', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -182,7 +189,14 @@ CREATE TABLE IF NOT EXISTS `local_estados` (
   `ativo` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_pais` (`id_pais`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `local_estados`
+--
+
+INSERT INTO `local_estados` (`id`, `sigla`, `nome`, `id_pais`, `ativo`) VALUES
+(1, 'PR', 'Paraná', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -204,6 +218,33 @@ CREATE TABLE IF NOT EXISTS `local_pais` (
 
 INSERT INTO `local_pais` (`id`, `sigla`, `nome`) VALUES
 (1, 'BR', 'Brasil');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+DROP TABLE IF EXISTS `news`;
+CREATE TABLE IF NOT EXISTS `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cidade` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_cidade` (`id_cidade`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `id_cidade`, `email`, `hora`) VALUES
+(1, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:31:51'),
+(2, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:34:35'),
+(3, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:34:53'),
+(4, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:39:58'),
+(5, 9, 'representante@controleestudantil.com.br', '2013-02-07 00:11:11');
 
 -- --------------------------------------------------------
 
@@ -352,6 +393,12 @@ ALTER TABLE `local_enderecos`
 --
 ALTER TABLE `local_estados`
   ADD CONSTRAINT `local_estados_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `local_pais` (`id`);
+
+--
+-- Constraints for table `news`
+--
+ALTER TABLE `news`
+  ADD CONSTRAINT `news_ibfk_1` FOREIGN KEY (`id_cidade`) REFERENCES `local_cidades` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `parceiros`
