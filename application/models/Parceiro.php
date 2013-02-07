@@ -9,6 +9,7 @@ class Application_Model_Parceiro
 	protected $_descricao;
 	protected $_foto;
 	protected $_ativo;
+	protected $_id_tipo;
 	protected $_id_endereco;
 	protected $_funcionamento;
 	protected $_pagamento;
@@ -21,6 +22,7 @@ class Application_Model_Parceiro
 	protected $_local;
 	protected $_fotos;
 	protected $_atividades;
+	protected $_tipo;
 	
 
 
@@ -371,9 +373,6 @@ class Application_Model_Parceiro
 		$this->_rating = $rating;
 	}
 
-
-
-	
 	
 	
 	

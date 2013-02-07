@@ -70,7 +70,7 @@ class Application_Model_DbTable_LocalCidades extends Zend_Db_Table_Abstract
     	{
     		$cidade = $result->toArray();
     		$localCidades->setOptions($cidade);
-    		//$localCidades->setEstado($result->id_estado);    		
+    		$localCidades->setEstado($result->id_estado);    		
     	}else
     	{
     		$localCidades = null;

@@ -75,7 +75,12 @@ class AdminController extends Zend_Controller_Action
 			    										$parceiro = new Application_Model_Parceiro($form->getValues());
 			    										$parceiro->setFoto($actual_image_name);
 			    										$parceiroTable  = new Application_Model_DbTable_Parceiros();
-			    										$parceiroTable->save($parceiro);
+			    										$id_parceiro =  $parceiroTable->save($parceiro);
+
+			    										$atividades = $this->_getParam('id_atividade');
+			    										$table = new Application_Model_DbTable_RelAtividades();
+			    										$table->saveAtividades($atividades, $id_parceiro);
+			    										
 			    										
 			    										
 			    									}else {

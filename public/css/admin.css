@@ -117,3 +117,9 @@ div.wrap_all_adm div.wrap_form select
 	height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; color: #036; outline: 0 none;
 }
 
+
+
+div.wrap_all_adm div.wrap_form ul.errors li
+{
+	color: red;
+}

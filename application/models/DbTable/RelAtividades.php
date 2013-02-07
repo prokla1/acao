@@ -7,6 +7,22 @@ class Application_Model_DbTable_RelAtividades extends Zend_Db_Table_Abstract
 
 
     /**
+     * salva as "ATIVIDADES" de um parceiro ID_PARCEIRO
+     */
+    public function saveAtividades(array $atividades, $id_parceiro)
+    {
+    	foreach ($atividades as $atividade)
+    	{
+    		$data = array('id_atividade' => $atividade, 'id_parceiro' => $id_parceiro);
+    		$this->insert($data);
+    	}
+    }
+    
+    
+    
+    
+    
+    /**
      * Retorna todas as "ATIVIDADES" de um parceiro ID_PARCEIRO
      * @return multitype:Application_Model_Atividades
      */

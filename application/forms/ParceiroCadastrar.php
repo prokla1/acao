@@ -20,8 +20,23 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     			'label' => 'Endereço: ',
     			'multiOptions' => $endereco_list
     	));
+    	
 
 
+
+    	$atividades = new Application_Model_DbTable_Atividades();
+    	$atividades_list = $atividades->getAtividadesList();
+    	$this->addElement('multiCheckbox','id_atividade', array(
+    			'label' => 'Atividades do parceiro: ',
+    			'required' => true,
+    	));
+	    	foreach ($atividades_list as $atv)
+	    	{
+	    		$this->getElement('id_atividade')->addMultiOption($atv['id'], $atv['nome']);
+	    		
+	    	}
+    	
+    	 
     	$this->addElement('text', 'nome', array(
     			'label'      => 'Nome do Parceiro (100):',
     			'required'   => true

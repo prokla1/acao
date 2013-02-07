@@ -6,6 +6,18 @@ class Application_Model_DbTable_Atividades extends Zend_Db_Table_Abstract
     protected $_name = 'atividades';
 
 
+
+
+    public function getAtividadesList()  //para popular o select no form de cadastro dos parceiros
+    
+    {
+    	$select  = $this->select()->from($this->_name)
+    			->order('nome');
+    	$result = $this->getAdapter()->fetchAll($select);
+    	return $result;
+    	
+    }
+    
     
 
     public function byId($id, Application_Model_Atividades $atividade)
