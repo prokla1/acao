@@ -81,11 +81,10 @@ function shareEvent(event) {
     };
     
 
-    
     (function(d){
         var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
         js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "//connect.facebook.net/pt_BR/all.js";
+        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=240996152682246";
         d.getElementsByTagName('head')[0].appendChild(js);
       }(document));
  

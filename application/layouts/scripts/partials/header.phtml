@@ -17,11 +17,27 @@
 						$this->headScript()->prependFile($this->baseUrl('/js/login.js'));  //chama o script que tem o login pelo face
 						
 						?>
+						
+				<div id="div_form_login">
+					<div id="top_form"></div>
+						<div id="loading_news_form">
+						<?php 
+							 $form = new Application_Form_News();
+							 echo $form;
+						?>
+						</div>
+						<button id="submit_news">Cadastrar</button>
+						<div >
+							<div class="fb-like" data-href="http://www.facebook.com/pages/EVenter/398051346951115" data-send="true" data-width="450" data-show-faces="true"></div>						
+						</div>
+				</div>
+						
+						<?php /*
 				<div id="div_form_login">
 					<div id="top_form"></div>
 				    <div id="ct_form">
 				    	<div id="form">
-				    	<form id="form_login_ajax" name="form_login" enctype="application/x-www-form-urlencoded" action="" method="post">
+				    	<form id="form_news_ajax" name="form_login" enctype="application/x-www-form-urlencoded" action="" method="post">
 
 				    	
 				          <table border="0">
@@ -32,12 +48,20 @@
 				            </tr>
 				            <tr>
 				              <td colspan="2" height="60">
-				                <input type="text" name="email" id="email" class="input_login" />
+								<select name="news_id_cidade" id="news_id_cidade" class="input_login" >
+								    <option value="0"></option>
+								    <?php 
+									    $cidades = new Application_Model_DbTable_LocalCidades();
+									    foreach ($cidades->getCidadesList() as $cidade) :
+								    ?>
+								    <option value="<?php echo $cidade['key'] ?>"><?php echo $cidade['value'] ?></option>
+								    <?php endforeach;?>
+								</select>
 				              </td>
 				            </tr>
 				            <tr>
 				              <td colspan="2">
-				                <input type="text" name="email" id="email" class="input_login" />
+				                <input type="text" name="news_email" id="news_email" class="input_login" />
 				              </td>
 				            </tr>
 				            <tr height="80">
@@ -45,7 +69,7 @@
 				              	<span class="btn_no_city">não encontrou?</span>
 				              </td>
 				              <td width="180">
-				              	<img src="/img/btn_go_sociais.png" />
+				              	 <input type="image" src="/img/btn_go_sociais.png" alt="Login" id="submitbutton" >
 				              </td>
 				            </tr>
 				            <tr height="50">
@@ -124,6 +148,8 @@
 				         </div>
 				    </div>
 				</div>
+				*/
+				?>
 				
 			<?php 
 				}else {

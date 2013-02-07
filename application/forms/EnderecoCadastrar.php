@@ -15,7 +15,7 @@ class Application_Form_EnderecoCadastrar extends Zend_Form
 
 
     	$cidades = new Application_Model_DbTable_LocalCidades();
-    	$cidades_list = $cidades->getEnderecosList();
+    	$cidades_list = $cidades->getCidadesList();
     	$this->addElement('select','id_cidade', array(
     			'label' => 'Cidade: ',
     			'multiOptions' => $cidades_list

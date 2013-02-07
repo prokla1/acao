@@ -9,7 +9,7 @@ class Application_Model_DbTable_LocalCidades extends Zend_Db_Table_Abstract
     
     
 
-    public function getEnderecosList()  //para popular o select no form de cadastro dos endereços
+    public function getCidadesList()  //para popular o select no form de cadastro dos endereços
     {
     	$resultSet = $this->select()
     	->setIntegrityCheck(false)
