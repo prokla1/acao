@@ -68,13 +68,15 @@ ul.navigation li a:HOVER
 
 
 
+
+
+
 /* ESTRUTURA  BOX LOGIN */
 
-#div_form_login td {vertical-align: middle;}
 #div_form_login{
-	width: 405px; 
-	height: 405px;  
-	border: 1px solid #000; 
+	border: 1px solid #999; 
+	background-color: #1A1A1A; 
+	display: table;
 	position: absolute;
 	top: 34px;
 	right: 50px; 
@@ -82,61 +84,61 @@ ul.navigation li a:HOVER
 	margin-top: 30px; 
 	background: url("/img/BGrepeat_fqpd.png"); 
 	display: none;
+	width: 361px;
+	border-radius: 5px 0px 5px 5px;
+	padding: 15px 0 0 0;
+	color: white;
 }
+
 #top_form{
 	height: 25px; 
 	width: 58px; 
 	position: absolute; 
 	right: 0; 
-	margin-top: -25px; 
+	margin-top: -40px; 
 	margin-right: -1px; 
 	z-index: 11; 
 	background: url(/img/top_modal.png) center center no-repeat; 
 }
-#ct_form{
-	border:1px solid #2C2C2C; 
-	width: 390px; 
-	height: 390px; 
-	margin: 6px; 
-	background: #505050;
-}
 
-#form{margin: 26px 24px;}
+#form_news_add{margin: 0px 0px 12px 30px;}
 
-/* TEXT AND INPÙTS */
+label{display: none;}
 
-.input_login{
-	width: 320px; 
-	height: 48px; 
-	border-radius: 6px; 
-	padding: 0 8px; 
-	background: #000000; 
-	font-size: 14px; 
-	color: #999; 
-	border: 0px;
-}
-.span1{
-	color: #00CCFF; 
-	font-size: 15px;
-}
-
-.span2{
-	color: #00CCFF; 
-	font-size: 16px; 
-	margin: 0 auto; 
-	text-align: center;
+dt{
+padding: 6px;
 }
 
 
-.btn_no_city{
-	background: url(/img/btn_no_city.png) no-repeat; 
-	padding-left: 26px;
-	color: whitesmoke;
+div#div_form_login ul li{color: #09F; margin: 5px 10px 5px 10px;}
+
+
+
+/*
+INPUTS
+*/
+
+select{
+width: 300px; height: 40px; padding-left: 6px;  border-radius: 2px; border: 1px solid #666; outline-color: #09F; font-size: 14px; color: #999; background: #333;
 }
 
-.msg_error{
-	background: #333; 
-	padding: 4px 81px; 
-	margin-left: 5px;
-	display: none;
+input{
+width: 286px; height: 40px; padding-left: 10px; border-radius: 2px; background: #333; border: 1px solid #666; outline-color: #09F; font-size: 14px; color: #999;
 }
+
+button{
+width: 200px; border: 1px solid #09F; padding: 12px 6px; cursor: pointer; margin:0px 80px 0px 80px;
+background: #1e5799; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNTc5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI5ODlkOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzIwN2NjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3ZGI5ZTgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-8 */
+
+}
+
+
