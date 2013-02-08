@@ -80,6 +80,7 @@ var events = <?php echo json_encode($events); ?>;
 			</div>
 			
 			<div class="evento_description_total">
+			<span>(<?php echo implode(', ', $evento->generos); ?>)</span>
 			<?php echo $evento->descricao ?>
 			</div>
 		

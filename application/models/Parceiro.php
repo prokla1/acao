@@ -22,7 +22,6 @@ class Application_Model_Parceiro
 	protected $_local;
 	protected $_fotos;
 	protected $_atividades;
-	protected $_tipo;
 	
 
 

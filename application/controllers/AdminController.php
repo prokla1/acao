@@ -168,7 +168,16 @@ class AdminController extends Zend_Controller_Action
 			    										$evento = new Application_Model_Evento($form->getValues());
 			    										$evento->setCapa($actual_image_name);
 			    										$eventoTable  = new Application_Model_DbTable_Eventos();
-			    										$eventoTable->save($evento);
+			    										$id_evento = $eventoTable->save($evento);
+			    										
+			    										
+			    										$generos = $this->_getParam('id_genero');
+			    										$table = new Application_Model_DbTable_RelGeneros();
+			    										$table->saveGeneros($generos, $id_evento);
+			    											
+			    											
+			    										
+			    										
 			    										
 			    										
 			    									}else {
