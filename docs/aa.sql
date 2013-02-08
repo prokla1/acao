@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 06, 2013 at 10:13 PM
+-- Generation Time: Feb 08, 2013 at 10:37 AM
 -- Server version: 5.1.67-0ubuntu0.11.10.1
 -- PHP Version: 5.3.14
 
@@ -117,7 +117,16 @@ CREATE TABLE IF NOT EXISTS `eventos` (
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`),
   KEY `id_endereco` (`id_endereco`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `eventos`
+--
+
+INSERT INTO `eventos` (`id`, `url_amigavel`, `id_parceiro`, `id_endereco`, `nome`, `descricao`, `capa`, `ativo`, `destaque`, `realizacao`, `hora`) VALUES
+(1, 'jean-e-julio-show-nacional', 4, 1, 'JEAN E JULIO', 'SÁBADO | 16.02 – SHOW NACIONAL\r\nJEAN E JULIO', 'evento_5113f3ada3436.jpg', '1', '0', '2013-02-16', '2013-02-07 18:34:22'),
+(2, 'generos', 4, 1, 'Generos do Evento:', 'Ação\r\nRock\r\nSertanejo\r\nTerror', 'evento_5114ed91b76ec.jpg', '1', '0', '2013-02-08', '2013-02-08 12:20:33'),
+(3, 'generos2', 4, 1, 'Generos do Evento:', 'Generos do Evento:\r\nAção\r\nRock\r\nSertanejo\r\nTerror', 'evento_5114ee1d5c46b.png', '1', '0', '2013-02-28', '2013-02-08 12:22:53');
 
 -- --------------------------------------------------------
 
@@ -137,6 +146,31 @@ CREATE TABLE IF NOT EXISTS `eventos_fotos` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `generos`
+--
+
+DROP TABLE IF EXISTS `generos`;
+CREATE TABLE IF NOT EXISTS `generos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `ativo` enum('0','1') NOT NULL DEFAULT '0',
+  `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `generos`
+--
+
+INSERT INTO `generos` (`id`, `nome`, `ativo`, `hora`) VALUES
+(1, 'Sertanejo', '1', '2013-02-08 11:57:44'),
+(2, 'Rock', '1', '2013-02-08 11:57:44'),
+(3, 'Ação', '1', '2013-02-08 11:58:03'),
+(4, 'Terror', '1', '2013-02-08 11:58:03');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `local_cidades`
 --
 
@@ -148,14 +182,16 @@ CREATE TABLE IF NOT EXISTS `local_cidades` (
   `ativo` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_estado` (`id_estado`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `local_cidades`
 --
 
 INSERT INTO `local_cidades` (`id`, `nome`, `id_estado`, `ativo`) VALUES
-(9, 'Apucarana', 1, '1');
+(9, 'Apucarana', 1, '1'),
+(10, 'São José', 1, '1'),
+(11, 'Palhoça', 2, '1');
 
 -- --------------------------------------------------------
 
@@ -172,7 +208,14 @@ CREATE TABLE IF NOT EXISTS `local_enderecos` (
   `complemento` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cidade` (`id_cidade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `local_enderecos`
+--
+
+INSERT INTO `local_enderecos` (`id`, `id_cidade`, `rua`, `numero`, `complemento`) VALUES
+(1, 11, 'RUA: CAETANO SILVEIRA DE MATTOS', '2463', 'Centro');
 
 -- --------------------------------------------------------
 
@@ -189,14 +232,15 @@ CREATE TABLE IF NOT EXISTS `local_estados` (
   `ativo` enum('0','1') NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_pais` (`id_pais`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `local_estados`
 --
 
 INSERT INTO `local_estados` (`id`, `sigla`, `nome`, `id_pais`, `ativo`) VALUES
-(1, 'PR', 'Paraná', 1, '1');
+(1, 'PR', 'Paraná', 1, '1'),
+(2, 'SC', 'Santa Catarina', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -233,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_cidade` (`id_cidade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `news`
@@ -244,7 +288,8 @@ INSERT INTO `news` (`id`, `id_cidade`, `email`, `hora`) VALUES
 (2, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:34:35'),
 (3, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:34:53'),
 (4, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:39:58'),
-(5, 9, 'representante@controleestudantil.com.br', '2013-02-07 00:11:11');
+(5, 9, 'representante@controleestudantil.com.br', '2013-02-07 00:11:11'),
+(6, 9, 'teste@teste.com', '2013-02-07 11:57:36');
 
 -- --------------------------------------------------------
 
@@ -272,7 +317,16 @@ CREATE TABLE IF NOT EXISTS `parceiros` (
   PRIMARY KEY (`id`),
   KEY `id_usuario` (`id_usuario`),
   KEY `id_endereco` (`id_endereco`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `parceiros`
+--
+
+INSERT INTO `parceiros` (`id`, `url_amigavel`, `id_usuario`, `nome`, `descricao`, `foto`, `ativo`, `id_endereco`, `funcionamento`, `pagamento`, `telefone`, `num_votos`, `total_pontos`, `rating`, `hora`) VALUES
+(4, 'idem-bar', NULL, 'Idem Bar', 'PROMOÇÃO PARA ANIVERSARIANTES NA IDEM BAR\r\nA Idem está com uma promoção especial para aniversariantes.\r\nAgora você pode convidar os seus amigos para comemorar seu aniversário em grande estilo na melhor casa de música sertaneja da Grande Florianópolis e ainda ter várias vantagens!\r\nSão três diferentes pacotes, um deles com certeza se encaixa com a sua necessidade.\r\nÉ só reunir a galera e comemorar!\r\n\r\nANIVERSÁRIO PARA 3 A 6 CONVIDADOS\r\nTrês ingressos femininos FREE\r\nConsumação masculina R$ 70,00\r\nUma espumante cortesia\r\n\r\n7 À 12 CONVIDADOS\r\nUm lounge no camarote\r\nR$ 800 com R$ 700 revertidos em consumo\r\nQuatro ingressos cortesias (unissex)\r\n12 pulseiras do camarote\r\nUma espumantes cortesia\r\n\r\n15 À 35 PESSOAS\r\nDois lounges no camarote (juntos)\r\nR$ 1500 revertidos integralmente em consumo\r\n35 pulseiras do camarote\r\nTodas as mulheres FREE\r\nConsumação masculina de R$ 70,00 – essa quantia já entra automaticamente para a cota de R$ 1500 de consumo', 'idem-bar.png', '1', 1, 'Conforme agenda', 'Todos cartões', '[48] 3242. 7055', 0, 0, '0.00', '2013-02-07 18:32:53'),
+(8, 'sfasfas', NULL, 'teste', 'sdf sadf', 'sfasfas.jpg', '1', 1, 'sd fsa', 'sd fsad f', '4884659923', 0, 0, '0.00', '2013-02-07 20:51:47'),
+(9, 'Restaurante', NULL, 'Restaurante', 'sdf sadf', 'Restaurante.png', '1', 1, 'sd fsa', 'sd fsad f', '4884659923', 0, 0, '0.00', '2013-02-07 20:56:02');
 
 -- --------------------------------------------------------
 
@@ -287,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `parceiros_fotos` (
   `url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -305,7 +359,53 @@ CREATE TABLE IF NOT EXISTS `rel_atividade_parceiro` (
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`),
   KEY `id_atividade` (`id_atividade`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `rel_atividade_parceiro`
+--
+
+INSERT INTO `rel_atividade_parceiro` (`id`, `id_parceiro`, `id_atividade`, `ativo`, `hora`) VALUES
+(1, 4, 3, '0', '2013-02-07 18:42:39'),
+(2, 4, 4, '0', '2013-02-07 18:43:26'),
+(3, 4, 5, '0', '2013-02-07 18:43:26'),
+(4, 4, 6, '0', '2013-02-07 18:43:32'),
+(5, 8, 3, '0', '2013-02-07 20:51:47'),
+(6, 8, 5, '0', '2013-02-07 20:51:47'),
+(7, 8, 1, '0', '2013-02-07 20:51:47'),
+(8, 8, 6, '0', '2013-02-07 20:51:47'),
+(9, 8, 4, '0', '2013-02-07 20:51:47'),
+(10, 8, 2, '0', '2013-02-07 20:51:47'),
+(11, 9, 4, '0', '2013-02-07 20:56:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rel_genero_evento`
+--
+
+DROP TABLE IF EXISTS `rel_genero_evento`;
+CREATE TABLE IF NOT EXISTS `rel_genero_evento` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_evento` int(11) NOT NULL,
+  `id_genero` int(11) NOT NULL,
+  `ativo` enum('0','1') NOT NULL DEFAULT '0',
+  `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_parceiro` (`id_evento`),
+  KEY `id_atividade` (`id_genero`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `rel_genero_evento`
+--
+
+INSERT INTO `rel_genero_evento` (`id`, `id_evento`, `id_genero`, `ativo`, `hora`) VALUES
+(1, 1, 1, '1', '2013-02-08 12:12:31'),
+(2, 3, 3, '0', '2013-02-08 12:22:53'),
+(3, 3, 2, '0', '2013-02-08 12:22:53'),
+(4, 3, 1, '0', '2013-02-08 12:22:53'),
+(5, 3, 4, '0', '2013-02-08 12:22:54');
 
 -- --------------------------------------------------------
 
@@ -404,8 +504,8 @@ ALTER TABLE `news`
 -- Constraints for table `parceiros`
 --
 ALTER TABLE `parceiros`
-  ADD CONSTRAINT `parceiros_ibfk_3` FOREIGN KEY (`id_endereco`) REFERENCES `local_enderecos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `parceiros_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `parceiros_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `parceiros_ibfk_3` FOREIGN KEY (`id_endereco`) REFERENCES `local_enderecos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `parceiros_fotos`
@@ -419,6 +519,13 @@ ALTER TABLE `parceiros_fotos`
 ALTER TABLE `rel_atividade_parceiro`
   ADD CONSTRAINT `rel_atividade_parceiro_ibfk_1` FOREIGN KEY (`id_parceiro`) REFERENCES `parceiros` (`id`),
   ADD CONSTRAINT `rel_atividade_parceiro_ibfk_2` FOREIGN KEY (`id_atividade`) REFERENCES `atividades` (`id`);
+
+--
+-- Constraints for table `rel_genero_evento`
+--
+ALTER TABLE `rel_genero_evento`
+  ADD CONSTRAINT `rel_genero_evento_ibfk_2` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id`),
+  ADD CONSTRAINT `rel_genero_evento_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`);
 
 --
 -- Constraints for table `usuarios`

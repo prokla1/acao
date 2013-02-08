@@ -14,6 +14,19 @@ class Application_Form_EventoCadastrar extends Zend_Form
 
 
 
+    	$generos = new Application_Model_DbTable_Generos();
+    	$generos_list = $generos->getGenerosList();
+    	$this->addElement('multiCheckbox','id_genero', array(
+    			'label' => 'Generos do Evento: ',
+    			'required' => true,
+    	));
+    	foreach ($generos_list as $gen)
+    	{
+    		$this->getElement('id_genero')->addMultiOption($gen['id'], $gen['nome']);
+    		 
+    	}
+
+
     	$enderecos = new Application_Model_DbTable_LocalEnderecos();
     	$endereco_list = $enderecos->getEnderecosList();
     	$this->addElement('select','id_endereco',

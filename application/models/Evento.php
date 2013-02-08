@@ -23,6 +23,28 @@ class Application_Model_Evento
 	
 	protected $_cortesias;
 	
+	protected $_generos;
+	
+	
+	
+		
+	
+	/**
+	 * @param field_type $id_evento
+	 */
+	public function setGeneros($id_evento) {
+		$generos = new Application_Model_DbTable_RelGeneros();
+		$this->_generos = $generos->generosByEvento($id_evento);
+	}
+	
+	/**
+	 * @return the $_fotos (objeto class Application_Model_Generos)
+	 */
+	public function getGeneros() {
+		return $this->_generos;
+	}
+	
+	
 	
 
 
