@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2013 at 06:40 PM
+-- Generation Time: Feb 13, 2013 at 03:08 PM
 -- Server version: 5.1.67-0ubuntu0.11.10.1
 -- PHP Version: 5.3.14
 
@@ -325,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `parceiros` (
 --
 
 INSERT INTO `parceiros` (`id`, `url_amigavel`, `id_usuario`, `nome`, `descricao`, `foto`, `ativo`, `id_endereco`, `funcionamento`, `pagamento`, `telefone`, `num_votos`, `total_pontos`, `rating`, `hora`) VALUES
-(4, 'idem-bar', NULL, 'Idem Bar', 'PROMOÇÃO PARA ANIVERSARIANTES NA IDEM BAR\r\nA Idem está com uma promoção especial para aniversariantes.\r\nAgora você pode convidar os seus amigos para comemorar seu aniversário em grande estilo na melhor casa de música sertaneja da Grande Florianópolis e ainda ter várias vantagens!\r\nSão três diferentes pacotes, um deles com certeza se encaixa com a sua necessidade.\r\nÉ só reunir a galera e comemorar!\r\n\r\nANIVERSÁRIO PARA 3 A 6 CONVIDADOS\r\nTrês ingressos femininos FREE\r\nConsumação masculina R$ 70,00\r\nUma espumante cortesia\r\n\r\n7 À 12 CONVIDADOS\r\nUm lounge no camarote\r\nR$ 800 com R$ 700 revertidos em consumo\r\nQuatro ingressos cortesias (unissex)\r\n12 pulseiras do camarote\r\nUma espumantes cortesia\r\n\r\n15 À 35 PESSOAS\r\nDois lounges no camarote (juntos)\r\nR$ 1500 revertidos integralmente em consumo\r\n35 pulseiras do camarote\r\nTodas as mulheres FREE\r\nConsumação masculina de R$ 70,00 – essa quantia já entra automaticamente para a cota de R$ 1500 de consumo', 'idem-bar.png', '1', 1, 'Conforme agenda', 'Todos cartões', '[48] 3242. 7055', 2, 6, '3.00', '2013-02-07 18:32:53'),
+(4, 'idem-bar', NULL, 'Idem Bar', 'PROMOÇÃO PARA ANIVERSARIANTES NA IDEM BAR\r\nA Idem está com uma promoção especial para aniversariantes.\r\nAgora você pode convidar os seus amigos para comemorar seu aniversário em grande estilo na melhor casa de música sertaneja da Grande Florianópolis e ainda ter várias vantagens!\r\nSão três diferentes pacotes, um deles com certeza se encaixa com a sua necessidade.\r\nÉ só reunir a galera e comemorar!\r\n\r\nANIVERSÁRIO PARA 3 A 6 CONVIDADOS\r\nTrês ingressos femininos FREE\r\nConsumação masculina R$ 70,00\r\nUma espumante cortesia\r\n\r\n7 À 12 CONVIDADOS\r\nUm lounge no camarote\r\nR$ 800 com R$ 700 revertidos em consumo\r\nQuatro ingressos cortesias (unissex)\r\n12 pulseiras do camarote\r\nUma espumantes cortesia\r\n\r\n15 À 35 PESSOAS\r\nDois lounges no camarote (juntos)\r\nR$ 1500 revertidos integralmente em consumo\r\n35 pulseiras do camarote\r\nTodas as mulheres FREE\r\nConsumação masculina de R$ 70,00 – essa quantia já entra automaticamente para a cota de R$ 1500 de consumo', 'idem-bar.png', '1', 1, 'Conforme agenda', 'Todos cartões', '[48] 3242. 7055', 11, 39, '3.55', '2013-02-07 18:32:53'),
 (8, 'sfasfas', NULL, 'teste', 'sdf sadf', 'sfasfas.jpg', '1', 1, 'sd fsa', 'sd fsad f', '4884659923', 0, 0, '0.00', '2013-02-07 20:51:47'),
 (9, 'Restaurante', NULL, 'Restaurante', 'sdf sadf', 'Restaurante.png', '1', 1, 'sd fsa', 'sd fsad f', '4884659923', 0, 0, '0.00', '2013-02-07 20:56:02');
 
@@ -357,14 +357,18 @@ CREATE TABLE IF NOT EXISTS `ratings` (
   `id_parceiro` int(11) NOT NULL,
   `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `ratings`
 --
 
 INSERT INTO `ratings` (`id`, `ip`, `id_parceiro`, `hora`) VALUES
-(5, '127.0.0.1', 4, '2013-02-08 20:21:18');
+(12, '127.0.0.1', 4, '2013-02-08 22:07:13'),
+(13, '127.0.0.1', 4, '2013-02-08 22:09:36'),
+(14, '127.0.0.1', 4, '2013-02-08 22:09:40'),
+(15, '127.0.0.1', 4, '2013-02-08 22:09:41'),
+(16, '127.0.0.1', 4, '2013-02-13 17:03:03');
 
 -- --------------------------------------------------------
 
@@ -547,8 +551,8 @@ ALTER TABLE `rel_atividade_parceiro`
 -- Constraints for table `rel_genero_evento`
 --
 ALTER TABLE `rel_genero_evento`
-  ADD CONSTRAINT `rel_genero_evento_ibfk_2` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id`),
-  ADD CONSTRAINT `rel_genero_evento_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`);
+  ADD CONSTRAINT `rel_genero_evento_ibfk_1` FOREIGN KEY (`id_evento`) REFERENCES `eventos` (`id`),
+  ADD CONSTRAINT `rel_genero_evento_ibfk_2` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id`);
 
 --
 -- Constraints for table `usuarios`

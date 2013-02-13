@@ -12,8 +12,8 @@ class Application_Model_DbTable_Rating extends Zend_Db_Table_Abstract
 		    			$this->select()
 		    			->where('ip = ?', $ip)
 		    			->where('id_parceiro = ?', $id_parceiro)
-// 		    			->where('hora > ?', date('Y-m-d h:i:s', (time() - 86400)))
-		    			->where('hora > ?', (time() - 86400))
+		    			->where('hora > ?', date('Y-m-d h:i:s', (time() - 86400)))
+// 		    			->where('hora > ?', (time() - 86400))
     				);
     	
     	$votou = (count($result) == 0) ? false : true;
