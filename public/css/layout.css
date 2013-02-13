@@ -8,6 +8,10 @@
 		background: url("/img/header-extra_back.png");
 		border-bottom: 1px dashed #ccc;
 	}
+	div.header-extra div.img-bg-header
+	{
+		height:190px; background: url('/img/bg_img_top.png') bottom right no-repeat; margin-right: 30px;
+	}
 	div.header-extra div.eventer
 	{
 		float: left;
