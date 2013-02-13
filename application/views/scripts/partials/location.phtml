@@ -28,6 +28,7 @@ $cidadesTable = new Application_Model_DbTable_LocalCidades();
 $localidades = $cidadesTable->cidadesName();
 ?>
 <div class="ajax_content_localidade">
+	<div class="box_text_cities"><span>SELECIONE A CIDADE</span></div>
 	<div class="cities">
 		<ul>
 			<?php foreach ($localidades as $localidade) : ?>
