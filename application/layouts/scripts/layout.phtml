@@ -50,11 +50,16 @@ echo 	$this->headMeta(),PHP_EOL;
 						<img alt="eVenter" src="/img/eventer.png">
 					</a>
 				</div>
+				<?php 
+				$sess = new Zend_Session_Namespace('Atividade');
+				$atividade = $sess->nome;
+				?>
 				
 				<ul class="header-extra_menu">
-					<li><a class="active" href="/eventos/festas/">Festas</a></li>
-					<li><a href="/eventos/teatro/">Teatro</a></li>
-					<li><a href="/eventos/cinema/">Cinema</a></li>
+					<li><a <?php echo ($atividade == 'festas') ? 'class="active"' : ''; ?> href="/eventos/festas/">Festas</a></li>
+					<li><a <?php echo ($atividade == 'teatro') ? 'class="active"' : ''; ?>href="/eventos/teatro/">Teatro</a></li>
+					<li><a <?php echo ($atividade == 'cinema') ? 'class="active"' : ''; ?>href="/eventos/cinema/">Cinema</a></li>
+					<li><a <?php echo ($atividade == 'todos') ? 'class="active"' : ''; ?>href="/eventos/todos/">Todos</a></li>
 				</ul>
 				
 				<div class="img-bg-header"></div>

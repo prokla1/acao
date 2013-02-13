@@ -30,14 +30,46 @@ class EventosController extends Zend_Controller_Action
     	$this->view->dia_base = $dia_base;
     	
     	$eventos = new Application_Model_DbTable_Eventos();
-    	//$this->view->eventos = $eventos->findByCity($this->cityId);
     	$this->view->eventos = $eventos->findByCityAndDate($this->cityId, $dia_base);
-    	
+
+    	//$this->view->eventos = $eventos->findByCity($this->cityId);
 //     	$eventosTable = new Application_Model_DbTable_Eventos();
 //     	$this->view->destaques = $eventosTable->findByCityDestaques($this->cityId);
     }
 
+
+    public function festasAction()
+    {
+    	$sess = new Zend_Session_Namespace('Atividade');
+    	$sess->id = '6';
+    	$sess->nome = 'festas';
+    	 
+    	return $this->_forward('index', 'eventos', array('atividade' => 'festas'));
+    }
+
+    public function teatroAction()
+    {
+    	$sess = new Zend_Session_Namespace('Atividade');
+    	$sess->id = '2';
+    	$sess->nome = 'teatro';
+    	return $this->_forward('index', 'eventos', array('atividade' => 'teatro'));
+    }
+
+    public function cinemaAction()
+    {
+    	$sess = new Zend_Session_Namespace('Atividade');
+    	$sess->id = '1';
+    	$sess->nome = 'cinema';
+    	return $this->_forward('index', 'eventos', array('atividade' => 'cinema'));
+    }
     
+    public function todosAction()
+    {
+    	$sess = new Zend_Session_Namespace('Atividade');
+    	$sess->id = '0';
+    	$sess->nome = 'todos';
+    	return $this->_forward('index', 'eventos', array('atividade' => 'todos'));
+    }
 
 }
 
