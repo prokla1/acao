@@ -119,16 +119,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		);
 		
 		
-		$router->addRoute(
-				'rating',
-				new Zend_Controller_Router_Route('rating/:rating/:id', array(
-						'module' => 'default',
-						'controller'	=>	'parceiro',
-						'action'		=>	'rating',
-						'rating'		=>	':rating',
-						'id'   			=>	':id'
-				))
-		);	
+// 		$router->addRoute(
+// 				'rating',
+// 				new Zend_Controller_Router_Route('rating/:rating/:id', array(
+// 						'module' => 'default',
+// 						'controller'	=>	'parceiro',
+// 						'action'		=>	'rating',
+// 						'rating'		=>	':rating',
+// 						'id'   			=>	':id'
+// 				))
+// 		);	
 		
 		
 		

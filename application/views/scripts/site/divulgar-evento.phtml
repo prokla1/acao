@@ -18,6 +18,21 @@
 				<p> Divulgue seu evento, <span style="font-size: 18px;">é grátis!</span> Preencha o formulário abaixo informando sobre seu interesse. Analisaremos e logo entraremos em contato. </p>
 			</div>
 		
+		
+		
+			
+	<?php 
+		echo $this->msg;
+		
+		$form = $this->form;
+		$form->getElement('assunto')->setValue('Divulgar Eventos');
+		echo $form;
+	?>
+	
+	
+	
+	
+	<?php /*
 			<table border="0" style="margin: 0 auto;">
 			  <tr>
 			    <td width="430"><label for="nome">Seu nome</label></td>
@@ -74,6 +89,8 @@
 			    </td>
 			  </tr>
 			 </table>
+		*/ ?>
+		
 		
 		</div>
 	</div>

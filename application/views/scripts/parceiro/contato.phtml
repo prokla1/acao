@@ -1,9 +1,13 @@
-	<table width="960" border="0" style="margin: 0 auto;">
+<?php 
+	$parceiro = $this->parceiro;
+?>
+
+<table width="960" border="0" style="margin: 0 auto;">
 	  <tr>
 	    <td height="49" colspan="3"><span class="txt_title">FORMULÁRIO DE CONTATO</span></td>
 	    <td width="17" rowspan="12">&nbsp;</td>
 	    <td width="489" rowspan="12">
-   	    <div class="ct_info"><span class="txt_contact">(48) 3035-5935</span></div>
+   	    <div class="ct_info"><span class="txt_contact"><?php echo $parceiro->telefone ?></span></div>
         	<div class="ct_info"><span class="txt_contact">contato@balada.com.br</span></div>
         </td>
       </tr>

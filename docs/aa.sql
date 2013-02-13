@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2013 at 10:37 AM
+-- Generation Time: Feb 08, 2013 at 06:40 PM
 -- Server version: 5.1.67-0ubuntu0.11.10.1
 -- PHP Version: 5.3.14
 
@@ -277,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_cidade` (`id_cidade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `news`
@@ -289,7 +289,8 @@ INSERT INTO `news` (`id`, `id_cidade`, `email`, `hora`) VALUES
 (3, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:34:53'),
 (4, 9, 'ju.imposisvel@gmail.com', '2013-02-06 23:39:58'),
 (5, 9, 'representante@controleestudantil.com.br', '2013-02-07 00:11:11'),
-(6, 9, 'teste@teste.com', '2013-02-07 11:57:36');
+(6, 9, 'teste@teste.com', '2013-02-07 11:57:36'),
+(7, 9, 'teste@teste.com', '2013-02-08 14:25:59');
 
 -- --------------------------------------------------------
 
@@ -324,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `parceiros` (
 --
 
 INSERT INTO `parceiros` (`id`, `url_amigavel`, `id_usuario`, `nome`, `descricao`, `foto`, `ativo`, `id_endereco`, `funcionamento`, `pagamento`, `telefone`, `num_votos`, `total_pontos`, `rating`, `hora`) VALUES
-(4, 'idem-bar', NULL, 'Idem Bar', 'PROMOÇÃO PARA ANIVERSARIANTES NA IDEM BAR\r\nA Idem está com uma promoção especial para aniversariantes.\r\nAgora você pode convidar os seus amigos para comemorar seu aniversário em grande estilo na melhor casa de música sertaneja da Grande Florianópolis e ainda ter várias vantagens!\r\nSão três diferentes pacotes, um deles com certeza se encaixa com a sua necessidade.\r\nÉ só reunir a galera e comemorar!\r\n\r\nANIVERSÁRIO PARA 3 A 6 CONVIDADOS\r\nTrês ingressos femininos FREE\r\nConsumação masculina R$ 70,00\r\nUma espumante cortesia\r\n\r\n7 À 12 CONVIDADOS\r\nUm lounge no camarote\r\nR$ 800 com R$ 700 revertidos em consumo\r\nQuatro ingressos cortesias (unissex)\r\n12 pulseiras do camarote\r\nUma espumantes cortesia\r\n\r\n15 À 35 PESSOAS\r\nDois lounges no camarote (juntos)\r\nR$ 1500 revertidos integralmente em consumo\r\n35 pulseiras do camarote\r\nTodas as mulheres FREE\r\nConsumação masculina de R$ 70,00 – essa quantia já entra automaticamente para a cota de R$ 1500 de consumo', 'idem-bar.png', '1', 1, 'Conforme agenda', 'Todos cartões', '[48] 3242. 7055', 0, 0, '0.00', '2013-02-07 18:32:53'),
+(4, 'idem-bar', NULL, 'Idem Bar', 'PROMOÇÃO PARA ANIVERSARIANTES NA IDEM BAR\r\nA Idem está com uma promoção especial para aniversariantes.\r\nAgora você pode convidar os seus amigos para comemorar seu aniversário em grande estilo na melhor casa de música sertaneja da Grande Florianópolis e ainda ter várias vantagens!\r\nSão três diferentes pacotes, um deles com certeza se encaixa com a sua necessidade.\r\nÉ só reunir a galera e comemorar!\r\n\r\nANIVERSÁRIO PARA 3 A 6 CONVIDADOS\r\nTrês ingressos femininos FREE\r\nConsumação masculina R$ 70,00\r\nUma espumante cortesia\r\n\r\n7 À 12 CONVIDADOS\r\nUm lounge no camarote\r\nR$ 800 com R$ 700 revertidos em consumo\r\nQuatro ingressos cortesias (unissex)\r\n12 pulseiras do camarote\r\nUma espumantes cortesia\r\n\r\n15 À 35 PESSOAS\r\nDois lounges no camarote (juntos)\r\nR$ 1500 revertidos integralmente em consumo\r\n35 pulseiras do camarote\r\nTodas as mulheres FREE\r\nConsumação masculina de R$ 70,00 – essa quantia já entra automaticamente para a cota de R$ 1500 de consumo', 'idem-bar.png', '1', 1, 'Conforme agenda', 'Todos cartões', '[48] 3242. 7055', 2, 6, '3.00', '2013-02-07 18:32:53'),
 (8, 'sfasfas', NULL, 'teste', 'sdf sadf', 'sfasfas.jpg', '1', 1, 'sd fsa', 'sd fsad f', '4884659923', 0, 0, '0.00', '2013-02-07 20:51:47'),
 (9, 'Restaurante', NULL, 'Restaurante', 'sdf sadf', 'Restaurante.png', '1', 1, 'sd fsa', 'sd fsad f', '4884659923', 0, 0, '0.00', '2013-02-07 20:56:02');
 
@@ -342,6 +343,28 @@ CREATE TABLE IF NOT EXISTS `parceiros_fotos` (
   PRIMARY KEY (`id`),
   KEY `id_parceiro` (`id_parceiro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratings`
+--
+
+DROP TABLE IF EXISTS `ratings`;
+CREATE TABLE IF NOT EXISTS `ratings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(15) NOT NULL,
+  `id_parceiro` int(11) NOT NULL,
+  `hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `ip`, `id_parceiro`, `hora`) VALUES
+(5, '127.0.0.1', 4, '2013-02-08 20:21:18');
 
 -- --------------------------------------------------------
 
