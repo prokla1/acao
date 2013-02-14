@@ -109,16 +109,11 @@ div.evento_content div.evento_flyer div.evento_flyer_zoom img
 }
 
 .ct_icos{
-	position: absolute;
-	display: table;
-	background: url("/img/bg_ico_events.png")  center center repeat-x;
 	width: 192px;
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
-	bottom: -9px;
-	left: -17px;
-	
-
+	position: relative;
+	height: 30px;
+	margin-top: -17px;
+	margin-left: -17px;
 }
 
 .li_zoom{
