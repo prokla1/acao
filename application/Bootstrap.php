@@ -55,6 +55,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 				))
 		);	
 		*/
+
+		$router->addRoute(
+				'eventos',
+				new Zend_Controller_Router_Route('eventos/:tipo', array(
+						'module'		=>	'default',
+						'controller'	=>	'eventos',
+						'action'		=>	'index',
+						'tipo'   		=>	':tipo',
+				))
+		);
+		
 		$router->addRoute(
 				'evento',
 				new Zend_Controller_Router_Route('parceiro/:idP/:nomeP/evento/:idE/:nomeE', array(

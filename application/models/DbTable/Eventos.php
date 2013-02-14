@@ -164,8 +164,8 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	}
     	return $eventos;
     }
-    
-    
+
+
 
 
 
@@ -194,7 +194,55 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->where('local_enderecos.id_cidade = ?', $idCity)
     	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))  //alterar para '>=' para trazer os proximos
     	->order('eventos.realizacao');
-    	 
+    
+    	//Zend_Debug::dump($resultSet->query());
+    	$eventos = array();
+    	foreach ($resultSet->query() as $row) {
+    
+    		$eventoModel = new Application_Model_Evento();
+    		$eventoModel->setOptions($row);
+    		$eventoModel->setParceiro($row['id_parceiro']);
+    		$eventoModel->setEndereco($row['id_endereco']);
+    		$eventoModel->setCortesias($row['id']);
+    
+    		$eventos[] = $eventoModel;
+    	}
+    	return $eventos;
+    }
+    
+    
+    
+
+
+
+
+
+    /**
+     * Retorna os eventos por CIDADE e DIA
+     * @return multitype:Application_Model_Evento
+     */
+    public function findByCityDateType($idCity, $dia_base, $tipo)
+    {
+    	$resultSet = $this->select()
+    	->setIntegrityCheck(false) // allows joins
+    	->from('eventos')
+    	->joinRight( //join na tabela LOCAL ENDERECOS
+    			array(
+    					'local_enderecos'		=>	'local_enderecos'
+    			),
+    			'local_enderecos.id				=	eventos.id_endereco',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'id_cidade'		=>	'local_enderecos.id_cidade',
+    					'rua'				=>	'local_enderecos.rua',
+    					'numero'			=>	'local_enderecos.numero',
+    					'complemento'		=>	'local_enderecos.complemento'
+    			)
+    	)
+    	->where('eventos.ativo = ?', '1')
+    	->where('local_enderecos.id_cidade = ?', $idCity)
+    	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))  //alterar para '>=' para trazer os proximos
+    	->order('eventos.realizacao');
+    
     	//Zend_Debug::dump($resultSet->query());
     	$eventos = array();
     	foreach ($resultSet->query() as $row) {

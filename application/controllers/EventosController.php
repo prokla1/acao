@@ -30,7 +30,16 @@ class EventosController extends Zend_Controller_Action
     	$this->view->dia_base = $dia_base;
     	
     	$eventos = new Application_Model_DbTable_Eventos();
-    	$this->view->eventos = $eventos->findByCityAndDate($this->cityId, $dia_base);
+    	
+    	if ($this->_getParam('tipo'))
+    	{
+    		$tipo = $this->_getParam('tipo');
+    		$this->view->eventos = $eventos->findByCityDateType($this->cityId, $dia_base, $tipo);
+    	}else 
+    	{
+    		$this->view->eventos = $eventos->findByCityAndDate($this->cityId, $dia_base);
+    	}
+    	
 
     	//$this->view->eventos = $eventos->findByCity($this->cityId);
 //     	$eventosTable = new Application_Model_DbTable_Eventos();
@@ -44,7 +53,7 @@ class EventosController extends Zend_Controller_Action
     	$sess->id = '6';
     	$sess->nome = 'festas';
     	 
-    	return $this->_forward('index', 'eventos', array('atividade' => 'festas'));
+    	return $this->_forward('index', 'eventos', array('tipo' => 'festas'));
     }
 
     public function teatroAction()
@@ -52,7 +61,7 @@ class EventosController extends Zend_Controller_Action
     	$sess = new Zend_Session_Namespace('Atividade');
     	$sess->id = '2';
     	$sess->nome = 'teatro';
-    	return $this->_forward('index', 'eventos', array('atividade' => 'teatro'));
+    	return $this->_forward('index', 'eventos', array('tipo' => 'teatro'));
     }
 
     public function cinemaAction()
@@ -60,7 +69,7 @@ class EventosController extends Zend_Controller_Action
     	$sess = new Zend_Session_Namespace('Atividade');
     	$sess->id = '1';
     	$sess->nome = 'cinema';
-    	return $this->_forward('index', 'eventos', array('atividade' => 'cinema'));
+    	return $this->_forward('index', 'eventos', array('tipo' => 'cinema'));
     }
     
     public function todosAction()
@@ -68,7 +77,7 @@ class EventosController extends Zend_Controller_Action
     	$sess = new Zend_Session_Namespace('Atividade');
     	$sess->id = '0';
     	$sess->nome = 'todos';
-    	return $this->_forward('index', 'eventos', array('atividade' => 'todos'));
+    	return $this->_forward('index', 'eventos', array('tipo' => 'todos'));
     }
 
 }
