@@ -2,7 +2,7 @@
 
 div.evento_wrap
 {
-	margin-bottom: 70px;
+	margin-bottom: 40px;
 }
 
 div.evento_promotions
@@ -95,7 +95,7 @@ div.evento_content div.evento_flyer
 	position: relative;
 	background: transparent url("/img/evento_flyer_back.png");
 	width: 192px;
-	height: 260px;
+	height: 220px;
 }
 
 div.evento_content div.evento_flyer div.evento_flyer_zoom
@@ -108,7 +108,18 @@ div.evento_content div.evento_flyer div.evento_flyer_zoom img
 	max-height: 500px;
 }
 
-.ct_icos{margin: 12px 0 0 0;}
+.ct_icos{
+	position: absolute;
+	display: table;
+	background: url("/img/bg_ico_events.png")  center center repeat-x;
+	width: 192px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	bottom: -9px;
+	left: -17px;
+	
+
+}
 
 .li_zoom{
 	cursor: pointer;
@@ -164,8 +175,33 @@ div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img i
 div.evento_content div.evento_description
 {
 	position: absolute;
-	top: 80px;
+	top: 60px;
 	left: 210px;
+}
+div.evento_content div.evento_description div.event_genre
+{
+	border: 1px solid #EBEBEB; border-top: 0px; position: absolute; top: -60px; width: 500px; border-radius: 0 0 4px 4px; padding: 4px 2px;
+	
+	box-shadow: #CCC 1px 1px 1px 1px;
+		
+	background: #e9f6fd; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U5ZjZmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkM2VlZmIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #e9f6fd 0%, #d3eefb 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9f6fd), color-stop(100%,#d3eefb)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e9f6fd 0%,#d3eefb 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e9f6fd 0%,#d3eefb 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e9f6fd 0%,#d3eefb 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e9f6fd 0%,#d3eefb 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', endColorstr='#d3eefb',GradientType=0 ); /* IE6-8 */
+}
+div.evento_content div.evento_description div.event_genre p
+{
+	margin: 0 auto; width: 500px; text-align: center;
+}
+div.evento_content div.evento_description div.event_genre span
+{
+	font-weight: bold;
 }
 div.evento_description_label
 {
@@ -178,11 +214,12 @@ div.evento_description_label
 }
 div.evento_description_content
 {
-	font-size: 22px;
+	font-size: 18px;
 	color: #000;
 	white-space: nowrap;
 	padding-left: 60px;
 	margin-top: 10px;
+	font-weight: bold;
 }
 
 div.evento_content div.evento_description button
@@ -192,7 +229,7 @@ div.evento_content div.evento_description button
 	border: 0;
 	cursor: pointer;
 	text-indent: 999999em;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 div.evento_content div.evento_description button.evento_description_button_details
@@ -212,7 +249,7 @@ div.evento_content div.evento_date
 {
 	background: transparent url("/img/evento_date.png") center center no-repeat;
 	width: 207px;
-	height: 259px;
+	height: 220px;
 	position: absolute;
 	right: -12px;
 	top: 0;
@@ -230,6 +267,6 @@ div.evento_content div.evento_date a
 div.evento_content div.evento_date span
 {
 	display: block;
-	margin: 45px 40px;
+	margin: 30px 36px;
 	font-size: 30px;
 }

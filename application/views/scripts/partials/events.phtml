@@ -34,16 +34,16 @@ $this->headMeta()->setProperty('og:image', $event['imagem']);
 				</div>
 				<div class="ct_icos">
 					<ul>
-						<li style="float: left; margin-right: 2px; cursor: pointer;" onclick='share("<?php echo $evento->id ?>");' >
+						<li style="float: left; margin: 2px 4px 0px 20px; cursor: pointer;" onclick='share("<?php echo $evento->id ?>");' >
 							<img src="/img/btn_events_facebook.png">
 							
 						</li>
 
-						<li style="float: left; cursor: pointer;">
+						<li style="float: left; cursor: pointer; margin: 2px 4px 0px 6px;">
 							<img src="/img/btn_events_mail.png">
 						</li> 
 
-						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer;">
+						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer; margin: 2px 20px 0px 2px;">
 							<img src="/img/btn_events_zoom.png">
 						</li>
 					</ul>
@@ -56,6 +56,10 @@ $this->headMeta()->setProperty('og:image', $event['imagem']);
 		</div>
 		
 		<div class="evento_description">
+		
+		<div class="event_genre">
+		<p style="">Gênero[s]: <span>Sertanejo | Hip Hop</span></p>
+		 </div>
 		
 			<div class="evento_description_label">
 				evento:
