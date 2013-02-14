@@ -5,6 +5,7 @@ class Application_Model_Atividades
 
 	protected $_id;
 	protected $_nome;
+	protected $_url;
 	protected $_ativo;
 	protected $_hora;
 
@@ -130,6 +131,20 @@ class Application_Model_Atividades
 	public function setHora($_hora) {
 		$this->_hora = $_hora;
 	}
+	/**
+	 * @return the $_url
+	 */
+	public function getUrl() {
+		return $this->_url;
+	}
+
+	/**
+	 * @param field_type $_url
+	 */
+	public function setUrl($_url) {
+		$this->_url = $_url;
+	}
+
 
 	
 	

@@ -232,18 +232,41 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     			),
     			'local_enderecos.id				=	eventos.id_endereco',
     			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
-    					'id_cidade'		=>	'local_enderecos.id_cidade',
+    					'id_cidade'			=>	'local_enderecos.id_cidade',
     					'rua'				=>	'local_enderecos.rua',
     					'numero'			=>	'local_enderecos.numero',
     					'complemento'		=>	'local_enderecos.complemento'
     			)
     	)
+    	->joinRight( //join na tabela REL_ATIVIDADES_PARCEIROS
+    			array(
+    					'rel_atividade_parceiro'		=>	'rel_atividade_parceiro'
+    			),
+    			'rel_atividade_parceiro.id_parceiro	=	eventos.id_parceiro',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'rel_id_atividade'		=>	'rel_atividade_parceiro.id_atividade',
+    					'rel_id_parceiro'		=>	'rel_atividade_parceiro.id_parceiro',
+    			)
+    	)
+    	->joinLeft( //join na tabela ATIVIDADES
+    			array(
+    					'atividades'		=>	'atividades'
+    			),
+    			'atividades.id	=	rel_atividade_parceiro.id_atividade',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'atividade_id'		=>	'atividades.id',
+    					'atividade_nome'	=>	'atividades.nome',
+    					'atividade_url'		=>	'atividades.url'
+    			)
+    	)
     	->where('eventos.ativo = ?', '1')
+    	->where('atividades.url = ?', $tipo)
     	->where('local_enderecos.id_cidade = ?', $idCity)
     	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))  //alterar para '>=' para trazer os proximos
     	->order('eventos.realizacao');
     
-    	//Zend_Debug::dump($resultSet->query());
+    	return Zend_Debug::dump($resultSet->__toString());
+//     	exit;
     	$eventos = array();
     	foreach ($resultSet->query() as $row) {
     
