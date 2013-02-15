@@ -1,5 +1,6 @@
 <?php
 $dia_base = $this->dia_base;
+
 $defaultDate = date('d', $dia_base) ."/". date('m', $dia_base). "/".date('Y', $dia_base);
 $this->headTitle(' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');  //titulo da página
 
@@ -14,7 +15,7 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 
 <?php echo $this->partial('partials/location.phtml'); ?>
 
-<?php echo $this->partial('partials/calendar.phtml'); ?>
+<?php echo $this->partial('partials/calendar.phtml', array('dia_base' => $dia_base)); ?>
 
 
 <div class="eventos_content">	

@@ -4,15 +4,17 @@
 	$dias = array();
 	$dias_semana = array('Dom', 'Seg', 'Ter', 'Quar', 'Qui', 'Sex', 'Sáb');
 	$dias_semana_long = array('Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo');
-	$mes_long = array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro',
-	    'Outubro','Novembro','Dezembro');
+	$mes_long = array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro');
+
 	//$dia_base = time();
 	
-	if(empty($_GET['d'])){
-		$dia_base = time(); //+86400*50;  //86400 = 1 dia
-	}else{
-		$dia_base = $_GET['d'];
-	}
+// 	if(empty($_GET['d'])){
+// 		$dia_base = time(); //+86400*50;  //86400 = 1 dia
+// 	}else{
+// 		$dia_base = $_GET['d'];
+// 	}
+	
+	$dia_base =  $this->dia_base;
 	
 // 	echo 'dia base '. $dia_base . ' = ' . date('d/m/Y h:i:s', $dia_base);
 // 	echo '<hr>time() '. time(). ' = ' . date('d/m/Y h:i:s', time());;
@@ -23,7 +25,7 @@
 
 	$week = array();
 	$week['prev'] = ($dias[0]-(86400*6));
-	$week['next'] = ($dias[6]+(86400*6));
+	$week['next'] = ($dias[6]);
 	$defaultDate = $dias_semana_long[date('w', $dia_base)].", ".date('d', $dia_base) ." de ". $mes_long[(date('n', $dia_base)-1)]. ", ".date('Y', $dia_base);
 ?>	
 	

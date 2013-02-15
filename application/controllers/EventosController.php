@@ -11,6 +11,46 @@ class EventosController extends Zend_Controller_Action
      	$this->view->cityId = $this->cityId;
      	$this->view->cityNome = $this->cityNome;
      	$this->view->doctype('XHTML1_RDFA');
+
+     	$sessTipo = new Zend_Session_Namespace('Tipo');
+     	if ($this->_getParam('tipo') && $this->_getParam('tipo') != ':tipo')
+     	{
+     		$this->tipo = $this->_getParam('tipo');
+     		$sessTipo->tipo = $this->_getParam('tipo');
+     	}else {
+     		 
+     		if ($sessTipo->tipo)
+     		{
+     			$this->tipo = $sessTipo->tipo;
+     		}else
+     		{
+     			$this->tipo = 'todos';
+     			$sessTipo->tipo = 'todos';
+     		}
+     		 
+     	}
+     	
+
+     	$sessDia = new Zend_Session_Namespace('Dia');
+     	if ($this->_getParam('d'))
+     	{
+     		$this->dia_base = $this->_getParam('d');
+     		$sessDia->dia = $this->dia_base;
+     		
+     	}else {
+     		 
+     		if ($sessDia->dia)
+     		{
+     			$this->dia_base = $sessDia->dia;
+     			 
+     		}else
+     		{
+     			$this->dia_base = time();
+     			$sessDia->dia = $this->dia_base;
+     			 
+     		}
+     		 
+     	}
     }
     
     
@@ -23,19 +63,26 @@ class EventosController extends Zend_Controller_Action
     		return $this->_forward('index', 'localidade');
     	}
     	
-    	$dia_base = $this->_getParam('d');
-    	if(empty($dia_base)){
-    		$dia_base = time(); //+86400*50;  //86400 = 1 dia
-    	}
+    	
+
+    	
+    	
+//     	$dia_base = $this->_getParam('d');
+//     	if(empty($dia_base)){
+//     		$dia_base = time(); //+86400*50;  //86400 = 1 dia
+//     	}
+    	
+    	$dia_base = $this->dia_base;
     	$this->view->dia_base = $dia_base;
     	
     	$eventos = new Application_Model_DbTable_Eventos();
     	
-    	if ($this->_getParam('tipo') && $this->_getParam('tipo') != 'todos' && $this->_getParam('tipo') != ':tipo')
+    	
+    	
+    	if ($this->tipo && $this->tipo != 'todos' && $this->tipo != ':tipo')
     	{
-    		$tipo = $this->_getParam('tipo');
-    		$this->view->tipo = $tipo;
-    		$this->view->eventos = $eventos->findByCityDateType($this->cityId, $dia_base, $tipo);
+    		$this->view->tipo = $this->tipo; //$tipo;
+    		$this->view->eventos = $eventos->findByCityDateType($this->cityId, $dia_base, $this->tipo);
     	}else 
     	{
     		$this->view->eventos = $eventos->findByCityAndDate($this->cityId, $dia_base);

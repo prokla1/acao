@@ -51,14 +51,14 @@ echo 	$this->headMeta(),PHP_EOL;
 					</a>
 				</div>
 				<?php 
-				$atividade = $this->tipo; // $sess->nome;
+				$atividade = $this->tipo;
 				?>
 				
 				<ul class="header-extra_menu">
 					<li><a <?php echo ($atividade == 'festa') ? 'class="active"' : ''; ?> href="/eventos/festa/">Festa</a></li>
 					<li><a <?php echo ($atividade == 'teatro') ? 'class="active"' : ''; ?>href="/eventos/teatro/">Teatro</a></li>
 					<li><a <?php echo ($atividade == 'cinema') ? 'class="active"' : ''; ?>href="/eventos/cinema/">Cinema</a></li>
-					<li><a <?php echo ($atividade != 'festas' && $atividade != 'teatro' && $atividade != 'cinema') ? 'class="active"' : ''; ?>href="/eventos/todos/">Todos</a></li>
+					<li><a <?php echo ($atividade != 'festa' && $atividade != 'teatro' && $atividade != 'cinema') ? 'class="active"' : ''; ?>href="/eventos/todos/">Todos</a></li>
 				</ul>
 				
 				<div class="img-bg-header"></div>
