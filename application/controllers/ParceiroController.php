@@ -29,7 +29,7 @@ class ParceiroController extends Zend_Controller_Action
 	    	
 	    	
 	    	$action = $this->getRequest()->getActionName();
-	    	if($action == 'fotos' || $action == 'localizacao' || $action == 'contato' || $action == 'agenda' )
+	    	if($action == 'fotos' || $action == 'localizacao' || $action == 'home' || $action == 'agenda' )
 	    	{
 	    		//$this->_forward($action);
 // 	    		return print_r($this->_getAllParams());
@@ -138,9 +138,10 @@ class ParceiroController extends Zend_Controller_Action
         // action body
     }
 
-    public function contatoAction()
+    public function homeAction()
     {
-        // action body
+        $form    = new Application_Form_ContatoParceiro();
+        $this->view->form = $form;
     }
 
     public function ratingAction()
