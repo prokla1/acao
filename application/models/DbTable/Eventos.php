@@ -243,29 +243,29 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     					'rel_atividade_parceiro'		=>	'rel_atividade_parceiro'
     			),
     			'rel_atividade_parceiro.id_parceiro	=	eventos.id_parceiro',
-    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    			array(
     					'rel_id_atividade'		=>	'rel_atividade_parceiro.id_atividade',
     					'rel_id_parceiro'		=>	'rel_atividade_parceiro.id_parceiro',
     			)
     	)
-    	->joinLeft( //join na tabela ATIVIDADES
+    	->joinRight( //join na tabela ATIVIDADES
     			array(
     					'atividades'		=>	'atividades'
     			),
     			'atividades.id	=	rel_atividade_parceiro.id_atividade',
-    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    			array( 
     					'atividade_id'		=>	'atividades.id',
     					'atividade_nome'	=>	'atividades.nome',
     					'atividade_url'		=>	'atividades.url'
     			)
     	)
     	->where('eventos.ativo = ?', '1')
-    	->where('atividades.url = ?', $tipo)
+    	->where('atividades.url IN (?)', $tipo)
     	->where('local_enderecos.id_cidade = ?', $idCity)
     	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))  //alterar para '>=' para trazer os proximos
     	->order('eventos.realizacao');
     
-    	return Zend_Debug::dump($resultSet->__toString());
+//     	return Zend_Debug::dump($resultSet->__toString());
 //     	exit;
     	$eventos = array();
     	foreach ($resultSet->query() as $row) {

@@ -31,9 +31,10 @@ class EventosController extends Zend_Controller_Action
     	
     	$eventos = new Application_Model_DbTable_Eventos();
     	
-    	if ($this->_getParam('tipo'))
+    	if ($this->_getParam('tipo') && $this->_getParam('tipo') != 'todos' && $this->_getParam('tipo') != ':tipo')
     	{
     		$tipo = $this->_getParam('tipo');
+    		$this->view->tipo = $tipo;
     		$this->view->eventos = $eventos->findByCityDateType($this->cityId, $dia_base, $tipo);
     	}else 
     	{
@@ -47,38 +48,38 @@ class EventosController extends Zend_Controller_Action
     }
 
 
-    public function festasAction()
-    {
-    	$sess = new Zend_Session_Namespace('Atividade');
-    	$sess->id = '6';
-    	$sess->nome = 'festas';
+//     public function festasAction()
+//     {
+//     	$sess = new Zend_Session_Namespace('Atividade');
+//     	$sess->id = '6';
+//     	$sess->nome = 'festas';
     	 
-    	return $this->_forward('index', 'eventos', array('tipo' => 'festas'));
-    }
+//     	return $this->_forward('index', 'eventos', array('tipo' => 'festas'));
+//     }
 
-    public function teatroAction()
-    {
-    	$sess = new Zend_Session_Namespace('Atividade');
-    	$sess->id = '2';
-    	$sess->nome = 'teatro';
-    	return $this->_forward('index', 'eventos', array('tipo' => 'teatro'));
-    }
+//     public function teatroAction()
+//     {
+//     	$sess = new Zend_Session_Namespace('Atividade');
+//     	$sess->id = '2';
+//     	$sess->nome = 'teatro';
+//     	return $this->_forward('index', 'eventos', array('tipo' => 'teatro'));
+//     }
 
-    public function cinemaAction()
-    {
-    	$sess = new Zend_Session_Namespace('Atividade');
-    	$sess->id = '1';
-    	$sess->nome = 'cinema';
-    	return $this->_forward('index', 'eventos', array('tipo' => 'cinema'));
-    }
+//     public function cinemaAction()
+//     {
+//     	$sess = new Zend_Session_Namespace('Atividade');
+//     	$sess->id = '1';
+//     	$sess->nome = 'cinema';
+//     	return $this->_forward('index', 'eventos', array('tipo' => 'cinema'));
+//     }
     
-    public function todosAction()
-    {
-    	$sess = new Zend_Session_Namespace('Atividade');
-    	$sess->id = '0';
-    	$sess->nome = 'todos';
-    	return $this->_forward('index', 'eventos', array('tipo' => 'todos'));
-    }
+//     public function todosAction()
+//     {
+//     	$sess = new Zend_Session_Namespace('Atividade');
+//     	$sess->id = '0';
+//     	$sess->nome = 'todos';
+//     	return $this->_forward('index', 'eventos', array('tipo' => 'todos'));
+//     }
 
 }
 
