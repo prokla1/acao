@@ -12,13 +12,13 @@ class EventosController extends Zend_Controller_Action
      	$this->view->cityNome = $this->cityNome;
      	$this->view->doctype('XHTML1_RDFA');
 
+     	
      	$sessTipo = new Zend_Session_Namespace('Tipo');
      	if ($this->_getParam('tipo') && $this->_getParam('tipo') != ':tipo')
      	{
      		$this->tipo = $this->_getParam('tipo');
      		$sessTipo->tipo = $this->_getParam('tipo');
      	}else {
-     		 
      		if ($sessTipo->tipo)
      		{
      			$this->tipo = $sessTipo->tipo;
@@ -27,8 +27,9 @@ class EventosController extends Zend_Controller_Action
      			$this->tipo = 'todos';
      			$sessTipo->tipo = 'todos';
      		}
-     		 
      	}
+     	$this->view->tipo = $this->tipo; //$tipo;
+     	
      	
 
      	$sessDia = new Zend_Session_Namespace('Dia');
@@ -36,21 +37,18 @@ class EventosController extends Zend_Controller_Action
      	{
      		$this->dia_base = $this->_getParam('d');
      		$sessDia->dia = $this->dia_base;
-     		
      	}else {
-     		 
      		if ($sessDia->dia)
      		{
      			$this->dia_base = $sessDia->dia;
-     			 
      		}else
      		{
      			$this->dia_base = time();
      			$sessDia->dia = $this->dia_base;
-     			 
      		}
-     		 
      	}
+     	
+     	
     }
     
     
@@ -81,7 +79,6 @@ class EventosController extends Zend_Controller_Action
     	
     	if ($this->tipo && $this->tipo != 'todos' && $this->tipo != ':tipo')
     	{
-    		$this->view->tipo = $this->tipo; //$tipo;
     		$this->view->eventos = $eventos->findByCityDateType($this->cityId, $dia_base, $this->tipo);
     	}else 
     	{

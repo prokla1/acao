@@ -58,10 +58,10 @@ echo 	$this->headMeta(),PHP_EOL;
 					<li><a <?php echo ($atividade == 'festa') ? 'class="active"' : ''; ?> href="/eventos/festa/">Festa</a></li>
 					<li><a <?php echo ($atividade == 'teatro') ? 'class="active"' : ''; ?>href="/eventos/teatro/">Teatro</a></li>
 					<li><a <?php echo ($atividade == 'cinema') ? 'class="active"' : ''; ?>href="/eventos/cinema/">Cinema</a></li>
-					<li><a <?php echo ($atividade != 'festa' && $atividade != 'teatro' && $atividade != 'cinema') ? 'class="active"' : ''; ?>href="/eventos/todos/">Todos</a></li>
+					<li><a <?php echo ($atividade == 'todos') ? 'class="active"' : ''; ?>href="/eventos/todos/">Todos</a></li>
 				</ul>
 				
-				<div class="img-bg-header"></div>
+				<div class="img-bg-header" style="background-image: url('http://acao.dev/img/bg_img_top_<?php echo $atividade ?>.png');"></div>
 			
 			</div>
 
