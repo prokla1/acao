@@ -25,6 +25,7 @@ class Application_Form_News extends Zend_Form
     					'EmailAddress',
     			)
     	));
+    	$this->getElement('email')->addErrorMessage('Insira seu email corretamente');
     	 
     	
 //     	$this->addElement('submit', 'submit', array(
