@@ -26,10 +26,10 @@ class ParceiroController extends Zend_Controller_Action
 	    		return $this->_helper->redirector('index', 'eventos');
 	    	
 	    	
-	    	
+
 	    	
 	    	$action = $this->getRequest()->getActionName();
-	    	if($action == 'fotos' || $action == 'localizacao' || $action == 'home' || $action == 'agenda' )
+	    	if($action == 'fotos' || $action == 'localizacao' || $action == 'home' || $action == 'agenda' || $action == 'evento' || $action == 'index' )
 	    	{
 	    		//$this->_forward($action);
 // 	    		return print_r($this->_getAllParams());
@@ -73,7 +73,7 @@ class ParceiroController extends Zend_Controller_Action
 
     public function indexAction()
     {
-    	return $this->_forward('agenda', 'parceiro');
+    	return $this->_forward('home', 'parceiro');
     }
     
     
@@ -95,7 +95,7 @@ class ParceiroController extends Zend_Controller_Action
     		$evento = $eventosTable->byUrl($this->_getParam('urlE'), $eventoModel);    		
     	}else
     	{
-    		print_r($this->_getAllParams());
+//     		print_r($this->_getAllParams());
     		
     		if(is_numeric($this->_getParam('idE')))
     		{

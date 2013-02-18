@@ -401,7 +401,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	{
 	    	$evento->setOptions($resultSet->fetch());
 	    	$evento->setCortesias($evento->id);
-    		$evento->setGeneros($row['id']);
+    		$evento->setGeneros($evento->id);
     	}else
     	{
     		$evento = null;

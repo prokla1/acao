@@ -1,3 +1,19 @@
+<?php
+
+$parceiro = $this->parceiro;
+
+
+$this->headTitle($parceiro->nome . ' [ eVenter ] ');  //titulo da página
+$this->headMeta()->setProperty('og:title', $parceiro->nome . ' [ eVenter ] ');
+$this->headMeta()->setProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
+$this->headMeta()->setProperty('og:site_name', 'eVenter - Entradas para o seu evento');
+$this->headMeta()->setProperty('og:description', $parceiro->descricao);
+$this->headMeta()->setProperty('og:url', $this->serverUrl() .'/' . $this->parceiro->url_amigavel);
+$this->headMeta()->setProperty('og:type', 'eventer_social:event');
+$this->headMeta()->setProperty('fb:app_id', '240996152682246');
+
+?>
+
 <div class="wrap" style="display: table; width: 930px;">
 
 	<div class="wrapLeft" style="width: 626px; display: table; float: left;">
@@ -13,6 +29,7 @@
 		
 			<div class="fb-comments" data-href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" data-width="600" data-num-posts="3"></div>
 		
+		
 		</div>
 	
 	</div>
@@ -21,7 +38,19 @@
 
 		<div class="wrapfblike" style="border: 1px solid #CCC; width: 302px; display: table; margin: 30px 0;">
 		
+		<?php /*
 			<iframe src="//www.facebook.com/plugins/facepile.php?href=http%3A%2F%2Feventer.com.br%2F<?php echo $this->parceiro->url_amigavel?>&amp;action&amp;size=large&amp;max_rows=2&amp;show_count=true&amp;width=600&amp;colorscheme=light" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:302px;" allowTransparency="true"></iframe>
+		*/ ?>
+				<fb:facepile href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" max_rows="2" width="300"></fb:facepile>
+		
+		
+		<fb:like href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" send="true" layout="box_count" style="float:right; "width="63" show_faces="true" font=""></fb:like>
+		
+		<div class="fb-like" data-href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" data-send="true" data-layout="box_count" data-width="109" data-show-faces="true" data-colorscheme="light" data-action="recommend"></div>
+		
+		<div class="fb-like-box" data-href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" data-width="300" data-height="200" data-show-faces="true" data-colorscheme="light" data-stream="false" data-header="false" data-border-color="#FFF"></div>
+		
+		
 		
 		</div>
 		
