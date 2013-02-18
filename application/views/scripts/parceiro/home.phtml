@@ -36,30 +36,13 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 	
 	<div class="wrapRight" style="width: 302px; float: left;">
 
-		<div class="wrapfblike" style="border: 1px solid #CCC; width: 302px; display: table; margin: 30px 0;">
-		
-		<?php /*
-			<iframe src="//www.facebook.com/plugins/facepile.php?href=http%3A%2F%2Feventer.com.br%2F<?php echo $this->parceiro->url_amigavel?>&amp;action&amp;size=large&amp;max_rows=2&amp;show_count=true&amp;width=600&amp;colorscheme=light" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:302px;" allowTransparency="true"></iframe>
-		*/ ?>
-				<fb:facepile href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" max_rows="2" width="300"></fb:facepile>
-		
-		
-		<fb:like href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" send="true" layout="box_count" style="float:right; "width="63" show_faces="true" font=""></fb:like>
-		
-		<div class="fb-like" data-href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" data-send="true" data-layout="box_count" data-width="109" data-show-faces="true" data-colorscheme="light" data-action="recommend"></div>
-		
-		<div class="fb-like-box" data-href="<?php echo $this->serverUrl() .'/' . $this->parceiro->url_amigavel ?>" data-width="300" data-height="200" data-show-faces="true" data-colorscheme="light" data-stream="false" data-header="false" data-border-color="#FFF"></div>
-		
-		
-		
-		</div>
 		
 		<div class="form_parc" style="padding: 0 10px;">
 		
 			<p style="font-weight: bold; padding: 10px 0; font-size: 16px;">CONTATO</p>
 			<?php echo $this->form?>
 		
-		</div>
+		</div>	
 		
 	
 	</div>
@@ -74,7 +57,7 @@ div.wrap div.wrapRight div.form_parc input[type="text"]{width: 200px; padding: 5
 div.wrap div.wrapRight div.form_parc textarea{width: 270px; padding: 5px 10px; outline: 0; border: 1px solid #CCC;}
 div.wrap div.wrapRight div.form_parc input[type="submit"]
 	{
-	width: 200px; padding: 8px 10px; outline: 0; border: 1px solid #CCC; float: right; border-radius: 2px;
+	width: 200px; padding: 8px 10px; outline: 0; border: 1px solid #09F; float: right; border-radius: 2px;
 	background: #7abcff; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdhYmNmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iIzYwYWJmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MDk2ZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
