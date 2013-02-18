@@ -39,11 +39,6 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 							
 						</li>
 					</ul>
-					<!--<ul>
-						<li style="float: left; cursor: pointer; margin: 2px 4px 0px 6px;">
-							<img src="/img/btn_events_mail.png">
-						</li>  
-					</ul>-->
 					<ul style="display: table; top: -19px; right:-3px; position: absolute;">
 						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer;">
 							<img src="/img/btn_events_zoom.png">
@@ -77,11 +72,26 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 				local:
 			</div>
 			<div class="evento_description_content">
-			 	<a href="<?php echo $this->serverUrl() .'/' . $evento->parceiro->url_amigavel ?>  ">
+			 	<a href="<?php echo $this->serverUrl() .'/' . $evento->parceiro->url_amigavel ?> "style="float: left;">
 					<?php echo $evento->parceiro->nome ?>
 					
 				</a>
+				
+				<div id="rating_<?php echo $evento->parceiro->id; ?>" class="rating_partial">
+   					<ul class="star-rating-partial">
+   						<li class="current-rating" id="current-rating" style="width: <?php echo ($evento->parceiro->rating * 20); ?>%;"></li>
+					    <li><a class="star1" >1</a></li>
+					    <li><a class="star2" >2</a></li>
+					    <li><a class="star3" >3</a></li>
+					    <li><a class="star4" >4</a></li>
+					    <li><a class="star5" >5</a></li>
+					</ul>
+				</div>
+				
 			</div>
+					
+
+					
 			
 			<button type="button" class="evento_description_button_details">Detalhes</button>
 			<?php if(count($evento->cortesias) > 0) : ?>

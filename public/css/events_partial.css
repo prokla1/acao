@@ -172,6 +172,7 @@ div.evento_content div.evento_description
 	position: absolute;
 	top: 60px;
 	left: 210px;
+	width: 480px;
 }
 div.evento_content div.evento_description div.event_genre
 {
@@ -265,3 +266,69 @@ div.evento_content div.evento_date span
 	margin: 30px 36px;
 	font-size: 30px;
 }
+
+
+
+
+
+
+
+/* *****  RATING  ***** */
+
+.rating_partial{
+}
+.star-rating-partial,
+.star-rating-partial .current-rating{
+background: url(/img/stars_rating.png) left -1000px repeat-x;
+}
+.star-rating-partial{
+position:relative;
+width:110px;
+height:23px;
+overflow:hidden;
+list-style:none;
+margin:0;
+padding:0;
+background-position: left top;
+}
+.star-rating-partial li{
+display: inline;
+}
+.star-rating-partial a,
+.star-rating-partial .current-rating{
+position:absolute;
+top:0;
+left:0;
+text-indent:-1000em;
+height:24px;
+line-height:24px;
+outline:none;
+overflow:hidden;
+border: none;
+}
+.star-rating-partial a.star1{
+width:20%;
+z-index:6;
+}
+.star-rating-partial a.star2{
+width:40%;
+z-index:5;
+}
+.star-rating-partial a.star3{
+width:60%;
+z-index:4;
+}
+.star-rating-partial a.star4{
+width:80%;
+z-index:3;
+}
+.star-rating-partial a.star5{
+width:100%;
+z-index:2;
+}
+.star-rating-partial .current-rating{
+z-index:1;
+margin: 0 !important;
+background-position: left center;
+}	
+
