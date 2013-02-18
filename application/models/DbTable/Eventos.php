@@ -86,6 +86,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     			
     		//$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
+    		$eventoModel->setGeneros($row['id']);
     	
     		$eventos[] = $eventoModel;
     	}
@@ -204,6 +205,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		$eventoModel->setParceiro($row['id_parceiro']);
     		$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
+    		$eventoModel->setGeneros($row['id']);
     
     		$eventos[] = $eventoModel;
     	}
@@ -275,6 +277,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		$eventoModel->setParceiro($row['id_parceiro']);
     		$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
+    		$eventoModel->setGeneros($row['id']);
     
     		$eventos[] = $eventoModel;
     	}
@@ -319,6 +322,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		$eventoModel->setParceiro($row['id_parceiro']);
     		$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
+    		$eventoModel->setGeneros($row['id']);
     
     		$eventos[] = $eventoModel;
     	}
@@ -397,6 +401,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	{
 	    	$evento->setOptions($resultSet->fetch());
 	    	$evento->setCortesias($evento->id);
+    		$evento->setGeneros($row['id']);
     	}else
     	{
     		$evento = null;

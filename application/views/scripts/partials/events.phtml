@@ -60,7 +60,7 @@ $this->headMeta()->setProperty('og:image', $event['imagem']);
 		<div class="evento_description">
 		
 		<div class="event_genre">
-		<p style="">Gênero[s]: <span>Sertanejo | Hip Hop</span></p>
+		<p style="">Gênero[s]: <span><?php echo implode(' | ', $evento->generos); ?></span></p>
 		 </div>
 		
 			<div class="evento_description_label">
