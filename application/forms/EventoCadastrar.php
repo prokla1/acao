@@ -49,7 +49,7 @@ class Application_Form_EventoCadastrar extends Zend_Form
     	// Add an email element
     	$this->addElement('text', 'realizacao', array(
     			'label'      => 'Data de realizaçào:',
-    			'value'		=>	'2013-02-28',
+    			'value'		=>	date('d/m/Y', strtotime("+1 days")),
     			'required'   => true,
     			'filters'    => array('StringTrim')
     	));
@@ -67,7 +67,8 @@ class Application_Form_EventoCadastrar extends Zend_Form
 
     	$this->addElement('textarea', 'descricao', array(
     			'label'      => 'Descricao do Evento:',
-    			'required'   => true
+    			'required'   => true,
+    			'class'		=>	'ckeditor'
     	));
     	 
 

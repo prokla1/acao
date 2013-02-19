@@ -54,7 +54,8 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     	$this->addElement('textarea', 'descricao', array(
     			'label'      => 'Descricao do Parceiro:',
     			'required'   => true,
-    			'rows'		=>	'20'
+    			'rows'		=>	'20',
+    			'class'		=>	'ckeditor'
     	));
     	 
 
@@ -62,7 +63,8 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     	$this->addElement('textarea', 'funcionamento', array(
     			'label'      => 'Horários de Funcionamento:',
     			'required'   => true,
-    			'rows'		=>	'10'
+    			'rows'		=>	'10',
+    			'class'		=>	'ckeditor'
     	));
     	
     	 
@@ -71,7 +73,8 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     	$this->addElement('textarea', 'pagamento', array(
     			'label'      => 'Sobre o pgto',
     			'required'   => true,
-    			'rows'		=>	'10'
+    			'rows'		=>	'10',
+    			'class'		=>	'ckeditor'
     	));
     	
     	 
