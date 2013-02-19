@@ -69,8 +69,10 @@ echo 	$this->headMeta(),PHP_EOL;
 <?php
 
 	$this->headScript()->setSeparator(PHP_EOL)
-		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
-		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));	
+		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'))
+		->appendFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
+		->appendFile($this->baseUrl('/js/jquery.stringToSlug.js'))
+		->appendFile($this->baseUrl('/js/admin.js'));	
 	
 		 
 	echo	$this->headScript(),PHP_EOL;
