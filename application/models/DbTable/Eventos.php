@@ -9,6 +9,8 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     
     public function save(Application_Model_Evento $evento)
     {
+    	$p_dt = explode('/',$evento->getRealizacao());
+    	$data = $p_dt[2].'-'.$p_dt[1].'-'.$p_dt[0];
     	$data = array(
     			'url_amigavel' => $evento->getUrl_amigavel(),
     			'id_parceiro' => $evento->getId_parceiro(),
@@ -18,9 +20,10 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     			'capa' => $evento->getCapa(),
     			'ativo' => $evento->getAtivo(),
     			'destaque' => $evento->getDestaque(),
-    			'realizacao' => $evento->getRealizacao(),
+    			'realizacao' => date('Y-m-d', strtotime($data)), //muda de formato pt-BR para DB
     	);
-    
+
+    	
     	// id == null -> insert
     	if (null === ($id = $evento->getId())) {
     			unset($data['id']);
