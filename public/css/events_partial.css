@@ -219,19 +219,19 @@ div.evento_description_content
 	font-weight: bold;
 }
 
-div.evento_content div.evento_description button
+div.evento_content div.btn_events
 {
-	width: 145px;
-	height: 40px;
-	border: 0;
-	cursor: pointer;
-	text-indent: 999999em;
+	clear: both;
 	margin-top: 20px;
+	
 }
 
 div.evento_content div.evento_description button.evento_description_button_details
 {
 	background: transparent url("/img/evento_description_button_details.png") left center no-repeat;
+	width: 120px;
+	border: 0;
+	cursor: pointer;
 }
 div.evento_content div.evento_description button.evento_description_button_promotions
 {
@@ -273,21 +273,9 @@ div.evento_content div.evento_date a
 
 div.evento_content div.evento_date a p
 {
-<<<<<<< HEAD
 	padding-left: 20px;
  	background:  url('/img/events_link_arrow.png') left center no-repeat;
 }
-
-=======
-	display: block;
-	margin: 30px 36px;
-	font-size: 30px;
-}
-
-
-
-
-
 
 
 /* *****  RATING  ***** */
@@ -300,8 +288,8 @@ background: url(/img/stars_rating.png) left -1000px repeat-x;
 }
 .star-rating-partial{
 position:relative;
-width:110px;
-height:23px;
+width:107px;
+height:19px;
 overflow:hidden;
 list-style:none;
 margin:0;
@@ -317,7 +305,7 @@ position:absolute;
 top:0;
 left:0;
 text-indent:-1000em;
-height:24px;
+height:19px;
 line-height:24px;
 outline:none;
 overflow:hidden;
@@ -349,4 +337,3 @@ margin: 0 !important;
 background-position: left center;
 }	
 
->>>>>>> 766a8481e691bcfa6c02a4f6f99d18ab67bb00ea

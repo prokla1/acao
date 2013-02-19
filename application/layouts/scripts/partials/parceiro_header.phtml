@@ -16,16 +16,8 @@ $parceiro = $this->parceiro;
 				<h3><?php echo $parceiro->local->cidade->nome ?> - <?php echo $parceiro->local->cidade->estado->sigla ?><span>(<?php echo implode(', ', $parceiro->atividades); ?>)</span></h3>
 			</div>
 			<div class="facebook_like">
-				<div><iframe src="//www.facebook.com/plugins/like.php?href=http://acao.dev/floripa-shopping&amp;send=false&amp;layout=button_count&amp;width=140&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=240996152682246" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:140px; height:21px;" allowTransparency="true"></iframe></div>
-			</div>
-		
-<<<<<<< HEAD
-=======
-		<div style="position: absolute; top: 190px; left: 230px;">
-			<div class="left">
 				<iframe src="//www.facebook.com/plugins/like.php?href=<?php echo $this->serverUrl() .'/' . $parceiro->url_amigavel ?>&amp;send=false&amp;layout=button_count&amp;width=140&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=240996152682246" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:140px; height:21px;" allowTransparency="true"></iframe>
 			</div>
->>>>>>> 766a8481e691bcfa6c02a4f6f99d18ab67bb00ea
 		</div>
 		
 
@@ -62,51 +54,51 @@ $parceiro = $this->parceiro;
 			</ul>
 		</div>
 
+		</div>
 	</div>
-</div>
 
 
 
 
-<div class="parceiro_menu">
-	<div class="parceiro_menu_wrap">
-	<?php 
-		$router = Zend_Controller_Front::getInstance()->getRequest()->getActionName(); 
-	?>
-		<ul>
-			<li>
-				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'home'), 'default', true) ?>">
-					Home
-					<?php if($router == 'home') echo '<div class="menu_active"></div>'; ?>
-				</a>
-			</li>
-			<li>
-				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'evento'), 'default', true) ?>">
-					Evento
-					<?php if($router == 'evento') echo '<div class="menu_active"></div>'; ?>
-				</a>
-			</li>
-			<li>
-				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'agenda'), 'default', true) ?>">
-					Agenda
-					<?php if($router == 'agenda'|| $router == 'parceiro') echo '<div class="menu_active"></div>'; ?>
-				</a>
-			</li>
-			<li>
-				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'fotos'), 'default', true) ?>">
-					Fotos
-					<?php if($router == 'fotos') echo '<div class="menu_active"></div>'; ?>
-				</a>
-			</li>
-			<li>
-				<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'localizacao'), 'default', true) ?>">
-					Mapa
-					<?php if($router == 'localizacao') echo '<div class="menu_active"></div>'; ?>
-				</a>
-  			</li>
-		</ul>
+	<div class="parceiro_menu">
+		<div class="parceiro_menu_wrap">
+		<?php 
+			$router = Zend_Controller_Front::getInstance()->getRequest()->getActionName(); 
+		?>
+			<ul>
+				<li>
+					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'home'), 'default', true) ?>">
+						Home
+						<?php if($router == 'home') echo '<div class="menu_active"></div>'; ?>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'evento'), 'default', true) ?>">
+						Evento
+						<?php if($router == 'evento') echo '<div class="menu_active"></div>'; ?>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'agenda'), 'default', true) ?>">
+						Agenda
+						<?php if($router == 'agenda'|| $router == 'parceiro') echo '<div class="menu_active"></div>'; ?>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'fotos'), 'default', true) ?>">
+						Fotos
+						<?php if($router == 'fotos') echo '<div class="menu_active"></div>'; ?>
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'localizacao'), 'default', true) ?>">
+						Mapa
+						<?php if($router == 'localizacao') echo '<div class="menu_active"></div>'; ?>
+					</a>
+	  			</li>
+			</ul>
+		</div>
 	</div>
-</div>
 
 
 
