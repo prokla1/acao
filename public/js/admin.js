@@ -17,12 +17,31 @@ function str_to_slug(str) {
 }
 
 
+
+
+
 $(document).ready( function() {
 	
-	CKEDITOR.replaceAll('ckeditor', {
-		// Load the German interface.
-		language: 'pt-br'
+	
+	
+	
+//	CKEDITOR.replaceAll('ckeditor', {
+//		// Load the German interface.
+//		language: 'pt-br'
+//	});
+	
+	
+	$('.ckeditor').redactor({
+		imageUpload: '/admin/upload',
+		imageGetJson: '/admin/uploadjson'
 	});
+		
+		
+	
+	
+	
+	
+	
 
 //	$("#nome").stringToSlug({
 //		setEvents: 'keyup keydown blur keypress',

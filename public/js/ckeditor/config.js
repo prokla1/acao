@@ -11,11 +11,16 @@
 
 
 
-CKEDITOR.editorConfig = function( config ){
-    config.filebrowserBrowseUrl = '/js/ckeditor/ckfinder/ckfinder.html',
-    config.filebrowserImageBrowseUrl = '/js/ckeditor/ckfinder/ckfinder.html?type=Images',
-    config.filebrowserFlashBrowseUrl = '/js/ckeditor/ckfinder/ckfinder.html?type=Flash',
-    config.filebrowserUploadUrl = '/js/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files',
-    config.filebrowserImageUploadUrl = '/js/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Images',
-    config.filebrowserFlashUploadUrl = '/js/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Flash'
-};
+//CKEDITOR.editorConfig = function( config ){
+//    config.filebrowserBrowseUrl = '/js/ckeditor/ckfinder/ckfinder.html',
+//    config.filebrowserImageBrowseUrl = '/js/ckeditor/ckfinder/ckfinder.html?type=Images',
+//    config.filebrowserFlashBrowseUrl = '/js/ckeditor/ckfinder/ckfinder.html?type=Flash',
+//    config.filebrowserUploadUrl = '/js/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files',
+//    config.filebrowserImageUploadUrl = '/js/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Images',
+//    config.filebrowserFlashUploadUrl = '/js/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Flash'
+//};
+
+CKEDITOR.editorConfig = function(config) {
+	   config.filebrowserImageBrowseUrl = '/admin/upload'; //'/js/ckeditor/kcfinder/browse.php?type=images';
+	   config.filebrowserImageUploadUrl = '/admin/uploadjson'; //'/js/ckeditor/kcfinder/upload.php?type=images';
+	};

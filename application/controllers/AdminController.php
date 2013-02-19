@@ -280,8 +280,70 @@ class AdminController extends Zend_Controller_Action
     	$this->view->form = $form;
     }
 
+    public function uploadAction()
+    {
+			    
+	    $path = APPLICATION_PATH . '/../public/img/uploads/';
+	    $valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
+	     
+	    $name = $_FILES['file']['name'];
+	    $tmp = $_FILES['file']['tmp_name'];
+	    
+	    // setting file's mysterious name
+	    $filename = date('YmdHis').'.jpg';
+	    $file = $path.$filename;
+	    	
+	    // copying
+	    copy($_FILES['file']['tmp_name'], $file);
+	    	
+	    		$thumb500px = new Plugins_EasyThumbnail($file, $file, 500);
+	    		if ($thumb500px) {
+	    			$msg[] = array(
+	    					'status'	=>	'ok',
+	    					'url'		=>	$filename,
+	    					'msg'		=>	'Sucesso 500px: '. $name
+	    			);
+	    			$thumb100px = new Plugins_EasyThumbnail($file, $path."/150px/".$filename, 150);
+	    		}
+	
+	    // displaying file    
+		$array = array(
+			'filelink' => '/img/uploads/'.$filename
+		);
+		
+		$this->_helper->json($array);
+			 
+    }
+
+    public function uploadjsonAction()
+    {
+        
+    	//get all image files with a .jpg extension.
+    	$directory = APPLICATION_PATH . '/../public/img/uploads/';
+    	$images = glob("" . $directory . "*.*");
+    	
+    	$imgs = array();
+    	// create array
+    	foreach($images as $image)
+    	{
+    		$img = array();
+    		$img['thumb'] = '/public/img/uploads/150px/'. basename($image); //$image;
+    		$img['image'] = '/public/img/uploads/'. basename($image);
+    		$img['title'] =  basename($image);
+    		$img['folder'] = 'Imagens';
+    		$imgs[] = $img; 
+    	}
+    	$this->_helper->json($imgs);
+    	
+    	
+    }
+
 
 }
+
+
+
+
 
 
 
