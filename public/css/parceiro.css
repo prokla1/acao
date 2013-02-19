@@ -47,8 +47,6 @@ div.header-extra ul.header-extra_menu li a:HOVER
 /* ********  PARCEIRO - CONTENT *********** */
 	
 div.parceiro_content {
-	border: 1px dashed #CCC;
-	background-color: #F4F6F7;
 	border-radius: 5px;
 	width: 928px;
 	margin: 0 auto;

@@ -1,5 +1,17 @@
 @CHARSET "UTF-8";
 
+div.eventos_content
+{
+	border: 1px dashed #CCC;
+	background-color: #F7F9FA;
+	border-radius: 10px;
+	width: 928px;
+	margin: 0 auto;
+	padding: 30px 25px 0 25px;
+	margin-bottom: 30px;
+}
+
+
 div.evento_wrap
 {
 	margin-bottom: 40px;
@@ -86,7 +98,7 @@ div.evento_promotions table thead th.th_empty
 
 div.evento_content
 {
-	background: transparent url("/img/evento_container_back.png");
+	background: url("/img/evento_container_back.png") repeat-x;
 	position: relative;
 	border: 1px solid #E9E9E9;
 }
@@ -126,7 +138,7 @@ button span {
 div.evento_content div.evento_flyer div.evento_promo
 {
 	position: absolute;
-	left: -7px;
+	left: -6px;
 	top: 6px;
 }
 div.evento_content div.evento_flyer div.evento_flyer_mold
@@ -175,20 +187,9 @@ div.evento_content div.evento_description
 }
 div.evento_content div.evento_description div.event_genre
 {
-	border: 1px solid #EBEBEB; border-top: 0px; position: absolute; top: -60px; width: 500px; border-radius: 0 0 4px 4px; padding: 4px 2px;
-	
-	box-shadow: #CCC 1px 1px 1px 1px;
-		
-	background: #e9f6fd; /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U5ZjZmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkM2VlZmIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  #e9f6fd 0%, #d3eefb 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9f6fd), color-stop(100%,#d3eefb)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #e9f6fd 0%,#d3eefb 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #e9f6fd 0%,#d3eefb 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #e9f6fd 0%,#d3eefb 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #e9f6fd 0%,#d3eefb 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9f6fd', endColorstr='#d3eefb',GradientType=0 ); /* IE6-8 */
+	border-top: 0px; position: absolute; top: -60px; width: 500px; border-radius: 0 0 4px 4px; padding: 10px 2px;
+	box-shadow: #F5F5F5 2px 1px 1px 1px;
+	background: #F5F5F5;
 }
 div.evento_content div.evento_description div.event_genre p
 {
@@ -205,7 +206,7 @@ div.evento_description_label
 	float: left;
 	width: 50px;
 	text-align: right;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 div.evento_description_content
 {
@@ -213,7 +214,7 @@ div.evento_description_content
 	color: #000;
 	white-space: nowrap;
 	padding-left: 60px;
-	margin-top: 10px;
+	margin-top: 20px;
 	font-weight: bold;
 }
 
@@ -224,7 +225,7 @@ div.evento_content div.evento_description button
 	border: 0;
 	cursor: pointer;
 	text-indent: 999999em;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 div.evento_content div.evento_description button.evento_description_button_details
@@ -242,26 +243,36 @@ div.evento_content div.evento_description button.evento_description_button_promo
 
 div.evento_content div.evento_date
 {
-	background: transparent url("/img/evento_date.png") center center no-repeat;
-	width: 207px;
+	width: 200px;
 	height: 220px;
 	position: absolute;
-	right: -12px;
+	right: 0;
 	top: 0;
-}
-
-
-div.evento_content div.evento_date a
-{
-	display: block;
-	width: 100%;
-	height: 165px;
-	text-indent: -9999em;
+	background: #ECECEC;
 }
 
 div.evento_content div.evento_date span
 {
 	display: block;
-	margin: 30px 36px;
+	margin: 50px 36px;
 	font-size: 30px;
 }
+
+div.evento_content div.evento_date a
+{
+	display: block;
+	width: 172px;
+	padding: 10px 0 10px 30px;
+	border-right: 4px solid #CCCCCC;
+	background: #F4F4F4;
+	color: #0099FF;
+	margin: 0 0 4px 0;
+	
+}
+
+div.evento_content div.evento_date a p
+{
+	padding-left: 20px;
+ 	background:  url('/img/events_link_arrow.png') left center no-repeat;
+}
+
