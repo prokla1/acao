@@ -337,9 +337,56 @@ class AdminController extends Zend_Controller_Action
     	
     	
     }
+    
+    
+    
+
+    public function parceirofotosCadastrarAction()
+    {
+        $request = $this->getRequest();
+    	$form    = new Application_Form_ParceirofotosCadastrar();
+    	
+    	if ($this->getRequest()->isPost()) {
+    		
+
+// 	    		print_r($_FILES);
+				$files = array();
+				$qts = @count($_FILES['url']['name']);
+				for($i=0; $i < $qts; $i++)
+				{
+					$files[] = $_FILES['url']['name'][$i];
+				}
+	    		$this->_helper->json($files);
+	    		
+    		
+    		if ($form->isValid($request->getPost())) {
+    			
+    			
+    			
+    			$path = APPLICATION_PATH . '/../public/img/eventos/';
+    			$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
+    			 
+    			$name = $_FILES['url']['name'];
+    			$tmp = $_FILES['url']['tmp_name'];
+    			
+    				
+    			@list($txt, $ext) = explode(".", $name);
+    			if(in_array($ext,$valid_formats))
+    			{
+    				
+    				$actual_image_name = $txt . '-' . uniqid() . '.' . strtolower($ext);
+    				
+    			}
+    		}
+    	}
+    	
+    	$this->view->form = $form;
+    }
 
 
 }
+
+
 
 
 

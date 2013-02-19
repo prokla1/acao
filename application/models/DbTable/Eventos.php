@@ -236,7 +236,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     					'local_enderecos'		=>	'local_enderecos'
     			),
     			'local_enderecos.id				=	eventos.id_endereco',
-    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    			array(
     					'id_cidade'			=>	'local_enderecos.id_cidade',
     					'rua'				=>	'local_enderecos.rua',
     					'numero'			=>	'local_enderecos.numero',
@@ -398,11 +398,11 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->where('eventos.ativo = ?', '1')
     	->where('eventos.realizacao >= ?', date('Y-m-d', time()))
     	->order('eventos.realizacao')
-    	->limit(1)
-    	->query();
-    	if($resultSet)
+    	->limit(1);
+    	//->query();
+    	if($this->fetchRow($resultSet))
     	{
-	    	$evento->setOptions($resultSet->fetch());
+	    	$evento->setOptions($resultSet->query()->fetch());
 	    	$evento->setCortesias($evento->id);
     		$evento->setGeneros($evento->id);
     	}else
