@@ -14,5 +14,7 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 	<?php if(count($eventos) > 0) : ?>
 		<?php echo $this->partial('partials/events.phtml', array('eventos' => $eventos)); ?>
 	<?php else: ?> 
-		nenhum  evento
+		<div class="container_content_msg">	
+			Nenhum evento cadastrado para este parceiro
+		</div>
 	<?php endif;?>

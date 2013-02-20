@@ -348,36 +348,52 @@ class AdminController extends Zend_Controller_Action
     	
     	if ($this->getRequest()->isPost()) {
     		
-
+    		$id_parceiro = $this->_getParam('id_parceiro');
+    		$path = APPLICATION_PATH . '/../public/img/parceiros/';
+    		$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
+    		
 // 	    		print_r($_FILES);
 				$files = array();
 				$qts = @count($_FILES['url']['name']);
 				for($i=0; $i < $qts; $i++)
 				{
 					$files[] = $_FILES['url']['name'][$i];
+					$name = $_FILES['url']['name'][$i];
+					$tmp = $_FILES['url']['tmp_name'][$i];
+					
+					@list($txt, $ext) = explode(".", $name);
+					if(in_array($ext,$valid_formats))
+					{
+						$filename = $txt . '-' . uniqid() . '.' . strtolower($ext);
+						$file = $path.$filename;
+					
+						// copying
+						copy($tmp, $file);
+					
+						$thumb500px = new Plugins_EasyThumbnail($file, $file, 500);
+						if ($thumb500px) {
+							$msg[] = array(
+									'status'	=>	'ok',
+									'url'		=>	$file,
+									'msg'		=>	'Sucesso 500px: '. $name
+							);
+							$thumb100px = new Plugins_EasyThumbnail($file, $path."150px/".$filename, 150);
+							
+							$data = array(
+									'url' => $filename,
+									'id_parceiro' => $id_parceiro,
+							);
+							$parceirofotosTable = new Application_Model_DbTable_ParceirosFotos();
+							$parceirofotosTable->insert($data);
+						}
+					
+					}
+					 
 				}
 	    		$this->_helper->json($files);
-	    		
-    		
-    		if ($form->isValid($request->getPost())) {
-    			
-    			
-    			
-    			$path = APPLICATION_PATH . '/../public/img/eventos/';
-    			$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
     			 
-    			$name = $_FILES['url']['name'];
-    			$tmp = $_FILES['url']['tmp_name'];
-    			
-    				
-    			@list($txt, $ext) = explode(".", $name);
-    			if(in_array($ext,$valid_formats))
-    			{
-    				
-    				$actual_image_name = $txt . '-' . uniqid() . '.' . strtolower($ext);
-    				
-    			}
-    		}
+
+
     	}
     	
     	$this->view->form = $form;

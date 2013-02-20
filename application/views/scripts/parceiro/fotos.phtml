@@ -14,11 +14,17 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 
 ?>
 
+
 <?php if(count($this->parceiro->fotos) > 0)  : ?>
 
-<div id="fotos" style="width: 900px; height: 600px; background: #000; margin: 0 auto; text-align: center;">
+<div id="fotos" style="width: 700px; height: 500px; background: #000; margin: 0 auto; text-align: center;">
 	<?php foreach ($this->parceiro->fotos as $fotos) :?>
-			<img src="/img/parceiros/<?php echo $fotos->url ?>"  />
+			<a href="/img/parceiros/<?php echo $fotos->url ?>"><img src="/img/parceiros/150px/<?php echo $fotos->url ?>" /></a>
+			
+			
+		<?php 
+			$this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$fotos->url);
+		?>
 	<?php endforeach; ?>
 </div>
 	<?php 
@@ -33,6 +39,8 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 
 <?php else : ?>
 
-nenhuma foto
+		<div class="container_content_msg">	
+			Nenhuma foto cadastrada para este local
+		</div>
 
 <?php endif; ?>

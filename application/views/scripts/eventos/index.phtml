@@ -18,14 +18,18 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 <?php echo $this->partial('partials/calendar.phtml', array('dia_base' => $dia_base)); ?>
 
 
-<div class="eventos_content">	
+	
 		
 	<?php if(count($this->eventos) > 0) : ?>
-		<?php echo $this->partial('partials/events.phtml', array('eventos' => $this->eventos)); ?>
+		<div class="eventos_content">
+			<?php echo $this->partial('partials/events.phtml', array('eventos' => $this->eventos)); ?>
+		</div>	
 	<?php else: ?> 
-		<div style="text-align: center; margin-bottom: 30px; font-weight: bold; padding: 10px;">Nenhum evento cadastrado para esta data</div>
+		<div class="container_content_msg">	
+			Nenhum evento cadastrado para esta data
+		</div>
 	<?php endif;?>
-</div>	
+
 
 
 <?php 

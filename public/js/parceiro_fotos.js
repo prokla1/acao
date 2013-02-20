@@ -3,6 +3,6 @@ $(document).ready(function(){
     Galleria.run('#fotos', {
         transition: 'fade',
         autoplay: 3000,
-        imageCrop: true
+        imageCrop: false,
     });
 });

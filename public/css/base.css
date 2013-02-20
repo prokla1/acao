@@ -125,6 +125,7 @@ button
 ================================================== */
 
 
+
 /*========== #Panels ============
 				<li class="panel_label">
 					<button><span>texto</span></button>
@@ -153,4 +154,29 @@ li.panel_label div.panel_value
 	-webkit-box-shadow: 0 0 0 2px rgba(1,1,1,0.1);
 	box-shadow: 0 0 0 2px rgba(1,1,1,0.1);
 	text-align: left;
+}
+
+
+
+
+/* ============= #Container - without content =====
+
+	<div class="container_content_msg">	
+		Nenhum evento cadastrado para esta data
+	</div>
+	
+*/
+
+.container_content_msg
+{
+	border: 1px dashed #CCC;
+	background-color: #F4F6F7;
+	border-radius: 10px;
+	width: 928px;
+	margin: 0 auto;
+	padding: 30px;
+	margin-bottom: 30px;
+	
+	text-align: center;
+	font-weight: bold;
 }
