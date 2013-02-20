@@ -232,6 +232,7 @@ div.evento_content div.evento_description button.evento_description_button_detai
 	width: 120px;
 	border: 0;
 	cursor: pointer;
+	margin: 10px 2px 0 20px;
 }
 div.evento_content div.evento_description button.evento_description_button_promotions
 {
