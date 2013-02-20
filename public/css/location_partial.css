@@ -54,6 +54,7 @@ div.ajax_content_localidade
 	display: none;
 /* 	position: absolute; */
 	z-index: 60;
+	border-top: 3px solid #000;
 }
 
 div.ajax_content_localidade div.cities

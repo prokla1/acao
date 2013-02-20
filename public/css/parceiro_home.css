@@ -7,7 +7,7 @@ LEFT
 */
 
 div.wrap div.wrapLeft{
-	width: 626px; display: table; float: left; margin-right: 50px;
+	display: table; float: left; margin-right: 20px;
 }
 
 div.wrap div.wrapLeft div.desc_parc{
@@ -15,11 +15,12 @@ div.wrap div.wrapLeft div.desc_parc{
 }
 
 div.wrap div.wrapLeft div.desc_parc p.title_homeP{
-	font-weight: bold; padding: 10px 0; font-size: 22px; color: #09F;
+	padding: 20px 0 10px 0; font-size: 26px; color: #09F;
 }
 
-div.wrap div.wrapLeft div.desc_parc p{
-	
+div.wrap div.wrapLeft div.desc_parc p.text_descP{
+	text-align: justify;
+	width: 600px;
 }
 
 div.wrap div.wrapLeft div.commentsFb{
@@ -31,7 +32,7 @@ RIGHT
 */
 
 div.wrap div.wrapRight{
-	width: 302px; float: left;
+	display:table; float: left; padding: 30px 15px 15px 15px; border-left: 1px dotted #fbfbfb;
 }
 
 div.wrap div.wrapRight div.form_parc{
@@ -39,7 +40,7 @@ div.wrap div.wrapRight div.form_parc{
 }
 
 div.wrap div.wrapRight div.form_parc p{
-	font-weight: bold; padding: 10px 0; font-size: 22px; color: #09F;
+	padding: 20px 0 30px 0; font-size: 26px; color: #09F;
 }
 
 /*
@@ -47,16 +48,19 @@ FORM
 */
 
 div.wrap div.wrapRight div.form_parc label{
-	font-size: 12px;
+	font-size: 12px; font-weight: bold; color: #CCC;
 }
 div.wrap div.wrapRight div.form_parc input[type="text"]{
-	width: 200px; padding: 5px 10px; outline: 0; border: 1px solid #CCC; border-radius: 2px; background: #F4F4F4;
+	width: 200px; padding: 8px 10px; outline: 0; border: 1px solid #EFEFEF; background: #F9F9F9;  color: #09F; font-family: verdana;
+}
+div.wrap div.wrapRight div.form_parc input#assunto{
+	width: 200px; padding: 8px 10px; outline: 0; border: 1px solid #EFEFEF; background: #F9F9F9;  color: #000; font-family: verdana;
 }
 div.wrap div.wrapRight div.form_parc textarea{
-	width: 270px; padding: 5px 10px; outline: 0; border: 1px solid #CCC; background: #F4F4F4;
+	width: 270px; padding: 5px 10px; outline: 0; border: 1px solid #EFEFEF; background: #F4F4F4; color: #000; font-family: verdana;
 }
 div.wrap div.wrapRight div.form_parc input[type="submit"]{
-	width: 200px; padding: 8px 10px; outline: 0; border: 1px solid #09F; float: right; border-radius: 2px; cursor: pointer; margin-top: -10px; margin-right: -8px;
+	width: 200px; padding: 10px 10px; outline: 0; border: 1px solid #09F; float: right; border-radius: 2px; cursor: pointer; margin-top: -10px; TEXT-TRANSFORM: uppercase;
 	
 	background: #7abcff; /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */

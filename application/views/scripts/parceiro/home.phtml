@@ -20,8 +20,9 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 
 		<div class="desc_parc">
 			
-			<p class="title_homeP">DESCRIÇÂO DO LOCAL</p>
-			<p><?php echo $parceiro->descricao ?></p>
+			<p class="title_homeP">DESCRIÇÃO DO LOCAL</p>
+			<hr / style="margin: 10px 0 20px 0;">
+			<p class="text_descP"><?php echo $parceiro->descricao ?></p>
 		
 		</div>
 		
@@ -36,10 +37,15 @@ $this->headMeta()->setProperty('fb:app_id', '240996152682246');
 	
 	<div class="wrapRight">
 
+		<div class="PhoneParceiro" style="border: 3px solid #F1F6F9; padding: 20px 80px; font-size: 24px; background: #fbfbfb; margin-bottom: 30px;">
 		
+			<span style="font-size: 26px; color: #09F;">(48) 9615 8765</span>
+			
+		</div>
 		<div class="form_parc">
 		
-			<p class="title_homeP">CONTATO</p>
+			<p class="title_homeP">FORM. CONTATO</p>
+
 			<?php echo $this->form?>
 		
 		</div>	
