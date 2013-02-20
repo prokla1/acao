@@ -18,7 +18,7 @@ div.wrap div.wrapLeft div.desc_parc p.title_homeP{
 	padding: 20px 0 10px 0; font-size: 26px; color: #09F;
 }
 
-div.wrap div.wrapLeft div.desc_parc p.text_descP{
+div.wrap div.wrapLeft div.desc_parc div.text_descP{
 	text-align: justify;
 	width: 600px;
 }
