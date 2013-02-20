@@ -5,7 +5,6 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(".ajax_content_localidade").slideToggle();
 		scroll();
-		console.log('clicou no link 2 location_partial.js');
 
 	});    
 });

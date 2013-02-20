@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+	scroll();
 	
 	$('ul.star-rating li a').click(function(){
 		var id_parceiro = $(this).attr('rel');
@@ -23,3 +23,12 @@ $(document).ready(function() {
 	
 
 });
+
+
+
+function scroll(){
+    $('html, body').animate({
+        scrollTop: $(".parceiro_menu").offset().top
+    }, 800);
+    
+}
