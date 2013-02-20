@@ -100,12 +100,12 @@ div.ajax_content_localidade div.box_text_cities span
 	padding-left: 24px; padding-bottom: 2px; background: url('/img/btn_select_cities.png') left center no-repeat;
 
 }
-div.content_localidade div.cities ul li a
+div.ajax_content_localidade div.cities ul li a
 {
 	color: #000;
 }
 
-div.content_localidade div.cities ul li a:hover
+div.ajax_content_localidade div.cities ul li a:hover
 {
 	color: #ccc;
 }

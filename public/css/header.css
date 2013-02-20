@@ -16,7 +16,7 @@ ul.navigation
 
 ul.navigation li
 {
-	float: left; text-transform: uppercase; border-left: 1px solid #333333; color: #F2F2F2; font-weight: bold; font-size: 12px;
+	float: left; text-transform: uppercase; border-left: 1px solid #333333; color: #F2F2F2; font-size: 12px;
 }
 ul.navigation li a.login
 {
