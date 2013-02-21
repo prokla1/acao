@@ -2,7 +2,7 @@
 
 .global
 {   
-	background: transparent url("/img/body.png") repeat !important;
+	background: #666;
 }
 div.content_localidade
 {

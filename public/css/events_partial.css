@@ -2,7 +2,7 @@
 
 div.eventos_content
 {
-	border: 1px dashed #CCC;
+	border: 1px dotted #CCC;
 	background-color: #F7F9FA;
 	border-radius: 10px;
 	width: 928px;

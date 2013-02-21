@@ -6,11 +6,11 @@
 	{
 		height: 180px;
 		background: url("/img/header-extra_back.png");
-		border-bottom: 1px dashed #ccc;
 	}
 	div.header-extra div.img-bg-header
 	{
-		height:190px; background: url('/img/bg_img_top.png') bottom right no-repeat;
+		background: url('http://acao.dev/img/bg_img_top_todos.png') no-repeat bottom right !important;
+		height: 190px;
 	}
 	div.header-extra div.eventer
 	{

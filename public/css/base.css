@@ -53,6 +53,7 @@
 {   /*para posicionar o rodape no final*/
 	min-height:100%;
 	position:relative;
+	background: #fbfbfb;
 }
 .wrapper
 {
