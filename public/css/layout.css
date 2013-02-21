@@ -9,7 +9,7 @@
 	}
 	div.header-extra div.img-bg-header
 	{
-		background: url('http://acao.dev/img/bg_img_top_todos.png') no-repeat bottom right !important;
+		background: url('http://acao.dev/img/bg_img_top_todos.png') no-repeat bottom right;
 		height: 190px;
 	}
 	div.header-extra div.eventer
