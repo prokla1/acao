@@ -5,11 +5,8 @@ $defaultDate = date('d', $dia_base) ."/". date('m', $dia_base). "/".date('Y', $d
 $this->headTitle(' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');  //titulo da página
 
 $this->headMeta()->setProperty('og:title', ' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');
-$this->headMeta()->setProperty('og:site_name', 'eVenter - Entradas para o seu evento');
 $this->headMeta()->setProperty('og:description', ' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');
 $this->headMeta()->setProperty('og:url', $this->serverUrl() . '/?c='. $this->cityId . '&d=' . $dia_base);
-$this->headMeta()->setProperty('og:type', 'eventer_social:event');
-$this->headMeta()->setProperty('fb:app_id', '240996152682246');
 ?>
 
 

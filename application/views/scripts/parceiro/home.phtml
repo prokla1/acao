@@ -6,11 +6,8 @@ $parceiro = $this->parceiro;
 $this->headTitle($parceiro->nome . ' [ eVenter ] ');  //titulo da página
 $this->headMeta()->setProperty('og:title', $parceiro->nome . ' [ eVenter ] ');
 $this->headMeta()->setProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
-$this->headMeta()->setProperty('og:site_name', 'eVenter - Entradas para o seu evento');
 $this->headMeta()->setProperty('og:description', $parceiro->descricao);
 $this->headMeta()->setProperty('og:url', $this->serverUrl() .'/' . $this->parceiro->url_amigavel);
-$this->headMeta()->setProperty('og:type', 'eventer_social:event');
-$this->headMeta()->setProperty('fb:app_id', '240996152682246');
 
 ?>
 

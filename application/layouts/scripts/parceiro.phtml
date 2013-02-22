@@ -4,14 +4,16 @@
 	$parceiro_header =  $this->partial('partials/parceiro_header.phtml', array('parceiro' => $this->parceiro));	
 	echo $this->doctype('XHTML1_RDFA');
 ?>
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xml:lang="pt-br" lang="pt-br">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# eventer_social: http://ogp.me/ns/fb/eventer_social#">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta property="fb:page_id" content="398051346951115"/>
+<meta property="fb:app_id" content="240996152682246" />
+<meta property="og:type" content="eventer_social:event" />
+<meta property="og:site_name" content="eVenter - Entradas para o seu evento" />
+<meta property="og:image" content="<?php echo $this->serverUrl() ?>/img/logo_eventer.png" />
+
 <?php 
 echo 	$this->headTitle(),PHP_EOL;
 echo 	$this->headMeta(),PHP_EOL;
