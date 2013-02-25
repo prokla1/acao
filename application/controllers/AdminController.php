@@ -364,7 +364,7 @@ class AdminController extends Zend_Controller_Action
 					@list($txt, $ext) = explode(".", $name);
 					if(in_array($ext,$valid_formats))
 					{
-						$filename = $txt . '-' . uniqid() . '.' . strtolower($ext);
+						$filename = date('YmdHis') . uniqid() . '.' . strtolower($ext);
 						$file = $path.$filename;
 					
 						// copying
