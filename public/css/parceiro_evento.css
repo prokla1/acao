@@ -1,0 +1,181 @@
+@CHARSET "UTF-8";
+
+div.evento_wrap
+{
+	margin-bottom: 70px;
+}
+
+div.evento_promotions
+{
+	width: 928px;
+	margin-top: 40px;
+}
+
+
+div.evento_promotions div.cortesia_euquero
+{
+	cursor: pointer;
+	background: transparent url("/img/evento_promotions_iwant.png") 10px center no-repeat;
+	text-transform: uppercase;
+}
+
+
+
+div.evento_promotions table
+{
+	width: 928px;
+	border: 1px dashed #CCCCCC;
+	border-spacing: 0;
+	background: transparent url("/img/evento_promotions_table_thead.png") top repeat-x;
+	
+}
+
+div.evento_promotions table .max_destak
+{
+	color: #00CCFF;
+	font-size: 25px;
+}
+div.evento_promotions table .min_destak
+{
+	color: #00CCFF;
+	font-size: 15px;
+}
+
+div.evento_promotions table tbody
+{
+	background-color: #F2F2F2;	
+	border: 1px dashed #CCC;
+	border-top: 0px;
+}
+
+div.evento_promotions table tbody tr
+{
+	border-top: 1px solid #FFF;
+}
+
+div.evento_promotions table tbody tr:HOVER
+{
+	background-color: #F6F6F6;
+}
+
+div.evento_promotions table tbody td
+{
+	font-size: 15px;
+	line-height: 46px;
+	text-align: center;
+}
+
+
+div.evento_promotions table thead th
+{
+	line-height: 48px;
+	font-size: 15px;
+/* 	height: 48px; */
+	text-transform: uppercase;
+	text-align: center;
+	background: transparent url("/img/evento_promotions_table_thead_icon.png") center 35px no-repeat;
+}
+
+
+div.evento_promotions table thead th.th_empty
+{
+	background-image: none;
+}
+
+
+
+div.evento_content
+{
+	background: transparent url("/img/evento_container_back.png");
+	position: relative;
+}
+div.evento_content div.evento_flyer
+{
+	position: relative;
+	background: transparent url("/img/evento_flyer_back.png");
+	width: 297px;
+	height: 350px;
+}
+
+div.evento_content div.evento_flyer div.evento_promo
+{
+	position: absolute;
+	left: -7px;
+	top: 10px;
+}
+div.evento_content div.evento_flyer div.evento_flyer_mold
+{
+	width: 258px;
+	height: 258px;
+	background: transparent url("/img/evento_flyer_mold_parceiro.png") center center no-repeat;
+	position: absolute;
+	left: 18px;
+	top: 66px;
+}
+
+div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img
+{
+	width: 248px;
+	height: 248px;
+	padding-top: 6px;
+	margin: 0 auto;
+}
+div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img img
+{
+	width: 248px;
+	height: 248px;
+	margin: 0 auto;
+}
+
+div.evento_content div.evento_flyer div.ct_icos
+	{
+width: 296px;
+display: table;
+bottom: -4px;
+position: absolute;
+}
+
+div.evento_content div.evento_flyer_zoom
+{
+	display: none;
+}
+
+
+div.evento_content div.evento_description
+{
+	position: absolute;
+	top: 40px;
+	left: 320px;
+}
+div.evento_content div.evento_description div.evento_description_label
+{
+	color: #999999;
+	font-size: 16px;
+	float: left;
+	width: 40px;
+	text-align: right;
+}
+div.evento_content div.evento_description div.evento_description_content
+{
+	font-size: 22px;
+	color: #000;
+	white-space: nowrap;
+	padding-left: 60px;
+}
+div.evento_content div.evento_description div.evento_description_total
+{
+	background-color: #F0F0F0;
+	height: 200px;
+	overflow: auto;
+	margin: 30px 25px 10px 0;
+	padding: 25px;
+	width: 530px;
+}
+
+div.evento_content div.evento_date 
+{
+	font-size: 30px;
+	position: absolute;
+	right: 30px;
+	top: 38px;;
+}

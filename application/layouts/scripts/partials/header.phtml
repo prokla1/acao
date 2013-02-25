@@ -20,13 +20,19 @@
 						
 				<div id="div_form_login">
 					<div id="top_form"></div>
+					<?php /*
 						<div id="loading_news_form">
 						<?php 
 							 $form = new Application_Form_News();
 							 echo $form;
 						?>
 						</div>
+						
 						<button id="submit_news">RECEBER EVENTOS NO EMAIL</button>
+						*/ ?>
+						<div id="loading_news_form">
+							Curta nossa fanpage e fique por dentro das novidades
+						</div>
 						<div >
 							<div class="fb-like" data-href="http://www.facebook.com/pages/EVenter/398051346951115" data-send="true" data-width="358" data-show-faces="true" style=" 
 						background: rgb(255,255,255); /* Old browsers */
@@ -43,124 +49,8 @@
 						</div>
 				</div>
 						
-						<?php /*
-				<div id="div_form_login">
-					<div id="top_form"></div>
-				    <div id="ct_form">
-				    	<div id="form">
-				    	<form id="form_news_ajax" name="form_login" enctype="application/x-www-form-urlencoded" action="" method="post">
-
-				    	
-				          <table border="0">
-				            <tr>
-				              <td colspan="2">
-				                <span class="span1">Informe sua cidade e email e receba todos os eventos de sua região:</span>
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2" height="60">
-								<select name="news_id_cidade" id="news_id_cidade" class="input_login" >
-								    <option value="0"></option>
-								    <?php 
-									    $cidades = new Application_Model_DbTable_LocalCidades();
-									    foreach ($cidades->getCidadesList() as $cidade) :
-								    ?>
-								    <option value="<?php echo $cidade['key'] ?>"><?php echo $cidade['value'] ?></option>
-								    <?php endforeach;?>
-								</select>
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2">
-				                <input type="text" name="news_email" id="news_email" class="input_login" />
-				              </td>
-				            </tr>
-				            <tr height="80">
-				              <td>
-				              	<span class="btn_no_city">não encontrou?</span>
-				              </td>
-				              <td width="180">
-				              	 <input type="image" src="/img/btn_go_sociais.png" alt="Login" id="submitbutton" >
-				              </td>
-				            </tr>
-				            <tr height="50">
-				              <td colspan="2" style="text-align: center;">
-				           	   <span class="span2">ou curta nossa fan page</span>
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2" >
-				              	<img src="/img/btn_go_facebook.png" />
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2" >
-				              	<span class="msg_error">Erro! Verfique os dados digitados.</span>
-				              </td>
-				            </tr>   
-				          </table>
-				    	
-				    	
-				    	
-				    	
-				    	
-				         <!--   <table border="0">
-				            <tr>
-				              <td colspan="2">
-				                <label for="email" class="text_form_login">Seu email</label>
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2" height="60">
-				                <input type="text" name="e" id="e" class="input_login" />
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2">
-				                <label for="senha" class="text_form_login">Senha de acesso</label>
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2" height="60">
-				                <input type="password" name="s" id="s" class="input_login" />
-				              </td>
-				            </tr>
-				            <tr height="80">
-				              <td width="180">
-				              	<span class="text_senha">Esqueceu sua senha? <a href="#" class="link_senha">Clique aqui</a></span>
-				              </td>
-				              <td>
-				             	 <input type="image" src="/img/login_btn_login.png" alt="Login" id="submitbutton" >
-				              </td>
-				            </tr>
-				            <tr>
-				              <td colspan="2" >
-				              	<span class="msg_error">Erro! Verfique os dados digitados.</span>
-				              </td>
-				            </tr>    
-				            <tr height="120">
-				              <td colspan="2" >
-				              
-										<div id="container_fb-auth" style="display: block;text-align: center; float: left; margin-top: 6px;" >
-											<div id="fb-auth-loading" style="display: none; float: left; text-align: center;margin: 3px 0 0 40px;">
-												<img src="/img/loading_face.gif" style="text-align: center;" />
-											</div>
-											<div id="fb-auth-button" style="float: left; cursor: pointer; text-align: center;" >
-												<img id="fb-auth" src="/img/login_face.png" style="text-align: center;" />
-											</div>
-										</div>				              
-				              
-				              </td>
-				            </tr>
+						
 				
-				          </table> -->
-						</form>
-				          
-				         </div>
-				    </div>
-				</div>
-				*/
-				?>
 				
 			<?php 
 				}else {
