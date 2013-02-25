@@ -6,6 +6,8 @@ $this->headMeta()->setProperty('og:title', $parceiro->nome . ' [ eVenter ] ');
 $this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
 $this->headMeta()->setProperty('og:site_name', 'eVenter - Entradas para o seu evento');
 $this->headMeta()->setProperty('og:url', $this->serverUrl() .'/' . $parceiro->url_amigavel);
+$this->headMeta()->setProperty('og:description', strip_tags($parceiro->descricao));
+
 
 
 

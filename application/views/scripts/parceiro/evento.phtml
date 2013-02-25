@@ -18,7 +18,7 @@ $this->headTitle($evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->reali
 $this->headMeta()->setProperty('og:title', $evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->realizacao)) . ' - ' . $parceiro->nome . ' [ eVenter ] ');
 $this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/eventos/'.$evento->capa);
 $this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
-$this->headMeta()->setProperty('og:description', $evento->descricao);
+$this->headMeta()->setProperty('og:description', strip_tags($evento->descricao));
 $this->headMeta()->setProperty('og:url', $event['url']);
 
 
