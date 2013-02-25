@@ -317,22 +317,38 @@ class AdminController extends Zend_Controller_Action
 
     public function uploadjsonAction()
     {
-        
-    	//get all image files with a .jpg extension.
-    	$directory = APPLICATION_PATH . '/../public/img/uploads/';
-    	$images = glob("" . $directory . "*.*");
-    	
+
     	$imgs = array();
-    	// create array
+
+    	/**      ======= MOSTRA AS FOTOS DO DIRETÓRIO 'uploads'======  **/
+    	$directoryUploads = APPLICATION_PATH . '/../public/img/uploads/';
+    	$images = glob("" . $directoryUploads . "*.*");
     	foreach($images as $image)
     	{
     		$img = array();
     		$img['thumb'] = '/public/img/uploads/150px/'. basename($image); //$image;
     		$img['image'] = '/public/img/uploads/'. basename($image);
     		$img['title'] =  basename($image);
-    		$img['folder'] = 'Imagens';
-    		$imgs[] = $img; 
+    		$img['folder'] = 'Uploads';
+    		$imgs[] = $img;
     	}
+    	 
+
+    	/**      ======= MOSTRA AS FOTOS DO DIRETÓRIO 'parceiros'======  **/
+    	/*
+    	$directoryParceiros = APPLICATION_PATH . '/../public/img/parceiros/';
+    	$images = glob("" . $directoryParceiros . "*.*");
+    	foreach($images as $image)
+    	{
+    		$img = array();
+    		$img['thumb'] = '/public/img/parceiros/150px/'. basename($image); //$image;
+    		$img['image'] = '/public/img/parceiros/'. basename($image);
+    		$img['title'] =  basename($image);
+    		$img['folder'] = 'Parceiros';
+    		$imgs[] = $img;
+    	}
+    	 */
+    	 
     	$this->_helper->json($imgs);
     	
     	
