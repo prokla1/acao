@@ -48,7 +48,7 @@ $('.evento_description_button_details').click(function(event){
 	var id_evento = $(this).attr('id');
 	idTemp = id_evento.split("btndetails_");
 	id_evento = idTemp[1];
-	$("#show_"+id_evento).toggle("slow");
+	$("#show_"+id_evento).slideToggle("slow");
 });
 
 $('#ocultar_filtro').click(function(event){

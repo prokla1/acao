@@ -131,19 +131,6 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 	</div>
 
 
-	
-				
-		<!-- DETAILS EVENT -->	
-		<div class="ct_desc_event" id="show_<?php echo $evento->id ?>">
-			<div class="desc_event">
-				
-				<span class="title_details">Descrição</span><br>
-				<span class="text_desc"><?php echo $evento->descricao ?></span>
-				
-			</div> 
-		</div>
-		
-		
 
 	<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
 		<div class="evento_promotions" id="showpromo_<?php echo $evento->id ?>">
@@ -180,7 +167,19 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 		</div>
 	<?php endif;?>
 	
-
+	
+				
+		<!-- DETAILS EVENT -->	
+		<div class="ct_desc_event" id="show_<?php echo $evento->id ?>">
+			<div class="desc_event">
+				
+				<span class="title_details">Descrição</span><br>
+				<span class="text_desc"><?php echo $evento->descricao ?></span>
+				
+			</div> 
+		</div>
+		
+		
 
 </div>
 <?php endforeach;  ?>
