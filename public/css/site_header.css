@@ -19,7 +19,7 @@ div.site_menu
 div.site_menu div.site_menu_wrap
 {
 	margin: 0 auto;
-	width: 910px;
+	width: 760px;
 }
 
 
@@ -29,7 +29,7 @@ div.site_menu div.site_menu_wrap ul li
 	font-size: 26px;
 	margin: 0 1px;
 	background-color: #C9E6FB;
-	width: 180px;
+	width: 250px;
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: bold;
