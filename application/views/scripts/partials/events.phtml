@@ -99,7 +99,7 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 				
 			<div class="btn_events">
 			
-				<button type="button" class="evento_description_button_details"></button>
+				<button type="button" class="evento_description_button_details" id="btndetails_<?php echo $evento->id ?>"></button>
 				
 				<?php if(count($evento->cortesias) > 0) : ?>
 					<button type="button" class="evento_description_button_promotions" id="btnbonus_<?php echo $evento->id ?>">Promoções</button>
@@ -131,6 +131,19 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 	</div>
 
 
+	
+				
+		<!-- DETAILS EVENT -->	
+		<div class="ct_desc_event" id="show_<?php echo $evento->id ?>">
+			<div class="desc_event">
+				
+				<span class="title_details">Descrição</span><br>
+				<span class="text_desc"><?php echo $evento->descricao ?></span>
+				
+			</div> 
+		</div>
+		
+		
 
 	<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
 		<div class="evento_promotions" id="showpromo_<?php echo $evento->id ?>">
@@ -166,6 +179,8 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 			</table>
 		</div>
 	<?php endif;?>
+	
+
 
 </div>
 <?php endforeach;  ?>
@@ -182,7 +197,8 @@ var events = <?php echo json_encode($events); ?>;
 <div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
 
 
-	<?php 
-	$this->headLink()->prependStylesheet($this->baseUrl('/css/events_partial.css'));
-	$this->headScript()->prependFile($this->baseUrl('/js/events_partial.js'))
-	?>	
+<?php 
+	$this->headLink()->appendStylesheet($this->baseUrl('/css/events_partial.css'));
+	$this->headScript()->appendFile($this->baseUrl('/js/events_partial.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/cortesias.js'));
+?>	

@@ -142,7 +142,27 @@ class ParceiroController extends Zend_Controller_Action
     {
         $form    = new Application_Form_ContatoParceiro();
         $this->view->form = $form;
+        $request = $this->getRequest();
+        
+        if ($this->getRequest()->isPost()) {
+        	if ($form->isValid($request->getPost())) {
+        		$parceiroscontatosTable = new Application_Model_DbTable_ParceirosContato();
+        		$parceiroscontatos = new Application_Model_ParceirosContato($request->getPost());
+        		$parceiroscontatos->setEnviado('0');
+        		
+        		if($parceiroscontatosTable->insert($parceiroscontatos->getArray()))
+        		{
+        			$this->view->msg = "Enviado com sucesso";
+        		}
+        		
+        	}
+        }
+        
     }
+    
+    
+    
+    
 
     public function ratingAction()
     {

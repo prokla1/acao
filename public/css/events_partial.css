@@ -338,3 +338,28 @@ margin: 0 !important;
 background-position: left center;
 }	
 
+
+
+
+
+
+
+/*DETALHES EVENTO*/
+
+.ct_desc_event{
+	width: 610px; 
+	border: 1px solid #E5E5E5;
+}
+
+.desc_event{
+	padding: 20px;
+}
+
+.title_details{
+	font-size: 16px; 
+	color: black; 
+	font-weight: bold;
+}
+
+.text_desc{}
+
