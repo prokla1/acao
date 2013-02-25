@@ -86,7 +86,6 @@ div.evento_promotions table thead th.th_empty
 
 div.evento_content
 {
-	background: transparent url("/img/evento_container_back.png");
 	position: relative;
 }
 div.evento_content div.evento_flyer
@@ -107,7 +106,6 @@ div.evento_content div.evento_flyer div.evento_flyer_mold
 {
 	width: 258px;
 	height: 258px;
-	background: transparent url("/img/evento_flyer_mold_parceiro.png") center center no-repeat;
 	position: absolute;
 	left: 18px;
 	top: 66px;
@@ -117,14 +115,21 @@ div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img
 {
 	width: 248px;
 	height: 248px;
-	padding-top: 6px;
+	padding-top: 2px;
+	padding-left: 2px;
+	padding-right: 4px;
+	padding-bottom: 4px;
 	margin: 0 auto;
+	border: 1px solid #000;
+	background: #000;
+	
 }
 div.evento_content div.evento_flyer div.evento_flyer_mold div.evento_flyer_img img
 {
 	width: 248px;
 	height: 248px;
 	margin: 0 auto;
+	border: 1px solid #333;
 }
 
 div.evento_content div.evento_flyer div.ct_icos
@@ -150,17 +155,18 @@ div.evento_content div.evento_description
 div.evento_content div.evento_description div.evento_description_label
 {
 	color: #999999;
-	font-size: 16px;
+	font-size: 14px;
 	float: left;
 	width: 40px;
 	text-align: right;
+	margin: 2px;
 }
 div.evento_content div.evento_description div.evento_description_content
 {
 	font-size: 22px;
 	color: #000;
 	white-space: nowrap;
-	padding-left: 60px;
+	padding-left: 50px;
 }
 div.evento_content div.evento_description div.evento_description_total
 {
