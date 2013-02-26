@@ -39,9 +39,11 @@ var events = <?php echo json_encode($events); ?>;
 		<div class="evento_flyer">
 		
 			<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
-				<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+				PROMOÇÃO
+				<!-- <div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div> -->
 				<?php else:?>
-				<div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div>
+				SEM PROMOÇÃO
+				<!-- <div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div> -->
 			<?php endif; ?>
 			
 			
