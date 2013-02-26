@@ -39,11 +39,9 @@ var events = <?php echo json_encode($events); ?>;
 		<div class="evento_flyer">
 		
 			<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
-				PROMOÇÃO
-				<!-- <div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div> -->
+				<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
 				<?php else:?>
-				SEM PROMOÇÃO
-				<!-- <div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div> -->
+				<div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div>
 			<?php endif; ?>
 			
 			
@@ -75,21 +73,16 @@ var events = <?php echo json_encode($events); ?>;
 		</div>
 		
 		<div class="evento_description">
-		
-			<div class="evento_description_label">
-				evento:
-			</div>
+
 			<div class="evento_description_content">
 					<?php echo $evento->nome ?>
 			</div>
 			
 			<div class="evento_description_total">
-			<span>(<?php echo implode(', ', $evento->generos); ?>)</span>
-			<?php echo $evento->descricao ?>
+				<div style="width: 520px; text-align: left; margin: 0 0 30px 0;"><div><span style="padding-right: 10px; font-weight: bold;">Genero[s]:</span><?php echo implode(', ', $evento->generos); ?> </div></div>
+				<?php echo $evento->descricao ?>
 			</div>
 		
-
-
 		</div>
 		
 		<div class="evento_date">

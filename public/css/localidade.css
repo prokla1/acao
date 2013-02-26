@@ -26,15 +26,11 @@ div.content_localidade div.cities
 div.content_localidade div.box_text_cities
 {
 	position: absolute; left: 100px; padding: 10px 30px;  margin: 26px 0;
-
-
-	
 }
 
 div.content_localidade div.box_text_cities span
 {
 	padding-left: 24px; background: url('/img/btn_select_cities.png') left center no-repeat; padding-bottom: 2px; font-size: 20px; color: #000; font-weight: bold;
-
 }
 div.content_localidade div.cities ul li a
 {

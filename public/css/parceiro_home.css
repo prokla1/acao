@@ -15,7 +15,7 @@ div.wrap div.wrapLeft div.desc_parc{
 }
 
 div.wrap div.wrapLeft div.desc_parc p.title_homeP{
-	padding: 20px 0 10px 0; font-size: 26px; color: #09F;
+	padding: 20px 0 10px 0; font-size: 26px; color: #09F; 
 }
 
 div.wrap div.wrapLeft div.desc_parc div.text_descP{
@@ -40,7 +40,7 @@ div.wrap div.wrapRight div.form_parc{
 }
 
 div.wrap div.wrapRight div.form_parc p{
-	padding: 20px 0 30px 0; font-size: 26px; color: #09F;
+	padding: 20px 0 20px 0; font-size: 26px; color: #09F; background: url("/img/arrow_p_home.png") 190px center no-repeat;
 }
 
 /*
@@ -51,13 +51,13 @@ div.wrap div.wrapRight div.form_parc label{
 	font-size:14px; color: #0099FF;
 }
 div.wrap div.wrapRight div.form_parc input[type="text"]{
-	width: 180px; height: 28px; padding: 0 10px; background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; outline: 0 none;  margin-bottom: 8px;
+	width: 180px; height: 28px; padding: 0 10px; background: #EEE; border: 1px solid #C6E2FF; color: #036; outline: 0 none;  margin-bottom: 8px;
 }
 div.wrap div.wrapRight div.form_parc input#assunto{
-	background: #FDFDFD; border: 1px solid #C6E2FF;width: 180px; color: #036; outline: 0 none; height: 28px; padding-left: 10px; margin-bottom: 8px; font-weight: bold;
+	background: #EEE; border: 1px solid #C6E2FF;width: 180px; color: #036; outline: 0 none; height: 28px; padding-left: 10px; margin-bottom: 8px; font-weight: bold;
 }
 div.wrap div.wrapRight div.form_parc textarea{
-	background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; padding: 10px; outline: 0 none; height: 80px;
+	background: #EEE; border: 1px solid #C6E2FF; color: #036; padding: 10px; outline: 0 none; height: 80px;
 }
 div.wrap div.wrapRight div.form_parc input[type="submit"]{
 	border: 1px solid #C6E2FF; color: #036; padding: 8px 50px; cursor: pointer;

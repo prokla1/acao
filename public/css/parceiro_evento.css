@@ -152,26 +152,18 @@ div.evento_content div.evento_description
 	top: 40px;
 	left: 320px;
 }
-div.evento_content div.evento_description div.evento_description_label
-{
-	color: #999999;
-	font-size: 14px;
-	float: left;
-	width: 40px;
-	text-align: right;
-	margin: 2px;
-}
+
 div.evento_content div.evento_description div.evento_description_content
 {
-	font-size: 22px;
-	color: #000;
+	font-size: 26px;
+	color: #006699;
 	white-space: nowrap;
-	padding-left: 50px;
+	padding-left: 10px;
 }
 div.evento_content div.evento_description div.evento_description_total
 {
-	background-color: #F0F0F0;
-	height: 200px;
+	background-color: #F9F9F9;
+	height: 210px;
 	overflow: auto;
 	margin: 30px 25px 10px 0;
 	padding: 25px;
