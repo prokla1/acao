@@ -65,11 +65,6 @@ class EventosController extends Zend_Controller_Action
 
     	
     	
-//     	$dia_base = $this->_getParam('d');
-//     	if(empty($dia_base)){
-//     		$dia_base = time(); //+86400*50;  //86400 = 1 dia
-//     	}
-    	
     	$dia_base = $this->dia_base;
     	$this->view->dia_base = $dia_base;
     	
@@ -85,10 +80,6 @@ class EventosController extends Zend_Controller_Action
     		$this->view->eventos = $eventos->findByCityAndDate($this->cityId, $dia_base);
     	}
     	
-
-    	//$this->view->eventos = $eventos->findByCity($this->cityId);
-//     	$eventosTable = new Application_Model_DbTable_Eventos();
-//     	$this->view->destaques = $eventosTable->findByCityDestaques($this->cityId);
     }
 
 

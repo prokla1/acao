@@ -22,9 +22,6 @@ function str_to_slug(str) {
 
 $(document).ready( function() {
 	
-	
-	
-	
 //	CKEDITOR.replaceAll('ckeditor', {
 //		// Load the German interface.
 //		language: 'pt-br'
@@ -37,9 +34,6 @@ $(document).ready( function() {
 	});
 		
 		
-	
-	
-	
 	
 	
 

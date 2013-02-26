@@ -5,8 +5,6 @@ class ConversaoController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
-    	
     	$logged = false;
     		
     		$auth = Zend_Auth::getInstance();

@@ -41,10 +41,8 @@ class EventoController extends Zend_Controller_Action
     	 
     	$this->view->parceiro = $parceiro;
     	*/
-
     }
 
-    
 
 }
 

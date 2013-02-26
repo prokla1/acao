@@ -350,8 +350,6 @@ class AdminController extends Zend_Controller_Action
     	 */
     	 
     	$this->_helper->json($imgs);
-    	
-    	
     }
     
     
@@ -407,8 +405,6 @@ class AdminController extends Zend_Controller_Action
 					 
 				}
 	    		$this->_helper->json($files);
-    			 
-
 
     	}
     	
@@ -417,24 +413,3 @@ class AdminController extends Zend_Controller_Action
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -41,7 +41,6 @@ class LocalidadeController extends Zend_Controller_Action
     }
     
 
-
     public function setAction()
     {
         // action body
