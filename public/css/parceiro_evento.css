@@ -3,12 +3,14 @@
 div.evento_wrap
 {
 	margin-bottom: 70px;
+	display: table;
 }
 
 div.evento_promotions
 {
 	width: 928px;
 	margin-top: 40px;
+	float: left;
 }
 
 
@@ -94,6 +96,7 @@ div.evento_content div.evento_flyer
 	background: transparent url("/img/evento_flyer_back.png");
 	width: 297px;
 	height: 350px;
+	float: left;
 }
 
 div.evento_content div.evento_flyer div.evento_promo
@@ -148,22 +151,22 @@ div.evento_content div.evento_flyer_zoom
 
 div.evento_content div.evento_description
 {
-	position: absolute;
+	float: left;
 	top: 40px;
 	left: 320px;
 }
 
 div.evento_content div.evento_description div.evento_description_content
 {
-	font-size: 26px;
+	font-size: 30px;
 	color: #006699;
 	white-space: nowrap;
-	padding-left: 10px;
+	padding: 40px 20px 0px;
 }
 div.evento_content div.evento_description div.evento_description_total
 {
 	background-color: #F9F9F9;
-	margin: 30px 25px 10px 0;
+	margin: 30px 25px 0px 0;
 	padding: 25px;
 	width: 530px;
 }

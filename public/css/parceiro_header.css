@@ -77,9 +77,9 @@ div.parceiro_header div.parceiro_header_wrap div.parceiro_information ul li
 div.parceiro_header div.parceiro_header_wrap div.parceiro_information ul li button
 {
 	text-transform: uppercase;
-	-webkit-box-shadow: 1px 1px 4px rgba(50,50,50,0.25); 
- 	-moz-box-shadow: 1px 1px 3px rgba(50,50,50,0.25); 
- 	box-shadow: 1px 1px 3px rgba(50,50,50,0.25); 
+	-webkit-box-shadow: 1px 1px 4px #666; 
+ 	-moz-box-shadow: 1px 1px 3px #666; 
+ 	box-shadow: 1px 1px 3px #666; 
 }
 
 

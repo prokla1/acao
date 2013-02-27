@@ -2,8 +2,6 @@
 
 div.eventos_content
 {
-	border: 1px dotted #CCC;
-	background-color: #F7F9FA;
 	border-radius: 10px;
 	width: 928px;
 	margin: 0 auto;
@@ -98,9 +96,7 @@ div.evento_promotions table thead th.th_empty
 
 div.evento_content
 {
-	background: url("/img/evento_container_back.png") repeat-x;
 	position: relative;
-	border: 1px solid #E9E9E9;
 }
 div.evento_content div.evento_flyer
 {
@@ -260,7 +256,6 @@ div.evento_content div.evento_date
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: #ECECEC;
 }
 
 div.evento_content div.evento_date span
@@ -269,25 +264,26 @@ div.evento_content div.evento_date span
 	padding: 50px 36px;
 	font-size: 30px;
 	color: #999;
-background: #f4f4f4; /* Old browsers */
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y0ZjRmNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top,  #f4f4f4 0%, #e5e5e5 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #f4f4f4 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #f4f4f4 0%,#e5e5e5 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #f4f4f4 0%,#e5e5e5 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #f4f4f4 0%,#e5e5e5 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-8 */
+	margin-bottom: 12px;
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAyMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjAzIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzAyMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjA2Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMjAyMDIiIHN0b3Atb3BhY2l0eT0iMC4wMyIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(2,0,0,0.03) 0%, rgba(2,0,0,0.06) 50%, rgba(2,2,2,0.03) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(2,0,0,0.03)), color-stop(50%,rgba(2,0,0,0.06)), color-stop(100%,rgba(2,2,2,0.03))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(2,0,0,0.03) 0%,rgba(2,0,0,0.06) 50%,rgba(2,2,2,0.03) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(2,0,0,0.03) 0%,rgba(2,0,0,0.06) 50%,rgba(2,2,2,0.03) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(2,0,0,0.03) 0%,rgba(2,0,0,0.06) 50%,rgba(2,2,2,0.03) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(2,0,0,0.03) 0%,rgba(2,0,0,0.06) 50%,rgba(2,2,2,0.03) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#08020000', endColorstr='#08020202',GradientType=0 ); /* IE6-8 */
+
 
 }
 
 div.evento_content div.evento_date a
 {
 	display: block;
-	width: 172px;
+	width: 170px;
 	padding: 10px 0 10px 30px;
-	border-right: 4px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
 	background: #F4F4F4;
 	color: #0099FF;
 	margin: 0 0 4px 0;
