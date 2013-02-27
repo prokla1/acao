@@ -25,16 +25,16 @@ div.content_localidade div.cities
 
 div.content_localidade div.box_text_cities
 {
-	position: absolute; left: 100px; padding: 10px 30px;  margin: 26px 0;
+	position: absolute; left: 100px; padding: 10px 0px;  margin: 26px 0;
 }
 
 div.content_localidade div.box_text_cities span
 {
-	padding-left: 24px; background: url('/img/btn_select_cities.png') left center no-repeat; padding-bottom: 2px; font-size: 20px; color: #000; font-weight: bold;
+	padding-left: 24px; background: url('/img/btn_select_cities.png') left center no-repeat; padding-bottom: 2px; font-size: 20px; color: #09F; 
 }
 div.content_localidade div.cities ul li a
 {
-	color: #888;
+	color: #fff;
 }
 
 div.content_localidade div.cities ul li a:hover
@@ -44,7 +44,7 @@ div.content_localidade div.cities ul li a:hover
 
 div.content_localidade div.headline
 {
-	color: #666;
+	color: #ccc;
 	font-size: 40px;
 	width: 380px;
 	letter-spacing: 1px;
@@ -56,6 +56,6 @@ div.content_localidade div.headline
 }
 div.content_localidade div.headline span
 {
-	color: #FF9900;
+	color: #09F;
 	font-size: 50px;
 }

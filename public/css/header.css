@@ -2,7 +2,7 @@
 
 div.header
 {
-	background-color: #696862; height: 40px; position: relative;
+	background-color: #000; height: 40px; position: relative;
 }
 div.header_home
 {
@@ -16,11 +16,11 @@ ul.navigation
 
 ul.navigation li
 {
-	float: left; text-transform: uppercase; border-left: 1px solid #333333; color: #F2F2F2; font-size: 12px;
+	float: left; text-transform: uppercase; border-left: 1px solid #333333; color: #F2F2F2; font-size: 12px; background: url("/img/bg_btn_header.png") repeat-x;
 }
 ul.navigation li a.login
 {
-	background: #696862 url("/img/header_menu_login.png") no-repeat 30px center; color: #0FF;
+	background: #1F1F1D url("/img/header_menu_login.png") no-repeat 30px center; color: #0FF;
 }
 ul.navigation li a.login:hover
 {
@@ -28,11 +28,11 @@ ul.navigation li a.login:hover
 }	
 ul.navigation li a.register
 {
-	background: #595853 url("/img/header_menu_register.png") no-repeat 20px center;
+	background: url("/img/header_menu_register.png") no-repeat 20px center;
 }	
 ul.navigation li a.events
 {
-	background: #595853 url("/img/header_menu_events.png") no-repeat 20px center;
+	background: url("/img/header_menu_events.png") no-repeat 20px center;
 }
 ul.navigation li a
 {
