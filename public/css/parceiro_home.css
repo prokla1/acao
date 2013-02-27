@@ -40,7 +40,7 @@ div.wrap div.wrapRight div.form_parc{
 }
 
 div.wrap div.wrapRight div.form_parc p{
-	padding: 20px 0 20px 0; font-size: 26px; color: #09F; background: url("/img/arrow_p_home.png") 190px center no-repeat;
+	padding: 20px 0 10px 0; font-size: 26px; color: #09F; background: url("/img/arrow_p_home.png") 190px 20px no-repeat;
 }
 
 /*

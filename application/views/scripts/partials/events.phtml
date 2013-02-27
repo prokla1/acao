@@ -99,10 +99,10 @@ $this->headMeta()->appendProperty('og:image', $event['imagem']);
 				
 			<div class="btn_events">
 			
-				<button type="button" class="evento_description_button_details" id="btndetails_<?php echo $evento->id ?>"></button>
+				<button type="button" class="evento_description_button_details" id="btndetails_<?php echo $evento->id ?>"><span>DETALHES</span></button>
 				
 				<?php if(count($evento->cortesias) > 0) : ?>
-					<button type="button" class="evento_description_button_promotions" id="btnbonus_<?php echo $evento->id ?>">Promoções</button>
+					<button type="button" class="evento_description_button_promotions" id="btnbonus_<?php echo $evento->id ?>"><span>PROMOÇÕES</span></button>
 				<?php endif; ?>
 			
 			</div>

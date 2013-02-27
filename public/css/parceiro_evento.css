@@ -163,8 +163,6 @@ div.evento_content div.evento_description div.evento_description_content
 div.evento_content div.evento_description div.evento_description_total
 {
 	background-color: #F9F9F9;
-	height: 210px;
-	overflow: auto;
 	margin: 30px 25px 10px 0;
 	padding: 25px;
 	width: 530px;
