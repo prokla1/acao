@@ -57,38 +57,22 @@ echo 	$this->headMeta(),PHP_EOL;
 				$atividade = $this->tipo;
 				?>
 				
-				<div>
 				
 					<div class="header_social">
 						<div class='social hs_fb'>
-							<div class="fb-like" data-href="http://www.facebook.com/pages/EVenter/398051346951115" data-layout="button_count" data-send="false" data-width="50" data-show-faces="false"></div>
+							<div class="fb-like" data-href="http://www.facebook.com/pages/EVenter/398051346951115" data-layout="box_count" data-send="false" data-width="50" data-show-faces="false"></div>
 						</div>
 						<div class='social hs_plus'>
-							<div class="g-plusone" data-size="medium" data-href="https://plus.google.com/116229421147699373151"></div>
+							<div class="g-plusone" data-size="tall"  data-annotation='bubble' data-href="https://plus.google.com/116229421147699373151"></div>
 						</div>
 						<div class='social hs_tw'>
-							<a href="https://twitter.com/eVenter_oficial" class="twitter-follow-button" data-width="50"  data-show-count="true" data-lang="pt" data-show-screen-name="false">Seguir @eVenter_oficial</a>
+							<div class="twitter_box"><span id="followers"></span></div>
+							<a href="https://twitter.com/eVenter_oficial" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false"></a>
 						</div>
 					</div>
-				<style>
-				/****** Floating page sharer *******/
-				.header_social {
-					position: absolute; 
-					top: 60px; 
-					left: 200px;
-					padding:5px 3px 3px 5px; 
-					float:left; 
-					text-align:center;
-					z-index: 9999;
-				}
-				.header_social .social {float:left;}
-				/* .header_social .social#fb {margin: 0 0 3px 4px;} */
-				.header_social .hs_plus {margin-left: 15px; width: 60px;}
-				.header_social .hs_tw {margin-left: 15px;}
-				/* .header_social .social#tw iframe {width: 53px !important;} */
-				</style>
+
 				
-				</div>
+				
 				
 				<ul class="header-extra_menu">
 					<li><a <?php echo ($atividade == 'festa') ? 'class="active"' : ''; ?> href="/eventos/festa/">Festa</a></li>
@@ -121,7 +105,6 @@ echo 	$this->headMeta(),PHP_EOL;
 
 	$this->headScript()->setSeparator(PHP_EOL)
 		->prependFile($this->baseUrl('/js/base.js'))
-// 		->prependFile($this->baseUrl('/js/social_functions.js'))
 		->prependFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
 		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'));	
 	
@@ -129,6 +112,9 @@ echo 	$this->headMeta(),PHP_EOL;
 ?>
 
 <script type="text/javascript" src="/js/social_functions.js"></script>
+<script>
+
+</script>
 <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
 

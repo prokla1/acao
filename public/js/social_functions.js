@@ -272,3 +272,34 @@ function shareEvent(event) {
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 	  })();
 
+	  
+	  
+	  /* ******** NUMBER OF FOLLOW TWITTER ******* */
+	  if($('#followers').length)
+		  {
+		  $(function() {
+			    function m(n, d) {
+			        P = Math.pow;
+			        R = Math.round;
+			        d = P(10, d);
+			        i = 7;
+			        while(i) {
+			            (s = P(10, i-- * 3)) <= n && (n = R(n * d / s) / d + "KMGTPE"[i])
+			        }
+			        return n;
+			    }
+
+			    $.ajax({
+			        url: 'http://api.twitter.com/1/users/show.json',
+			        data: {
+			            screen_name: 'eVenter_oficial'
+			        },
+			        dataType: 'jsonp',
+			        success: function(data) {
+			           count = data.followers_count;
+			           $('#followers').html(m(count, 1));
+			        }
+			    });
+			});		  
+		  }
+

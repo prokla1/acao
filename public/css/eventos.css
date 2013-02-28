@@ -17,14 +17,15 @@ div.eventos_content
 
 /****** Floating page sharer *******/
 #postshare_wrapper{ /* required to avoid jumping */
-  margin-left: -90px;
-  width: 60px;
-  float: left;
-  position: absolute;
-  top: 30px;
+	margin-left: -90px;
+	width: 60px;
+	float: left;
+	position: absolute;
+	top: 30px;
 }
 #postshare_wrapper.fixed{ /* required to avoid jumping */
-  position: fixed;
+	position: fixed;
+	top: 0;
 }
 #postshare {
 	display: table;
@@ -44,4 +45,4 @@ div.eventos_content
 #postshare .social#plus {margin-left: 2px;}
 #postshare .social#fb {margin: 5px 0 3px 4px;}
 #postshare .social#tw {margin-left: 2px;}
-#postshare .social#tw iframe {width: 53px !important;}
+#postshare .social#tw iframe {width: 55px !important;}
