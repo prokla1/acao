@@ -11,3 +11,37 @@ div.eventos_content
 	margin-bottom: 30px;
 }
 */
+
+
+
+
+/****** Floating page sharer *******/
+#postshare_wrapper{ /* required to avoid jumping */
+  margin-left: -90px;
+  width: 60px;
+  float: left;
+  position: absolute;
+  top: 30px;
+}
+#postshare_wrapper.fixed{ /* required to avoid jumping */
+  position: fixed;
+}
+#postshare {
+	display: table;
+	padding:5px 3px 3px 5px; 
+	border-radius:0 0 0 5px;
+	-moz-border-radius:0 0 0 5px;
+	-webkit-border-radius:0 0 0 5px;
+	background-color:#fbfbfb; 
+	text-align:center;
+	-moz-box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
+	-webkit-box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
+	-goog-ms-box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
+	box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
+}
+
+#postshare .social {float:left;clear:left;margin-top:5px;}
+#postshare .social#plus {margin-left: 2px;}
+#postshare .social#fb {margin: 5px 0 3px 4px;}
+#postshare .social#tw {margin-left: 2px;}
+#postshare .social#tw iframe {width: 53px !important;}
