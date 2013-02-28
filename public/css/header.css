@@ -4,9 +4,15 @@ div.header
 {
 	background-color: #000; height: 40px; position: relative;
 }
-div.header_home
+div.header div.header_home
 {
 	width: 42px; height: 50px; position: absolute; top: 0; left: 30px
+}
+
+
+div.header div.header_social
+{
+/* 	position: absolute; top: 5px; left: 100px */
 }
 
 ul.navigation

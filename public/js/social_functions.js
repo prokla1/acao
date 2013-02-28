@@ -81,13 +81,6 @@ function shareEvent(event) {
     };
     
 
-    (function(d){
-        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-        js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=240996152682246";
-        d.getElementsByTagName('head')[0].appendChild(js);
-      }(document));
- 
     
 	function feedFB(evento){
 		var publish = {
@@ -241,3 +234,41 @@ function shareEvent(event) {
         document.getElementById('debug').innerHTML     =   "";
         document.getElementById('other').style.display =   "none";
     }
+    
+    
+    
+    
+    
+    
+    /* **** ===== FACEBOOK ====== **** */
+    (function(d){
+        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=240996152682246";
+        d.getElementsByTagName('head')[0].appendChild(js);
+      }(document));
+    
+    
+    
+    
+    /* **** ===== TWITTER ====== **** */   
+	 !function(d,s,id){
+		 var js,fjs=d.getElementsByTagName(s)[0];
+		 if(!d.getElementById(id)){
+			 js=d.createElement(s);
+			 js.id=id;
+			 js.src="//platform.twitter.com/widgets.js";
+			 fjs.parentNode.insertBefore(js,fjs);
+			 }
+	 }(document,"script","twitter-wjs");
+
+	 
+	 
+    /* **** ===== G+ ====== **** */ 
+	  window.___gcfg = {lang: 'pt-BR'};
+	  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+
