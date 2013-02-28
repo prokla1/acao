@@ -6,7 +6,7 @@ div.header
 }
 div.header div.header_home
 {
-	width: 42px; height: 50px; position: absolute; top: 0; left: 30px
+	position: absolute; top: 8px; left: 30px
 }
 
 
