@@ -58,8 +58,8 @@
 	
 .header_social {
 	position: absolute; 
-	top: 40px; 
-	left: 450px;
+	top: 50px;
+	left: 380px;
 	padding:5px 3px 3px 5px; 
 	float:left; 
 	text-align:center;
@@ -69,16 +69,18 @@
 .header_social .hs_plus {margin-left: 15px; width: 60px;}
 .header_social .hs_tw {margin-left: 15px;}
 .twitter_box {
-    width: 53px; height: 30px;
-    position: relative;
-    background: #fff;
-    border: 1px solid #bbb;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
-    margin-bottom: 8px;
+	width: 50px;
+	height: 30px;
+	position: relative;
+	background: #fff;
+	border: 1px solid #bbb;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	margin-bottom: 8px;
+	margin-left: 4px;
     }
 .twitter_box:after,
 .twitter_box:before {
