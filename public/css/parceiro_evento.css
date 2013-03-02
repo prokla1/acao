@@ -1,5 +1,26 @@
 @CHARSET "UTF-8";
 
+.evento_flyer_wrapper
+{
+	width: 300px;
+	float: left;
+}
+.evento_flyer_wrapper_fixed
+{
+	position: fixed;
+	top: 10px;
+}
+.evento_flyer_wrapper_fixed_button
+{
+	position: absolute;
+	bottom: 0px;
+}
+.evento_description_wrapper
+{
+	float: right;
+}
+
+
 div.evento_wrap
 {
 	margin-bottom: 70px;
@@ -89,7 +110,14 @@ div.evento_promotions table thead th.th_empty
 div.evento_content
 {
 	position: relative;
+	display: table;
 }
+div.evento_content div.evento_flyer.fixed
+{
+	position: fixed;
+	top: 0;
+}
+
 div.evento_content div.evento_flyer
 {
 	position: relative;

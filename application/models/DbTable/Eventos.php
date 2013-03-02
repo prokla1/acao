@@ -187,7 +187,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     					'local_enderecos'		=>	'local_enderecos'
     			),
     			'local_enderecos.id				=	eventos.id_endereco',
-    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    			array( 
     					'id_cidade'		=>	'local_enderecos.id_cidade',
     					'rua'				=>	'local_enderecos.rua',
     					'numero'			=>	'local_enderecos.numero',

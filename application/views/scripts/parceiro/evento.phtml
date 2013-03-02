@@ -29,6 +29,8 @@ $this->headMeta()->setProperty('og:url', $event['url']);
 
 <script type="text/javascript">
 var events = <?php echo json_encode($events); ?>;
+
+
 </script>
 
 
@@ -36,65 +38,71 @@ var events = <?php echo json_encode($events); ?>;
 
 	<div class="evento_content">
 	
-		<div class="evento_flyer">
-		
-			<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
-				<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
-				<?php else:?>
-				<div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div>
-			<?php endif; ?>
+		<div class="evento_flyer_wrapper">
+			<div class="evento_flyer">
 			
-			
-			<div class="evento_flyer_mold">
-				<div class="evento_flyer_img">
-					<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+				<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+					<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+					<?php else:?>
+					<div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div>
+				<?php endif; ?>
+				
+				
+				<div class="evento_flyer_mold">
+					<div class="evento_flyer_img">
+						<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+					</div>
+				</div>
+				<div class="ct_icos">
+					<ul>
+						<li style="float: left; margin-right: 2px; cursor: pointer;" onclick='share("<?php echo $evento->id ?>");' >
+							<img src="/img/btn_events_facebook.png">
+							
+						</li>
+						<?php /*
+						<li style="float: left; cursor: pointer;">
+							<img src="/img/btn_events_mail.png">
+						</li>
+						*/ ?>
+						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer;">
+							<img src="/img/btn_events_zoom.png">
+						</li>
+					</ul>
 				</div>
 			</div>
-			<div class="ct_icos">
-				<ul>
-					<li style="float: left; margin-right: 2px; cursor: pointer;" onclick='share("<?php echo $evento->id ?>");' >
-						<img src="/img/btn_events_facebook.png">
-						
-					</li>
-					<?php /*
-					<li style="float: left; cursor: pointer;">
-						<img src="/img/btn_events_mail.png">
-					</li>
-					*/ ?>
-					<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer;">
-						<img src="/img/btn_events_zoom.png">
-					</li>
-				</ul>
-			</div>
 		</div>
 		
-		<div class="evento_flyer_zoom" id="flyer_<?php echo $evento->id ?>">
-				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
-		</div>
-		
-		<div class="evento_description">
 
-			<div class="evento_description_content">
-					<?php echo $evento->nome ?>
+		<div class="evento_description_wrapper">
+			<div class="evento_description">
+	
+				<div class="evento_description_content">
+						<?php echo $evento->nome ?>
+				</div>
+				
+				<div class="evento_description_total">
+					<div style="width: 520px; text-align: left; margin: 0 0 30px 0;"><div><span style="padding-right: 10px; font-weight: bold;">Genero[s]:</span><?php echo implode(', ', $evento->generos); ?> </div></div>
+					<?php echo $evento->descricao ?>
+				</div>
+			
 			</div>
 			
-			<div class="evento_description_total">
-				<div style="width: 520px; text-align: left; margin: 0 0 30px 0;"><div><span style="padding-right: 10px; font-weight: bold;">Genero[s]:</span><?php echo implode(', ', $evento->generos); ?> </div></div>
-				<?php echo $evento->descricao ?>
+			<div class="evento_date">
+					<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>				
 			</div>
-		
 		</div>
 		
-		<div class="evento_date">
-				<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>				
+
+		<div class="evento_flyer_zoom" id="flyer_<?php echo $evento->id ?>"> <!-- none -> dialog -->
+				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
 		</div>
-		
-	
+			
 	</div>
 
-
+	<div id="evento_content_end" style="clear: both;"></div>
 
 	<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+	
 		<div class="evento_promotions" id="showpromo_<?php echo $evento->id ?>">
 		
 		<p style="font-size: 20px; color: #006699; background: url('/img/evento_description_button_promotions.png') left center no-repeat; padding: 5px 0px 5px 34px; margin: 10px;">PROMOÇÕES</p>
@@ -141,6 +149,6 @@ var events = <?php echo json_encode($events); ?>;
 
 
 <?php 
-$this->headLink()->prependStylesheet($this->baseUrl('/css/parceiro_evento.css'));
-$this->headScript()->prependFile($this->baseUrl('/js/parceiro_evento.js'));
-?>	
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/parceiro_evento.css'));
+	$this->headScript()->prependFile($this->baseUrl('/js/parceiro_evento.js'));
+?>

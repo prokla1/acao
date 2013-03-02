@@ -41,7 +41,7 @@ div.footer_menu ul li a
 	color: #00CCFF;
 	font-size: 17px;
 	white-space: nowrap;
-	display: block;
+/* 	display: block; */
 }	
 div.footer_menu ul li a:HOVER
 {
