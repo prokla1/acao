@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<projectProfile type="default" version="1.11.10">
+  <projectDirectory>
+    <projectProfileFile filesystemName=".zfproject.xml"/>
+    <applicationDirectory classNamePrefix="Application_">
+      <apisDirectory enabled="false"/>
+      <configsDirectory>
+        <applicationConfigFile type="ini"/>
+      </configsDirectory>
+      <controllersDirectory>
+        <controllerFile controllerName="Index">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Eventos">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Evento">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Parceiro">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="rating"/>
+          <actionMethod actionName="agenda"/>
+          <actionMethod actionName="fotos"/>
+          <actionMethod actionName="localizacao"/>
+          <actionMethod actionName="contato"/>
+          <actionMethod actionName="evento"/>
+        </controllerFile>
+        <controllerFile controllerName="Localidade">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="set"/>
+        </controllerFile>
+        <controllerFile controllerName="Usuario">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="entrar"/>
+          <actionMethod actionName="cadastrar"/>
+          <actionMethod actionName="entrarAjax"/>
+          <actionMethod actionName="dados"/>
+          <actionMethod actionName="facebook"/>
+        </controllerFile>
+        <controllerFile controllerName="Conversao">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="converter"/>
+          <actionMethod actionName="conversao"/>
+        </controllerFile>
+        <controllerFile controllerName="Site">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="contato"/>
+          <actionMethod actionName="trabalheConosco"/>
+          <actionMethod actionName="divulgueSeuEvento"/>
+          <actionMethod actionName="divulgarEvento"/>
+          <actionMethod actionName="comoFunciona"/>
+          <actionMethod actionName="politicaDePrivacidade"/>
+          <actionMethod actionName="termosDeUso"/>
+        </controllerFile>
+        <controllerFile controllerName="Admin">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="parceiroCadastrar"/>
+          <actionMethod actionName="parceiroDeletar"/>
+          <actionMethod actionName="eventoCadastrar"/>
+          <actionMethod actionName="eventoDeletar"/>
+          <actionMethod actionName="enderecoCadastrar"/>
+          <actionMethod actionName="cidadeCadastrar"/>
+          <actionMethod actionName="estadoCadastrar"/>
+          <actionMethod actionName="upload"/>
+          <actionMethod actionName="uploadjson"/>
+          <actionMethod actionName="parceirofotosCadastrar"/>
+        </controllerFile>
+        <controllerFile controllerName="News">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="entrar"/>
+        </controllerFile>
+        <controllerFile controllerName="Rating">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+      </controllersDirectory>
+      <formsDirectory enabled="false">
+        <formFile formName="EventoCadastrar"/>
+      </formsDirectory>
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
+      <modelsDirectory>
+        <modelFile modelName="Eventos"/>
+        <modelFile modelName="Parceiro"/>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Parceiros"/>
+          <dbTableFile dbTableName="LocalEnderecos"/>
+          <dbTableFile dbTableName="LocalCidades"/>
+          <dbTableFile dbTableName="LocalEstados"/>
+          <dbTableFile dbTableName="LocalPais"/>
+          <dbTableFile dbTableName="?"/>
+          <dbTableFile dbTableName="Usuarios"/>
+          <dbTableFile dbTableName="Cortesias"/>
+          <dbTableFile dbTableName="Conversao"/>
+          <dbTableFile dbTableName="ParceirosFotos"/>
+          <dbTableFile dbTableName="Atividades"/>
+          <dbTableFile dbTableName="RelAtividades"/>
+          <dbTableFile dbTableName="News"/>
+          <dbTableFile dbTableName="ParceirosTipo"/>
+          <dbTableFile dbTableName="Rating"/>
+          <dbTableFile dbTableName="ParceirosContato"/>
+        </dbTableDirectory>
+        <modelFile modelName="LocalEnderecos"/>
+        <modelFile modelName="LocalCidades"/>
+        <modelFile modelName="LocalEstados"/>
+        <modelFile modelName="LocalPais"/>
+        <modelFile modelName="Usuario"/>
+        <modelFile modelName="Cortesias"/>
+        <modelFile modelName="Conversao"/>
+        <modelFile modelName="ParceirosFotos"/>
+        <modelFile modelName="Atividades"/>
+        <modelFile modelName="RelAtividades"/>
+        <modelFile modelName="News"/>
+        <modelFile modelName="ParceirosTipo"/>
+        <modelFile modelName="ParceiroContato"/>
+        <modelFile modelName="ParceirosContato"/>
+      </modelsDirectory>
+      <modulesDirectory enabled="false"/>
+      <viewsDirectory>
+        <viewScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Error">
+            <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Eventos">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Evento">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Parceiro">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Localidade">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Localidade">
+            <viewScriptFile forActionName="set"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Usuario">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Usuario">
+            <viewScriptFile forActionName="entrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Usuario">
+            <viewScriptFile forActionName="cadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Conversao">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Conversao">
+            <viewScriptFile forActionName="converter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Conversao">
+            <viewScriptFile forActionName="conversao"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Parceiro">
+            <viewScriptFile forActionName="rating"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Usuario">
+            <viewScriptFile forActionName="entrarAjax"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Usuario">
+            <viewScriptFile forActionName="dados"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Usuario">
+            <viewScriptFile forActionName="facebook"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Parceiro">
+            <viewScriptFile forActionName="agenda"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Parceiro">
+            <viewScriptFile forActionName="fotos"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Parceiro">
+            <viewScriptFile forActionName="localizacao"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Parceiro">
+            <viewScriptFile forActionName="contato"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Parceiro">
+            <viewScriptFile forActionName="evento"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="contato"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="trabalheConosco"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="divulgueSeuEvento"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="divulgarEvento"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="comoFunciona"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="politicaDePrivacidade"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Site">
+            <viewScriptFile forActionName="termosDeUso"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="parceiroCadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="parceiroDeletar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="eventoCadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="eventoDeletar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="enderecoCadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="cidadeCadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="estadoCadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="News">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="News">
+            <viewScriptFile forActionName="entrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Rating">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="upload"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="uploadjson"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="parceirofotosCadastrar"/>
+          </viewControllerScriptsDirectory>
+        </viewScriptsDirectory>
+        <viewHelpersDirectory/>
+        <viewFiltersDirectory enabled="false"/>
+      </viewsDirectory>
+      <bootstrapFile filesystemName="Bootstrap.php"/>
+    </applicationDirectory>
+    <dataDirectory enabled="false">
+      <cacheDirectory enabled="false"/>
+      <searchIndexesDirectory enabled="false"/>
+      <localesDirectory enabled="false"/>
+      <logsDirectory enabled="false"/>
+      <sessionsDirectory enabled="false"/>
+      <uploadsDirectory enabled="false"/>
+    </dataDirectory>
+    <docsDirectory>
+      <file filesystemName="README.txt"/>
+    </docsDirectory>
+    <libraryDirectory>
+      <zfStandardLibraryDirectory enabled="false"/>
+    </libraryDirectory>
+    <publicDirectory>
+      <publicStylesheetsDirectory enabled="false"/>
+      <publicScriptsDirectory enabled="false"/>
+      <publicImagesDirectory enabled="false"/>
+      <publicIndexFile filesystemName="index.php"/>
+      <htaccessFile filesystemName=".htaccess"/>
+    </publicDirectory>
+    <projectProvidersDirectory enabled="false"/>
+    <temporaryDirectory enabled="false"/>
+    <testsDirectory>
+      <testPHPUnitConfigFile filesystemName="phpunit.xml"/>
+      <testPHPUnitBootstrapFile filesystemName="bootstrap.php"/>
+      <testApplicationDirectory>
+        <testApplicationControllerDirectory>
+          <testApplicationControllerFile forControllerName="Index"/>
+        </testApplicationControllerDirectory>
+      </testApplicationDirectory>
+      <testLibraryDirectory/>
+    </testsDirectory>
+  </projectDirectory>
+</projectProfile>
