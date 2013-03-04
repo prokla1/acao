@@ -1,0 +1,44 @@
+.input_cad{
+	width: 368px; 
+	height: 37px; 
+	padding: 0 6px; 
+	background: #F8F8F8; 
+	border: 1px solid #D8EDFA; 
+	border-radius: 6px;
+	color: #036;
+}
+
+textarea{
+	background: #F8F8F8; 
+	border: 1px solid #D8EDFA; 
+	width: 850px; 
+	color: #036; 
+	padding: 10px;
+}
+
+label{
+	font-size:20px; 
+	color: #0099FF;
+}
+
+.txt_radio{
+	color: #8BB8CF; 
+	font-size: 18px;
+}
+.text_alert{
+	font-size: 14px; 
+	color: red;
+	float: left;
+	margin-top: 20px;
+}
+.btn_cad{float: right;}
+
+
+.estilo_select {
+	background: #F8F8F8; 
+	border: 1px solid #D8EDFA; 
+	border-radius: 6px;
+	padding: 10px;
+	width: 380px;
+	color: #036;
+}

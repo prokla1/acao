@@ -1,0 +1,158 @@
+<?php foreach ($this->eventos as $evento): ?>
+
+	<div class="ct_event">
+		
+		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+			<div class="banner_promo"></div>
+		<?php endif; ?>
+		
+		<div class="event">
+		
+		<!-- #FLYER E SOCIAIS -->
+			
+			<div class="ct_left_e">
+				<div class="ct_flyer_e">
+					<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+				</div>
+				<div class="ct_sociais_e">
+					<ul>
+						<li class="social_ico_e"><img src="/img/btn_like.png" /></li>
+						<li class="social_ico_e"><img src="/img/btn_twitter.png" /></li>
+						<li class="social_ico_e"><img src="/img/btn_mail.png" /></li>
+					</ul>
+				</div>
+			</div>
+			
+			<!-- #START NOME EVENTO/DATA/LOCAL/AVALIAÇÃO -->
+			
+			<div class="ct_right_e">
+			
+				<div class="ct_event_date">
+					<span class="event_name"><span class="text_min_e">evento:</span><span class="tex_max_e"><?php echo $evento->nome ?></span></span>
+					<span class="event_date"><span class="text_min_e">data:</span><span class="text_date_e"><?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?></span></span>	
+				</div>
+				
+				<?php if ($evento->parceiro) : ?>
+				
+				<div class="ct_event_local">
+					<div class="event_local">
+						<span class="text_min_e">local:</span>
+							<span class="text_local_e">
+							 	<a href="	<?php echo $this->url(array('id' => $evento->parceiro->id, 'nome' => $evento->parceiro->nome), 'parceiro') ?>  ">
+									<?php echo $evento->parceiro->nome ?>
+							   </a>
+							</span>
+						<span class="parc_aval">
+							<img src="/img/event_aval.png"/>
+						</span>	
+					</div>
+	
+				</div>
+				
+				<?php endif;?>
+				
+				
+				<div class="ct_btns">
+	
+					<span class="btn_desc">
+						<a href="">
+							<div class="show_details_event" id="btndetails_<?php echo $evento->id ?>">
+								+detalhes
+							</div>
+						</a>
+					</span>
+	
+	
+					<span class="btn_bonus">
+						<a href="">
+							<div class="show_details_bonus" id="btnbonus_<?php echo $evento->id ?>">
+								+bonus <span class="bonus_count"><?php echo count($evento->cortesias) ?></span>
+							</div>
+						</a>
+					</span>
+	
+				
+				</div>
+	
+				<a href="	<?php echo $this->url(array('id' => $evento->id, 'nome' => $evento->nome), 'evento') ?> ">
+					<div class="btn_go_event">
+
+					</div>
+				</a>
+			
+			</div>
+			
+			<!-- #END NOME EVENTO/DATA/LOCAL/AVALIAÇÃO -->
+		
+		</div>
+		
+		<!-- DETAILS EVENT -->	
+		
+		<div class="ct_desc_event" id="show_<?php echo $evento->id ?>">
+			<div class="desc_event">
+				
+				<span class="title_details">Descrição</span><br>
+				<span class="text_desc"><?php echo $evento->descricao ?></span>
+				
+			</div> 
+		</div>
+		
+		
+		<!-- PROMO PAGE EVENT -->
+
+		<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+					
+		<div class="ct_promo_event" id="showpromo_<?php echo $evento->id ?>">
+		
+			<table class="promo_table" border="0" cellspacing="0" width="610">
+					
+			  <tr class="promo_title">
+			    <td class="promo_topic">Tipo</td>
+			    <td class="promo_topic">Disponíveis</td>
+			    <td class="promo_topic_r">Valor</td>
+			    <td></td>
+			  </tr>
+			  
+			  	<?php foreach ($evento->cortesias as $cortesias) : ?>
+			  	
+			  <tr>
+			    <td class="promo_info"><?php echo $cortesias->nome ?></td>
+			    <td class="promo_info">
+			    	<span class="max_destak"><?php echo $cortesias->disponivel ?></span> de <span class="min_destak"><?php echo $cortesias->qtd ?></span>
+			    </td>
+			    <td class="promo_info">
+			    	de <span class="min_destak">R$<?php echo $cortesias->valor_original ?></span> por <span class="max_destak">R$<?php echo $cortesias->valor ?></span>
+			    </td>
+			    <td class="btn_go_promo cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>">Eu quero</td>
+			  </tr>
+						
+				<?php endforeach; ?>
+					
+			</table>
+	
+		</div>
+		
+		<?php endif;?>
+		
+	</div> <!-- FINAL EVENT -->
+	
+	
+	<div class="spacer"></div>
+
+
+<?php	endforeach;  ?>
+
+
+
+<!-- #START DIALOG CORTESIAS -->
+
+<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
+
+	<?php 
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/eventos_partial.css'));
+	
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/eventos_partial.js'))
+		->prependFile($this->baseUrl('/js/cortesia.js'));
+	?>	

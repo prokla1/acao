@@ -1,0 +1,19 @@
+<?php 
+$eventos = $this->eventos;
+$parceiro = $this->parceiro;
+
+$this->headTitle($parceiro->nome . ' [ eVenter ] ');  //titulo da página
+$this->headMeta()->setProperty('og:title', $parceiro->nome . ' [ eVenter ] ');
+$this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
+$this->headMeta()->setProperty('og:url', $this->serverUrl() .'/' . $parceiro->url_amigavel);
+$this->headMeta()->setProperty('og:description', strip_tags($parceiro->descricao));
+
+?>
+
+	<?php if(count($eventos) > 0) : ?>
+		<?php echo $this->partial('partials/events.phtml', array('eventos' => $eventos)); ?>
+	<?php else: ?> 
+		<div class="container_content_msg">	
+			Nenhum evento cadastrado para este parceiro
+		</div>
+	<?php endif;?>

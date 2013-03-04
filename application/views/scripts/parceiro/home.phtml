@@ -1,0 +1,69 @@
+<?php
+
+$parceiro = $this->parceiro;
+
+
+$this->headTitle($parceiro->nome . ' [ eVenter ] ');  //titulo da página
+$this->headMeta()->setProperty('og:title', $parceiro->nome . ' [ eVenter ] ');
+$this->headMeta()->setProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
+$this->headMeta()->setProperty('og:description', strip_tags($parceiro->descricao));
+$this->headMeta()->setProperty('og:url', $this->serverUrl() .'/' . $this->parceiro->url_amigavel);
+
+?>
+
+<div class="wrap">
+
+	<div class="wrapLeft">
+
+		<div class="desc_parc">
+			
+			<p class="title_homeP">DESCRIÇÃO DO LOCAL</p>
+			<hr / style="margin: 10px 0 20px 0;">
+			<div class="text_descP"><?php echo $parceiro->descricao ?></div>
+		
+		</div>
+		
+		<div class="commentsFb">
+		
+			<div class="fb-comments" data-href="<?php echo $this->serverUrl() .'/' . $parceiro->url_amigavel ?>" data-width="600" data-num-posts="3"></div>
+		
+		
+		</div>
+	
+	</div>
+	
+	<div class="wrapRight">
+
+		<div class="PhoneParceiro" style="font-size: 24px; margin-bottom: 50px;">
+		
+			<span style="font-size: 26px; color: #09F; background: url('/img/icone_phone_p.png') no-repeat; padding: 0px 0px 5px 50px;"><?php echo $parceiro->telefone ?></span>
+			
+		</div>
+		<div class="form_parc">
+		
+			<p>Enviar mensagem</p>
+
+			<?php 
+				if($this->msg)
+				{
+					echo $this->msg;
+				}else 
+				{
+					$form = $this->form;
+					$form->getElement('id_parceiro')->setValue($parceiro->id);
+					echo $form;
+				}
+			?>
+		
+		</div>	
+		
+	
+	</div>
+
+</div>
+
+
+<?php
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/parceiro_home.css'));
+?>

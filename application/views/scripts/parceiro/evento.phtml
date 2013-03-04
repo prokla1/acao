@@ -1,0 +1,154 @@
+
+
+<?php 
+
+$evento = $this->evento;
+$parceiro = $this->parceiro;
+
+$event = array();
+$event['id'] = $evento->id;
+$event['nome'] = $evento->nome;
+$event['url'] =  $this->serverUrl() .'/' . $parceiro->url_amigavel . '/' . $evento->url_amigavel;
+$event['imagem']  = $this->serverUrl() ."/img/eventos/".$evento->capa;
+$event['data'] =  date('d/m/Y', strtotime( $evento->realizacao));
+$event['descricao'] =  $evento->descricao;
+$events[] = $event;
+
+$this->headTitle($evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->realizacao)) . ' - ' . $parceiro->nome . ' [ eVenter ] ');  //titulo da página
+$this->headMeta()->setProperty('og:title', $evento->nome . ' - ' . date('d/m/Y', strtotime( $evento->realizacao)) . ' - ' . $parceiro->nome . ' [ eVenter ] ');
+$this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/eventos/'.$evento->capa);
+$this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
+$this->headMeta()->setProperty('og:description', strip_tags($evento->descricao));
+$this->headMeta()->setProperty('og:url', $event['url']);
+
+
+
+
+?>
+
+
+<script type="text/javascript">
+var events = <?php echo json_encode($events); ?>;
+
+
+</script>
+
+
+<div class="evento_wrap">
+
+	<div class="evento_content">
+	
+		<div class="evento_flyer_wrapper">
+			<div class="evento_flyer">
+			
+				<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+					<div class="evento_promo"><img src="/img/evento_flyer_promo.png" /></div>
+					<?php else:?>
+					<div class="evento_promo"><img src="/img/evento_flyer_no_promo.png" /></div>
+				<?php endif; ?>
+				
+				
+				<div class="evento_flyer_mold">
+					<div class="evento_flyer_img">
+						<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+					</div>
+				</div>
+				<div class="ct_icos">
+					<ul>
+						<li style="float: left; margin-right: 2px; cursor: pointer;" onclick='share("<?php echo $evento->id ?>");' >
+							<img src="/img/btn_events_facebook.png">
+							
+						</li>
+						<?php /*
+						<li style="float: left; cursor: pointer;">
+							<img src="/img/btn_events_mail.png">
+						</li>
+						*/ ?>
+						<li class="li_zoom" rel="flyer_<?php echo $evento->id ?>" style="float: right; cursor: pointer;">
+							<img src="/img/btn_events_zoom.png">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+
+		<div class="evento_description_wrapper">
+			<div class="evento_description">
+	
+				<div class="evento_description_content">
+						<?php echo $evento->nome ?>
+				</div>
+				
+				<div class="evento_description_total">
+					<div style="width: 520px; text-align: left; margin: 0 0 30px 0;"><div><span style="padding-right: 10px; font-weight: bold;">Genero[s]:</span><?php echo implode(', ', $evento->generos); ?> </div></div>
+					<?php echo $evento->descricao ?>
+				</div>
+			
+			</div>
+			
+			<div class="evento_date">
+					<?php echo date('d/m/Y', strtotime( $evento->realizacao)) ?>				
+			</div>
+		</div>
+		
+
+		<div class="evento_flyer_zoom" id="flyer_<?php echo $evento->id ?>"> <!-- none -> dialog -->
+				<img alt="<?php echo $evento->nome ?>" src="/img/eventos/<?php echo $evento->capa?> "/>
+		</div>
+			
+	</div>
+
+	<div id="evento_content_end" style="clear: both;"></div>
+
+	<?php if(count($evento->cortesias) > 0) :  //verifica se existem cortesias?>
+	
+		<div class="evento_promotions" id="showpromo_<?php echo $evento->id ?>">
+		
+		<p style="font-size: 20px; color: #006699; background: url('/img/evento_description_button_promotions.png') left center no-repeat; padding: 5px 0px 5px 34px; margin: 10px;">PROMOÇÕES</p>
+			<table>
+				<thead>
+				  <tr>
+				    <th>Tipo</th>
+				    <th>Disponíveis</th>
+				    <th>Valor</th>
+				    <th class="th_empty"></th>
+				  </tr>
+				</thead>
+				<tbody>
+			  	<?php foreach ($evento->cortesias as $cortesias) : ?>
+			  	
+				  <tr>
+				    <td><?php echo $cortesias->nome ?></td>
+				    <td>
+				    	<span class="max_destak"><?php echo $cortesias->disponivel ?></span> de <span class="min_destak"><?php echo $cortesias->qtd ?></span>
+				    </td>
+				    <td>
+				    	de <span class="min_destak">R$<?php echo $cortesias->valor_original ?></span> por <span class="max_destak">R$<?php echo $cortesias->valor ?></span>
+				    </td>
+				    <td>
+				    	<div class="cortesia_euquero" id="cortesia_<?php echo $cortesias->id ?>" >
+				    		Eu quero
+				    	</div>
+				    </td>
+				  </tr>
+				<?php endforeach; ?>
+				
+				</tbody>
+			</table>
+		</div>
+	<?php endif;?>
+
+</div>
+
+
+
+<!-- #START DIALOG CORTESIAS -->
+
+<div id="dialog_cortesia"></div><!-- Div modal CONVERTER CORTESIA -->
+
+
+<?php 
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/parceiro_evento.css'));
+	$this->headScript()->prependFile($this->baseUrl('/js/parceiro_evento.js'));
+?>

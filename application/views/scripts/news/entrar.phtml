@@ -1,0 +1,10 @@
+<?php if ($this->msg) :?>
+	<ul>
+		<?php foreach ($this->msg as $msg) : ?>
+			<li><?php echo $msg?></li>	
+		<?php endforeach;?>
+	</ul>
+<?php endif;?>
+<?php 
+	echo $this->form;
+?>

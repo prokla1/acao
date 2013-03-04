@@ -1,0 +1,182 @@
+<?php 
+	$footer = $this->partial('partials/footer.phtml');
+	$header =  $this->partial('partials/header.phtml');
+?>
+<?php echo $this->doctype('XHTML1_RDFA'); ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"> 
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php 
+echo 	$this->headTitle(),PHP_EOL;
+echo 	$this->headMeta(),PHP_EOL;
+?>
+
+
+
+
+
+<!--=============================== CSS  ================================================== -->
+<link rel="stylesheet" href="/css/base.css"  media="screen" type="text/css" />
+
+<?php 
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/admin.css'));
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/new_style/jquery-ui-1.10.0.custom.min.css'));
+	echo $this->headLink(),PHP_EOL;
+?>
+
+</head>
+<body>
+
+
+	<!--=============================== Page Layout ================================================== -->
+	<div class="global">
+		<div class="wrapper">
+
+	
+	
+	
+			<!--=============================== Page Navigation HEADER ================================================== -->
+			<?php 
+				echo $header;
+			?>
+	
+	
+			<!--=============================== Page Content ================================================== -->	
+				
+				<div class="admin_content">
+				
+	
+					
+					<div class="wrap_all_adm">
+
+						<div class="wrap_menu">
+						
+						
+						   	<ul>
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'evento-cadastrar'), 'default', true); ?>">
+								    	Evento -> Cadastrar
+								    </a>
+								</li>
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceiro-cadastrar'), 'default', true); ?>">
+								    	Parceiro -> Cadastrar
+								    </a>
+								</li>
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceirofotos-cadastrar'), 'default', true); ?>">
+								    	FOTOS Parceiro -> Cadastrar
+								    </a>
+								</li>
+								<!-- 
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceiro-deletar'), 'default', true); ?>">
+								    	parceiroDeletarAction
+								    </a>
+								</li>
+								 -->
+								<!-- 
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'evento-deletar'), 'default', true); ?>">
+								    	eventoDeletarAction
+								    </a>
+								</li>
+								 -->
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'endereco-cadastrar'), 'default', true); ?>">
+								    	Endereco -> Cadastrar
+								    </a>
+								</li>
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'cidade-cadastrar'), 'default', true); ?>">
+								    	Cidade -> Cadastrar
+								    </a>
+								</li>
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'estado-cadastrar'), 'default', true); ?>">
+								    	Estado -> Cadastrar
+								    </a>
+								</li>
+								<li>
+									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'estado-cadastrar'), 'default', true); ?>">
+								    	ESTATISTICAS
+								    </a>
+								</li>
+							</ul>
+						
+						</div>
+						<div class="wrap_form">
+					
+					
+										<?php echo $this->layout()->content;?>   
+					
+					
+					
+						</div>
+					</div>
+					
+					
+					
+					
+					
+										
+
+				</div>
+	
+
+				
+				
+		
+		</div> <!-- <div class="wrapper"> -->
+		<!--=============================== Page FOOTER ================================================== -->
+		<?php  echo $footer; ?>
+
+
+	</div> <!-- <div class="global">  -->
+	
+
+<!--=============================== JS ================================================== -->
+<?php
+
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/jquery-1.7.2.min.js'))
+		->appendFile($this->baseUrl('/js/jquery-ui-1.9.2.custom.min.js'))
+// 		->appendFile($this->baseUrl('/js/jquery.stringToSlug.js'))
+// 		->appendFile($this->baseUrl('/js/ckeditor/ckeditor.js'))
+		->appendFile($this->baseUrl('/js/redactor/redactor.min.js'))
+		->appendFile($this->baseUrl('/js/admin.js'));	
+	
+		 
+	echo	$this->headScript(),PHP_EOL;
+?>
+
+<link rel="stylesheet" href="/js/redactor/redactor.css" />
+
+
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+
+<style>
+h1
+{
+	color: red;
+	text-align: center;
+	font-size: 20px;
+}
+div.admin_content
+{
+	display: block;
+	margin: 10px 0;
+}
+
+</style>	
+	
+	
+<!--=============================== End Document ================================================== -->	
+</body>
+</html>
+

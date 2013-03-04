@@ -1,0 +1,46 @@
+<?php $parceiro = $this->parceiro;?>
+
+	<div class="ct_btns_top">	
+		<ul>
+			<li class="btn_top">
+			
+							<div id="rate_<?php echo $parceiro->id; ?>">
+	   							<ul class="star-rating" style="margin: 0 auto;">
+	   								<li class="current-rating" id="current-rating" style="width: <?php echo ($parceiro->rating * 20); ?>%;"></li>
+								    <li><a href="#" title="Péssimo" rel="<?php echo $parceiro->id ?>" class="star1" >1</a></li>
+								    <li><a href="#" title="Ruim" rel="<?php echo $parceiro->id ?>" class="star2" >2</a></li>
+								    <li><a href="#" title="Regular" rel="<?php echo $parceiro->id ?>" class="star3" >3</a></li>
+								    <li><a href="#" title="Bom" rel="<?php echo $parceiro->id ?>" class="star4" >4</a></li>
+								    <li><a href="#" title="Ótimo" rel="<?php echo $parceiro->id ?>" class="star5" >5</a></li>
+								</ul>
+							</div>
+							
+			</li>
+			<li class="btn_top panel_command" rel="pagamentos">
+				Pagamentos <span>»</span>
+					<div class="panel_content" id="panel_content_pagamentos">
+						<?php echo $parceiro->pagamento ?>
+					</div>
+			</li>
+			<li class="btn_top panel_command" rel="horarios">
+				Horários <span>»</span>
+					<div class="panel_content" id="panel_content_horarios">
+						<?php echo $parceiro->funcionamento ?>
+					</div>
+			</li>
+		</ul>
+	</div>
+	
+
+				
+<?php 
+	$this->headScript()->setSeparator(PHP_EOL)
+		->prependFile($this->baseUrl('/js/panels.js'))
+		->prependFile($this->baseUrl('/js/btns_top.js'));
+	
+
+	$this->headLink()
+		->prependStylesheet($this->baseUrl('/css/panels.css'))
+		->prependStylesheet($this->baseUrl('/css/btns_top.css'));
+?>
+
