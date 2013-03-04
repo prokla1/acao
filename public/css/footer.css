@@ -26,15 +26,28 @@ div.footer_menu ul
 div.footer_menu ul li
 {
 	float: left;
-	width: 19%;
+	width: 25%;
 	padding-left: 30px;
 	background: transparent url("/img/footer_menu_back.png") left center no-repeat;
 }	
 div.footer_menu ul li.footer_face
 {
-	width: 20px;
+	width: 15px;
 	background: none;
 	padding-top: 12px;
+}	
+div.footer_menu ul li.footer_face a
+{
+	width: 32px;
+	height: 32px;
+	display: block;
+}
+div.footer_menu ul li.footer_face a img
+{
+	width: 32px;
+	height: 32px;
+	display: block;
+	cursor: pointer;
 }
 div.footer_menu ul li a
 {
