@@ -64,7 +64,6 @@ div.location div.location_content a:HOVER
 
 div.ajax_content_localidade
 {
- 	height: 240px; 
 	width: 100%;
 /*	background: #004080; */
 	display: none;
@@ -72,6 +71,7 @@ div.ajax_content_localidade
 	z-index: 60;
 	border-top: 3px solid #000;
 	background: url("/img/body.png") repeat;
+	min-height: 260px;
 
 	
 }
@@ -86,7 +86,7 @@ div.ajax_content_localidade div.cities
 }
 div.ajax_content_localidade div.box_text_cities
 {
-	border: 0px; left: 100px; padding: 10px 30px; font-size: 16px; color: #AAA; margin: 40px 0 0px 110px;
+	border: 0px; left: 100px; padding: 10px 30px; font-size: 16px; color: #AAA; margin: 40px 0 0px 70px;
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 }
 
@@ -96,7 +96,7 @@ div.ajax_content_localidade div.box_text_cities span
 }
 div.ajax_content_localidade div.cities ul li a
 {
-	color: #7F7F7F;
+	color: #fff;
 }
 
 div.ajax_content_localidade div.cities ul li a:hover
@@ -106,7 +106,7 @@ div.ajax_content_localidade div.cities ul li a:hover
 
 div.ajax_content_localidade div.headline
 {
-	color: #666;
+	color: #ccc;
 	font-size: 40px;
 	width: 380px;
 	letter-spacing: 1px;
@@ -116,6 +116,6 @@ div.ajax_content_localidade div.headline
 }
 div.ajax_content_localidade div.headline span
 {
-	color: #EA7500;
+	color: #09F;
 	font-size: 50px;
 }

@@ -29,16 +29,17 @@ div.eventos_content
 }
 #postshare {
 	display: table;
-	padding:5px 3px 3px 5px; 
+	padding:5px; 
 	border-radius:0 0 0 5px;
 	-moz-border-radius:0 0 0 5px;
 	-webkit-border-radius:0 0 0 5px;
-	background-color:#fbfbfb; 
+
+
 	text-align:center;
-	-moz-box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
-	-webkit-box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
-	-goog-ms-box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
-	box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: -5px 5px 7px #ccc;
+	-webkit-box-shadow: -5px 5px 7px #CCC;
+	-goog-ms-box-shadow: -5px 5px 7px #CCC;
+	box-shadow: -5px 5px 7px #CCC;
 }
 
 #postshare .social {float:left;clear:left;margin-top:5px;}
