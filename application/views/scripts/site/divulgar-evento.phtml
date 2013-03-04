@@ -10,21 +10,23 @@
 	<div class="ct_content">
 		<div style="text-align: justify; padding: 0 30px; ">
 			
-			<div style="margin: 0 auto; margin-bottom: 60px; border: 2px dashed #CCC; width: 450px; padding: 10px; font-size: 16px;">
+			<div style="margin: 0 auto; margin-bottom: 60px; border: 2px dashed #CCC; width: 680px; padding: 10px; font-size: 16px;">
 				<p> Divulgue seu evento, <span style="font-size: 18px;">é grátis!</span> Preencha o formulário abaixo informando sobre seu interesse. Analisaremos e logo entraremos em contato. </p>
 			</div>
 		
 		
-		
-			
-	<?php 
-		echo $this->msg;
-		
-		$form = $this->form;
-		$form->getElement('assunto')->setValue('Divulgar Eventos');
-		echo $form;
-	?>
 	
+		<div class="form">
+			
+			<?php 
+				echo $this->msg;
+				
+				$form = $this->form;
+				$form->getElement('assunto')->setValue('Divulgar Eventos');
+				echo $form;
+			?>
+			
+		</div>
 	
 	
 	

@@ -12,13 +12,17 @@
 	
 	<div class="ct_content">
 	
-	<?php 
-	echo $this->msg;
-	
-	$form = $this->form;
-	$form->getElement('assunto')->setValue('Contato');
-	echo $form;
-	?>
+		<div class="form">
+		
+			<?php 
+			echo $this->msg;
+			
+			$form = $this->form;
+			$form->getElement('assunto')->setValue('Contato');
+			echo $form;
+			?>
+		
+		</div>
 
 	<?php /*
 	

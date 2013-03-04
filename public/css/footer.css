@@ -36,6 +36,12 @@ div.footer_menu ul li.footer_face
 	background: none;
 	padding-top: 12px;
 }
+
+div.footer_menu ul li.footer_face img{
+border: 1px solid #000;
+border-radius: 4px;
+}
+
 div.footer_menu ul li a
 {
 	color: #00CCFF;
