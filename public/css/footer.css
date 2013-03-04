@@ -32,28 +32,12 @@ div.footer_menu ul li
 }	
 div.footer_menu ul li.footer_face
 {
-	width: 15px;
+	width: 32px;
+	height: 32px;
+ 	cursor: pointer;
 	background: none;
-	padding-top: 12px;
+	padding-top: 8px;
 }	
-div.footer_menu ul li.footer_face a
-{
-	width: 32px;
-	height: 32px;
-	display: block;
-}
-div.footer_menu ul li.footer_face a img
-{
-	width: 32px;
-	height: 32px;
-	display: block;
-	cursor: pointer;
-}
-
-div.footer_menu ul li.footer_face img{
-border: 1px solid #000;
-border-radius: 4px;
-}
 
 div.footer_menu ul li a
 {
