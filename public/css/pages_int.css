@@ -35,7 +35,11 @@ body{
 
 .ct_int .ct_content
 	{
-	width: 920px;  margin: 0 auto; padding: 40px 40px; margin-bottom: 30px;
+	margin: 0 auto; padding: 40px 40px; margin-bottom: 30px; width: 980px;
+}
+
+.ct_int .ct_content .form{
+	display: table; margin: 0 auto;
 }
 
 
@@ -88,3 +92,8 @@ div.ct_int div.ct_content form ul.errors li
 
 
 
+/*
+PAGINA COMO FUNCIONA
+*/
+
+div.ct_int div.ct_content ul li{color: #000;}
