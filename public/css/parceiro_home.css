@@ -46,15 +46,19 @@ div.wrap div.wrapRight div.form_parc p{
 /*
 FORM
 */
+div.wrap div.wrapRight form ul.errors li
+{
+	color: red;
+}
 
 div.wrap div.wrapRight div.form_parc label{
 	font-size:14px; color: #0099FF;
 }
 div.wrap div.wrapRight div.form_parc input[type="text"]{
-	width: 180px; height: 28px; padding: 0 10px; background: #EEE; border: 1px solid #C6E2FF; color: #036; outline: 0 none;  margin-bottom: 8px;
+	width: 180px; height: 28px; padding: 0 10px; background: #EEE; border: 1px solid #C6E2FF; color: #036; outline: 0 none; 
 }
 div.wrap div.wrapRight div.form_parc input#assunto{
-	background: #EEE; border: 1px solid #C6E2FF;width: 180px; color: #036; outline: 0 none; height: 28px; padding-left: 10px; margin-bottom: 8px; font-weight: bold;
+	background: #EEE; border: 1px solid #C6E2FF;width: 180px; color: #036; outline: 0 none; height: 28px; padding-left: 10px; font-weight: bold;
 }
 div.wrap div.wrapRight div.form_parc textarea{
 	background: #EEE; border: 1px solid #C6E2FF; color: #036; padding: 10px; outline: 0 none; height: 80px;

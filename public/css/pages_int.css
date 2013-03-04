@@ -1,4 +1,4 @@
-/*ESTILO PÁGINA*/
+/*ESTILO Pï¿½GINA*/
 
 body{
 	background: #F9F9F9;
@@ -40,25 +40,30 @@ body{
 
 
 /*ESTILO INPUTS*/
+div.ct_int div.ct_content form ul.errors li
+{
+	color: red;
+}
+
 .ct_int .ct_content label{
-	font-size:14px; color: #0099FF; margin-left:  300px;
+	font-size:14px; color: #0099FF; margin-top: 10px;
 }
 
 .ct_int .ct_content input[type="text"]{
-	width: 280px; height: 36px; padding: 0 10px; background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; outline: 0 none;  margin-bottom: 8px; margin-left:  290px;
+	width: 280px; height: 36px; padding: 0 10px; background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; outline: 0 none;
 }
 
 .ct_int .ct_content select{
-	background: #FDFDFD; border: 1px solid #C6E2FF;width: 300px; color: #036; outline: 0 none; height: 40px; padding-left: 10px; margin-bottom: 8px; margin-left:  290px;
+	background: #FDFDFD; border: 1px solid #C6E2FF;width: 300px; color: #036; outline: 0 none; height: 40px; padding-left: 10px;
 }
 
 
 .ct_int .ct_content textarea{
-	background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; padding: 10px; outline: 0 none; height: 140px; margin-left: 120px;
+	background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; padding: 10px; outline: 0 none; height: 140px;
 }
 
 .ct_int .ct_content input[type="submit"]{
-	border: 1px solid #C6E2FF; color: #036; padding: 10px 60px; cursor: pointer; margin-left: 640px;
+	border: 1px solid #C6E2FF; color: #036; padding: 10px 60px; cursor: pointer; margin-left: 500px;
 	background: #7abcff; /* Old browsers */
 	background: -moz-linear-gradient(top,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
