@@ -70,12 +70,14 @@ $parceiro = $this->parceiro;
 						<?php if($router == 'home') echo '<div class="menu_active"></div>'; ?>
 					</a>
 				</li>
+				<?php /*
 				<li>
 					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'evento'), 'default', true) ?>">
 						Evento
 						<?php if($router == 'evento') echo '<div class="menu_active"></div>'; ?>
 					</a>
 				</li>
+				*/ ?>
 				<li>
 					<a href="<?php echo $this->url(array('controller' => $parceiro->url_amigavel, 'action' => 'agenda'), 'default', true) ?>">
 						Agenda
