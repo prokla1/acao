@@ -14,7 +14,7 @@ $this->headMeta()->setProperty('og:url', $this->serverUrl() .'/' . $parceiro->ur
 
 <?php if(count($this->parceiro->fotos) > 0)  : ?>
 
-<div id="fotos" style="width: 900px; height: 500px; margin: 0 auto; text-align: center; border: 1px solid red;">
+<div id="fotos" style="width: 900px; height: 500px; margin: 0 auto; text-align: center;">
 	<?php foreach ($this->parceiro->fotos as $fotos) :?>
 			<a href="/img/parceiros/<?php echo $fotos->url ?>"><img src="/img/parceiros/150px/<?php echo $fotos->url ?>" /></a>
 			
