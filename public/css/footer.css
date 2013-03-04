@@ -32,12 +32,29 @@ div.footer_menu ul li
 }	
 div.footer_menu ul li.footer_face
 {
+	display: inline-block;
+	padding: 0;
+	width: 32px;
+	background: none;
+	padding-top: 28px;
+	margin-right: 10px;
+}	
+div.footer_menu ul li.footer_face a
+{
 	width: 32px;
 	height: 32px;
- 	cursor: pointer;
-	background: none;
-	padding-top: 8px;
-}	
+	display: block;
+}
+div.footer_menu ul li.footer_face a img
+{
+	width: 32px;
+	height: 32px;
+	display: block;
+	cursor: pointer;
+	border: 1px dashed #000;
+}
+
+
 
 div.footer_menu ul li a
 {
@@ -58,6 +75,7 @@ div.footer_end
 	color: #FFF;
 	text-transform: uppercase;
 	padding-left: 100px;
+	padding-top: 10px;
 }	
 div.footer_end div
 {
