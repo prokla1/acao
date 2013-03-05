@@ -22,32 +22,20 @@ function str_to_slug(str) {
 
 $(document).ready( function() {
 	
-//	CKEDITOR.replaceAll('ckeditor', {
-//		// Load the German interface.
-//		language: 'pt-br'
-//	});
-	
-	
-	$('.ckeditor').redactor({
-		imageUpload: '/admin/upload',
-		imageGetJson: '/admin/uploadjson'
+	CKEDITOR.replaceAll('ckeditor', {
+		// Load the German interface.
+		language: 'pt-br'
 	});
-		
-		
 	
 	
-
-//	$("#nome").stringToSlug({
-//		setEvents: 'keyup keydown blur keypress',
-//		getPut: '#url_amigavel',
-//		space: '-'
+//	$('.ckeditor').redactor({
+//		imageUpload: '/admin/upload',
+//		imageGetJson: '/admin/uploadjson'
 //	});
+		
+		
 	
 	
-//	
-//	$("#nome").keydown(function() {
-//		$("#url_amigavel").val(str_to_slug($("#nome").val()));
-//	});	
 	
 	if($("#realizacao").length)
 	{

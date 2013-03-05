@@ -5,7 +5,6 @@ class AdminController extends Zend_Controller_Action
 
     public function init()
     {
-    	$this->_helper->layout->setLayout('admin');
 		$admin = false;
     	
     	$auth = Zend_Auth::getInstance();
@@ -16,6 +15,7 @@ class AdminController extends Zend_Controller_Action
     		if($user->admin == '1')
     		{
     			$admin = true;
+    			$this->_helper->layout->setLayout('admin');
     		}
     	}
     	 
