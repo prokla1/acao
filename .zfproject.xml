@@ -66,6 +66,7 @@
           <actionMethod actionName="upload"/>
           <actionMethod actionName="uploadjson"/>
           <actionMethod actionName="parceirofotosCadastrar"/>
+          <actionMethod actionName="estatisticas"/>
         </controllerFile>
         <controllerFile controllerName="News">
           <actionMethod actionName="index"/>
@@ -253,6 +254,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="parceirofotosCadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="estatisticas"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -1,0 +1,62 @@
+
+
+<div class="title">
+	Parceiros  
+	<span>
+		<label for="checkbox_parceiros_all">
+			<input type="checkbox" onclick="toggleChecked(this.checked)" id="checkbox_parceiros_all">Todos
+		</label>
+	</span>
+</div> 
+<div class="parceiros_content">
+	<dd id="id_parceiro-element">
+		<?php 
+		foreach ($this->parceiros as $parceiro)
+		{
+		?>
+			<label for="id_parceiro-<?php echo $parceiro['key'] ?>">
+				<input type="checkbox" name="id_parceiro[]" id="id_parceiro-<?php echo $parceiro['key'] ?>" value="<?php echo $parceiro['key'] ?>"><?php echo $parceiro['value'] ?>
+			</label>
+			<br>
+		<?php 
+		}
+		?>
+	</dd>
+</div>
+
+
+
+<input type="submit" name="submit" id="submit" value="Filtrar">
+
+<script type="text/javascript">
+function toggleChecked(status) {
+	$("#id_parceiro-element input").each( function() {
+		$(this).attr("checked",status);
+	});
+}
+	
+</script>
+
+<style>
+.title
+{
+	color: #333333;
+	font-size: 15px;
+	padding: 8px 6px;
+	font-weight: bold;
+}
+.title span {
+	color: #CCCCCC;
+	font-size: 14px;
+	padding: 2px 6px;
+	font-weight: normal;
+}
+
+.parceiros_content
+{
+	height: 200px;
+	overflow: auto;
+	margin: 10px 0;
+}
+
+</style>

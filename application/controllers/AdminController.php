@@ -351,9 +351,6 @@ class AdminController extends Zend_Controller_Action
     	 
     	$this->_helper->json($imgs);
     }
-    
-    
-    
 
     public function parceirofotosCadastrarAction()
     {
@@ -411,5 +408,13 @@ class AdminController extends Zend_Controller_Action
     	$this->view->form = $form;
     }
 
+    public function estatisticasAction()
+    {
+        // action body
+    	$parceiros = new Application_Model_DbTable_Parceiros();
+    	$this->view->parceiros = $parceiros->getParceirosList();
+    }
+
 
 }
+
