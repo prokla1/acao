@@ -1,0 +1,123 @@
+@CHARSET "UTF-8";
+
+
+/* ================================== #BUSCA AVANÇADA ===========================================*/
+
+/*CALENDARIO - Exibe dia de hoje e input com calendário*/
+
+.ct_date{
+	float: left; 
+	width: 420px; 
+	max-width: 420px;
+}
+
+.text_date{
+	float: left; 
+	margin-right: 5px;
+}
+
+.input_none_date{
+	display: none;
+}
+
+.input_show_date{
+	border: 0; 
+	cursor: pointer; 
+	font-weight: bold; 
+	margin-top: -4px; 
+	background: url('/img/calendar.gif') right no-repeat; 
+	width: 220px;
+}
+
+
+
+
+
+/*CALENDARIO DOS PROXIMOS 7 DIAS*/
+
+.ct_calendar{
+	float: left; 
+	margin: -15px 0 0 0; 
+	float: right; 
+	padding: 4px 2px; 
+	background: #E6E6E6;
+}
+
+ul#ul_calendar{
+	float: left;
+}
+
+ul#ul_calendar li{
+	font-size: 12px;
+	float: left;
+	white-space: nowrap;
+	width: 65px;
+	margin: 0 2px;
+	border: 1px solid #fbfbfb;
+	cursor: pointer;
+	text-align: center;
+	padding: 10px 0;
+	font-weight: bold;
+}
+
+ul#ul_calendar li a{
+	color: #000;
+}
+
+ul#ul_calendar li{
+	background: #fbfbfb;
+}
+
+ul#ul_calendar li.active a{
+	color: #FFE9D2;
+}
+
+ul#ul_calendar li.active, ul#ul_calendar li:hover{
+	background:#f60;
+	border: 1px solid #BB3D00;
+	color: #FFF;
+}
+
+/* ==========*/
+
+#search_adv{
+	border: 1px solid #f0f0f0; 
+	width: 620px; 
+	display: table; 
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-8 */
+}
+
+#categories{
+	border-bottom: 1px solid #ccc; 
+	padding: 5px;
+}
+
+.iten_category{
+	display: inline; 
+	padding: 2px 10px;
+}
+
+#filter{padding: 16px 10px;}
+
+.txt_input_h{
+	text-align: right; 
+	width: 80px;
+}
+
+#btn_go_filter{
+	padding: 5px 10px; 
+	border: 1px solid #CCC; 
+	float: right; 
+	background: #999; 
+	color: #CCC;
+}
+

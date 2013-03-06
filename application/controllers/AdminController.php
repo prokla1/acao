@@ -49,7 +49,7 @@ class AdminController extends Zend_Controller_Action
 	 
 
     					
-		    					$path = APPLICATION_PATH . '/../public/img/parceiros/';
+		    					$path = APPLICATION_PATH . '/../public_html/img/parceiros/';
 		    					$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
 		    					
 		    							$name = $_FILES['foto']['name'];
@@ -141,7 +141,7 @@ class AdminController extends Zend_Controller_Action
 	 
 
     					
-		    					$path = APPLICATION_PATH . '/../public/img/eventos/';
+		    					$path = APPLICATION_PATH . '/../public_html/img/eventos/';
 		    					$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
 		    					
 		    							$name = $_FILES['capa']['name'];
@@ -283,7 +283,7 @@ class AdminController extends Zend_Controller_Action
     public function uploadAction()
     {
 			    
-	    $path = APPLICATION_PATH . '/../public/img/uploads/';
+	    $path = APPLICATION_PATH . '/../public_html/img/uploads/';
 	    $valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
 	     
 	    $name = $_FILES['file']['name'];
@@ -321,13 +321,13 @@ class AdminController extends Zend_Controller_Action
     	$imgs = array();
 
     	/**      ======= MOSTRA AS FOTOS DO DIRETÓRIO 'uploads'======  **/
-    	$directoryUploads = APPLICATION_PATH . '/../public/img/uploads/';
+    	$directoryUploads = APPLICATION_PATH . '/../public_html/img/uploads/';
     	$images = glob("" . $directoryUploads . "*.*");
     	foreach($images as $image)
     	{
     		$img = array();
-    		$img['thumb'] = '/public/img/uploads/150px/'. basename($image); //$image;
-    		$img['image'] = '/public/img/uploads/'. basename($image);
+    		$img['thumb'] = '/public_html/img/uploads/150px/'. basename($image); //$image;
+    		$img['image'] = '/public_html/img/uploads/'. basename($image);
     		$img['title'] =  basename($image);
     		$img['folder'] = 'Uploads';
     		$imgs[] = $img;
@@ -360,7 +360,7 @@ class AdminController extends Zend_Controller_Action
     	if ($this->getRequest()->isPost()) {
     		
     		$id_parceiro = $this->_getParam('id_parceiro');
-    		$path = APPLICATION_PATH . '/../public/img/parceiros/';
+    		$path = APPLICATION_PATH . '/../public_html/img/parceiros/';
     		$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
     		
 // 	    		print_r($_FILES);
@@ -410,11 +410,24 @@ class AdminController extends Zend_Controller_Action
 
     public function estatisticasAction()
     {
-        // action body
     	$parceiros = new Application_Model_DbTable_Parceiros();
     	$this->view->parceiros = $parceiros->getParceirosList();
     }
 
+    public function estatisticasShowAction()
+    {
+    	$this->_helper->layout->setLayout('ajax');
+    	
+    	$id_parceiros = $this->_getParam('id_parceiro');
+    	$this->view->id_parceiros = $id_parceiros;
+    	
+    	$eventosTable = new Application_Model_DbTable_Eventos();
+    	$this->view->eventosEstatisticas = $eventosTable->estatisticas($id_parceiros);
+    	 
+    }
+
 
 }
+
+
 
