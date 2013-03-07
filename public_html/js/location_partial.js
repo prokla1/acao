@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 	$('.location_content a').click(function(event){
 		event.preventDefault();
-		$(".ajax_content_localidade").slideToggle();
+		$(".ajax_content_localidade").slideToggle("slow");
 		scroll();
 
 	});    
@@ -12,6 +12,5 @@ $(document).ready(function(){
 function scroll(){
     $('html, body').animate({
         scrollTop: $(".location").offset().top
-    }, 200);
-    
+    }, 400);
 }

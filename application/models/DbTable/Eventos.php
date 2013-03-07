@@ -538,36 +538,43 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     public function estatisticas($id_parceiros)
     {
     	$result = array();
-    	$parceiro = array();
-    	foreach ($id_parceiros as $id_parceiro)
-    	{
-      		$parceiro[$id_parceiro] = array(); 
+    	
+    	foreach ($id_parceiros as $id_parceiro) {
+    		
     		
     		$resultSet = $this->select()
-    		->from('eventos')
+    		->setIntegrityCheck(false)
+    		->from(  //seleciona tudo da tabela EVENTOS
+    				array(
+    						'eventos' => 'eventos'
+    				),
+    				array(
+    						'evento_id'					=>	'id',
+    						'evento_nome'				=>	'nome',
+    						'evento_realizacao'			=>	'realizacao',
+    						'evento_realizacao'			=>	'realizacao',
+    						'evento_idparceiro'			=>	'id_parceiro'
+    				)
+    		)
+
     		->where('eventos.id_parceiro = ?', $id_parceiro)
     		->where('eventos.ativo = ?', '1')
     		->where('eventos.realizacao >= ?', date('Y-m-d', time()))
     		->order('eventos.realizacao')
-    		->limit(10,0);
-    		 
-    		//Zend_Debug::dump($resultSet->query());
+    		->limit(10,0)
     		
-    		$eventos = array();
-
-    		foreach ($resultSet->query() as $row) {
-    			 
-    			$eventoModel = new Application_Model_Evento();
-    			$eventoModel->setOptions($row);
-    			$eventoModel->setDescricao(null);
-   				$eventoModel->setParceiro($row['id_parceiro']);
-   				
-    			$parceiro[$eventoModel->getId_parceiro()] = $eventoModel;
+    		->query()
+    		->fetchAll();
+    		$entries = array();
+    		foreach ($resultSet as $row) {
+    			$entries[] = $row;
     		}
-//     		$result[] = $parceiro;
     		
+    		$result[$id_parceiro] = $entries;
     	}
-    	return $parceiro;
+    	
+
+    	return $result;
     }   
     
 
