@@ -7,4 +7,3 @@ RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteRule !\.(js|gif|jpg|png|css|txt)$ public_html/index.php [L]
 RewriteCond %{REQUEST_URI} !^/public_html/
 RewriteRule ^(.*)$ public_html/$1 [NC,L]
-

@@ -7,7 +7,8 @@
 			<input type="checkbox" onclick="toggleChecked(this.checked)" id="checkbox_parceiros_all">Todos
 		</label>
 	</span>
-</div> 
+</div>
+<form id="form_parceiros">
 <div class="parceiros_content">
 	<dd id="id_parceiro-element">
 		<?php 
@@ -23,19 +24,15 @@
 		?>
 	</dd>
 </div>
-
-
-
 <input type="submit" name="submit" id="submit" value="Filtrar">
+</form>
 
-<script type="text/javascript">
-function toggleChecked(status) {
-	$("#id_parceiro-element input").each( function() {
-		$(this).attr("checked",status);
-	});
-}
-	
-</script>
+<div id="estatisticas_show">
+
+</div>
+
+
+
 
 <style>
 .title
@@ -56,7 +53,10 @@ function toggleChecked(status) {
 {
 	height: 200px;
 	overflow: auto;
-	margin: 10px 0;
+	margin: 0 0 10px 0;
 }
 
 </style>
+<?php 
+	$this->headScript()->appendFile($this->baseUrl('/js/admin_estatisticas.js'));
+?>
