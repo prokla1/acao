@@ -1,0 +1,125 @@
+/*
+ADMIN LOGIN
+*/
+body{
+	background: #E6F2FF;
+}
+
+div.wrap_formall{
+	padding-top: 140px;
+}
+
+div.wrap_formall h1{font-size: 14px;}
+
+div.wrap_formall div.wrap_form{
+	border: 1px solid #F9F9FF; width: 880px; margin: 0 auto; background: #E1F0FF; padding: 40px 26px; display: table; border-radius: 5px;
+}
+
+div.wrap_formall div.wrap_form dt{
+	margin: 6px 0 0 6px;
+}
+
+div.wrap_formall div.wrap_form dt, div.wrap_formall div.wrap_form dd{
+	float: left;
+}
+
+div.wrap_formall div.wrap_form input
+	{
+	width: 260px; height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; outline: 0 none;
+}
+
+div.wrap_formall div.wrap_form input[type="submit"]
+	{
+	width: 200px; height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; cursor: pointer;
+}
+
+/*
+MENU ADMIN INTERNO
+*/
+
+div.wrap_all_adm 
+	{
+	width: 1300px; display: table; padding-top: 160px; margin: 0 auto;
+}
+
+div.wrap_all_adm div.wrap_menu ul{
+	float: left;
+}
+
+div.wrap_all_adm div.wrap_menu li
+	{
+	border: 1px solid #F9F9FF; padding: 10px 60px; margin: 0 1px; background: #353535;
+}
+
+div.wrap_all_adm div.wrap_menu li a
+	{
+	color: #0CF;
+}
+
+div.wrap_all_adm div.wrap_menu li a:hover
+	{
+	color: red;
+}
+
+div.wrap_all_adm div.wrap_menu li a:ACTIVE
+	{
+	color: #f60;
+}
+
+/*
+CONTEUDO
+*/
+
+div.wrap_all_adm div.wrap_form{
+	float: right; width: 960px; border: 1px solid #F9F9FF; background: #E1F0FF; padding: 40px 26px; display: table; border-radius: 5px; margin-top: -80px; margin-bottom: 50px;
+}
+
+
+/*
+TITLE ADMIN
+*/
+
+div.wrap_all_adm div.wrap_form div.titleadmin{
+	border: 1px solid red;
+}
+
+/*
+INPUTS
+*/
+
+div.wrap_all_adm div.wrap_form dt{
+	padding: 10px 0 4px 10px; font-weight: bold;
+}
+
+div.wrap_all_adm div.wrap_form input[type="text"]
+	{
+	width: 260px; height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; outline: 0 none;
+}
+
+div.wrap_all_adm div.wrap_form input[type="submit"]
+	{
+	padding: 10px 20px; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; outline: 0 none; cursor: pointer;
+	background: rgb(122,188,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdhYmNmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iIzYwYWJmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MDk2ZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-8 */
+	
+}
+
+div.wrap_all_adm div.wrap_form select
+	{
+	height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; color: #036; outline: 0 none;
+}
+
+
+
+div.wrap_all_adm div.wrap_form ul.errors li
+{
+	color: red;
+}

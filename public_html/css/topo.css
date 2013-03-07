@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+
+
+/* ================================== #Menu Style ===========================================*/
+
+/** box login **/
+#div_form_ajax{
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 50px;
+	z-index: 3;
+	background-color: white;
+	color: #333;
+	border: 1px solid #eaeaea;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 0 5px rgba(1,1,1,0.1);
+	-webkit-box-shadow: 0 0 0 5px rgba(1,1,1,0.1);
+	box-shadow: 0 0 0 5px rgba(1,1,1,0.1);
+	text-align: left;
+	padding: 10px;
+	margin: 5px;
+}
+.top_form_ajax{
+	margin-top: -40px;
+	height: 30px;
+	background: url("/img/bg_corner_box.png") no-repeat bottom right;
+}
+
+
+#ct_menu{
+	width: 100%;
+	padding: 12px;
+	background: url("/img/bg_top_menu.png") repeat-x;
+	box-shadow: 0 1px 6px black;
+	display: table;
+	/*position: absolute;*/
+	z-index: 10;
+	text-align: center;
+}
+
+#top_menu{
+	width: 980px;
+	margin: 0 auto;
+}
+
+.top_home{
+	float: left;
+}
+
+.ico_home{
+	width: 42px; 
+	height: 48px; 
+	float: left; 
+	background: url('/img/ico_home_back.png') no-repeat; 
+	margin-top: -12px;
+}
+
+.top_menus{
+	float: right;
+	position: relative;
+	margin: 4px 0 0;
+}
+
+
+/*BOTOES TOPO*/
+
+.navigation li{
+	display: inline;
+	margin: 0 10px;
+}
+
+.cadevents_link{
+	padding: 2px 8px 2px 24px; 
+	background: url("/img/bg_link_cadevent.png") no-repeat;
+}
+
+.events_link{
+	padding: 2px 8px 2px 8px; 
+}
+
+.cad_link{
+	padding: 2px 8px 2px 24px; 
+	background: url("/img/bg_link_cad.png") no-repeat;
+}
+
+.login_link{
+	padding: 2px 8px 2px 24px; 
+	background: url("/img/bg_link_login.png") no-repeat;
+} 
+
+.navigation li a{
+	color: #fbfbfb;
+}
+.navigation li a:hover{
+	color: #CCC;
+}
+
+.navigation li a:activate{
+	color: orange;
+}
+
