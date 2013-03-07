@@ -139,7 +139,10 @@ class AdminController extends Zend_Controller_Action
     		if ($this->getRequest()->isPost()) {
     			if ($form->isValid($request->getPost())) {
 	 
-
+	    				
+	    				if($_FILES['capa']['name'])  //Enviou foto
+	    				{
+    					
     					
 		    					$path = APPLICATION_PATH . '/../public_html/img/eventos/';
 		    					$valid_formats = array("jpg", "png", "JPG", "PNG", "jpeg", "JPEG");
@@ -165,17 +168,7 @@ class AdminController extends Zend_Controller_Action
 			    										);
 			    										$thumb100px = new Plugins_EasyThumbnail($path.$actual_image_name, $path."/150px/".$actual_image_name, 150);
 			    										
-			    										$evento = new Application_Model_Evento($form->getValues());
-			    										$evento->setCapa($actual_image_name);
-			    										$eventoTable  = new Application_Model_DbTable_Eventos();
-			    										$id_evento = $eventoTable->save($evento);
-			    										
-			    										
-			    										$generos = $this->_getParam('id_genero');
-			    										$table = new Application_Model_DbTable_RelGeneros();
-			    										$table->saveGeneros($generos, $id_evento);
-			    											
-			    											
+
 			    										
 			    										
 			    										
@@ -203,8 +196,23 @@ class AdminController extends Zend_Controller_Action
 			    										'msg'		=>	'Formato Inválido: '.$name
 			    								);
 			    							}
+    					}else{ //final qdo envia a foto
+    						$actual_image_name = 'null.jpg';
+    					}			
+    			
 
 
+    							$evento = new Application_Model_Evento($form->getValues());
+    							$evento->setCapa($actual_image_name);
+    							$eventoTable  = new Application_Model_DbTable_Eventos();
+    							$id_evento = $eventoTable->save($evento);
+    								
+    								
+    							$generos = $this->_getParam('id_genero');
+    							$table = new Application_Model_DbTable_RelGeneros();
+    							$table->saveGeneros($generos, $id_evento);
+			    							
+			    							
     							
     								
     							echo "<pre>";

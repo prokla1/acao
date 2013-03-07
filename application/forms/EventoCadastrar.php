@@ -99,7 +99,7 @@ class Application_Form_EventoCadastrar extends Zend_Form
 
     	$this->addElement('file', 'capa', array(
     	        'label'      => 'Capa:',
-    	        'required'   => true,
+    	        'required'   => false,
     	        'filters'    => array('StringTrim')
     	));
     	

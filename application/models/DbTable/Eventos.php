@@ -538,9 +538,10 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     public function estatisticas($id_parceiros)
     {
     	$result = array();
+    	$parceiro = array();
     	foreach ($id_parceiros as $id_parceiro)
     	{
-    		//
+      		$parceiro[$id_parceiro] = array(); 
     		
     		$resultSet = $this->select()
     		->from('eventos')
@@ -551,19 +552,22 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		->limit(10,0);
     		 
     		//Zend_Debug::dump($resultSet->query());
+    		
     		$eventos = array();
+
     		foreach ($resultSet->query() as $row) {
     			 
     			$eventoModel = new Application_Model_Evento();
     			$eventoModel->setOptions($row);
+    			$eventoModel->setDescricao(null);
    				$eventoModel->setParceiro($row['id_parceiro']);
-    			 
-    			$eventos[] = $eventoModel;
+   				
+    			$parceiro[$eventoModel->getId_parceiro()] = $eventoModel;
     		}
-    		$result[] = $eventos;
+//     		$result[] = $parceiro;
     		
     	}
-    	return $result;
+    	return $parceiro;
     }   
     
 
