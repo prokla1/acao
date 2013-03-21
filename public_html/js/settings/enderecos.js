@@ -1,4 +1,21 @@
 $(document).ready(function() {
+	
+	
+
+	$("select#id_estado").change(function(){
+		$("#id_cidade").html('<option value="0">Carregando...</option>');
+		$.getJSON("/sources/get-cidades",{id_estado: $(this).val()}, function(j){
+			var options = '';
+			options += '<option value="0">Selecione a cidade</option>';
+			for (var i = 0; i < j.length; i++) {
+				options += '<option value="' + j[i].id + '" label="' + j[i].nome + '">' + j[i].nome + '</option>';
+			}
+			$("#id_cidade").html(options);
+			$('#id_cidade option:first').attr('selected', 'selected');
+		})
+	})
+	
+	
 
 	function getenderecos() {
 		$.getJSON("/settings/enderecos-show", function(j){
@@ -71,7 +88,8 @@ $(document).ready(function() {
 	            status.html(r.msg);
 	            disableSubmit(false);
 	            getenderecos();
-	            $('#form_enderecos')[0].reset();
+	            if(r.status == 'ok')
+	            	$('#form_enderecos')[0].reset();
 	        }
 		}); 
 

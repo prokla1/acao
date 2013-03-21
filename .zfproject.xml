@@ -84,6 +84,11 @@
           <actionMethod actionName="enderecos"/>
           <actionMethod actionName="parceiros"/>
         </controllerFile>
+        <controllerFile controllerName="Sources">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="getCidades"/>
+          <actionMethod actionName="getEnderecos"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
         <formFile formName="EventoCadastrar"/>
@@ -289,6 +294,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Settings">
             <viewScriptFile forActionName="parceiros"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Sources">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Sources">
+            <viewScriptFile forActionName="getCidades"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Sources">
+            <viewScriptFile forActionName="getEnderecos"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

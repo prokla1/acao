@@ -121,6 +121,26 @@ class Application_Model_DbTable_LocalEnderecos extends Zend_Db_Table_Abstract
     	return $localEndereco;
     	
     }
+
+    
+    
+    public function enderecosCidade($id_cidade)
+    {
+    	$resultSet = $this->select()
+    	->from('local_enderecos')
+    	->where('id_cidade = ?', $id_cidade)
+    	->order('rua')
+    	->query();
+    	$enderecos = array();
+    	foreach ($resultSet as $row)
+    	{
+    		$endereco = new Application_Model_LocalEnderecos();
+    		$endereco->setOptions($row);
+    		$enderecos[] = $endereco; //$this->byId($row['id'], new Application_Model_LocalEnderecos());
+    	}
+    	return $enderecos;
+    }
+    
     
     
     

@@ -1,5 +1,20 @@
 <h2>Enderecos</h2>
 
+<dt id="id_estado-label">
+	<label for="id_estado" class="optional">Estado: *opcional</label>
+</dt>
+
+<dd id="id_estado-element">
+	<select name="id_estado" id="id_estado">
+	    <option value="0" label="">Selecione</option>
+	    
+	    <?php foreach ($this->estados as $estado) :?>
+	    	<option value="<?php echo $estado->id ?>" label="<?php echo $estado->nome . '  (' . $estado->sigla . ')  - ' . $estado->pais->sigla?>"><?php echo $estado->nome . '  (' . $estado->sigla . ')  - ' . $estado->pais->sigla?></option>
+	    <?php endforeach; ?>
+	    
+	</select>
+</dd>
+
 <?php echo $this->form?>
 
     

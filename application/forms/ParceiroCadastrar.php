@@ -29,7 +29,7 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     	$atividades_list = $atividades->getAtividadesList();
     	$this->addElement('multiCheckbox','id_atividade', array(
     			'label' => 'Atividades do parceiro: ',
-    			'required' => true,
+    			'required' => false,
     	));
 	    	foreach ($atividades_list as $atv)
 	    	{
@@ -44,7 +44,7 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     	));
     	$this->addElement('text', 'telefone', array(
     			'label'      => 'Telefone do Parceiro (15 char):',
-    			'required'   => true
+    			'required'   => false
     	));
     	
     	$this->addElement('text', 'url_amigavel', array(
@@ -54,7 +54,7 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
 
     	$this->addElement('textarea', 'descricao', array(
     			'label'      => 'Descricao do Parceiro:',
-    			'required'   => true,
+    			'required'   => false,
     			'rows'		=>	'20',
     			'class'		=>	'ckeditor'
     	));
@@ -63,7 +63,7 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
 
     	$this->addElement('textarea', 'funcionamento', array(
     			'label'      => 'Horários de Funcionamento:',
-    			'required'   => true,
+    			'required'   => false,
     			'rows'		=>	'10',
     			'class'		=>	'ckeditor'
     	));
@@ -73,7 +73,7 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
 
     	$this->addElement('textarea', 'pagamento', array(
     			'label'      => 'Sobre o pgto',
-    			'required'   => true,
+    			'required'   => false,
     			'rows'		=>	'10',
     			'class'		=>	'ckeditor'
     	));
@@ -81,11 +81,6 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     	 
     	 
 
-    	$this->addElement('file', 'foto', array(
-    	        'label'      => 'Foto de Capa (Logo):',
-    	        'required'   => true,
-    	        'filters'    => array('StringTrim')
-    	));
 
     	$this->addElement('radio', 'ativo', array(
     			'label'      => 'Ativo?:',
@@ -105,9 +100,6 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     			'label'    => 'Cadastrar',
     	));
     	
-    	$this->addElement('hash', 'csrf', array(
-    			'ignore' => true,
-    	));
     	
     }
 

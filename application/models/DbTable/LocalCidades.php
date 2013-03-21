@@ -122,8 +122,8 @@ class Application_Model_DbTable_LocalCidades extends Zend_Db_Table_Abstract
     	->order('nome')
     	->query();
     	$cidades = array();
-    	foreach ($resultSet as $row) {
-    		 
+    	foreach ($resultSet as $row) 
+    	{
     		$cidadeModel = new Application_Model_LocalCidades();
     		$cidadeModel->setOptions($row);
     		 

@@ -1,11 +1,41 @@
 <h2>Parceiros</h2>
 
+
+<dt id="id_estado-label">
+	<label for="id_estado" class="optional">Estado: *opcional</label>
+</dt>
+
+<dd id="id_estado-element">
+	<select name="id_estado" id="id_estado">
+	    <option value="0" label="">Selecione</option>
+	    
+	    <?php foreach ($this->estados as $estado) :?>
+	    	<option value="<?php echo $estado->id ?>" label="<?php echo $estado->nome . '  (' . $estado->sigla . ')  - ' . $estado->pais->sigla?>"><?php echo $estado->nome . '  (' . $estado->sigla . ')  - ' . $estado->pais->sigla?></option>
+	    <?php endforeach; ?>
+	    
+	</select>
+</dd>
+
+
+
+<dt id="id_cidade-label">
+	<label for="id_cidade" class="optional">Cidade: *opcional</label>
+</dt>
+<dd id="id_cidade-element">
+	<select name="id_cidade" id="id_cidade">
+	    <option value="0" label="">Selecione o estado</option>
+	</select>
+</dd>
+
+
 <?php 
 	$form = $this->form;
 	$form->removeElement('foto');
 	$form->removeElement('pagamento');
 	$form->removeElement('funcionamento');
 	$form->removeElement('id_atividade');
+	$form->removeElement('telefone');
+	$form->removeElement('descricao');
 	echo $form
 ?>
 

@@ -327,6 +327,10 @@ class SettingsController extends Zend_Controller_Action
     		$enderecosTable = new Application_Model_DbTable_LocalEnderecos();
     		$enderecos = $enderecosTable->getAllList();
     		$this->view->enderecos = $enderecos;
+    		
+    		$estadosTable = new Application_Model_DbTable_LocalEstados();
+    		$estados = $estadosTable->getAll();
+    		$this->view->estados = $estados;
     	}
     }
     
@@ -400,6 +404,11 @@ class SettingsController extends Zend_Controller_Action
     		$parceirosTable = new Application_Model_DbTable_Parceiros();
     		$parceiros = $parceirosTable->getAll();
     		$this->view->parceiros = $parceiros;
+    		
+    		
+    		$estadosTable = new Application_Model_DbTable_LocalEstados();
+    		$estados = $estadosTable->getAll();
+    		$this->view->estados = $estados;
     	}
     }
     

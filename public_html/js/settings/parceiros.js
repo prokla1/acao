@@ -1,4 +1,41 @@
 $(document).ready(function() {
+	
+	
+
+	$("select#id_estado").change(function(){
+		$("#id_cidade").html('<option value="0">Carregando...</option>');
+		$.getJSON("/sources/get-cidades",{id_estado: $(this).val()}, function(j){
+			var options = '';
+			options += '<option value="0">Selecione a cidade</option>';
+			for (var i = 0; i < j.length; i++) {
+				options += '<option value="' + j[i].id + '" label="' + j[i].nome + '">' + j[i].nome + '</option>';
+			}
+			$("#id_cidade").html(options);
+			$('#id_cidade option:first').attr('selected', 'selected');
+		});
+	});
+	
+
+	
+
+	$("select#id_cidade").change(function(){
+		$("#id_endereco").html('<option value="0">Carregando...</option>');
+		$.getJSON("/sources/get-enderecos",{id_cidade: $(this).val()}, function(j){
+			var options = '';
+			options += '<option value="0">Selecione o endereço</option>';
+			for (var i = 0; i < j.length; i++) {
+				options += '<option value="' + j[i].id + '" label="' + j[i].rua + ', ' + j[i].numero + ' ' + j[i].complemento + '">' + j[i].rua + ', ' + j[i].numero + ' ' + j[i].complemento + '</option>';
+			}
+			$("#id_endereco").html(options);
+			$('#id_endereco option:first').attr('selected', 'selected');
+		});
+	});
+	
+
+
+	
+	
+	
 
 	function getparceiros() {
 		$.getJSON("/settings/parceiros-show", function(j){
