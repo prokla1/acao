@@ -430,7 +430,7 @@ class AdminController extends Zend_Controller_Action
     	$this->view->id_parceiros = $id_parceiros;
     	
     	$eventosTable = new Application_Model_DbTable_Eventos();
-    	$this->view->eventosEstatisticas = $eventosTable->estatisticas($id_parceiros);
+    	$this->view->eventosEstatisticas = $eventosTable->estatisticas($id_parceiros, $this->_getParam('from'), $this->_getParam('to'));
     	 
     }
 

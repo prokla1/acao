@@ -8,6 +8,7 @@ class Application_Form_EstadoCadastrar extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
     	
     	$this->setMethod('post');
+    	$this->setAttrib('id', 'form_estados');
     	
     	$this->setAttrib('enctype', 'multipart/form-data');
     	
@@ -22,17 +23,20 @@ class Application_Form_EstadoCadastrar extends Zend_Form
     	));
 
 
-    	$this->addElement('textarea', 'nome', array(
+    	$this->addElement('text', 'nome', array(
     			'label'      => 'Nome (100):',
     			'required'   => true,
-    			'rows'		=>	'5'
+    			//'rows'		=>	'2',
+    			//'cols'		=> '35'
     	));
+    	$this->getElement('nome')->addErrorMessage('Informe o nome do estado');
     	 
 
     	$this->addElement('text', 'sigla', array(
     			'label'      => 'Sigla (2) (em maiusculo):',
     			'required'   => true,
     	));
+    	$this->getElement('sigla')->addErrorMessage('Informe a sigla do estado');
     	 
     	
 
@@ -53,9 +57,6 @@ class Application_Form_EstadoCadastrar extends Zend_Form
     			'label'    => 'Cadastrar',
     	));
     	
-    	$this->addElement('hash', 'csrf', array(
-    			'ignore' => true,
-    	));
     	
     }
 

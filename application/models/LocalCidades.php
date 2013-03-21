@@ -2,13 +2,13 @@
 
 class Application_Model_LocalCidades
 {
-	protected $_id;
-	protected $_nome;
-	protected $_id_estado;
-	protected $_ativo;
+	public $id;
+	public $nome;
+	public $id_estado;
+	public $ativo;
 	
 	
-	protected $_estado;
+	public $estado;
 	
 
 	
@@ -23,14 +23,14 @@ class Application_Model_LocalCidades
 		$estadoModel = new Application_Model_LocalEstados();
 		$estado = $estadoTable->byId($id_estado, $estadoModel);
 	
-		$this->_estado = $estado;
+		$this->estado = $estado;
 	}
 	
 	/**
 	 * @return the $_parceiro (objeto class Parceiros)
 	 */
 	public function getEstado() {
-		return $this->_estado;
+		return $this->estado;
 	}
 	
 	
@@ -47,7 +47,7 @@ class Application_Model_LocalCidades
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
@@ -105,56 +105,56 @@ class Application_Model_LocalCidades
 	 * @return the $_id
 	 */
 	public function getId() {
-		return $this->_id;
+		return $this->id;
 	}
 
 	/**
 	 * @param field_type $_id
 	 */
 	public function setId($_id) {
-		$this->_id = $_id;
+		$this->id = $_id;
 	}
 
 	/**
 	 * @return the $_nome
 	 */
 	public function getNome() {
-		return $this->_nome;
+		return $this->nome;
 	}
 
 	/**
 	 * @param field_type $_nome
 	 */
 	public function setNome($_nome) {
-		$this->_nome = $_nome;
+		$this->nome = $_nome;
 	}
 
 	/**
 	 * @return the $_id_estado
 	 */
 	public function getId_estado() {
-		return $this->_id_estado;
+		return $this->id_estado;
 	}
 
 	/**
 	 * @param field_type $_id_estado
 	 */
 	public function setId_estado($_id_estado) {
-		$this->_id_estado = $_id_estado;
+		$this->id_estado = $_id_estado;
 	}
 
 	/**
 	 * @return the $_ativo
 	 */
 	public function getAtivo() {
-		return $this->_ativo;
+		return $this->ativo;
 	}
 
 	/**
 	 * @param field_type $_ativo
 	 */
 	public function setAtivo($_ativo) {
-		$this->_ativo = $_ativo;
+		$this->ativo = $_ativo;
 	}
 
 	

@@ -78,7 +78,33 @@ class Application_Model_DbTable_LocalCidades extends Zend_Db_Table_Abstract
 
     	return $localCidades;
     }
+
     
+    /**
+     * Tras todas cidades
+     * @return multitype:Application_Model_LocalEstados
+     */
+    public function getAll()
+    {
+    	$resultSet = $this->select()
+    	->from($this->_name)
+    	->order('nome');
+    	$cidades = array();
+    	foreach ($resultSet->query() as $row)
+    	{
+    		//print_r($row);
+    		$localCidades = new Application_Model_LocalCidades();
+    		$localCidades->setOptions($row);
+    		$localCidades->setEstado($row['id_estado']);
+    		$cidades[] = $localCidades;
+    		/*
+    		 $cidades[] = $this->byId($row['id'], new Application_Model_LocalCidades());
+    		*/
+    	}
+    	return $cidades;
+    }
+    
+     
 
     
 
@@ -131,6 +157,22 @@ class Application_Model_DbTable_LocalCidades extends Zend_Db_Table_Abstract
     	}
     	return $cidades;
     }
+
+    
+    
+    /**
+     * Deleta a CIDADE conforme o ID
+     * @param unknown_type $credencial
+     * @return number
+     */
+    public function del($cidade)
+    {
+    	$where = array(
+    			$this->getAdapter()->quoteInto('id = ?', $cidade)
+    	);
+    	return $this->delete($where);
+    }
+    
     
 }
 

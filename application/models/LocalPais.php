@@ -7,9 +7,9 @@
 class Application_Model_LocalPais
 {
 
-	protected $_id;
-	protected $_sigla;
-	protected $_nome;
+	public $id;
+	public $sigla;
+	public $nome;
 	
 
 	
@@ -21,7 +21,7 @@ class Application_Model_LocalPais
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
@@ -79,42 +79,42 @@ class Application_Model_LocalPais
 	 * @return the $_id
 	 */
 	public function getId() {
-		return $this->_id;
+		return $this->id;
 	}
 
 	/**
 	 * @param field_type $_id
 	 */
 	public function setId($_id) {
-		$this->_id = $_id;
+		$this->id = $_id;
 	}
 
 	/**
 	 * @return the $_sigla
 	 */
 	public function getSigla() {
-		return $this->_sigla;
+		return $this->sigla;
 	}
 
 	/**
 	 * @param field_type $_sigla
 	 */
 	public function setSigla($_sigla) {
-		$this->_sigla = $_sigla;
+		$this->sigla = $_sigla;
 	}
 
 	/**
 	 * @return the $_nome
 	 */
 	public function getNome() {
-		return $this->_nome;
+		return $this->nome;
 	}
 
 	/**
 	 * @param field_type $_nome
 	 */
 	public function setNome($_nome) {
-		$this->_nome = $_nome;
+		$this->nome = $_nome;
 	}
 
 	

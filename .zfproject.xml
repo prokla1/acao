@@ -76,6 +76,14 @@
         <controllerFile controllerName="Rating">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Settings">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="estados"/>
+          <actionMethod actionName="credenciais"/>
+          <actionMethod actionName="cidades"/>
+          <actionMethod actionName="enderecos"/>
+          <actionMethod actionName="parceiros"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
         <formFile formName="EventoCadastrar"/>
@@ -105,6 +113,7 @@
           <dbTableFile dbTableName="ParceirosTipo"/>
           <dbTableFile dbTableName="Rating"/>
           <dbTableFile dbTableName="ParceirosContato"/>
+          <dbTableFile dbTableName="Credenciais"/>
         </dbTableDirectory>
         <modelFile modelName="LocalEnderecos"/>
         <modelFile modelName="LocalCidades"/>
@@ -120,6 +129,7 @@
         <modelFile modelName="ParceirosTipo"/>
         <modelFile modelName="ParceiroContato"/>
         <modelFile modelName="ParceirosContato"/>
+        <modelFile modelName="Credenciais"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -261,6 +271,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="estatisticasShow"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="estados"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="credenciais"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="cidades"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="enderecos"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="parceiros"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

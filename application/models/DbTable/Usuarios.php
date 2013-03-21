@@ -5,6 +5,22 @@ class Application_Model_DbTable_Usuarios extends Zend_Db_Table_Abstract
 
     protected $_name = 'usuarios';
 
+    
+
+    /**
+     * Retorna os emails e os IDs para fazer o select (usado para setar as credenciais)
+     * @return Ambigous <multitype:, multitype:mixed Ambigous <string, boolean, mixed> >
+     */
+    public function getEmails()
+    {
+    	$select  = $this->select()->from($this->_name,
+    			array('key' => 'id','value' => 'email'))
+    			->order('email')
+    			->where('ativo = ?', '1');
+    	$result = $this->getAdapter()->fetchAll($select);
+    	return $result;
+    }
+    
 
 
     /*

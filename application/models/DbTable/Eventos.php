@@ -535,7 +535,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
  */   
 
     
-    public function estatisticas($id_parceiros)
+    public function estatisticas($id_parceiros, $from, $to)
     {
     	$result = array();
     	
@@ -556,10 +556,21 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     						'evento_idparceiro'			=>	'id_parceiro'
     				)
     		)
-
+    		->joinLeft(  //join na tabela PARCEIROS
+    				array(
+    						'parceiros'					=>	'parceiros'
+    				),
+    				'parceiros.id						=	eventos.id_parceiro',
+    				array(
+    						'parceiro_nome'				=>	'parceiros.nome',
+    						'parceiro_id'				=>	'parceiros.id',
+    						'parceiro_foto'				=>	'parceiros.foto'
+    				)
+    		)
     		->where('eventos.id_parceiro = ?', $id_parceiro)
     		->where('eventos.ativo = ?', '1')
-    		->where('eventos.realizacao >= ?', date('Y-m-d', time()))
+    		->where('eventos.realizacao >= ?', date('Y-m-d', strtotime($from)))
+    		->where('eventos.realizacao <= ?', date('Y-m-d', strtotime($to)))
     		->order('eventos.realizacao')
     		->limit(10,0)
     		

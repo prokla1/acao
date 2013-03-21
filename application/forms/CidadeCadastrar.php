@@ -8,6 +8,7 @@ class Application_Form_CidadeCadastrar extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
     	
     	$this->setMethod('post');
+    	$this->setAttrib('id', 'form_cidades');
     	
     	$this->setAttrib('enctype', 'multipart/form-data');
     	
@@ -27,6 +28,7 @@ class Application_Form_CidadeCadastrar extends Zend_Form
     			'required'   => true,
     			'rows'		=>	'5'
     	));
+    	$this->getElement('nome')->addErrorMessage('Informe o nome corretamente');
     	
 
     	$this->addElement('radio', 'ativo', array(
@@ -47,9 +49,6 @@ class Application_Form_CidadeCadastrar extends Zend_Form
     			'label'    => 'Cadastrar',
     	));
     	
-    	$this->addElement('hash', 'csrf', array(
-    			'ignore' => true,
-    	));
     	
     }
 

@@ -3,15 +3,15 @@
 class Application_Model_LocalEstados
 {
 
-	protected $_id;
-	protected $_sigla;
-	protected $_nome;
-	protected $_id_pais;
-	protected $_ativo;
+	public $id;
+	public $sigla;
+	public $nome;
+	public $id_pais;
+	public $ativo;
 	
-	protected $_pais;
+	public $pais;
 	
-	protected $_cidades;
+	public $cidades;
 	
 	
 
@@ -20,7 +20,7 @@ class Application_Model_LocalEstados
 	 * @return the $_cidades
 	 */
 	public function getCidades() {
-		return $this->_cidades;
+		return $this->cidades;
 	}
 
 	/**
@@ -31,7 +31,7 @@ class Application_Model_LocalEstados
 		$cidadesTable = new Application_Model_DbTable_LocalCidades();
 		$cidades = $cidadesTable->cidadesEstado($id_estado);
 		
-		$this->_cidades = $cidades;
+		$this->cidades = $cidades;
 	}
 	
 	
@@ -46,14 +46,14 @@ class Application_Model_LocalEstados
 		$paisModel = new Application_Model_LocalPais();
 		$pais = $paisTable->byId($id_estado, $paisModel);
 	
-		$this->_pais = $pais;
+		$this->pais = $pais;
 	}
 	
 	/**
 	 * @return the $_parceiro (objeto class Parceiros)
 	 */
 	public function getPais() {
-		return $this->_pais;
+		return $this->pais;
 	}
 	
 	
@@ -69,7 +69,7 @@ class Application_Model_LocalEstados
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
@@ -127,70 +127,70 @@ class Application_Model_LocalEstados
 	 * @return the $_id
 	 */
 	public function getId() {
-		return $this->_id;
+		return $this->id;
 	}
 
 	/**
 	 * @param field_type $_id
 	 */
 	public function setId($_id) {
-		$this->_id = $_id;
+		$this->id = $_id;
 	}
 
 	/**
 	 * @return the $_sigla
 	 */
 	public function getSigla() {
-		return $this->_sigla;
+		return $this->sigla;
 	}
 
 	/**
 	 * @param field_type $_sigla
 	 */
 	public function setSigla($_sigla) {
-		$this->_sigla = $_sigla;
+		$this->sigla = $_sigla;
 	}
 
 	/**
 	 * @return the $_nome
 	 */
 	public function getNome() {
-		return $this->_nome;
+		return $this->nome;
 	}
 
 	/**
 	 * @param field_type $_nome
 	 */
 	public function setNome($_nome) {
-		$this->_nome = $_nome;
+		$this->nome = $_nome;
 	}
 
 	/**
 	 * @return the $_id_pais
 	 */
 	public function getId_pais() {
-		return $this->_id_pais;
+		return $this->id_pais;
 	}
 
 	/**
 	 * @param field_type $_id_pais
 	 */
 	public function setId_pais($_id_pais) {
-		$this->_id_pais = $_id_pais;
+		$this->id_pais = $_id_pais;
 	}
 
 	/**
 	 * @return the $_ativo
 	 */
 	public function getAtivo() {
-		return $this->_ativo;
+		return $this->ativo;
 	}
 
 	/**
 	 * @param field_type $_ativo
 	 */
 	public function setAtivo($_ativo) {
-		$this->_ativo = $_ativo;
+		$this->ativo = $_ativo;
 	}
 
 	

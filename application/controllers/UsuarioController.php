@@ -165,9 +165,9 @@ class UsuarioController extends Zend_Controller_Action
     				//Redireciona para o Controller protegido
     				if($user->admin == '1')
     				{
-    					return $this->_helper->redirector->goToRoute( array('controller' => 'admin'), null, true);
+    					return $this->_helper->redirector->goToRoute( array('controller' => 'settings'), null, true);
     				}else{
-    					return $this->_helper->redirector->goToRoute( array('controller' => 'usuario'), null, true);
+    					return $this->_helper->redirector->goToRoute( array('controller' => 'admin'), null, true);
     				}
     				 
     			} else {

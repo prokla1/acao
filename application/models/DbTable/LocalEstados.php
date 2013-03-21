@@ -5,7 +5,29 @@ class Application_Model_DbTable_LocalEstados extends Zend_Db_Table_Abstract
 
     protected $_name = 'local_estados';
 
-
+    
+    public function getAll()
+    {
+    	$resultSet = $this->select()
+    	->from($this->_name)
+    	->order('nome');
+    	$estados = array();
+    	foreach ($resultSet->query() as $row)
+    	{
+    		//print_r($row);
+    		$estadosModel = new Application_Model_LocalEstados();
+    		$estadosModel->setOptions($row);
+    		$estadosModel->setPais($row['id_pais']);
+    		$estados[] = $estadosModel;
+    		/*
+    		$estados[] = $this->byId($row['id'], new Application_Model_LocalEstados());
+    		*/
+    	}
+    	return $estados;
+    }
+    
+    
+    
 
     public function getEstadosList()  //para popular o select no form de cadastro das cidades
     {
@@ -53,6 +75,12 @@ class Application_Model_DbTable_LocalEstados extends Zend_Db_Table_Abstract
     
     
 
+    /**
+     * Retorna o ESTADO conforme o ID
+     * @param unknown_type $id
+     * @param Application_Model_LocalEstados $localEstados
+     * @return Application_Model_LocalEstados
+     */
     public function byId($id, Application_Model_LocalEstados $localEstados)
     {
     	$result = $this->fetchRow('id = '.$id);
@@ -65,7 +93,19 @@ class Application_Model_DbTable_LocalEstados extends Zend_Db_Table_Abstract
     
 
     
+    /**
+     * Deleta o ESTADO conforme o ID
+     * @param unknown_type $credencial
+     */
+    public function del($estado)
+    {
+    	$where = array(
+    			$this->getAdapter()->quoteInto('id = ?', $estado)
+    	);
+    	return $this->delete($where);
+    }
     
+       
 
     
 }

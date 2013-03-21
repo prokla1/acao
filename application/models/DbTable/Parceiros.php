@@ -5,9 +5,12 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
 
     protected $_name = 'parceiros';
 
-
-    public function getParceirosList()  //para popular o select no form de cadastro dos eventos
     
+    /**
+     * Retorna lista de PARCEIROS com o KEY=ID e VALUE=NOME
+     * @return Ambigous <multitype:, multitype:mixed Ambigous <string, boolean, mixed> >
+     */
+    public function getParceirosList()  //para popular o select no form de cadastro dos eventos
     {
     	$select  = $this->select()->from($this->_name,
     			array('key' => 'id','value' => 'nome'))
@@ -17,9 +20,18 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     }
 
 
+    /**
+     * Retorna o PARCEIRO pelo ID
+     * @param unknown_type $id
+     * @param Application_Model_Parceiro $parceiro
+     * @return Ambigous <Application_Model_Parceiro, NULL>
+     */
     public function byId($id, Application_Model_Parceiro $parceiro)
     {
     	$result = $this->fetchRow('id = '.$id);
+    	
+    	if(!$parceiro)
+    		$parceiro = new Application_Model_Parceiro();
     	 
     	if($result)
     	{
@@ -39,6 +51,12 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
 
 
 
+    /**
+     * Retorna o PARCEIRO pela URL
+     * @param unknown_type $url
+     * @param Application_Model_Parceiro $parceiro
+     * @return Ambigous <Application_Model_Parceiro, NULL>
+     */
     public function byUrl($url, Application_Model_Parceiro $parceiro)
     {
     	$result = $this->fetchRow($this->select()->where('url_amigavel = ?', $url));
