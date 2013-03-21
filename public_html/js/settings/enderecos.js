@@ -1,29 +1,28 @@
 $(document).ready(function() {
 
-	function getcidades() {
-		$.getJSON("/settings/cidades-show", function(j){
+	function getenderecos() {
+		$.getJSON("/settings/enderecos-show", function(j){
 			var options = '';
 			for (var i = 0; i < j.length; i++) {
 				options += '<tr>' 
-							+ '<td>' + j[i].nome + ' </td>' 
-							+ '<td>' + j[i].estado.nome + ' (' + j[i].estado.sigla + ')</td>' 
-							+ '<td>' + j[i].estado.pais.nome + ' (' + j[i].estado.pais.sigla + ')</td>' 
+							+ '<td>' + j[i].rua + ', ' + j[i].numero + '  ' + j[i].complemento + ' </td>' 
+							+ '<td>' + j[i].cidade_nome + '</td>' 
+							+ '<td>' + j[i].estado_nome + '</td>' 
+							+ '<td>' + j[i].pais_nome + '</td>' 
 							//+ '<td>' + j[i].ativo + ' </td>' 
-							+ '<td><span class="cidade_del" rel="' + j[i].id + '" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>' 
+							+ '<td><span class="endereco_del" rel="' + j[i].id + '" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>' 
 						+ '</tr>';
 			}
-			$("#table_cidades tbody").html(options);
+			$("#table_enderecos tbody").html(options);
 		});
 	}
 
-
-
 	
-	$(document).on("click", ".cidade_del", function(){ 
-		var id_cidade = $(this).attr('rel');
-        $.post('/settings/cidades-del',{ cidade: id_cidade },function(r){
+	$(document).on("click", ".endereco_del", function(){ 
+		var id_endereco = $(this).attr('rel');
+        $.post('/settings/enderecos-del',{ endereco: id_endereco },function(r){
             if(r.status == "ok"){
-            	getcidades();
+            	getenderecos();
             }else{
             	console.log(r);
             }
@@ -34,7 +33,7 @@ $(document).ready(function() {
 	
 	// en/disable submit button
     var disableSubmit = function(val){
-        $('#form_cidades input[type=submit]').attr('disabled', val);
+        $('#form_enderecos input[type=submit]').attr('disabled', val);
     };
 	
 	(function() {
@@ -43,7 +42,7 @@ $(document).ready(function() {
 		var percent = $('.percent');
 		var status = $('#status');
 		   
-		$('#form_cidades').ajaxForm({
+		$('#form_enderecos').ajaxForm({
 			dataType:  'json',
 			beforeSubmit: function(){
 	            disableSubmit(true);
@@ -71,8 +70,8 @@ $(document).ready(function() {
 			success: function(r){
 	            status.html(r.msg);
 	            disableSubmit(false);
-	            getcidades();
-	            $('#form_cidades')[0].reset();
+	            getenderecos();
+	            $('#form_enderecos')[0].reset();
 	        }
 		}); 
 

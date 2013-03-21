@@ -170,7 +170,12 @@ class Application_Model_DbTable_LocalCidades extends Zend_Db_Table_Abstract
     	$where = array(
     			$this->getAdapter()->quoteInto('id = ?', $cidade)
     	);
-    	return $this->delete($where);
+    	try {
+    		$this->delete($where);
+    		return true;
+    	} catch (Exception $e) {
+    		return false; //$e->getMessage();
+    	}
     }
     
     

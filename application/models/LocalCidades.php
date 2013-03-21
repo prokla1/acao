@@ -69,7 +69,7 @@ class Application_Model_LocalCidades
 	{
 		$method = 'set' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_LocalCidades property {$name}");
 		}
 		$this->$method($value);
 	}
@@ -78,7 +78,7 @@ class Application_Model_LocalCidades
 	{
 		$method = 'get' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_LocalCidades property {$name}");
 		}
 		return $this->$method();
 	}

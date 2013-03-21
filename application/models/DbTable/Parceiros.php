@@ -19,6 +19,86 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     	return $result;
     }
 
+    
+    
+    
+    public function getAll()
+    {
+    	$resultSet = $this->select()
+    	->setIntegrityCheck(false)
+    	->from(
+    			$this->_name,
+    			array(
+    					'nome'		=>	'parceiros.nome',
+    					'url_amigavel'		=>	'parceiros.url_amigavel',
+    					'foto'		=>	'parceiros.foto',
+    					'id'		=>	'parceiros.id',
+    				)
+    			)
+    	->joinLeft(
+    			array(
+    					'local_enderecos'			=>	'local_enderecos'
+    			),
+    			'local_enderecos.id				=	parceiros.id_endereco',
+    			array(
+    					'endereco_id'			=>	'local_enderecos.id',
+    					'endereco_rua'			=>	'local_enderecos.rua',
+    					'endereco_numero'		=>	'local_enderecos.numero',
+    					'endereco_complemento'		=>	'local_enderecos.complemento'
+    			)
+    	)
+    	->joinLeft(
+    			array(
+    					'local_cidades'			=>	'local_cidades'
+    			),
+    			'local_cidades.id				=	local_enderecos.id_cidade',
+    			array(
+    					'cidades_id'			=>	'local_cidades.id',
+    					'cidades_nome'			=>	'local_cidades.nome',
+    					'cidades_id_estado'		=>	'local_cidades.id_estado'
+    			)
+    	)
+    	->joinLeft( //join na tabela RELACAO LOCAL DOS PARCEIROS
+    			array(
+    					'local_estados'			=>	'local_estados'
+    			),
+    			'local_estados.id				=	local_cidades.id_estado',
+    			array(
+    					'estados_sigla'			=>	'local_estados.sigla',
+    					'estados_nome'			=>	'local_estados.nome',
+    					'estados_id_pais'		=>	'local_estados.id_pais'
+    			)
+    	)
+    	->joinLeft( //join na tabela LOCAL PAIS
+    			array(
+    					'local_pais'			=>	'local_pais'
+    			),
+    			'local_pais.id					=	local_estados.id_pais',
+    			array(
+    					'pais_nome'			=>	'local_pais.nome',
+    					'pais_sigla'		=>	'local_pais.sigla'
+    			)
+    	)
+    	->order('local_pais.nome')
+    	->order('local_estados.nome')
+    	->order('local_cidades.nome')
+    	->order('parceiros.nome')
+    	->query()
+    	->fetchAll();
+    	$parceiros = array();
+    	foreach ($resultSet as $row) {
+    		$parceiro = new Application_Model_Parceiro();
+    		$parceiro->setOptions($row);
+    		
+    		$parceiro->setCidade_nome($row['cidades_nome']);
+    		$parceiro->setEstado_nome($row['estados_nome']);
+    		$parceiro->setPais_nome($row['pais_nome']);
+    	
+    		$parceiros[] = $parceiro;
+    	}
+    	return $parceiros;
+    	
+    }
 
     /**
      * Retorna o PARCEIRO pelo ID
@@ -121,7 +201,24 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     		return $this->update($data, array('id = ?' => $id));
     	}
     }
-     
+
+    
+    
+    
+
+
+    public function del($parceiro)
+    {
+    	$where = array(
+    			$this->getAdapter()->quoteInto('id = ?', $parceiro)
+    	);
+    	try {
+    		$this->delete($where);
+    		return true;
+    	} catch (Exception $e) {
+    		return false; //$e->getMessage();
+    	}
+    }
      
 }
 

@@ -206,8 +206,7 @@ class SettingsController extends Zend_Controller_Action
     public function cidadesDelAction()
     {
     	$cidadesTable = new Application_Model_DbTable_LocalCidades();
-    	$msg = $cidadesTable->del($this->_getParam('cidade'));
-    	if($msg)
+    	if($cidadesTable->del($this->_getParam('cidade')))
     	{
     		$msg = array(
     				'status'	=>	'ok',
@@ -268,11 +267,70 @@ class SettingsController extends Zend_Controller_Action
     /********************------------------------ ENDERECOS -----------------******************/
     /********************------------------------ ENDERECOS -----------------******************/
     /********************------------------------ ENDERECOS -----------------******************/
+    public function enderecosShowAction()
+    {
+    	$enderecosTable = new Application_Model_DbTable_LocalEnderecos();
+    	$enderecos = $enderecosTable->getAllList();
+    	$this->_helper->json($enderecos);
+    }
+    
+    public function enderecosDelAction()
+    {
+    	$enderecosTable = new Application_Model_DbTable_LocalEnderecos();
+    	if($enderecosTable->del($this->_getParam('endereco')))
+    	{
+    		$msg = array(
+    				'status'	=>	'ok',
+    				'msg'		=>	'Deletado com sucesso'
+    		);
+    	}else
+    	{
+    		$msg = array(
+    				'status'	=>	'fail',
+    				'msg'		=>	'Falha ao deletar'
+    		);
+    	}
+    	$this->_helper->json($msg);
+    }
+    
     public function enderecosAction()
     {
-        // action body
+    	$form    = new Application_Form_EnderecoCadastrar();
+    	$request = $this->getRequest();
+    
+    	if ($this->getRequest()->isPost())
+    	{
+    		if ($form->isValid($request->getPost()))
+    		{
+    			$enderecosTable  = new Application_Model_DbTable_LocalEnderecos();
+    			$insert = $enderecosTable->insert($form->getValues());
+    			if($insert)
+    			{
+    				$msg = array(
+    						'status'	=> 'ok',
+    						'msg'		=> 'Salvo com sucesso'
+    				);
+    			}
+    		}else
+    		{
+    			$msg = array(
+    					'status'	=> 'fail',
+    					'msg'		=> $form->processAjax($request->getPost())
+    			);
+    		}
+    
+    		$this->_helper->json($msg);
+    	}else  //não é POST, mostra os dados pra criar as credenciais
+    	{
+    		$this->view->form = $form;
+    
+    		$enderecosTable = new Application_Model_DbTable_LocalEnderecos();
+    		$enderecos = $enderecosTable->getAllList();
+    		$this->view->enderecos = $enderecos;
+    	}
     }
-
+    
+    
     
 
 
@@ -281,11 +339,71 @@ class SettingsController extends Zend_Controller_Action
     /********************------------------------ PARCEIROS -----------------******************/
     /********************------------------------ PARCEIROS -----------------******************/
     /********************------------------------ PARCEIROS -----------------******************/
+    public function parceirosShowAction()
+    {
+    	$parceirosTable = new Application_Model_DbTable_Parceiros();
+    	$parceiros = $parceirosTable->getAll();
+    	$this->_helper->json($parceiros);
+    }
+    
+    public function parceirosDelAction()
+    {
+    	$parceirosTable = new Application_Model_DbTable_Parceiros();
+    	if($parceirosTable->del($this->_getParam('parceiro')))
+    	{
+    		$msg = array(
+    				'status'	=>	'ok',
+    				'msg'		=>	'Deletado com sucesso'
+    		);
+    	}else
+    	{
+    		$msg = array(
+    				'status'	=>	'fail',
+    				'msg'		=>	'Falha ao deletar'
+    		);
+    	}
+    	$this->_helper->json($msg);
+    }
+    
     public function parceirosAction()
     {
-        // action body
+    	$form    = new Application_Form_ParceiroCadastrar();
+    	
+    	$request = $this->getRequest();
+    
+    	if ($this->getRequest()->isPost())
+    	{
+    		if ($form->isValid($request->getPost()))
+    		{
+    			$enderecosTable  = new Application_Model_DbTable_LocalEnderecos();
+    			$insert = $enderecosTable->insert($form->getValues());
+    			if($insert)
+    			{
+    				$msg = array(
+    						'status'	=> 'ok',
+    						'msg'		=> 'Salvo com sucesso'
+    				);
+    			}
+    		}else
+    		{
+    			$msg = array(
+    					'status'	=> 'fail',
+    					'msg'		=> $form->processAjax($request->getPost())
+    			);
+    		}
+    
+    		$this->_helper->json($msg);
+    	}else  //não é POST, mostra os dados pra criar as credenciais
+    	{
+    		$this->view->form = $form;
+    		
+    		$parceirosTable = new Application_Model_DbTable_Parceiros();
+    		$parceiros = $parceirosTable->getAll();
+    		$this->view->parceiros = $parceiros;
+    	}
     }
-
+    
+    
 
 }
 

@@ -2,45 +2,90 @@
 
 class Application_Model_Parceiro
 {
-	protected $_id;
-	protected $_url_amigavel;
-	protected $_id_usuario;
-	protected $_nome;
-	protected $_descricao;
-	protected $_foto;
-	protected $_ativo;
-	protected $_id_tipo;
-	protected $_id_endereco;
-	protected $_funcionamento;
-	protected $_pagamento;
-	protected $_telefone;
-	protected $_num_votos;
-	protected $_total_pontos;
-	protected $_rating;
-	protected $_hora;
+	public $id;
+	public $url_amigavel;
+	public $id_usuario;
+	public $nome;
+	public $descricao;
+	public $foto;
+	public $ativo;
+	public $id_tipo;
+	public $id_endereco;
+	public $funcionamento;
+	public $pagamento;
+	public $telefone;
+	public $num_votos;
+	public $total_pontos;
+	public $rating;
+	public $hora;
 	
-	protected $_local;
-	protected $_fotos;
-	protected $_atividades;
+	public $local;
+	public $fotos;
+	public $atividades;
 	
-
-
-
-
+	public $cidade_nome;
+	public $estado_nome;
+	public $pais_nome;
 
 	/**
-	 * @param field_type $_id_parceiro
+	 * @return the $cidade_nome
+	 */
+	public function getCidade_nome() {
+		return $this->cidade_nome;
+	}
+
+	/**
+	 * @param field_type $cidade_nome
+	 */
+	public function setCidade_nome($cidade_nome) {
+		$this->cidade_nome = $cidade_nome;
+	}
+
+	/**
+	 * @return the $estado_nome
+	 */
+	public function getEstado_nome() {
+		return $this->estado_nome;
+	}
+
+	/**
+	 * @param field_type $estado_nome
+	 */
+	public function setEstado_nome($estado_nome) {
+		$this->estado_nome = $estado_nome;
+	}
+
+	/**
+	 * @return the $pais_nome
+	 */
+	public function getPais_nome() {
+		return $this->pais_nome;
+	}
+
+	/**
+	 * @param field_type $pais_nome
+	 */
+	public function setPais_nome($pais_nome) {
+		$this->pais_nome = $pais_nome;
+	}
+
+	
+	
+	
+	
+	/**
+	 * @param field_type $id_parceiro
 	 */
 	public function setAtividades($id_parceiro) {
 		$atividades = new Application_Model_DbTable_RelAtividades();
-		$this->_atividades = $atividades->atividadesByParceiro($id_parceiro);
+		$this->atividades = $atividades->atividadesByParceiro($id_parceiro);
 	}
 	
 	/**
-	 * @return the $_fotos (objeto class Application_Model_Atividades)
+	 * @return the $fotos (objeto class Application_Model_Atividades)
 	 */
 	public function getAtividades() {
-		return $this->_atividades;
+		return $this->atividades;
 	}
 	
 	
@@ -49,18 +94,18 @@ class Application_Model_Parceiro
 
 
 	/**
-	 * @param field_type $_id_parceiro
+	 * @param field_type $id_parceiro
 	 */
 	public function setFotos($id_parceiro) {
 		$fotos = new Application_Model_DbTable_ParceirosFotos();
-		$this->_fotos = $fotos->fotosByParceiro($id_parceiro);
+		$this->fotos = $fotos->fotosByParceiro($id_parceiro);
 	}
 	
 	/**
-	 * @return the $_fotos (objeto class Application_Model_ParceirosFotos)
+	 * @return the $fotos (objeto class Application_Model_ParceirosFotos)
 	 */
 	public function getFotos() {
-		return $this->_fotos;
+		return $this->fotos;
 	}
 	
 	
@@ -70,22 +115,22 @@ class Application_Model_Parceiro
 
 
 	/**
-	 * @param field_type $_id_endereco
+	 * @param field_type $id_endereco
 	 */
 	public function setLocal($id_endereco) {
 		$localEnderecoTable = new Application_Model_DbTable_LocalEnderecos();
 		$localEnderecoModel = new Application_Model_LocalEnderecos();
 		$localEndereco = $localEnderecoTable->byId($id_endereco, $localEnderecoModel);
 		
-		$this->_local = $localEndereco;
+		$this->local = $localEndereco;
 		
 	}
 	
 	/**
-	 * @return the $_local (objeto class Local)
+	 * @return the $local (objeto class Local)
 	 */
 	public function getLocal() {
-		return $this->_local;
+		return $this->local;
 	}
 	
 	
@@ -95,13 +140,13 @@ class Application_Model_Parceiro
 	
 
 	/**
-	 * Retorna os atributos protected em array
+	 * Retorna os atributos public em array
 	 * @return array dos valores protected
 	 */
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
@@ -156,101 +201,101 @@ class Application_Model_Parceiro
 	
 	
 	/**
-	 * @return the $_id
+	 * @return the $id
 	 */
 	public function getId() {
-		return $this->_id;
+		return $this->id;
 	}
 
 	/**
-	 * @param field_type $_id
+	 * @param field_type $id
 	 */
-	public function setId($_id) {
-		$this->_id = $_id;
+	public function setId($id) {
+		$this->id = $id;
 	}
 
 	/**
-	 * @return the $_url_amigavel
+	 * @return the $url_amigavel
 	 */
 	public function getUrl_amigavel() {
-		return $this->_url_amigavel;
+		return $this->url_amigavel;
 	}
 
 	/**
-	 * @param field_type $_url_amigavel
+	 * @param field_type $url_amigavel
 	 */
-	public function setUrl_amigavel($_url_amigavel) {
-		$this->_url_amigavel = $_url_amigavel;
+	public function setUrl_amigavel($url_amigavel) {
+		$this->url_amigavel = $url_amigavel;
 	}
 
 	/**
-	 * @return the $_id_usuario
+	 * @return the $id_usuario
 	 */
 	public function getId_usuario() {
-		return $this->_id_usuario;
+		return $this->id_usuario;
 	}
 
 	/**
-	 * @param field_type $_id_usuario
+	 * @param field_type $id_usuario
 	 */
-	public function setId_usuario($_id_usuario) {
-		$this->_id_usuario = $_id_usuario;
+	public function setId_usuario($id_usuario) {
+		$this->id_usuario = $id_usuario;
 	}
 
 	/**
-	 * @return the $_nome
+	 * @return the $nome
 	 */
 	public function getNome() {
-		return $this->_nome;
+		return $this->nome;
 	}
 
 	/**
-	 * @param field_type $_nome
+	 * @param field_type $nome
 	 */
-	public function setNome($_nome) {
-		$this->_nome = $_nome;
+	public function setNome($nome) {
+		$this->nome = $nome;
 	}
 
 	/**
-	 * @return the $_descricao
+	 * @return the $descricao
 	 */
 	public function getDescricao() {
-		return $this->_descricao;
+		return $this->descricao;
 	}
 
 	/**
-	 * @param field_type $_descricao
+	 * @param field_type $descricao
 	 */
-	public function setDescricao($_descricao) {
-		$this->_descricao = $_descricao;
+	public function setDescricao($descricao) {
+		$this->descricao = $descricao;
 	}
 
 	/**
-	 * @return the $_foto
+	 * @return the $foto
 	 */
 	public function getFoto() {
-		return $this->_foto;
+		return $this->foto;
 	}
 
 	/**
-	 * @param field_type $_foto
+	 * @param field_type $foto
 	 */
-	public function setFoto($_foto) {
-		$this->_foto = $_foto;
+	public function setFoto($foto) {
+		$this->foto = $foto;
 	}
 
 	/**
-	 * @return the $_ativo
+	 * @return the $ativo
 	 */
 	public function getAtivo() {
-		return $this->_ativo;
+		return $this->ativo;
 	}
 
 	/**
-	 * @param field_type $_ativo
+	 * @param field_type $ativo
 	 */
-	public function setAtivo($_ativo) {
-		$this->_ativo = $_ativo;
+	public function setAtivo($ativo) {
+		$this->ativo = $ativo;
 	}
 
 	
@@ -258,118 +303,118 @@ class Application_Model_Parceiro
 
 
 	/**
-	 * @return the $_id_endereco
+	 * @return the $id_endereco
 	 */
 	public function getId_endereco() {
-		return $this->_id_endereco;
+		return $this->id_endereco;
 	}
 	
 	/**
-	 * @param field_type $_id_endereco
+	 * @param field_type $id_endereco
 	 */
-	public function setId_endereco($_id_endereco) {
-		$this->_id_endereco = $_id_endereco;
+	public function setId_endereco($id_endereco) {
+		$this->id_endereco = $id_endereco;
 	}
 	
 	
 	
 	/**
-	 * @return the $_hora
+	 * @return the $hora
 	 */
 	public function getHora() {
-		return $this->_hora;
+		return $this->hora;
 	}
 
 	/**
-	 * @param field_type $_hora
+	 * @param field_type $hora
 	 */
-	public function setHora($_hora) {
-		$this->_hora = $_hora;
+	public function setHora($hora) {
+		$this->hora = $hora;
 	}
 	/**
-	 * @return the $_funcionamento
+	 * @return the $funcionamento
 	 */
 	public function getFuncionamento() {
-		return $this->_funcionamento;
+		return $this->funcionamento;
 	}
 
 	/**
-	 * @param field_type $_funcionamento
+	 * @param field_type $funcionamento
 	 */
-	public function setFuncionamento($_funcionamento) {
-		$this->_funcionamento = $_funcionamento;
+	public function setFuncionamento($funcionamento) {
+		$this->funcionamento = $funcionamento;
 	}
 
 	/**
-	 * @return the $_pagamento
+	 * @return the $pagamento
 	 */
 	public function getPagamento() {
-		return $this->_pagamento;
+		return $this->pagamento;
 	}
 
 	/**
-	 * @param field_type $_pagamento
+	 * @param field_type $pagamento
 	 */
-	public function setPagamento($_pagamento) {
-		$this->_pagamento = $_pagamento;
+	public function setPagamento($pagamento) {
+		$this->pagamento = $pagamento;
 	}
 	/**
-	 * @return the $_telefone
+	 * @return the $telefone
 	 */
 	public function getTelefone() {
-		return $this->_telefone;
+		return $this->telefone;
 	}
 
 	/**
-	 * @param field_type $_telefone
+	 * @param field_type $telefone
 	 */
-	public function setTelefone($_telefone) {
-		$this->_telefone = $_telefone;
+	public function setTelefone($telefone) {
+		$this->telefone = $telefone;
 	}
 
 	/**
-	 * @return the $_num_votos
+	 * @return the $num_votos
 	 */
 	public function getNum_votos() {
-		return $this->_num_votos;
+		return $this->num_votos;
 	}
 
 	/**
-	 * @param field_type $_num_votos
+	 * @param field_type $num_votos
 	 */
-	public function setNum_votos($_num_votos) {
-		$this->_num_votos = $_num_votos;
+	public function setNum_votos($num_votos) {
+		$this->num_votos = $num_votos;
 	}
 
 	/**
-	 * @return the $_total_pontos
+	 * @return the $total_pontos
 	 */
 	public function getTotal_pontos() {
-		return $this->_total_pontos;
+		return $this->total_pontos;
 	}
 
 	/**
-	 * @param field_type $_total_pontos
+	 * @param field_type $total_pontos
 	 */
-	public function setTotal_pontos($_total_pontos) {
-		$this->_total_pontos = $_total_pontos;
+	public function setTotal_pontos($total_pontos) {
+		$this->total_pontos = $total_pontos;
 	}
 
 	/**
-	 * @return the $_rating
+	 * @return the $rating
 	 */
 	public function getRating() {
-		return $this->_rating;
+		return $this->rating;
 	}
 
 	/**
-	 * @param field_type $_rating
+	 * @param field_type $rating
 	 */
-	public function setRating($_rating) {
-		$num_votos = $this->_num_votos;
-		$total_pontos = $this->_total_pontos;
-		$rating = ($this->_num_votos > 0) ? $total_pontos / $num_votos : 0;
-		$this->_rating = $rating;
+	public function setRating($rating) {
+		$num_votos = $this->num_votos;
+		$total_pontos = $this->total_pontos;
+		$rating = ($this->num_votos > 0) ? $total_pontos / $num_votos : 0;
+		$this->rating = $rating;
 	}
 
 	

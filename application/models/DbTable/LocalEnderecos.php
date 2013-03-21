@@ -90,7 +90,26 @@ class Application_Model_DbTable_LocalEnderecos extends Zend_Db_Table_Abstract
     	return $entries;
     }
         
+
     
+    /**
+     * Retorna todos ENDERECOS cadastrados em forma de OBJETO
+     * @return multitype:NULL
+     */
+    public function getAll()
+    {
+    	$resultSet = $this->select()
+    	->from($this->_name)
+    	->order('id DESC');
+    	$enderecos = array();
+    	foreach ($resultSet->query() as $row)
+    	{
+    		 $enderecos[] = $this->byId($row['id'], new Application_Model_LocalEnderecos());
+    	}
+    	return $enderecos;
+    }
+    
+     
 
     public function byId($id, Application_Model_LocalEnderecos $localEndereco)
     {
@@ -102,5 +121,85 @@ class Application_Model_DbTable_LocalEnderecos extends Zend_Db_Table_Abstract
     	return $localEndereco;
     	
     }
+    
+    
+    
+
+    /**
+     * Retorna todos endereços e com nome da CIDADE, ESTADO e PAIS
+     * @return multitype:Application_Model_LocalEnderecos
+     */
+    public function getAllList() 
+    {
+    	$resultSet = $this->select()
+    	->setIntegrityCheck(false)
+    	->from($this->_name)
+    	->joinLeft( 
+    			array(
+    					'local_cidades'			=>	'local_cidades'
+    			),
+    			'local_cidades.id				=	local_enderecos.id_cidade',
+    			array(
+    					'cidades_id'			=>	'local_cidades.id',
+    					'cidades_nome'			=>	'local_cidades.nome',
+    					'cidades_id_estado'		=>	'local_cidades.id_estado'
+    			)
+    	)
+    	->joinLeft( //join na tabela RELACAO LOCAL DOS PARCEIROS
+    			array(
+    					'local_estados'			=>	'local_estados'
+    			),
+    			'local_estados.id				=	local_cidades.id_estado',
+    			array(
+    					'estados_sigla'			=>	'local_estados.sigla',
+    					'estados_nome'			=>	'local_estados.nome',
+    					'estados_id_pais'		=>	'local_estados.id_pais'
+    			)
+    	)
+    	->joinLeft( //join na tabela LOCAL PAIS
+    			array(
+    					'local_pais'			=>	'local_pais'
+    			),
+    			'local_pais.id					=	local_estados.id_pais',
+    			array(
+    					'pais_nome'			=>	'local_pais.nome',
+    					'pais_sigla'		=>	'local_pais.sigla'
+    			)
+    	)
+    	->order('local_pais.nome')
+    	->order('local_estados.nome')
+    	->order('local_cidades.nome')
+    	->order('local_enderecos.rua')
+    	->query()
+    	->fetchAll();
+    	$enderecos = array();
+    	foreach ($resultSet as $row) {
+    		$endereco = new Application_Model_LocalEnderecos();
+    		$endereco->setOptions($row);
+    		$endereco->setCidade_nome($row['cidades_nome']);
+    		$endereco->setEstado_nome($row['estados_nome']);
+    		$endereco->setPais_nome($row['pais_nome']);
+    				
+    		$enderecos[] = $endereco;
+    	}
+    	return $enderecos;
+    }
+
+    
+    
+    
+    public function del($endereco)
+    {
+    	$where = array(
+    			$this->getAdapter()->quoteInto('id = ?', $endereco)
+    	);
+    	try {
+    		$this->delete($where);
+    		return true;
+    	} catch (Exception $e) {
+    		return false; //$e->getMessage();
+    	}
+    }
+    
 }
 

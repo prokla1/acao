@@ -8,6 +8,7 @@ class Application_Form_EnderecoCadastrar extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
     	
     	$this->setMethod('post');
+    	$this->setAttrib('id', 'form_enderecos');
     	
     	$this->setAttrib('enctype', 'multipart/form-data');
     	
@@ -27,16 +28,18 @@ class Application_Form_EnderecoCadastrar extends Zend_Form
     			'required'   => true,
     			'rows'		=>	'5'
     	));
+    	$this->getElement('rua')->addErrorMessage('Informe a RUA corretamente');
     	
     	$this->addElement('textarea', 'numero', array(
     			'label'      => 'Numero (100 char):',
     			'required'   => true,
     			'rows'		=>	'1'
     	));
+    	$this->getElement('numero')->addErrorMessage('Informe o NUMERO');
 
     	$this->addElement('textarea', 'complemento', array(
     			'label'      => 'Complemento (50 char):',
-    			'required'   => true,
+    			'required'   => false,
     			'rows'		=>	'5'
     	));
     	 
@@ -48,9 +51,6 @@ class Application_Form_EnderecoCadastrar extends Zend_Form
     			'label'    => 'Cadastrar',
     	));
     	
-    	$this->addElement('hash', 'csrf', array(
-    			'ignore' => true,
-    	));
     	
     }
 

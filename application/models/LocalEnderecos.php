@@ -2,21 +2,68 @@
 
 class Application_Model_LocalEnderecos
 {
-	protected $_id;
-	protected $_id_cidade;
-	protected $_rua;
-	protected $_numero;
-	protected $_complemento;
+	public $id;
+	public $id_cidade;
+	public $rua;
+	public $numero;
+	public $complemento;
 	
-	protected $_cidade;
+	public $cidade;
+	
+	public $cidade_nome;
+	public $estado_nome;
+	public $pais_nome;
 	
 	
-
-
-
+	/**
+	 * @return the $cidade_nome
+	 */
+	public function getCidade_nome() {
+		return $this->cidade_nome;
+	}
 
 	/**
-	 * @param field_type $_id_parceiro
+	 * @param field_type $cidade_nome
+	 */
+	public function setCidade_nome($cidade_nome) {
+		$this->cidade_nome = $cidade_nome;
+	}
+
+	/**
+	 * @return the $estado_nome
+	 */
+	public function getEstado_nome() {
+		return $this->estado_nome;
+	}
+
+	/**
+	 * @param field_type $estado_nome
+	 */
+	public function setEstado_nome($estado_nome) {
+		$this->estado_nome = $estado_nome;
+	}
+
+	/**
+	 * @return the $pais_nome
+	 */
+	public function getPais_nome() {
+		return $this->pais_nome;
+	}
+
+	/**
+	 * @param field_type $pais_nome
+	 */
+	public function setPais_nome($pais_nome) {
+		$this->pais_nome = $pais_nome;
+	}
+
+	
+	
+	
+	
+	
+	/**
+	 * @param field_type $id_parceiro
 	 */
 	public function setCidade($id_endereco) {
 		
@@ -24,14 +71,14 @@ class Application_Model_LocalEnderecos
 		$cidadeModel = new Application_Model_LocalCidades();
 		$cidade = $cidadeTable->byId($id_endereco, $cidadeModel);
 		
-		$this->_cidade = $cidade;
+		$this->cidade = $cidade;
 	}
 	
 	/**
-	 * @return the $_parceiro (objeto class Parceiros)
+	 * @return the $parceiro (objeto class Parceiros)
 	 */
 	public function getCidade() {
-		return $this->_cidade;
+		return $this->cidade;
 	}
 	
 	
@@ -47,7 +94,7 @@ class Application_Model_LocalEnderecos
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
@@ -69,7 +116,7 @@ class Application_Model_LocalEnderecos
 	{
 		$method = 'set' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_LocalEnderecos property {$name}");
 		}
 		$this->$method($value);
 	}
@@ -78,7 +125,7 @@ class Application_Model_LocalEnderecos
 	{
 		$method = 'get' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_LocalEnderecos property {$name}");
 		}
 		return $this->$method();
 	}
@@ -101,73 +148,73 @@ class Application_Model_LocalEnderecos
 	
 	
 	/**
-	 * @return the $_id
+	 * @return the $id
 	 */
 	public function getId() {
-		return $this->_id;
+		return $this->id;
 	}
 
 	/**
-	 * @param field_type $_id
+	 * @param field_type $id
 	 */
-	public function setId($_id) {
-		$this->_id = $_id;
+	public function setId($id) {
+		$this->id = $id;
 	}
 
 	/**
-	 * @return the $_id_cidade
+	 * @return the $id_cidade
 	 */
 	public function getId_cidade() {
-		return $this->_id_cidade;
+		return $this->id_cidade;
 	}
 
 	/**
-	 * @param field_type $_id_cidade
+	 * @param field_type $id_cidade
 	 */
-	public function setId_cidade($_id_cidade) {
-		$this->_id_cidade = $_id_cidade;
+	public function setId_cidade($id_cidade) {
+		$this->id_cidade = $id_cidade;
 	}
 
 	/**
-	 * @return the $_rua
+	 * @return the $rua
 	 */
 	public function getRua() {
-		return $this->_rua;
+		return $this->rua;
 	}
 
 	/**
-	 * @param field_type $_rua
+	 * @param field_type $rua
 	 */
-	public function setRua($_rua) {
-		$this->_rua = $_rua;
+	public function setRua($rua) {
+		$this->rua = $rua;
 	}
 
 	/**
-	 * @return the $_numero
+	 * @return the $numero
 	 */
 	public function getNumero() {
-		return $this->_numero;
+		return $this->numero;
 	}
 
 	/**
-	 * @param field_type $_numero
+	 * @param field_type $numero
 	 */
-	public function setNumero($_numero) {
-		$this->_numero = $_numero;
+	public function setNumero($numero) {
+		$this->numero = $numero;
 	}
 
 	/**
-	 * @return the $_complemento
+	 * @return the $complemento
 	 */
 	public function getComplemento() {
-		return $this->_complemento;
+		return $this->complemento;
 	}
 
 	/**
-	 * @param field_type $_complemento
+	 * @param field_type $complemento
 	 */
-	public function setComplemento($_complemento) {
-		$this->_complemento = $_complemento;
+	public function setComplemento($complemento) {
+		$this->complemento = $complemento;
 	}
 
 	

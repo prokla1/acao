@@ -69,6 +69,7 @@ $(document).ready(function() {
 	            status.html(r.msg);
 	            disableSubmit(false);
 	            getestados();
+	            $('#form_estados')[0].reset();
 	        }
 		}); 
 

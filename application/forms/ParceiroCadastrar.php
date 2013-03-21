@@ -8,6 +8,7 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
     	
     	$this->setMethod('post');
+    	$this->setAttrib('id', 'form_parceiros');
     	
     	$this->setAttrib('enctype', 'multipart/form-data');
     	

@@ -1,4 +1,101 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Settings</b> and script/action name <b>parceiros</b></p>
-</div>
+<h2>Parceiros</h2>
+
+<?php 
+	$form = $this->form;
+	$form->removeElement('foto');
+	$form->removeElement('pagamento');
+	$form->removeElement('funcionamento');
+	$form->removeElement('id_atividade');
+	echo $form
+?>
+
+    
+    <div class="progress">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status"></div>
+
+ 
+ 
+    
+    
+    
+<table id="table_parceiros" summary="Áreas de delivery">
+    <thead>
+    	<tr>
+        	<th scope="col">Parceiro</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Estado</th>
+            <th scope="col">País</th>
+            <?php /*<th scope="col">Ativo</th> */?>
+            <th scope="col">Del</th>
+        </tr>
+    </thead>
+    <tbody>
+	<?php foreach ($this->parceiros as $parceiro) :?>
+		<tr>
+		    <td><?php echo $parceiro->nome ?> </td>
+		    <td><?php echo $parceiro->cidade_nome?></td>
+		    <td><?php echo $parceiro->estado_nome?></td>
+		    <td><?php echo $parceiro->pais_nome?></td>
+		    <?php /*<td><?php echo ($parceiro->ativo == '1') ? 'Sim' : 'Não'; ?> </td> */?>
+		    <td><span class="parceiro_del" rel="<?php echo $parceiro->id?>" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>
+		</tr>
+	<?php endforeach;?>
+    </tbody>
+</table>
+
+
+<pre>
+<?php //print_r($this->parceiros)?>
+</pre>
+    
+    
+<style>
+	.progress { position:relative; width:400px; border: 1px solid #ddd; pad$deliveryding: 1px; border-radius: 3px; }
+	.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+	.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+	
+	
+#table_parceiros
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+/* 	width: 480px; */
+	border-collapse: collapse;
+	text-align: left;
+}
+#table_parceiros th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#table_parceiros td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+	vertical-align: middle;
+}
+#table_parceiros tbody tr:hover td
+{
+	color: #009;
+}
+	
+
+</style>
+
+    
+    
+    
+<?php 
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery.form.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/settings/parceiros.js'));
+?>

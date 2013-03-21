@@ -1,29 +1,29 @@
 $(document).ready(function() {
 
-	function getcidades() {
-		$.getJSON("/settings/cidades-show", function(j){
+	function getparceiros() {
+		$.getJSON("/settings/parceiros-show", function(j){
 			var options = '';
 			for (var i = 0; i < j.length; i++) {
 				options += '<tr>' 
 							+ '<td>' + j[i].nome + ' </td>' 
-							+ '<td>' + j[i].estado.nome + ' (' + j[i].estado.sigla + ')</td>' 
-							+ '<td>' + j[i].estado.pais.nome + ' (' + j[i].estado.pais.sigla + ')</td>' 
+							+ '<td>' + j[i].cidade_nome + '</td>' 
+							+ '<td>' + j[i].estado_nome + '</td>' 
+							+ '<td>' + j[i].pais_nome + '</td>' 
 							//+ '<td>' + j[i].ativo + ' </td>' 
-							+ '<td><span class="cidade_del" rel="' + j[i].id + '" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>' 
+							+ '<td><span class="parceiro_del" rel="' + j[i].id + '" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>' 
 						+ '</tr>';
 			}
-			$("#table_cidades tbody").html(options);
+			$("#table_parceiros tbody").html(options);
 		});
 	}
 
-
-
 	
-	$(document).on("click", ".cidade_del", function(){ 
-		var id_cidade = $(this).attr('rel');
-        $.post('/settings/cidades-del',{ cidade: id_cidade },function(r){
+	
+	$(document).on("click", ".parceiro_del", function(){ 
+		var id_parceiro = $(this).attr('rel');
+        $.post('/settings/parceiros-del',{ parceiro: id_parceiro },function(r){
             if(r.status == "ok"){
-            	getcidades();
+            	getparceiros();
             }else{
             	console.log(r);
             }
@@ -34,7 +34,7 @@ $(document).ready(function() {
 	
 	// en/disable submit button
     var disableSubmit = function(val){
-        $('#form_cidades input[type=submit]').attr('disabled', val);
+        $('#form_parceiros input[type=submit]').attr('disabled', val);
     };
 	
 	(function() {
@@ -43,7 +43,7 @@ $(document).ready(function() {
 		var percent = $('.percent');
 		var status = $('#status');
 		   
-		$('#form_cidades').ajaxForm({
+		$('#form_parceiros').ajaxForm({
 			dataType:  'json',
 			beforeSubmit: function(){
 	            disableSubmit(true);
@@ -71,8 +71,8 @@ $(document).ready(function() {
 			success: function(r){
 	            status.html(r.msg);
 	            disableSubmit(false);
-	            getcidades();
-	            $('#form_cidades')[0].reset();
+	            getparceiros();
+	            $('#form_parceiros')[0].reset();
 	        }
 		}); 
 
