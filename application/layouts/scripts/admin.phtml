@@ -1,6 +1,7 @@
 <?php 
 	$footer = $this->partial('partials/footer.phtml');
 	$header =  $this->partial('partials/header.phtml');
+	$parceiro = $this->parceiro;
 ?>
 <?php echo $this->doctype('XHTML1_RDFA'); ?>
 
@@ -56,58 +57,17 @@ echo 	$this->headMeta(),PHP_EOL;
 
 						<div class="wrap_menu">
 						
-						
-						   	<ul>
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'evento-cadastrar'), 'default', true); ?>">
-								    	Evento -> Cadastrar
-								    </a>
-								</li>
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceiro-cadastrar'), 'default', true); ?>">
-								    	Parceiro -> Cadastrar
-								    </a>
-								</li>
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceirofotos-cadastrar'), 'default', true); ?>">
-								    	FOTOS Parceiro -> Cadastrar
-								    </a>
-								</li>
-								<!-- 
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'parceiro-deletar'), 'default', true); ?>">
-								    	parceiroDeletarAction
-								    </a>
-								</li>
-								 -->
-								<!-- 
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'evento-deletar'), 'default', true); ?>">
-								    	eventoDeletarAction
-								    </a>
-								</li>
-								 -->
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'endereco-cadastrar'), 'default', true); ?>">
-								    	Endereco -> Cadastrar
-								    </a>
-								</li>
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'cidade-cadastrar'), 'default', true); ?>">
-								    	Cidade -> Cadastrar
-								    </a>
-								</li>
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'estado-cadastrar'), 'default', true); ?>">
-								    	Estado -> Cadastrar
-								    </a>
-								</li>
-								<li>
-									<a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'estatisticas'), 'default', true); ?>">
-								    	ESTATISTICAS
-								    </a>
-								</li>
+							<h3><?php echo $parceiro->nome?></h3>
+							<ul>
+								<li><a href="<?php echo $this->url(array('controller' => 'admin'), 'default', true); ?>">Admin</a></li>
+								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'eventos'), 'default', true); ?>">Eventos</a></li>
+								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'horarios'), 'default', true); ?>">Horários</a></li>
+								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'imagem'), 'default', true); ?>">Imagem</a></li>
+								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'dados'), 'default', true); ?>">Informações</a></li>
+								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'tipos'), 'default', true); ?>">Gêneros</a></li>
+								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'pagamentos'), 'default', true); ?>">Formas de Pagamento</a></li>
 							</ul>
+						
 						
 						</div>
 						<div class="wrap_form">

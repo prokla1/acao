@@ -5,26 +5,57 @@ class AdminController extends Zend_Controller_Action
 
     public function init()
     {
-		$admin = false;
     	
+    	
+
+    	$sessAdminEstab = new Zend_Session_Namespace('AdminParceiro');
+    	if ($this->_getParam('parceiro'))
+    	{
+    		$this->parceiro = $this->_getParam('parceiro');
+    		$sessAdminEstab->parceiro = $this->parceiro;
+    	}else
+    	{
+    		if ($sessAdminEstab->parceiro)
+    		{
+    			$this->parceiro = $sessAdminEstab->parceiro;
+    		}else
+    		{
+    			return $this->_helper->redirector->goToRoute( array('controller' => 'usuario', 'action' => 'entrar'), null, true);
+    		}
+    	}
+    	 
+    	
+
+    	$admin = false;
     	$auth = Zend_Auth::getInstance();
     	if($auth->hasIdentity())
     	{
     		$user = $auth->getIdentity();
     		$this->usuario = $user;
-    		if($user->admin == '1')
+    	
+    		$credencialTable = new Application_Model_DbTable_Credenciais();
+    	
+    		if( $credencialTable->permissao($user->id, $this->parceiro))
     		{
     			$admin = true;
     			$this->_helper->layout->setLayout('admin');
+    		}else
+    		{
+    			return $this->_helper->redirector->goToRoute( array('controller' => 'usuario'), null, true);
     		}
     	}
-    	 
-    	$this->admin = $admin;
-    	
     	if(!$admin)
     	{
-    		return $this->_forward('entrar','admin');
+    		return $this->_helper->redirector->goToRoute( array('controller' => 'usuario'), null, true);
     	}
+    	
+    	
+    	 
+    	 
+    	 
+    	$pareceirobTable = new Application_Model_DbTable_Parceiros();
+    	$this->parceiro = $pareceirobTable->byId($this->parceiro, new Application_Model_Parceiro());
+    	$this->view->parceiro = $this->parceiro;
     	
     }
 

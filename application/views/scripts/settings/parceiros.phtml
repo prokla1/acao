@@ -66,7 +66,7 @@
     <tbody>
 	<?php foreach ($this->parceiros as $parceiro) :?>
 		<tr>
-		    <td><?php echo $parceiro->nome ?> </td>
+		    <td><?php echo $parceiro->nome ?> ( <a target="_blank" href="/<?php echo $parceiro->url_amigavel ?> ">/<?php echo $parceiro->url_amigavel ?> )</a></td>
 		    <td><?php echo $parceiro->cidade_nome?></td>
 		    <td><?php echo $parceiro->estado_nome?></td>
 		    <td><?php echo $parceiro->pais_nome?></td>

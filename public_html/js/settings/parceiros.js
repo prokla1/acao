@@ -42,7 +42,7 @@ $(document).ready(function() {
 			var options = '';
 			for (var i = 0; i < j.length; i++) {
 				options += '<tr>' 
-							+ '<td>' + j[i].nome + ' </td>' 
+							+ '<td>' + j[i].nome + ' ( <a target="_blank" href="/' + j[i].url_amigavel + ' ">/' + j[i].url_amigavel + ' )</a></td>' 
 							+ '<td>' + j[i].cidade_nome + '</td>' 
 							+ '<td>' + j[i].estado_nome + '</td>' 
 							+ '<td>' + j[i].pais_nome + '</td>' 

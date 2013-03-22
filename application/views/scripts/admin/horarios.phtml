@@ -1,0 +1,163 @@
+<?php 
+	$horarios = $this->horarios;
+?>
+
+
+<form id="form_horarios" enctype="multipart/form-data" method="post" action="">
+
+	<dt id="semana-label">
+		<label for="semana" class="required">
+			Dia da semana
+		</label>
+	</dt>
+	<dd id="semana-element">
+		<label for="semana-1">
+			<input type="checkbox" name="semana[]" id="semana-1" value="1">Domingo
+		</label>
+		<br />
+		<label for="semana-2">
+			<input type="checkbox" name="semana[]" id="semana-2" value="2">Segunda
+		</label>
+		<br />
+		<label for="semana-3">
+			<input type="checkbox" name="semana[]" id="semana-3" value="3">Terça
+		</label>
+		<br />
+		<label for="semana-4">
+			<input type="checkbox" name="semana[]" id="semana-4" value="4">Quarta
+		</label>
+		<br />
+		<label for="semana-5">
+			<input type="checkbox" name="semana[]" id="semana-5" value="5">Quinta
+		</label>
+		<br />
+		<label for="semana-6">
+			<input type="checkbox" name="semana[]" id="semana-6" value="6">Sexta
+		</label>
+		<br />
+		<label for="semana-7">
+			<input type="checkbox" name="semana[]" id="semana-7" value="7">Sábado
+		</label>
+		<br />
+	</dd>
+
+	
+		
+	<dt id="inicio-label">
+		<label for="inicio" class="required">
+			Abertura
+		</label>
+	</dt>
+	<dd id="inicio-element">
+		<input type="text" name="inicio" id="inicio" value="18:00:00" readonly="readonly">
+	</dd>
+			
+	<dt id="fim-label">
+		<label for="fim" class="required">
+			Fechamento
+		</label>
+	</dt>
+	<dd id="fim-element">
+		<input type="text" name="fim" id="fim" value="23:30:00" readonly="readonly">
+	</dd>
+
+		
+	<dt id="submit-label">
+		&#160;
+	</dt>
+	<dd id="submit-element">
+		<input type="submit" name="submit" id="submit" value="Salvar">
+	</dd>
+	
+</form>
+    
+    
+    <div class="progress">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status"></div>
+
+ 
+
+
+
+<table id="table_horarios" summary="Áreas de delivery">
+    <thead>
+    	<tr>
+        	<th scope="col">Dia</th>
+            <th scope="col">Início</th>
+            <th scope="col">Fim</th>
+            <th scope="col">Del</th>
+        </tr>
+    </thead>
+    <tbody>
+	<?php foreach ($horarios as $horario) :?>
+		<tr>
+			<td><?php echo $horario->semananome?></td>
+		    <td><?php echo $horario->inicio?></td>
+		    <td><?php echo $horario->fim?></td>
+		    <td><span class="horario_del" rel="<?php echo $horario->id?>" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>
+		</tr>
+	<?php endforeach;?>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+<style>
+	.progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+	.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+	.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+	
+	dd#semana-element label
+	{
+		margin: 2px 5px;
+		cursor: pointer;
+	}
+	
+#table_horarios
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+	width: 480px;
+	border-collapse: collapse;
+	text-align: left;
+}
+#table_horarios th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#table_horarios td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+}
+#table_horarios tbody tr:hover td
+{
+	color: #009;
+}
+
+</style>
+
+
+    
+<?php 
+	$this->headLink()->appendStylesheet($this->baseUrl('/css/smoothness/jquery-ui-timepicker-addon.css'));
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery.form.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery-ui-timepicker-addon.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/admin/horarios.js'));
+?>

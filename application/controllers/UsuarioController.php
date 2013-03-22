@@ -31,6 +31,11 @@ class UsuarioController extends Zend_Controller_Action
     	{
     		$user = Zend_Auth::getInstance()->getIdentity();
     		$this->view->usuario = $user;
+    		
+    		
+    		$credenciaisTable = new Application_Model_DbTable_Credenciais();
+    		$credenciais = $credenciaisTable->getByUsuario($user->id);
+    		$this->view->credenciais = $credenciais;
     	}else
     	{
     		//return $this->_helper->redirector('entrar');

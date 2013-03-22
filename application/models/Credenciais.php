@@ -143,7 +143,7 @@ class Application_Model_Credenciais
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
