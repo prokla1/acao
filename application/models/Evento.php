@@ -10,6 +10,9 @@ class Application_Model_Evento
 	protected $_url_amigavel;
 	protected $_id_parceiro;
 	protected $_id_endereco;
+	protected $_id_cidade;
+	protected $_endereco;
+	protected $_complemento;
 	protected $_nome;
 	protected $_descricao;
 	protected $_capa;
@@ -19,7 +22,7 @@ class Application_Model_Evento
 	protected $_hora;
 	
 	protected $_parceiro;
-	protected $_endereco;
+	//protected $_endereco;
 	
 	protected $_cortesias;
 	
@@ -161,13 +164,13 @@ class Application_Model_Evento
 
 	/**
 	 * @param field_type $_endereco
-	 */
+	 *//*
 	public function setEndereco($id_endereco) {
 		$enderecoTable = new Application_Model_DbTable_LocalEnderecos();
 		$enderecoModel = new Application_Model_LocalEnderecos();
 		$endereco = $enderecoTable->byId($id_endereco, $enderecoModel);
 		$this->_endereco = $endereco;
-	}
+	}*/
 	
 	/**
 	 * @return the $_endereco (objeto class Endereco)

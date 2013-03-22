@@ -35,6 +35,7 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     					'id'		=>	'parceiros.id',
     				)
     			)
+    			/*
     	->joinLeft(
     			array(
     					'local_enderecos'			=>	'local_enderecos'
@@ -47,11 +48,12 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     					'endereco_complemento'		=>	'local_enderecos.complemento'
     			)
     	)
+    	*/
     	->joinLeft(
     			array(
     					'local_cidades'			=>	'local_cidades'
     			),
-    			'local_cidades.id				=	local_enderecos.id_cidade',
+    			'local_cidades.id				=	parceiros.id_cidade',
     			array(
     					'cidades_id'			=>	'local_cidades.id',
     					'cidades_nome'			=>	'local_cidades.nome',
@@ -117,7 +119,8 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     	{
     		$parceiros = $result->toArray();
     		$parceiro->setOptions($parceiros);
-    		$parceiro->setLocal($result->id_endereco);
+    		//$parceiro->setLocal($result->id_endereco);
+    		$parceiro->setLocal($result->id_cidade);
     		$parceiro->setFotos($id);
     		$parceiro->setAtividades($id);
     	}else
@@ -145,7 +148,7 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     	{
     		$parceiros = $result->toArray();
     		$parceiro->setOptions($parceiros);
-    		$parceiro->setLocal($result->id_endereco);
+    		$parceiro->setLocal($result->id_cidade);
     		$parceiro->setFotos($result->id);
     		$parceiro->setAtividades($result->id);
     	}else
@@ -186,7 +189,9 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     			'descricao' => $parceiro->getDescricao(),
     			'foto' => $parceiro->getFoto(),
     			'ativo' => $parceiro->getAtivo(),
-    			'id_endereco' => $parceiro->getId_endereco(),
+    			'id_cidade' => $parceiro->getId_cidade(),
+    			'endereco' => $parceiro->getEndereco(),
+    			'complemento' => $parceiro->getComplemento(),
     			'foto' => $parceiro->getFoto(),
     			'funcionamento' => $parceiro->getFuncionamento(),
     			'pagamento' => $parceiro->getPagamento(),

@@ -379,9 +379,12 @@ class SettingsController extends Zend_Controller_Action
     	{
     		if ($form->isValid($request->getPost()))
     		{
-    			$enderecosTable  = new Application_Model_DbTable_LocalEnderecos();
-    			$insert = $enderecosTable->insert($form->getValues());
-    			if($insert)
+    			$parceirosTable  = new Application_Model_DbTable_Parceiros();
+    			$parceiroModel = new Application_Model_Parceiro();
+    			$parceiroModel->setOptions($form->getValues());
+    			
+    			//$insert = $parceirosTable->insert($parceiroModel->getArray());
+    			if($parceirosTable->save($parceiroModel))
     			{
     				$msg = array(
     						'status'	=> 'ok',

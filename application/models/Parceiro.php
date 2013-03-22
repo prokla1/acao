@@ -9,8 +9,10 @@ class Application_Model_Parceiro
 	public $descricao;
 	public $foto;
 	public $ativo;
-	public $id_tipo;
-	public $id_endereco;
+	//public $id_endereco;
+	public $id_cidade;
+	public $endereco;
+	public $complemento;
 	public $funcionamento;
 	public $pagamento;
 	public $telefone;
@@ -117,14 +119,22 @@ class Application_Model_Parceiro
 	/**
 	 * @param field_type $id_endereco
 	 */
+	public function setLocal($id_cidade) {
+		$localCidadeTable = new Application_Model_DbTable_LocalCidades();
+		$localCidadeModel = new Application_Model_LocalCidades();
+		$localCidade = $localCidadeTable->byId($id_cidade, $localCidadeModel);
+		
+		$this->local = $localCidade;
+	}
+	/*
 	public function setLocal($id_endereco) {
 		$localEnderecoTable = new Application_Model_DbTable_LocalEnderecos();
 		$localEnderecoModel = new Application_Model_LocalEnderecos();
 		$localEndereco = $localEnderecoTable->byId($id_endereco, $localEnderecoModel);
-		
+	
 		$this->local = $localEndereco;
-		
 	}
+	*/
 	
 	/**
 	 * @return the $local (objeto class Local)
@@ -416,6 +426,48 @@ class Application_Model_Parceiro
 		$rating = ($this->num_votos > 0) ? $total_pontos / $num_votos : 0;
 		$this->rating = $rating;
 	}
+	/**
+	 * @return the $id_cidade
+	 */
+	public function getId_cidade() {
+		return $this->id_cidade;
+	}
+
+	/**
+	 * @param field_type $id_cidade
+	 */
+	public function setId_cidade($id_cidade) {
+		$this->id_cidade = $id_cidade;
+	}
+
+	/**
+	 * @return the $endereco
+	 */
+	public function getEndereco() {
+		return $this->endereco;
+	}
+
+	/**
+	 * @param field_type $endereco
+	 */
+	public function setEndereco($endereco) {
+		$this->endereco = $endereco;
+	}
+
+	/**
+	 * @return the $complemento
+	 */
+	public function getComplemento() {
+		return $this->complemento;
+	}
+
+	/**
+	 * @param field_type $complemento
+	 */
+	public function setComplemento($complemento) {
+		$this->complemento = $complemento;
+	}
+
 
 	
 	

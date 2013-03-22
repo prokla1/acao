@@ -96,15 +96,9 @@ $(document).ready(function() {
 		        bar.width(percentVal)
 		        percent.html(percentVal);
 		    },
-		    /*
 			complete: function(xhr) {
 				disableSubmit(false);
-				var r = xhr.responseText;				
-				status.html(r.imagem);
-				console.log(r);
-				console.log(r.imagem);
 			},
-			*/
 			success: function(r){
 	            status.html(r.msg);
 	            disableSubmit(false);

@@ -139,20 +139,19 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->from('eventos')
     	->joinRight( //join na tabela LOCAL ENDERECOS
     			array(
-    					'local_enderecos'		=>	'local_enderecos'
+    					'local_cidades'		=>	'local_cidades'
     			),
-    			'local_enderecos.id				=	eventos.id_endereco',
+    			'local_cidades.id				=	eventos.id_cidade',
     			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
-    					'id_cidade'		=>	'local_enderecos.id_cidade',
-    					'rua'				=>	'local_enderecos.rua',
-    					'numero'			=>	'local_enderecos.numero',
-    					'complemento'		=>	'local_enderecos.complemento'
+    					'id_cidade'		=>	'local_cidades.id',
+    					'cidade_nome'				=>	'local_cidades.nome',
+    					'cidade_estado'			=>	'local_cidades.id_estado',
     			)
     	)
-    	->where('ativo = ?', '1')
-    	->where('destaque = ?', '1')
+    	->where('eventos.ativo = ?', '1')
+    	->where('eventos.destaque = ?', '1')
     	->where('realizacao >= ?', date('Y-m-d', time()))
-    	->where('local_enderecos.id_cidade = ?', $idCity)
+    	->where('eventos.id_cidade = ?', $idCity)
     	->order('realizacao');
     	
     	//Zend_Debug::dump($resultSet->query());
@@ -162,7 +161,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);
     		$eventoModel->setParceiro($row['id_parceiro']);
-    		$eventoModel->setEndereco($row['id_endereco']);
+    		//$eventoModel->setEndereco($row['id_endereco']);
     
     		$eventos[] = $eventoModel;
     	}
@@ -182,6 +181,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	$resultSet = $this->select()
     	->setIntegrityCheck(false) // allows joins
     	->from('eventos')
+    	/*
     	->joinRight( //join na tabela LOCAL ENDERECOS
     			array(
     					'local_enderecos'		=>	'local_enderecos'
@@ -194,8 +194,21 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     					'complemento'		=>	'local_enderecos.complemento'
     			)
     	)
+    	*/
+    	->joinRight( //join na tabela LOCAL ENDERECOS
+    			array(
+    					'local_cidades'		=>	'local_cidades'
+    			),
+    			'local_cidades.id				=	eventos.id_cidade',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'cidade_id'		=>	'local_cidades.id',
+    					'cidade_nome'				=>	'local_cidades.nome',
+    					'cidade_estado'			=>	'local_cidades.id_estado',
+    			)
+    	)
     	->where('eventos.ativo = ?', '1')
-    	->where('local_enderecos.id_cidade = ?', $idCity)
+    	->where('eventos.id_cidade = ?', $idCity)
+    	//->where('local_enderecos.id_cidade = ?', $idCity)
     	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))  //alterar para '>=' para trazer os proximos
     	->order('eventos.realizacao');
     
@@ -205,8 +218,9 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);
+    		
     		$eventoModel->setParceiro($row['id_parceiro']);
-    		$eventoModel->setEndereco($row['id_endereco']);
+    		//$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
     		$eventoModel->setGeneros($row['id']);
     
@@ -233,6 +247,17 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->from('eventos')
     	->joinRight( //join na tabela LOCAL ENDERECOS
     			array(
+    					'local_cidades'		=>	'local_cidades'
+    			),
+    			'local_cidades.id				=	eventos.id_cidade',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'id_cidade'		=>	'local_cidades.id',
+    					'cidade_nome'				=>	'local_cidades.nome',
+    					'cidade_estado'			=>	'local_cidades.id_estado',
+    			)
+    	)/*
+    	->joinRight( //join na tabela LOCAL ENDERECOS
+    			array(
     					'local_enderecos'		=>	'local_enderecos'
     			),
     			'local_enderecos.id				=	eventos.id_endereco',
@@ -242,7 +267,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     					'numero'			=>	'local_enderecos.numero',
     					'complemento'		=>	'local_enderecos.complemento'
     			)
-    	)
+    	)*/
     	->joinRight( //join na tabela REL_ATIVIDADES_PARCEIROS
     			array(
     					'rel_atividade_parceiro'		=>	'rel_atividade_parceiro'
@@ -266,7 +291,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	)
     	->where('eventos.ativo = ?', '1')
     	->where('atividades.url IN (?)', $tipo)
-    	->where('local_enderecos.id_cidade = ?', $idCity)
+    	->where('eventos.id_cidade = ?', $idCity)
     	->where('eventos.realizacao = ?', date('Y-m-d', $dia_base))  //alterar para '>=' para trazer os proximos
     	->order('eventos.realizacao');
     
@@ -278,7 +303,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);
     		$eventoModel->setParceiro($row['id_parceiro']);
-    		$eventoModel->setEndereco($row['id_endereco']);
+    		//$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
     		$eventoModel->setGeneros($row['id']);
     
@@ -302,6 +327,17 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	->from('eventos')
     	->joinRight( //join na tabela LOCAL ENDERECOS
     			array(
+    					'local_cidades'		=>	'local_cidades'
+    			),
+    			'local_cidades.id				=	eventos.id_cidade',
+    			array( //foi preciso setar os dados a serem importados, pois as duas tabelas possuem coluna ID
+    					'id_cidade'		=>	'local_cidades.id',
+    					'cidade_nome'				=>	'local_cidades.nome',
+    					'cidade_estado'			=>	'local_cidades.id_estado',
+    			)
+    	)/*
+    	->joinRight( //join na tabela LOCAL ENDERECOS
+    			array(
     					'local_enderecos'		=>	'local_enderecos'
     			),
     			'local_enderecos.id				=	eventos.id_endereco',
@@ -311,9 +347,9 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     					'numero'			=>	'local_enderecos.numero',
     					'complemento'		=>	'local_enderecos.complemento'
     			)
-    	)
-    	->where('ativo = ?', '1')
-    	->where('local_enderecos.id_cidade = ?', $idCity)
+    	)*/
+    	->where('eventos.ativo = ?', '1')
+    	->where('eventos.id_cidade = ?', $idCity)
     	->order('realizacao');
     	 
     	//Zend_Debug::dump($resultSet->query());
@@ -323,7 +359,7 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     		$eventoModel = new Application_Model_Evento();
     		$eventoModel->setOptions($row);
     		$eventoModel->setParceiro($row['id_parceiro']);
-    		$eventoModel->setEndereco($row['id_endereco']);
+    		//$eventoModel->setEndereco($row['id_endereco']);
     		$eventoModel->setCortesias($row['id']);
     		$eventoModel->setGeneros($row['id']);
     
