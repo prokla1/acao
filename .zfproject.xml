@@ -119,6 +119,8 @@
           <dbTableFile dbTableName="Rating"/>
           <dbTableFile dbTableName="ParceirosContato"/>
           <dbTableFile dbTableName="Credenciais"/>
+          <dbTableFile dbTableName="ParceirosPagamento"/>
+          <dbTableFile dbTableName="PagamentosFormas"/>
         </dbTableDirectory>
         <modelFile modelName="LocalEnderecos"/>
         <modelFile modelName="LocalCidades"/>
@@ -135,6 +137,8 @@
         <modelFile modelName="ParceiroContato"/>
         <modelFile modelName="ParceirosContato"/>
         <modelFile modelName="Credenciais"/>
+        <modelFile modelName="ParceirosPagamento"/>
+        <modelFile modelName="PagamentoFormas"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>

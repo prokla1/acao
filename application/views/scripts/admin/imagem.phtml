@@ -1,14 +1,14 @@
 	
 
-<form id="form_imagem_estab" enctype="multipart/form-data" method="post" action="">
+<form id="form_imagem_parceiro" enctype="multipart/form-data" method="post" action="">
 	<dl class="zend_form">
-		<dt id="url-label">
-			<label for="url" class="optional">
-				Imagem do estabelecimento:
+		<dt id="foto-label">
+			<label for="foto" class="optional">
+				Imagem de capa:
 			</label>
 		</dt>
 		<dd>
-			<input type="file" name="imagem" id="imagem" >
+			<input type="file" name="foto" id="foto" >
 		</dd>
 		<dt id="submit-label">
 			&#160;
@@ -28,8 +28,8 @@
     </div>
     
     <div id="status">
-    <?php if($this->estab->imagem):?>
-    	<img src="/img/estab/<?php echo $this->estab->imagem?>" />
+    <?php if($this->parceiro->foto):?>
+    	<img src="/img/parceiros/<?php echo $this->parceiro->foto?>" />
     <?php endif;?>
     </div>
     
@@ -46,4 +46,7 @@
 	$this->headScript()->appendFile($this->baseUrl('/js/admin/imagem.js'));
 ?>
 	
+	<pre>
+<?php //print_r($this->parceiro)?>
+</pre>
 	

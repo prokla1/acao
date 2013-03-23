@@ -27,6 +27,15 @@ class Application_Model_DbTable_ParceirosFotos extends Zend_Db_Table_Abstract
     	return $fotos;
     }
     
+
+    public function del($id, $parceiro = null)
+    {
+    	$where = array(
+    			$this->getAdapter()->quoteInto('id = ?', $id),
+    			$this->getAdapter()->quoteInto('id_parceiro = ?', $parceiro)
+    	);
+    	return $this->delete($where);
+    }
     
 
 }

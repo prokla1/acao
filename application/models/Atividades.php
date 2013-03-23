@@ -3,11 +3,11 @@
 class Application_Model_Atividades
 {
 
-	protected $_id;
-	protected $_nome;
-	protected $_url;
-	protected $_ativo;
-	protected $_hora;
+	public $id;
+	public $nome;
+	public $url;
+	public $ativo;
+	public $hora;
 
 	
 	
@@ -21,7 +21,7 @@ class Application_Model_Atividades
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
@@ -43,7 +43,7 @@ class Application_Model_Atividades
 	{
 		$method = 'set' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_Atividades property {$name}");
 		}
 		$this->$method($value);
 	}
@@ -52,7 +52,7 @@ class Application_Model_Atividades
 	{
 		$method = 'get' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_Atividades property {$name}");
 		}
 		return $this->$method();
 	}
@@ -80,69 +80,69 @@ class Application_Model_Atividades
 	 * @return the $_id
 	 */
 	public function getId() {
-		return $this->_id;
+		return $this->id;
 	}
 
 	/**
 	 * @param field_type $_id
 	 */
 	public function setId($_id) {
-		$this->_id = $_id;
+		$this->id = $_id;
 	}
 
 	/**
 	 * @return the $_nome
 	 */
 	public function getNome() {
-		return $this->_nome;
+		return $this->nome;
 	}
 
 	/**
 	 * @param field_type $_nome
 	 */
 	public function setNome($_nome) {
-		$this->_nome = $_nome;
+		$this->nome = $_nome;
 	}
 
 	/**
 	 * @return the $_ativo
 	 */
 	public function getAtivo() {
-		return $this->_ativo;
+		return $this->ativo;
 	}
 
 	/**
 	 * @param field_type $_ativo
 	 */
 	public function setAtivo($_ativo) {
-		$this->_ativo = $_ativo;
+		$this->ativo = $_ativo;
 	}
 
 	/**
 	 * @return the $_hora
 	 */
 	public function getHora() {
-		return $this->_hora;
+		return $this->hora;
 	}
 
 	/**
 	 * @param field_type $_hora
 	 */
 	public function setHora($_hora) {
-		$this->_hora = $_hora;
+		$this->hora = $_hora;
 	}
 	/**
 	 * @return the $_url
 	 */
 	public function getUrl() {
-		return $this->_url;
+		return $this->url;
 	}
 
 	/**
 	 * @param field_type $_url
 	 */
 	public function setUrl($_url) {
-		$this->_url = $_url;
+		$this->url = $_url;
 	}
 
 

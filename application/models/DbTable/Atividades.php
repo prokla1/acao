@@ -27,6 +27,25 @@ class Application_Model_DbTable_Atividades extends Zend_Db_Table_Abstract
     	return $atividades->getNome();
     }
     
+
+
+
+
+    public function getAll()
+    {
+    	$resultSet = $this->select()
+    	->from($this->_name)
+    	->order('nome');
+    	$atividades = array();
+    	foreach ($resultSet->query() as $row)
+    	{
+    		$atividadesModel = new Application_Model_Atividades($row);
+    		$atividades[] = $atividadesModel;
+    	}
+    	return $atividades;
+    }
+    
+    
     
 }
 

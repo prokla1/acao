@@ -80,7 +80,7 @@ class Application_Model_Parceiro
 	 */
 	public function setAtividades($id_parceiro) {
 		$atividades = new Application_Model_DbTable_RelAtividades();
-		$this->atividades = $atividades->atividadesByParceiro($id_parceiro);
+		$this->atividades = $atividades->byParceiro($id_parceiro);
 	}
 	
 	/**

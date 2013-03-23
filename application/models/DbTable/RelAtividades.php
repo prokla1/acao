@@ -6,6 +6,10 @@ class Application_Model_DbTable_RelAtividades extends Zend_Db_Table_Abstract
     protected $_name = 'rel_atividade_parceiro';
 
 
+
+    
+    
+    
     /**
      * salva as "ATIVIDADES" de um parceiro ID_PARCEIRO
      */
@@ -13,9 +17,14 @@ class Application_Model_DbTable_RelAtividades extends Zend_Db_Table_Abstract
     {
     	foreach ($atividades as $atividade)
     	{
-    		$data = array('id_atividade' => $atividade, 'id_parceiro' => $id_parceiro);
+    		$data = array(
+    				'id_atividade'	=>	$atividade, 
+    				'id_parceiro'	=>	$id_parceiro,
+    				'ativo'			=>	'1'
+    				);
     		$this->insert($data);
     	}
+    	return $this;
     }
     
     
@@ -26,20 +35,44 @@ class Application_Model_DbTable_RelAtividades extends Zend_Db_Table_Abstract
      * Retorna todas as "ATIVIDADES" de um parceiro ID_PARCEIRO
      * @return multitype:Application_Model_Atividades
      */
-    public function atividadesByParceiro($id_parceiro)
+    public function byParceiro($parceiro)
     {
-    	$resultSet = $this->fetchAll("id_parceiro = '$id_parceiro'");
-    	$atividades   = array();
-    	foreach ($resultSet as $result) {
-    		 
-    		$atividadeTable = new Application_Model_DbTable_Atividades();
-    		$atividade = $atividadeTable->byId($result['id_atividade'], new Application_Model_Atividades());
+    	$atividades = array();
     
+    	$resultSet = $this->select()
+    	->setIntegrityCheck(false)
+    	->from($this->_name)
+    	->joinRight(
+    			array(
+    					'atividades'		=>	'atividades'
+    			),
+    			'atividades.id			=	rel_atividade_parceiro.id_atividade',
+    			array(
+    					'atividade_nome'	=>	'atividades.nome',
+    			)
+    	)
+    	->where("rel_atividade_parceiro.id_parceiro = ?", $parceiro)
+    	->order('atividades.nome');
+    
+    	foreach($resultSet->query() as $row)
+    	{
+    		$atividade = new Application_Model_RelAtividades($row);
     		$atividades[] = $atividade;
-    		 
     	}
     	return $atividades;
     }
+    
 
+    
+    
+    public function del($id, $parceiro = null)
+    {
+    	$where = array(
+    			$this->getAdapter()->quoteInto('id = ?', $id),
+    			$this->getAdapter()->quoteInto('id_parceiro = ?', $parceiro)
+    	);
+    	return $this->delete($where);
+    }
+    
 }
 

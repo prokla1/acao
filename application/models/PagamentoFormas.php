@@ -1,13 +1,14 @@
 <?php
 
-class Application_Model_ParceirosFotos
+class Application_Model_PagamentoFormas
 {
 
-	public $id;
-	public $id_parceiro;
-	public $url;
-	
 
+	public $id;
+	public $nome;
+	public $imagem;
+	public $troco;
+	public $descricao;
 	
 
 
@@ -41,7 +42,7 @@ class Application_Model_ParceirosFotos
 	{
 		$method = 'set' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Evento property {$name}");
+			throw new Exception("Invalid Application_Model_Estabelecimentos property {$name}");
 		}
 		$this->$method($value);
 	}
@@ -50,7 +51,7 @@ class Application_Model_ParceirosFotos
 	{
 		$method = 'get' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Evento property {$name}");
+			throw new Exception("Invalid Application_Model_Estabelecimentos property {$name}");
 		}
 		return $this->$method();
 	}
@@ -66,58 +67,80 @@ class Application_Model_ParceirosFotos
 		}
 		return $this;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
-	 * @return the $_id
+	 * @return the $id
 	 */
 	public function getId() {
 		return $this->id;
 	}
 
 	/**
-	 * @param field_type $_id
+	 * @param field_type $id
 	 */
-	public function setId($_id) {
-		$this->id = $_id;
+	public function setId($id) {
+		$this->id = $id;
 	}
 
 	/**
-	 * @return the $_id_parceiro
+	 * @return the $nome
 	 */
-	public function getId_parceiro() {
-		return $this->id_parceiro;
+	public function getNome() {
+		return $this->nome;
 	}
 
 	/**
-	 * @param field_type $_id_parceiro
+	 * @param field_type $nome
 	 */
-	public function setId_parceiro($_id_parceiro) {
-		$this->id_parceiro = $_id_parceiro;
+	public function setNome($nome) {
+		$this->nome = $nome;
 	}
 
 	/**
-	 * @return the $_url
+	 * @return the $imagem
 	 */
-	public function getUrl() {
-		return $this->url;
+	public function getImagem() {
+		return $this->imagem;
 	}
 
 	/**
-	 * @param field_type $_url
+	 * @param field_type $imagem
 	 */
-	public function setUrl($_url) {
-		$this->url = $_url;
+	public function setImagem($imagem) {
+		$this->imagem = $imagem;
+	}
+
+	/**
+	 * @return the $troco
+	 */
+	public function getTroco() {
+		return $this->troco;
+	}
+
+	/**
+	 * @param field_type $troco
+	 */
+	public function setTroco($troco) {
+		$this->troco = $troco;
+	}
+
+	/**
+	 * @return the $descricao
+	 */
+	public function getDescricao() {
+		return $this->descricao;
+	}
+
+	/**
+	 * @param field_type $descricao
+	 */
+	public function setDescricao($descricao) {
+		$this->descricao = $descricao;
 	}
 
 	
 	
-
+	
+	
+	
 }
 

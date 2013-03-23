@@ -3,13 +3,28 @@
 class Application_Model_RelAtividades
 {
 
-	protected $_id;
-	protected $_id_parceiro;
-	protected $_id_atividade;
-	protected $_ativo;
-	protected $_hora;
+	public $id;
+	public $id_parceiro;
+	public $id_atividade;
+	public $ativo;
+	public $hora;
 
 	
+	public $atividade_nome;
+
+	/**
+	 * @return the $atividade_nome
+	 */
+	public function getAtividade_nome() {
+		return $this->atividade_nome;
+	}
+
+	/**
+	 * @param field_type $atividade_nome
+	 */
+	public function setAtividade_nome($atividade_nome) {
+		$this->atividade_nome = $atividade_nome;
+	}
 	
 	
 	
@@ -22,7 +37,7 @@ class Application_Model_RelAtividades
 	public function getArray(){
 		$array = array();
 		foreach ($this as $key => $value) {
-			$array[substr($key, 1)] = $value;
+			$array[$key] = $value;
 		}
 		return $array;
 	}
@@ -44,7 +59,7 @@ class Application_Model_RelAtividades
 	{
 		$method = 'set' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_RelAtividades property {$name}");
 		}
 		$this->$method($value);
 	}
@@ -53,7 +68,7 @@ class Application_Model_RelAtividades
 	{
 		$method = 'get' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception("Invalid Parceiro property {$name}");
+			throw new Exception("Invalid Application_Model_RelAtividades property {$name}");
 		}
 		return $this->$method();
 	}
@@ -82,70 +97,70 @@ class Application_Model_RelAtividades
 	 * @return the $_id
 	 */
 	public function getId() {
-		return $this->_id;
+		return $this->id;
 	}
 
 	/**
 	 * @param field_type $_id
 	 */
 	public function setId($_id) {
-		$this->_id = $_id;
+		$this->id = $_id;
 	}
 
 	/**
 	 * @return the $_id_parceiro
 	 */
 	public function getId_parceiro() {
-		return $this->_id_parceiro;
+		return $this->id_parceiro;
 	}
 
 	/**
 	 * @param field_type $_id_parceiro
 	 */
 	public function setId_parceiro($_id_parceiro) {
-		$this->_id_parceiro = $_id_parceiro;
+		$this->id_parceiro = $_id_parceiro;
 	}
 
 	/**
 	 * @return the $_id_atividade
 	 */
 	public function getId_atividade() {
-		return $this->_id_atividade;
+		return $this->id_atividade;
 	}
 
 	/**
 	 * @param field_type $_id_atividade
 	 */
 	public function setId_atividade($_id_atividade) {
-		$this->_id_atividade = $_id_atividade;
+		$this->id_atividade = $_id_atividade;
 	}
 
 	/**
 	 * @return the $_ativo
 	 */
 	public function getAtivo() {
-		return $this->_ativo;
+		return $this->ativo;
 	}
 
 	/**
 	 * @param field_type $_ativo
 	 */
 	public function setAtivo($_ativo) {
-		$this->_ativo = $_ativo;
+		$this->ativo = $_ativo;
 	}
 
 	/**
 	 * @return the $_hora
 	 */
 	public function getHora() {
-		return $this->_hora;
+		return $this->hora;
 	}
 
 	/**
 	 * @param field_type $_hora
 	 */
 	public function setHora($_hora) {
-		$this->_hora = $_hora;
+		$this->hora = $_hora;
 	}
 
 	
