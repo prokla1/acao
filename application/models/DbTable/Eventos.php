@@ -96,7 +96,42 @@ class Application_Model_DbTable_Eventos extends Zend_Db_Table_Abstract
     	return $eventos;    	
     }
 
-
+    public function findByParceiroDate($id_parceiro, $inicio = null, $fim = null, Application_Model_Parceiro $parceiro = null)
+    {
+    	$p_dt = explode('/',$inicio);
+    	$inicio = $p_dt[2].'-'.$p_dt[1].'-'.$p_dt[0];
+    	$p_dt2 = explode('/',$fim);
+    	$fim = $p_dt2[2].'-'.$p_dt2[1].'-'.$p_dt2[0];
+    	
+    	$resultSet = $this->select()
+    	->from('eventos')
+    	->where('eventos.id_parceiro = ?', $id_parceiro)
+    	//->where('eventos.ativo = ?', '1')
+    	->where('eventos.realizacao >= ?', date('Y-m-d', strtotime($inicio)))
+    	->where('eventos.realizacao <= ?', date('Y-m-d', strtotime($fim)))
+    	->order('eventos.realizacao');
+    	 
+    	//Zend_Debug::dump($resultSet->query());
+    	$eventos = array();
+    	foreach ($resultSet->query() as $row) {
+    		 
+    		$eventoModel = new Application_Model_Evento();
+    		$eventoModel->setOptions($row);
+    		if($parceiro)
+    			$eventoModel->setParceiroObj($parceiro);
+    		else
+    			$eventoModel->setParceiro($row['id_parceiro']);
+    		 
+    		//$eventoModel->setEndereco($row['id_endereco']);
+    		$eventoModel->setCortesias($row['id']);
+    		$eventoModel->setGeneros($row['id']);
+    		 
+    		$eventos[] = $eventoModel;
+    	}
+    	return $eventos;
+    }
+    
+    
 
     /**
      * Retorna os eventos em DESTAQUE

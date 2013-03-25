@@ -706,21 +706,33 @@ class AdminController extends Zend_Controller_Action
     	}
     	 
     }
-    
-    
+
+
     public function eventosAction()
     {
     	$parceiro = $this->parceiro->getId();
-    	
+    	 
     	$request = $this->getRequest();
     	if ($this->getRequest()->isPost())
     	{
     		$this->_helper->layout->setLayout('ajax');
-    	
+    		 
     		 
     	}
     }
-    
+
+
+    public function eventosShowAction()
+    {
+
+    	$this->view->doctype('XHTML1_RDFA');
+    	$this->_helper->layout->setLayout('ajax');
+    	$parceiro = $this->parceiro->getId();
+    	$eventos = new Application_Model_DbTable_Eventos();
+    	$this->view->eventos = $eventos->findByParceiroDate($parceiro, $this->_getParam('from'), $this->_getParam('to'));
+    	 
+    }
+      
 }
 
 

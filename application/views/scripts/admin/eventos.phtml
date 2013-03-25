@@ -1,9 +1,9 @@
 
-<form id="form_eventos_data" enctype="multipart/form-data" method="post" action="">
+<form id="form_eventos_data" enctype="multipart/form-data" method="post" action="/admin/eventos-show">
 	<label for="from">De</label>
 	<input type="text" id="from" name="from" value="<?php echo date('d/m/Y', time()); ?>"/>
 	<label for="to">Até</label>
-	<input type="text" id="to" name="to" />
+	<input type="text" id="to" name="to" value="<?php echo date('d/m/Y', time()+3600*24*30); ?>"/>
 	<input type="submit" name="submit" id="submit" value="Filtrar">
 </form>   
 
