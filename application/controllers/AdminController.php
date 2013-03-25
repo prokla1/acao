@@ -707,6 +707,20 @@ class AdminController extends Zend_Controller_Action
     	 
     }
     
+    
+    public function eventosAction()
+    {
+    	$parceiro = $this->parceiro->getId();
+    	
+    	$request = $this->getRequest();
+    	if ($this->getRequest()->isPost())
+    	{
+    		$this->_helper->layout->setLayout('ajax');
+    	
+    		 
+    	}
+    }
+    
 }
 
 

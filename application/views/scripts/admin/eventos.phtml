@@ -1,0 +1,54 @@
+
+<form id="form_eventos_data" enctype="multipart/form-data" method="post" action="">
+	<label for="from">De</label>
+	<input type="text" id="from" name="from" value="<?php echo date('d/m/Y', time()); ?>"/>
+	<label for="to">Até</label>
+	<input type="text" id="to" name="to" />
+	<input type="submit" name="submit" id="submit" value="Filtrar">
+</form>   
+
+    <div class="progress">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status"></div>
+
+ 
+
+
+
+
+<style>
+	.progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+	.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+	.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+	
+
+	
+.title
+{
+	color: #333333;
+	font-size: 15px;
+	padding: 8px 6px;
+	font-weight: bold;
+}
+.title span {
+	color: #CCCCCC;
+	font-size: 14px;
+	padding: 2px 6px;
+	font-weight: normal;
+}
+
+.parceiros_content
+{
+	height: 200px;
+	overflow: auto;
+	margin: 0 0 10px 0;
+}
+
+</style>
+<?php 
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery.form.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/admin/eventos.js'));
+?>
