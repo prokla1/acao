@@ -96,5 +96,13 @@ $(document).ready(function() {
 		}); 
 
 		})();  
+	
+	
+	    $('#sortable').sortable({
+	        update: function(event, ui) {
+	            var newOrder = $(this).sortable('toArray').toString();
+	            $.get('saveSortable.php', {order:newOrder});
+	        }
+	    });
 
 });
