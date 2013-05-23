@@ -201,13 +201,31 @@ class Application_Model_DbTable_Parceiros extends Zend_Db_Table_Abstract
     	// id == null -> insert
     	if (null === ($id = $parceiro->getId())) {
     		unset($data['id']);
-    		return $this->insert($data);
+    		
+    		// is unique url amigável?
+    		if($this->isUniqueUrlAmigavel($parceiro->getUrl_amigavel()))
+    		{
+    		    return $this->insert($data);
+	        }else
+	        {
+	            throw new Exception('A URL "/'.$parceiro->getUrl_amigavel().'" já esta sendo utilizada');
+	        }
+    		        
+    		
     	} else {
     		return $this->update($data, array('id = ?' => $id));
     	}
     }
 
-    
+    /**
+     * Verifica se o email já existe
+     * @param String $email
+     * @return boolean
+     */
+    public function isUniqueUrlAmigavel($url){
+        $where = $this->getDefaultAdapter()->quoteInto('url_amigavel = ?', $url);
+        return (count($this->fetchAll($where)) == 0) ? true : false;
+    }    
     
     
 

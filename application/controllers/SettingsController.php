@@ -23,7 +23,9 @@ class SettingsController extends Zend_Controller_Action
     	
     	if(!$admin)
     	{
-    		return $this->_forward('entrar','admin');
+    		//return $this->_forward('entrar','usuario');
+    		return $this->_helper->redirector->goToRoute( array('controller' => 'usuario', 'action' => 'entrar'), null, true);
+    		
     	}
     	
     }
@@ -383,13 +385,17 @@ class SettingsController extends Zend_Controller_Action
     			$parceiroModel = new Application_Model_Parceiro();
     			$parceiroModel->setOptions($form->getValues());
     			
-    			//$insert = $parceirosTable->insert($parceiroModel->getArray());
-    			if($parceirosTable->save($parceiroModel))
-    			{
-    				$msg = array(
-    						'status'	=> 'ok',
-    						'msg'		=> 'Salvo com sucesso'
-    				);
+    			try {
+    			    $parceirosTable->save($parceiroModel);
+    			    $msg = array(
+    			            'status'	=> 'ok',
+    			            'msg'		=> 'Salvo com sucesso'
+    			    );
+    			} catch (Exception $e) {
+    			    $msg = array(
+    			            'status'	=> 'fail',
+    			            'msg'		=> $e->getMessage()
+    			    );
     			}
     		}else
     		{

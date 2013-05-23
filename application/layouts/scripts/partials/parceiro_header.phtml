@@ -1,6 +1,12 @@
 <?php 
 $parceiro = $this->parceiro; 
 
+$atividades = array();
+foreach ($parceiro->atividades as $atividade)
+{
+    $atividades[] = $atividade->atividade_nome;
+}
+
 //print_r($parceiro);
 ?>
 
@@ -13,7 +19,7 @@ $parceiro = $this->parceiro;
 			</div>
 			<div class="parceiro_data">
 				<h2><?php echo $parceiro->nome ?></h2>
-				<h3><?php echo $parceiro->local->nome ?> - <?php echo $parceiro->local->estado->sigla ?><span>(<?php echo implode(', ', $parceiro->atividades); ?>)</span></h3>
+				<h3><?php echo $parceiro->local->nome ?> - <?php echo $parceiro->local->estado->sigla ?><span>(<?php echo implode(', ', $atividades); ?>)</span></h3>
 			</div>
 			<div class="facebook_like">
 				<iframe src="//www.facebook.com/plugins/like.php?href=<?php echo $this->serverUrl() .'/' . $parceiro->url_amigavel ?>&amp;send=false&amp;layout=button_count&amp;width=140&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=240996152682246" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:140px; height:21px;" allowTransparency="true"></iframe>

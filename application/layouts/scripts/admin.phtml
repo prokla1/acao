@@ -57,11 +57,9 @@ echo 	$this->headMeta(),PHP_EOL;
 
 						<div class="wrap_menu">
 						
-							<h3><?php echo $parceiro->nome?></h3>
+							<h2><?php echo $parceiro->nome?></h2>
 							<ul>
-								<li><a href="<?php echo $this->url(array('controller' => 'admin'), 'default', true); ?>">Admin</a></li>
 								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'eventos'), 'default', true); ?>">Eventos</a></li>
-								<li><a href="<?php //echo $this->url(array('controller' => 'admin', 'action' => 'horarios'), 'default', true); ?>">Horários ⨂</a></li>
 								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'imagem'), 'default', true); ?>">Foto de capa</a></li>
 								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'fotos'), 'default', true); ?>">Fotos do estabelecimento</a></li>
 								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'dados'), 'default', true); ?>">Informações</a></li>
