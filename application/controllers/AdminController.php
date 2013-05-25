@@ -391,6 +391,7 @@ class AdminController extends Zend_Controller_Action
     	$form->removeElement('id_atividade');
     	$form->removeElement('funcionamento');
     	$form->removeElement('pagamento');
+    	$form->removeElement('url_amigavel');
     	$form->getElement('submit')->setLabel('Atualizar');
     	$form->populate($this->parceiro->getArray());
     	$this->view->form = $form;

@@ -89,6 +89,9 @@
           <actionMethod actionName="getCidades"/>
           <actionMethod actionName="getEnderecos"/>
         </controllerFile>
+        <controllerFile controllerName="Banda">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
         <formFile formName="EventoCadastrar"/>
@@ -307,6 +310,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Sources">
             <viewScriptFile forActionName="getEnderecos"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Banda">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

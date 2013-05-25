@@ -52,9 +52,23 @@ class Application_Form_ParceiroCadastrar extends Zend_Form
     			'label'      => 'URL do Parceiro:',
     			'required'   => true
     	));
+    	
+    	
+    	
+    	$this->addElement('text', 'endereco', array(
+    			'label'      => 'Endereço (rua e número):',
+    			'required'   => true
+    	));
+    	
+    	$this->addElement('text', 'complemento', array(
+    	        'label'      => 'Complemento (ex: bairro):',
+    	        'required'   => false
+    	));
+    	
+    	
 
     	$this->addElement('textarea', 'descricao', array(
-    			'label'      => 'Descricao do Parceiro:',
+    			'label'      => 'Descricao:',
     			'required'   => false,
     			'rows'		=>	'20',
     			'class'		=>	'ckeditor'
