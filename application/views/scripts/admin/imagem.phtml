@@ -8,13 +8,13 @@
 			</label>
 		</dt>
 		<dd>
-			<input type="file" name="foto" id="foto" >
+			<input type="file" name="foto" id="foto">
 		</dd>
 		<dt id="submit-label">
 			&#160;
 		</dt>
 		<dd id="submit-element">
-			<input type="submit" name="submit" id="submit" value="Enviar">
+			<input type="submit" name="submit" id="submit" value="Enviar" >
 		</dd>
 	</dl>
 </form>
@@ -27,9 +27,9 @@
         <div class="percent">0%</div >
     </div>
     
-    <div id="status">
+    <div id="status" style="text-align: center;">
     <?php if($this->parceiro->foto):?>
-    	<img src="/img/parceiros/<?php echo $this->parceiro->foto?>" />
+    	<img src="/img/parceiros/<?php echo $this->parceiro->foto?>" style="border: 3px solid #999; border-radius: 10px;" />
     <?php endif;?>
     </div>
     

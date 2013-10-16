@@ -2,8 +2,9 @@
 	<h1><?php echo $this->msg['msg']?></h1>
 	
 <?php endif;?>
-
-<a target="_blank" href="/<?php echo $this->parceiro->getUrl_amigavel(); ?>">/<?php echo $this->parceiro->getUrl_amigavel(); ?></a>
+<div class="head_parceirocad">
+<a target="_blank" class="linkx" href="/<?php echo $this->parceiro->getUrl_amigavel(); ?>">www.eventer.com.br/<?php echo $this->parceiro->getUrl_amigavel(); ?></a>
+</div>
 <?php 
 	echo $this->form 
 ?>
@@ -13,3 +14,8 @@
 <?php
 	//$this->headScript()->appendFile($this->baseUrl('/js/admin/dados.js'));
 ?>
+
+<style>
+	.head_parceirocad{ padding: 20px 0; text-align: right; font-weight: bold; color: #FFF;}
+	.linkx { font-size: 18px; margin-right: 40px;}
+</style>

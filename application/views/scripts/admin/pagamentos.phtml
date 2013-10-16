@@ -11,13 +11,12 @@
 	</dt>
 	<dd id="pagamento-element">
 	<?php foreach ($pagamentos as $pagamento) :?>
-		<label for="pagamento-<?php echo $pagamento->id?>">
+		<label for="pagamento-<?php echo $pagamento->id?>" style="background: #f1f1f1;width: 940px; display: table; padding: 4px 0 0 3px;">
 			<img width="25px" src="/img/pgto/<?php echo $pagamento->imagem?>"/>
 			<input type="checkbox" name="pagamento[]" id="pagamento-<?php echo $pagamento->id?>" value="<?php echo $pagamento->id?>">
 			<b><?php echo $pagamento->nome?></b>
 			<small> ( <?php echo $pagamento->descricao?> ) </small>
 		</label>
-		<br />	
 	<?php endforeach;?>
 	</dd>
 
@@ -25,13 +24,13 @@
 		&#160;
 	</dt>
 	<dd id="submit-element">
-		<input type="submit" name="submit" id="submit" value="Salvar">
+		<input type="submit" name="submit" id="submit" value="Salvar" style="float: left;">
 	</dd>
 	
 </form>
     
     
-    <div class="progress">
+    <div class="progress" style="margin-top: 8px;">
         <div class="bar"></div >
         <div class="percent">0%</div >
     </div>
@@ -45,9 +44,9 @@
 <table id="table_pagamentos" summary="pagamentos de cozinha">
     <thead>
     	<tr>
-        	<th scope="col"></th>
+        	<th scope="col">Img ilustrativa</th>
         	<th scope="col">Pagamento</th>
-            <th scope="col">Del</th>
+            <th scope="col">Deleletar</th>
         </tr>
     </thead>
     <tbody>
@@ -81,9 +80,8 @@
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
-	background: #fff;
-	margin: 45px;
-	width: 480px;
+	background: #999;
+	width: 100%;
 	border-collapse: collapse;
 	text-align: left;
 }
@@ -91,19 +89,19 @@
 {
 	font-size: 14px;
 	font-weight: normal;
-	color: #039;
+	color: #000;
 	padding: 10px 8px;
-	border-bottom: 2px solid #6678b1;
+	border-bottom: 2px solid #ccc;
 }
 #table_pagamentos td
 {
 	border-bottom: 1px solid #ccc;
-	color: #669;
+	color: #000;
 	padding: 6px 8px;
 }
 #table_pagamentos tbody tr:hover td
 {
-	color: #009;
+	color: #fbfbfb;
 }
 
 </style>

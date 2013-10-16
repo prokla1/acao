@@ -37,18 +37,28 @@ div.wrap_formall div.wrap_form input[type="submit"]
 MENU ADMIN INTERNO
 */
 
-div.wrap_all_adm 
-	{
-	width: 1300px; display: table; padding-top: 160px; margin: 0 auto;
+div.wrap_all_adm {
+	width: 980px; display: table;  margin: 0 auto; 
+}
+
+div.wrap_all_adm div.wrap_menu{
+	display: table;
+}
+
+div.wrap_all_adm div.wrap_menu h2{
+	border:  1px dashed #CCC; padding: 20px; font-size: 26px; width: 940px; 
 }
 
 div.wrap_all_adm div.wrap_menu ul{
-	float: left;
+	margin: 10px 0px; text-align: center; background: #333; padding: 4px 0; border: 1px solid #ccc;
 }
+
 
 div.wrap_all_adm div.wrap_menu li
 	{
-	border: 1px solid #F9F9FF; padding: 10px 60px; margin: 0 1px; background: #353535;
+	padding: 10px 34px; 
+	background: #353535; 
+	display: inline-block;
 }
 
 div.wrap_all_adm div.wrap_menu li a
@@ -71,9 +81,56 @@ CONTEUDO
 */
 
 div.wrap_all_adm div.wrap_form{
-	float: right; width: 960px; border: 1px solid #F9F9FF; background: #E1F0FF; padding: 40px 26px; display: table; border-radius: 5px; margin-top: -80px; margin-bottom: 50px;
+	width: 960px; 
+	border: 1px solid #F9F9FF; 
+	background: #CCC; 
+	padding: 20px 10px; 
+	display: table; 
+	border-radius: 5px; 
+	margin-bottom: 30px;
 }
 
+
+
+/*
+EVENTOS
+*/
+
+#form_eventos_data{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.progress{
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+
+/*
+CAPA
+*/
+
+#form_imagem_parceiro .zend_form{
+	text-align: center;
+}
+
+#form_imagem_parceiro .zend_form #foto-label label{
+	margin: 20px 0;
+}
+
+
+/*
+FOTOS PARCEIRO
+*/
+
+#form_fotos_parceiro .zend_form{
+	text-align: center;
+}
+
+#form_imagem_parceiro .zend_form #foto-label label{
+	margin: 20px 0;
+}
 
 /*
 TITLE ADMIN
@@ -98,6 +155,7 @@ div.wrap_all_adm div.wrap_form input[type="text"]
 
 div.wrap_all_adm div.wrap_form input[type="submit"]
 	{
+	margin-bottom: 10px;
 	padding: 10px 20px; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; outline: 0 none; cursor: pointer;
 	background: rgb(122,188,255); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
