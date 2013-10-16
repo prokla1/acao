@@ -22,7 +22,14 @@ class Application_Model_DbTable_RelAtividades extends Zend_Db_Table_Abstract
     				'id_parceiro'	=>	$id_parceiro,
     				'ativo'			=>	'1'
     				);
-    		$this->insert($data);
+                
+                                    try {
+                                        $this->insert($data);
+                                    } catch (Exception $exc) {
+                                        //echo $exc->getTraceAsString();
+                                    }
+
+                                    
     	}
     	return $this;
     }

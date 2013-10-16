@@ -667,22 +667,23 @@ class AdminController extends Zend_Controller_Action
     		{
     			$atividades = $this->_getParam('atividades');
     			 
-    			$atividadesTable = new Application_Model_DbTable_RelAtividades();
-    			$save = $atividadesTable->saveAtividades($atividades, $parceiro);
-    			 
-    			if($save)
-    			{
-    				$msg = array(
+                            try {
+                                $atividadesTable = new Application_Model_DbTable_RelAtividades();
+                                $save = $atividadesTable->saveAtividades($atividades, $parceiro);
+                                $msg = array(
     						'status'	=>	'ok',
     						'msg'		=>	'<h3>Salvo com sucesso</h3>'
     				);
-    			}else
-    			{
-    				$msg = array(
+                            } catch (Exception $exc) {
+                                echo $exc->getTraceAsString();
+                                $msg = array(
     						'status'	=>	'fail',
-    						'msg'		=>	'<h3>Falha ao salvar, tente novamente.</h3>'
+    						'msg'		=>	$exc->getMessage()
     				);
-    			}
+                            }
+                          
+    			 
+    			
     		}else
     		{
     			$msg = array(
