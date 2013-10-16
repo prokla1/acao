@@ -1,0 +1,116 @@
+<?php 
+	$pagamentos = $this->pagamentos;
+?>
+
+<form id="form_pagamentos" enctype="multipart/form-data" method="post" action="">
+
+	<dt id="pagamento-label">
+		<label for="semana" class="required">
+			Tipos de Pagamento
+		</label>
+	</dt>
+	<dd id="pagamento-element">
+	<?php foreach ($pagamentos as $pagamento) :?>
+		<label for="pagamento-<?php echo $pagamento->id?>">
+			<img width="25px" src="/img/pgto/<?php echo $pagamento->imagem?>"/>
+			<input type="checkbox" name="pagamento[]" id="pagamento-<?php echo $pagamento->id?>" value="<?php echo $pagamento->id?>">
+			<b><?php echo $pagamento->nome?></b>
+			<small> ( <?php echo $pagamento->descricao?> ) </small>
+		</label>
+		<br />	
+	<?php endforeach;?>
+	</dd>
+
+	<dt id="submit-label">
+		&#160;
+	</dt>
+	<dd id="submit-element">
+		<input type="submit" name="submit" id="submit" value="Salvar">
+	</dd>
+	
+</form>
+    
+    
+    <div class="progress">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status"></div>
+
+ 
+
+
+
+<table id="table_pagamentos" summary="pagamentos de cozinha">
+    <thead>
+    	<tr>
+        	<th scope="col"></th>
+        	<th scope="col">Pagamento</th>
+            <th scope="col">Del</th>
+        </tr>
+    </thead>
+    <tbody>
+	<?php foreach ($this->pagamentosativos as $pagamentoativo) :?>
+		<tr>
+			<td><img src="/img/pgto/<?php echo $pagamentoativo->pagamento_imagem?>"/></td>
+			<td><?php echo $pagamentoativo->pagamento_nome?></td>
+		    <td><span class="pagamento_del" rel="<?php echo $pagamentoativo->id?>" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>
+		</tr>
+	<?php endforeach;?>
+    </tbody>
+</table>
+
+
+
+
+
+<style>
+	.progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+	.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+	.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+
+	
+	dd#pagamento-element label
+	{
+		margin: 2px 5px;
+		cursor: pointer;
+	}
+	
+#table_pagamentos
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+	width: 480px;
+	border-collapse: collapse;
+	text-align: left;
+}
+#table_pagamentos th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#table_pagamentos td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+}
+#table_pagamentos tbody tr:hover td
+{
+	color: #009;
+}
+
+</style>
+
+
+    
+<?php 
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery.form.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/admin/pagamentos.js'));
+?>

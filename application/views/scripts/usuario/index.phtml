@@ -1,0 +1,27 @@
+
+<pre>
+<?php //print_r($this->credenciais)?></pre>
+
+<ul>
+<?php foreach ($this->credenciais as $credencial) :?>
+  <li> 
+  	<div class="estab">
+	  	<h3>
+		  	<a href="<?php echo $this->serverUrl() .'/' . $credencial->parceiro_url ?>">
+		  		<?php echo $credencial->parceiro_nome ?>
+		  	</a>
+		  	 
+		  	 <small> [ <a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'index', 'parceiro' => $credencial->parceiro), 'default', true); ?>">Admin</a> ] </small>
+	  	</h3>
+  	</div>
+  </li>
+<?php endforeach; ?>
+</ul>
+
+<hr /><hr />
+
+<pre>
+<?php 
+print_r($this->usuario);
+?>
+</pre>

@@ -1,0 +1,70 @@
+<?php 
+$parceiro = $this->parceiro;
+
+$this->headTitle($parceiro->nome . ' [ eVenter ] ');  //titulo da página
+$this->headMeta()->setProperty('og:title', $parceiro->nome . ' [ eVenter ] ');
+$this->headMeta()->appendProperty('og:image', $this->serverUrl() .'/img/parceiros/'.$parceiro->foto);
+$this->headMeta()->setProperty('og:site_name', 'eVenter - Entradas para o seu evento');
+$this->headMeta()->setProperty('og:url', $this->serverUrl() .'/' . $parceiro->url_amigavel);
+$this->headMeta()->setProperty('og:description', strip_tags($parceiro->descricao));
+
+?>
+
+
+<div style="border: 1px dashed #55C8FF; font-size: 20px; padding: 30px 20px; width: 860px; margin: 0 auto; margin-bottom: 20px; font-weight: bold;">
+<?php echo $parceiro->endereco ?> - <?php echo $parceiro->complemento?> - <?php echo $parceiro->local->nome ?> - <?php echo $parceiro->local->estado->nome?>
+</div>
+
+<div class="location-view">
+				
+				
+			 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+		    <script>
+		    
+		    var geocoder;
+		    var map;
+		    var marker;
+		    
+			function carregarNoMapa() {
+		    	
+		    	var address = "<?php echo $parceiro->endereco ." - ". $parceiro->local->nome .", ". $parceiro->local->estado->nome; ?>";
+		        geocoder.geocode({ 'address': address + ', Brasil', 'region': 'BR' }, function (results, status) {
+		            if (status == google.maps.GeocoderStatus.OK) {
+		                if (results[0]) {
+		                    var latitude = results[0].geometry.location.lat();
+		                    var longitude = results[0].geometry.location.lng();
+		                    var location = new google.maps.LatLng(latitude, longitude);
+		                    marker.setPosition(location);
+		                    map.setCenter(location);
+		                    map.setZoom(15);
+		                }
+		            }
+		        });
+		    }
+		     
+		    function initialize() {
+		        var latlng = new google.maps.LatLng(-27.59449,-48.613901);
+		        var options = {
+		            zoom: 5,
+		            center: latlng,
+		            mapTypeId: google.maps.MapTypeId.ROADMAP
+		        };
+		     
+		        map = new google.maps.Map(document.getElementById("map"), options);
+		        geocoder = new google.maps.Geocoder();
+		        marker = new google.maps.Marker({
+		            map: map,
+		            draggable: true,
+		        });
+		     
+		        marker.setPosition(latlng);
+		        carregarNoMapa();
+		    }
+
+		    google.maps.event.addDomListener(window, 'load', initialize);
+		    </script>
+				
+		   <div id="map" style="width: 900px; height: 500px; margin: 0 auto; text-align: center; border: 1px solid #55C8FF;"></div>
+				
+	</div>

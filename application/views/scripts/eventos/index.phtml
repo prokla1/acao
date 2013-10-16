@@ -1,0 +1,59 @@
+<?php
+$dia_base = $this->dia_base;
+$urlCityDate = $this->serverUrl() . '/?c='. $this->cityId . '&d=' . $dia_base;
+$urlCity = $this->serverUrl() . '/?c='. $this->cityId;
+
+$defaultDate = date('d', $dia_base) ."/". date('m', $dia_base). "/".date('Y', $dia_base);
+$this->headTitle(' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');  //titulo da página
+
+$this->headMeta()->setProperty('og:title', ' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');
+$this->headMeta()->setProperty('og:description', ' Eventos de ' . $this->cityNome . ' em ' . $defaultDate . ' [ eVenter ] ');
+$this->headMeta()->setProperty('og:url', $urlCityDate);
+?>
+
+
+<?php echo $this->partial('partials/location.phtml'); ?>
+
+<?php echo $this->partial('partials/calendar.phtml', array('dia_base' => $dia_base)); ?>
+
+
+		
+	<?php if(count($this->eventos) > 0) : ?>
+		<div class="eventos_content" style="position: relative;">
+		
+			<?php echo $this->partial('partials/events.phtml', array('eventos' => $this->eventos)); ?>
+			
+			
+			<!--  =========== SOCIAL FLOATING LEFT =========== -->
+			<div id='postshare_wrapper'>
+
+				<div id='postshare'>
+					<!-- social media buttons Start -->
+					<div class='social' id='fb'>
+						<div class='fb-like' data-href='<?php echo $urlCityDate ?>' data-layout='box_count' data-send='false' data-show-faces='false' data-width='40'></div>
+					</div>
+					<!-- +1 button -->
+					<div class='social' id='plus'>
+						<div class="g-plusone" data-action="share"  data-size="tall"  data-annotation='bubble' data-href="<?php echo $urlCityDate ?>" ></div>
+					</div>
+					<div class='social' id='tw'>
+						<a class='twitter-share-button' data-lang="en" data-count='vertical' data-url="<?php echo $urlCityDate ?>"  data-counturl='<?php echo $urlCityDate ?>' data-via='eVenter_oficial' href='http://twitter.com/share' rel='nofollow'>Tweet</a>
+					</div>
+					<!-- social media buttons End -->
+				</div><!-- postshare End -->
+			</div>		
+					
+					
+						
+		</div>	
+	<?php else: ?> 
+		<div class="container_content_msg">	
+			Nenhum evento cadastrado para esta data
+		</div>
+	<?php endif;?>
+
+	
+<?php 
+	$this->headLink()->prependStylesheet($this->baseUrl('/css/eventos.css'));
+	$this->headScript()->prependFile($this->baseUrl('/js/eventos.js')); 
+?>

@@ -1,0 +1,18 @@
+<?php 
+if($this->user)
+{
+	print_r($this->user);
+}else
+{
+	$this->form->setAction($this->url());
+	echo $this->form;
+}
+?>
+
+
+<h3>msg de erro ou suscesso</h3>
+<pre>
+<?php 
+print_r($this->msg);
+?>
+</pre>

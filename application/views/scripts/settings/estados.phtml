@@ -1,0 +1,89 @@
+<h2>Estados</h2>
+
+<?php echo $this->form?>
+    
+    <div class="progress">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status"></div>
+
+ 
+ 
+    
+    
+    
+<table id="table_estados" summary="Áreas de delivery">
+    <thead>
+    	<tr>
+        	<th scope="col">País</th>
+            <th scope="col">Estado (UF)</th>
+            <?php /*<th scope="col">Ativo</th> */?>
+            <th scope="col">Del</th>
+        </tr>
+    </thead>
+    <tbody>
+	<?php foreach ($this->estados as $estado) :?>
+		<tr>
+		    <td><?php echo $estado->pais->nome?></td>
+		    <td><?php echo $estado->nome?> (<?php echo $estado->sigla?>) </td>
+		    <?php /*<td><?php echo ($estado->ativo == '1') ? 'Sim' : 'Não'; ?> </td> */?>
+		    <td><span class="estado_del" rel="<?php echo $estado->id?>" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>
+		</tr>
+	<?php endforeach;?>
+    </tbody>
+</table>
+
+
+<pre>
+<?php //print_r($this->estados)?>
+</pre>
+    
+    
+<style>
+	.progress { position:relative; width:400px; border: 1px solid #ddd; pad$deliveryding: 1px; border-radius: 3px; }
+	.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+	.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+	
+	
+#table_estados
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+/* 	width: 480px; */
+	border-collapse: collapse;
+	text-align: left;
+}
+#table_estados th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#table_estados td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+	vertical-align: middle;	
+}
+#table_estados tbody tr:hover td
+{
+	color: #009;
+}
+	
+
+</style>
+
+    
+    
+    
+<?php 
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery.form.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/settings/estados.js'));
+?>

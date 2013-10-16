@@ -1,0 +1,48 @@
+		<div id="div_msg_error_login" style="font-size: 11px; color: red;"></div>
+		
+		<div style="border: 1px dotted #CCC; padding: 8px 20px 0px 20px; background: #fbfbfb;">
+		
+			<?php
+				$form = $this->form;
+				$form->removeElement('submit');
+				echo $form;   //=================mostra o form de login=============//
+			?>
+			<button>Entrar</button>
+		</div>
+
+		<script type="text/javascript">
+
+		$('#dialog_cortesia').dialog({
+			buttons: { "Entrar": function(){
+					ValidateAjax.doValidate();
+				},"Cancelar": function() {
+					$(this).dialog("close");
+				}
+			}
+		});
+
+				
+			ValidateAjax = {
+			    doValidate: function(){
+			        $.post('/usuario/validateform',$('#form_login').serialize(),function(response){
+			            
+			            if(response.status == "sucesso"){
+			            	$('#div_msg_error_login').html("Logado");
+			            	converter(<?php echo $cortesia->id ?>);
+			            	
+			            }else{
+			            	$('#div_msg_error_login').html("Falha no login! Preencha corretamente.");
+			            }
+			        },'json');
+			    }
+			};
+		
+		    $('document').ready(function(){
+		        $('#form_login').submit(function() {
+		        	$('#div_msg_error_login').html("Processando...");
+		        	ValidateAjax.doValidate();
+		            return false;
+		        });
+		    });
+		
+		</script>

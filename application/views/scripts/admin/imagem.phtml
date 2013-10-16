@@ -1,0 +1,52 @@
+	
+
+<form id="form_imagem_parceiro" enctype="multipart/form-data" method="post" action="">
+	<dl class="zend_form">
+		<dt id="foto-label">
+			<label for="foto" class="optional">
+				Imagem de capa:
+			</label>
+		</dt>
+		<dd>
+			<input type="file" name="foto" id="foto" >
+		</dd>
+		<dt id="submit-label">
+			&#160;
+		</dt>
+		<dd id="submit-element">
+			<input type="submit" name="submit" id="submit" value="Enviar">
+		</dd>
+	</dl>
+</form>
+
+
+
+    
+    <div class="progress">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status">
+    <?php if($this->parceiro->foto):?>
+    	<img src="/img/parceiros/<?php echo $this->parceiro->foto?>" />
+    <?php endif;?>
+    </div>
+    
+    
+<style>
+.progress { position:relative; width:400px; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
+.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+</style>
+    
+
+<?php 
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery.form.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/admin/imagem.js'));
+?>
+	
+	<pre>
+<?php //print_r($this->parceiro)?>
+</pre>
+	

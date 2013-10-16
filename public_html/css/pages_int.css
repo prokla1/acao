@@ -1,0 +1,99 @@
+/*ESTILO P�GINA*/
+
+body{
+	background: #F9F9F9;
+}
+
+.ct_int
+	{
+	width: 100%; display: table;
+}
+
+.ct_int .ct_title
+	{
+	width: 100%; background: #F1F6F9; margin-bottom: 30px;
+}
+
+.ct_int .ct_title .ct_center
+	{
+	width: 980px; margin: 0 auto;
+}
+
+.ct_int .ct_title .ct_center .title_int
+	{
+	padding: 30px 20px; display: table; font-size: 26px; color: #036;
+	background: #7abcff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-9 */
+}
+
+
+.ct_int .ct_content
+	{
+	margin: 0 auto; padding: 40px 40px; margin-bottom: 30px; width: 980px;
+}
+
+.ct_int .ct_content .form{
+	display: table; margin: 0 auto;
+}
+
+
+/*ESTILO INPUTS*/
+div.ct_int div.ct_content form ul.errors li
+{
+	color: red;
+}
+
+.ct_int .ct_content label{
+	font-size:14px; color: #0099FF; margin-top: 10px;
+}
+
+.ct_int .ct_content input[type="text"]{
+	width: 280px; height: 36px; padding: 0 10px; background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; outline: 0 none;
+}
+
+.ct_int .ct_content select{
+	background: #FDFDFD; border: 1px solid #C6E2FF;width: 300px; color: #036; outline: 0 none; height: 40px; padding-left: 10px;
+}
+
+
+.ct_int .ct_content textarea{
+	background: #FDFDFD; border: 1px solid #C6E2FF; color: #036; padding: 10px; outline: 0 none; height: 140px;
+}
+
+.ct_int .ct_content input[type="submit"]{
+	border: 1px solid #C6E2FF; color: #036; padding: 10px 60px; cursor: pointer; margin-left: 500px;
+	background: #7abcff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-9 */
+}
+
+
+
+
+.ct_int .ct_content .txt_radio
+	{
+	color: #8BB8CF; font-size: 18px;
+}
+.ct_int .ct_content .text_alert
+	{
+	font-size: 14px; color: red; float: left; margin-top: 20px;
+}
+
+
+
+/*
+PAGINA COMO FUNCIONA
+*/
+
+div.ct_int div.ct_content ul li{color: #000;}

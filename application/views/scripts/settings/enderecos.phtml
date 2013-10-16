@@ -1,0 +1,109 @@
+<h2>Enderecos</h2>
+
+<dt id="id_estado-label">
+	<label for="id_estado" class="optional">Estado: *opcional</label>
+</dt>
+
+<dd id="id_estado-element">
+	<select name="id_estado" id="id_estado">
+	    <option value="0" label="">Selecione</option>
+	    
+	    <?php foreach ($this->estados as $estado) :?>
+	    	<option value="<?php echo $estado->id ?>" label="<?php echo $estado->nome . '  (' . $estado->sigla . ')  - ' . $estado->pais->sigla?>"><?php echo $estado->nome . '  (' . $estado->sigla . ')  - ' . $estado->pais->sigla?></option>
+	    <?php endforeach; ?>
+	    
+	</select>
+</dd>
+
+<?php echo $this->form?>
+
+    
+    <div class="progress">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    
+    <div id="status"></div>
+
+ 
+ 
+    
+    
+    
+<table id="table_enderecos" summary="Áreas de delivery">
+    <thead>
+    	<tr>
+        	<th scope="col">Endereco</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Estado</th>
+            <th scope="col">País</th>
+            <?php /*<th scope="col">Ativo</th> */?>
+            <th scope="col">Del</th>
+        </tr>
+    </thead>
+    <tbody>
+	<?php foreach ($this->enderecos as $endereco) :?>
+		<tr>
+		    <td><?php echo $endereco->rua . ', '. $endereco->numero ?>  <?php echo $endereco->complemento ?> </td>
+		    <td><?php echo $endereco->cidade_nome?></td>
+		    <td><?php echo $endereco->estado_nome?></td>
+		    <td><?php echo $endereco->pais_nome?></td>
+		    <?php /*<td><?php echo ($endereco->ativo == '1') ? 'Sim' : 'Não'; ?> </td> */?>
+		    <td><span class="endereco_del" rel="<?php echo $endereco->id?>" style="cursor: pointer;"><img src="/img/bullet_delete.png" /></span></td>
+		</tr>
+	<?php endforeach;?>
+    </tbody>
+</table>
+
+
+<pre>
+<?php //print_r($this->enderecos)?>
+</pre>
+    
+    
+<style>
+	.progress { position:relative; width:400px; border: 1px solid #ddd; pad$deliveryding: 1px; border-radius: 3px; }
+	.bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+	.percent { position:absolute; display:inline-block; top:3px; left:48%; }
+	
+	
+#table_enderecos
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px;
+/* 	width: 480px; */
+	border-collapse: collapse;
+	text-align: left;
+}
+#table_enderecos th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#table_enderecos td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+	vertical-align: middle;
+}
+#table_enderecos tbody tr:hover td
+{
+	color: #009;
+}
+	
+
+</style>
+
+    
+    
+    
+<?php 
+	$this->headScript()->appendFile($this->baseUrl('/js/jquery.form.js'));
+	$this->headScript()->appendFile($this->baseUrl('/js/settings/enderecos.js'));
+?>

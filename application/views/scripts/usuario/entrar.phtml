@@ -1,0 +1,87 @@
+
+<?php 
+	//echo $this->form;
+?>
+
+
+<style>
+
+body{
+	background: rgb(228,245,252); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U0ZjVmYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjI3JSIgc3RvcC1jb2xvcj0iI2JmZThmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzlmZDhlZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyYWIwZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(228,245,252,1) 0%, rgba(191,232,249,1) 27%, rgba(159,216,239,1) 51%, rgba(42,176,237,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(228,245,252,1)), color-stop(27%,rgba(191,232,249,1)), color-stop(51%,rgba(159,216,239,1)), color-stop(100%,rgba(42,176,237,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 27%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 27%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 27%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(228,245,252,1) 0%,rgba(191,232,249,1) 27%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-8 */
+}
+
+div.wrap_formall{
+	padding-top: 140px;
+}
+
+div.wrap_formall h1{font-size: 14px;}
+
+div.wrap_formall div.wrap_form{
+	border: 1px solid #F9F9FF; width: 880px; margin: 0 auto; background: #E1F0FF; padding: 40px 26px; display: table; border-radius: 5px;
+}
+
+div.wrap_formall div.wrap_form dt{
+	margin: 6px 0 0 6px;
+}
+
+div.wrap_formall div.wrap_form dt, div.wrap_formall div.wrap_form dd{
+	float: left;
+}
+
+div.wrap_formall div.wrap_form input
+	{
+	width: 260px; height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; outline: 0 none;
+}
+
+div.wrap_formall div.wrap_form input[type="submit"]
+	{
+	width: 200px; height: 36px; padding: 0 10px; background: #fbfbfb; border: 1px solid #C6E2FF; border-radius: 6px; color: #036; cursor: pointer;
+}
+
+
+	
+</style>
+						
+<div class="wrap_formall">
+
+
+	<div class="wrap_form">
+	
+		<form id="form_login" name="form_login" enctype="application/x-www-form-urlencoded" action="/usuario/entrar" method="post">
+			<dl class="zend_form">
+				
+				<dt id="email-label">
+					<label for="email" class="required">Email:</label>
+				</dt>
+				
+				<dd id="email-element">
+					<input type="text" name="email" id="email" value="">
+				</dd>
+			
+				<dt id="senha-label">
+					<label for="senha" class="required">Senha:</label>
+				</dt>
+			
+				<dd id="senha-element">
+					<input type="password" name="senha" id="senha" value="">
+				</dd>
+				
+				<dt id="submit-label">&#160;</dt>
+				<dd id="submit-element">
+					<input type="submit" name="submit" id="submitbutton" value="Logar">
+				</dd>
+			</dl>
+		</form>
+	
+	</div>
+
+</div>
