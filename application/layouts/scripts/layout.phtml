@@ -74,7 +74,8 @@ echo 	$this->headMeta(),PHP_EOL;
 				
 				
 				
-				<ul class="header-extra_menu">
+				<ul class="header-extra_menu" style="border: 3px dashed #DADADA; padding: 20px; ">
+					<div style="border: 1px solid #ccc; display: table; position: absolute; margin-top: -37px; margin-left: 30px; padding: 5px 20px; background: #333; color: #fbfbfb;">FILTRE POR TIPO</div>
 					<li><a <?php echo ($atividade == 'festa') ? 'class="active"' : ''; ?> href="/eventos/festa/">Festa</a></li>
 					<li><a <?php echo ($atividade == 'teatro') ? 'class="active"' : ''; ?>href="/eventos/teatro/">Teatro</a></li>
 					<li><a <?php echo ($atividade == 'cinema') ? 'class="active"' : ''; ?>href="/eventos/cinema/">Cinema</a></li>
