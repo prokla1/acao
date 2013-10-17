@@ -57,7 +57,36 @@ echo 	$this->headMeta(),PHP_EOL;
 
 						<div class="wrap_menu">
 						
-							<h2><?php echo $parceiro->nome?></h2>
+							<div style="border: 1px dashed #ccc; height: 60px;">
+							
+								<div style="float: left; display: table; margin: 20px;">
+							
+									<h2 style="font-size: 26px;"><?php echo $parceiro->nome?></h2>
+							
+								</div>
+								
+								<div style="display: table; float: left; margin: 22px 0px;">
+									RATTING
+									
+<!--									<div id="rating_<?php echo $evento->parceiro->id; ?>" class="rating_partial">-->
+<!-- 					   					<ul class="star-rating-partial"> -->
+<!--					   						<li class="current-rating" id="current-rating" style="width: <?php echo ($evento->parceiro->rating * 20); ?>%;"></li>  -->
+<!-- 										    <li><a class="star1" >1</a></li> -->
+<!-- 										    <li><a class="star2" >2</a></li> -->
+<!-- 										    <li><a class="star3" >3</a></li> -->
+<!-- 										    <li><a class="star4" >4</a></li> -->
+<!-- 										    <li><a class="star5" >5</a></li> -->
+<!-- 										</ul> -->
+<!-- 									</div> -->
+								</div>
+								
+								<div style="float: right; margin: 20px;">
+									PAGINA PARCEIRO
+								</div>
+							
+							</div>
+						
+							
 							<ul>
 								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'eventos'), 'default', true); ?>">Eventos</a></li>
 								<li><a href="<?php echo $this->url(array('controller' => 'admin', 'action' => 'imagem'), 'default', true); ?>">Foto de capa</a></li>
