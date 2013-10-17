@@ -27,14 +27,15 @@ class Application_Form_EventoCadastrar extends Zend_Form
     	}
 
 
-    	$enderecos = new Application_Model_DbTable_LocalEnderecos();
-    	$endereco_list = $enderecos->getEnderecosList();
-    	$this->addElement('select','id_endereco',
-    			array(
-    					'label' => 'Endereço: ',
-    					'multiOptions' => $endereco_list
-    			));
+    	
 
+    	$cidades = new Application_Model_DbTable_LocalCidades();
+    	$cidades_list = $cidades->getCidadesList();
+    	$this->addElement('select','id_cidade', array(
+    			'label' => 'Cidade: ',
+    			'multiOptions' => $cidades_list
+    	));
+    	 
 
 
     	$parceiros = new Application_Model_DbTable_Parceiros();

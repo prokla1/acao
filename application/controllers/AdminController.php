@@ -151,7 +151,8 @@ class AdminController extends Zend_Controller_Action
 			    							
 			    							
     							
-    								
+    							return $this->_helper->redirector->goToRoute( array('controller' => 'admin', 'action' => 'eventos'), null, true);
+	
     							echo "<pre>";
     							return print_r($evento);
     							echo "</pre>";
@@ -712,15 +713,11 @@ class AdminController extends Zend_Controller_Action
 
     public function eventosAction()
     {
-    	$parceiro = $this->parceiro->getId();
+    	$parceiro = $this->parceiro->getId();                
+    	$eventos = new Application_Model_DbTable_Eventos();
+    	$this->view->eventos = $eventos->findByParceiroDate($parceiro, date('d/m/Y', time()), date('d/m/Y', time()));
     	 
-    	$request = $this->getRequest();
-    	if ($this->getRequest()->isPost())
-    	{
-    		$this->_helper->layout->setLayout('ajax');
-    		 
-    		 
-    	}
+    	
     }
 
 

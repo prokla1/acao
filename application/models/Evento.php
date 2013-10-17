@@ -9,7 +9,6 @@ class Application_Model_Evento
 	protected $_id;
 	protected $_url_amigavel;
 	protected $_id_parceiro;
-	protected $_id_endereco;
 	protected $_id_cidade;
 	protected $_endereco;
 	protected $_complemento;
@@ -187,6 +186,23 @@ class Application_Model_Evento
 	
 
 	/**
+	 * @return the $_id_cidade
+	 */
+	public function getId_cidade() {
+		return $this->_id_cidade;
+	}
+	
+	/**
+	 * @param field_type $_id_cidade
+	 */
+	public function setId_cidade($_id_cidade) {
+		$this->_id_cidade = $_id_cidade;
+	}
+		
+	
+	
+
+	/**
 	 * @return the $_id_parceiro
 	 */
 	public function getId_parceiro() {
@@ -328,33 +344,6 @@ class Application_Model_Evento
 		$this->_url_amigavel = $_url_amigavel;
 	}
 
-	/**
-	 * @return the $_id_endereco
-	 */
-	public function getId_endereco() {
-		return $this->_id_endereco;
-	}
-
-	/**
-	 * @param field_type $_id_endereco
-	 */
-	public function setId_endereco($_id_endereco) {
-		$this->_id_endereco = $_id_endereco;
-	}
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-
-	
 	
 }
 
