@@ -713,9 +713,10 @@ class AdminController extends Zend_Controller_Action
 
     public function eventosAction()
     {
+        $this->view->doctype('XHTML1_RDFA');
     	$parceiro = $this->parceiro->getId();                
     	$eventos = new Application_Model_DbTable_Eventos();
-    	$this->view->eventos = $eventos->findByParceiroDate($parceiro, date('d/m/Y', time()), date('d/m/Y', time()));
+    	$this->view->eventos = $eventos->findByParceiroDate($parceiro, date('d/m/Y', time()), date('d/m/Y', time()+3600*24*30));
     	 
     	
     }
